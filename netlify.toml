@@ -1,0 +1,12 @@
+# Netlify builds the site with plain Node (no packages to install) every time content changes.
+[build]
+  command = "node build.mjs"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

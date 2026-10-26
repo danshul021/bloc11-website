@@ -1,0 +1,10 @@
+{
+  "name": "bloc11-website",
+  "private": true,
+  "type": "module",
+  "description": "Website of Bloc 11 Architects + Planners",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:js": "node tools/build-js.mjs"
+  }
+}

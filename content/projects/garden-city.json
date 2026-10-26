@@ -1,0 +1,15 @@
+{
+  "title": "Garden City",
+  "order": 4,
+  "type": "Residence",
+  "category": "Residential",
+  "location": "Indore",
+  "year": "",
+  "status": "Completed",
+  "thumbnail": "/images/work-garden-city.jpg",
+  "has_page": false,
+  "hero_image": "",
+  "hero_alt": "",
+  "about": "",
+  "blocks": []
+}

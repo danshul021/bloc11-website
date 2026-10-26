@@ -1,0 +1,20 @@
+{
+  "profile_image": "/images/studio-indore-meeting-room.jpg",
+  "profile_image_alt": "The Indore studio meeting room: a cloud-like paper pendant over a dark table, behind glass, with orchids in the foreground",
+  "lead": "Design is a conversation.",
+  "lead_accent": "Never a conclusion.",
+  "intro": "Good design begins with better questions.",
+  "body": "At Bloc 11, we approach every project as an exploration of people, places and possibilities. We believe in questioning the familiar, challenging assumptions and discovering opportunities beyond the obvious. Through an open and collaborative process of dialogue, experimentation and refinement, ideas evolve into thoughtful design responses that are rooted in context and shaped by the people they serve.\n\nWe are an independent multidisciplinary design practice working across architecture, master planning, interiors, objects, research and the built environment. With over 30 years of collective industry experience and more than 40 projects across diverse scales and typologies, we bring together creative thinking, technical rigour and contemporary technology to translate ideas into meaningful built environments.\n\nBased across studios in Bengaluru and Indore, our team combines youthful talent, creative energy, technical expertise and a strong sensitivity to people and context, to imagine and build spaces that respond to the spirit of our times.",
+  "people_text": "Our leadership anchors three connected verticals — Design, Engineering and Operations — supported by a multidisciplinary in-house team and specialist collaborators. We foster open dialogue and shared ownership, within the team and with our clients. And perhaps that is what we are ultimately here to build: **joyful, lasting spaces & relationships.**",
+  "people": [
+    { "photo": "/images/people-anish-pendharkar.jpg", "name": "Ar. Anish Pendharkar", "role": "Partner", "qualifications": "B.Arch., IIT Kharagpur\nMS Planning, GSAPP, Columbia University, New York" },
+    { "photo": "/images/people-anshul-deshmukh.jpg", "name": "Ar. Anshul Deshmukh", "role": "Partner", "qualifications": "B.Arch., IIT Kharagpur" },
+    { "photo": "/images/people-umesh-pendharkar.jpg", "name": "Dr. Umesh Pendharkar", "role": "Head of Civil Engineering", "qualifications": "PhD, Structural Engineering\nUjjain Engineering College" },
+    { "photo": "/images/people-abhishek-tomar.jpg", "name": "Er. Abhishek Tomar", "role": "Head of Site Operations", "qualifications": "Bachelor of Civil Engineering" },
+    { "photo": "", "name": "[Team member]", "role": "[Designation]", "qualifications": "[Qualification]" },
+    { "photo": "", "name": "[Team member]", "role": "[Designation]", "qualifications": "[Qualification]" },
+    { "photo": "", "name": "[Team member]", "role": "[Designation]", "qualifications": "[Qualification]" },
+    { "photo": "", "name": "[Team member]", "role": "[Designation]", "qualifications": "[Qualification]" }
+  ],
+  "capabilities_text": "From the first feasibility study to the last detail on site — design, engineering and delivery under one roof."
+}

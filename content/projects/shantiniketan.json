@@ -1,0 +1,84 @@
+{
+  "title": "Shantiniketan",
+  "order": 1,
+  "type": "Residence",
+  "category": "Residential",
+  "location": "Indore",
+  "year": "[Year]",
+  "status": "Completed",
+  "thumbnail": "/images/shantiniketan-planters.jpg",
+  "has_page": true,
+  "hero_image": "/images/shantiniketan-dusk.jpg",
+  "hero_alt": "Shantiniketan at dusk, almost hidden behind a garden of trees",
+  "about": "A family home in Indore wrapped in a perforated terracotta screen. The brick lets light and breeze through to the rooms behind it, and glows like a lantern after dark. Inside, a double-height living room steps down into a sunken seating well.",
+  "blocks": [
+    {
+      "type": "full",
+      "image": "/images/shantiniketan-street-front.jpg",
+      "alt": "Street front: terracotta walls with a perforated brick screen, framed by trees"
+    },
+    {
+      "type": "pair",
+      "images": [
+        {
+          "image": "/images/shantiniketan-facade-glow.jpg",
+          "alt": "The perforated façade glowing at dusk"
+        },
+        {
+          "image": "/images/shantiniketan-garden-wall.jpg",
+          "alt": "Garden wall and screen lit from within, seen through a tree"
+        }
+      ]
+    },
+    {
+      "type": "trio",
+      "images": [
+        {
+          "image": "/images/shantiniketan-planters.jpg",
+          "alt": "Planters spilling over the perforated brick wall"
+        },
+        {
+          "image": "/images/shantiniketan-lane.jpg",
+          "alt": "The house seen from the lane under a canopy of trees"
+        },
+        {
+          "image": "/images/shantiniketan-screen-wall.jpg",
+          "alt": "The long brick screen wall along the street"
+        }
+      ]
+    },
+    {
+      "type": "image_text",
+      "image": "/images/shantiniketan-living-room.jpg",
+      "alt": "Double-height living room with a sunken seating well",
+      "text": "Inside, the screen becomes a wall of display niches; light falls through a high clerestory into the living room and kitchen."
+    },
+    {
+      "type": "full",
+      "image": "/images/shantiniketan-living-dining.jpg",
+      "alt": "Living and dining space opening to the kitchen"
+    },
+    {
+      "type": "trio",
+      "images": [
+        {
+          "image": "/images/shantiniketan-spiral-stair.jpg",
+          "alt": "Spiral stair beside tall windows"
+        },
+        {
+          "image": "/images/shantiniketan-kitchen.jpg",
+          "alt": "Kitchen with green tiles and a marble island under a skylight"
+        },
+        {
+          "image": "/images/shantiniketan-dining.jpg",
+          "alt": "Dining area beside a wall of display niches"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "image": "/images/shantiniketan-kitchen-island.jpg",
+      "alt": "Kitchen island looking through to the living room"
+    }
+  ]
+}

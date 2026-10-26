@@ -1,0 +1,15 @@
+{
+  "title": "Vistara",
+  "order": 2,
+  "type": "Residence",
+  "category": "Residential",
+  "location": "Indore",
+  "year": "",
+  "status": "Completed",
+  "thumbnail": "/images/work-vistara.jpg",
+  "has_page": false,
+  "hero_image": "",
+  "hero_alt": "",
+  "about": "",
+  "blocks": []
+}

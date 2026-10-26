@@ -1,0 +1,42 @@
+{
+  "firm_name": "Bloc 11 Architects + Planners",
+  "seo_description": "Bloc 11 Architects + Planners is an independent, multidisciplinary design practice in Indore and Bengaluru, working across architecture, master planning, interiors, objects and research.",
+  "email": "info@bloc11.studio",
+  "contact_text": "A practice across two cities. A conversation across many more. Use the slider to step inside our studios in Indore and Bengaluru.",
+  "offices": [
+    {
+      "city": "Indore",
+      "address_line_1": "FH 19, Scheme 54 Rd, Vijay Nagar",
+      "address_line_2": "Indore, Madhya Pradesh 452010",
+      "maps_link": "https://www.google.com/maps/search/?api=1&query=FH+19+Scheme+54+Rd+Vijay+Nagar+Indore+452010",
+      "map_label": "Bloc 11 · Indore"
+    },
+    {
+      "city": "Bengaluru",
+      "address_line_1": "2nd floor, No. 10, Vinyasa, Cambridge Rd",
+      "address_line_2": "Halasuru, Bengaluru, Karnataka 560008",
+      "maps_link": "https://www.google.com/maps/search/?api=1&query=Vinyasa+No.10+Cambridge+Rd+Halasuru+Bengaluru+560008",
+      "map_label": "Bloc 11 Studioworks · Bengaluru"
+    }
+  ],
+  "notice_board": [
+    "We are hiring — send your portfolio to info@bloc11.studio"
+  ],
+  "capabilities": [
+    { "title": "Architecture & Interiors", "text": "Integrated architectural and interior design, from concept and planning through detailing, documentation and execution." },
+    { "title": "Urban Design & Planning", "text": "Larger-scale planning strategies integrating built form, movement, public space, landscape and infrastructure." },
+    { "title": "Design & Build", "text": "End-to-end project delivery integrating design, engineering, costing, procurement and construction." },
+    { "title": "Building Engineering & Services", "text": "Coordinated structural, electrical, plumbing, fire-fighting, HVAC and allied MEP design for efficient and buildable projects." },
+    { "title": "BIM Modelling & Digital Coordination", "text": "BIM-based multidisciplinary coordination, clash detection, documentation and integrated project delivery." },
+    { "title": "Programming, Feasibility & Cost Studies", "text": "Early-stage planning covering area programmes, site potential, feasibility, phasing and preliminary cost assessments." },
+    { "title": "Furniture & Product Design", "text": "Custom furniture, objects and products designed specifically for the project, space or user." },
+    { "title": "Research & Visualization", "text": "Design research supported by 3D visualization, material studies, simulations and digital tools." },
+    { "title": "Installations & Virtual Spaces", "text": "Installations, exhibitions and pavilions, and immersive virtual spaces and walkthroughs that let people experience a design before it is built." }
+  ],
+  "studio_photos": {
+    "indore": "/images/studio-indore.jpg",
+    "indore_alt": "The Indore studio: glass meeting room, plants and the brick-circle 11 emblem on the wall",
+    "bengaluru": "/images/studio-bengaluru.jpg",
+    "bengaluru_alt": "The Bengaluru studio: long dark desks under a pale green coffered ceiling, with a frosted-glass room"
+  }
+}

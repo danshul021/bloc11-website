@@ -1,0 +1,254 @@
+# Admin page settings (Decap CMS). Each "collection" below is a section of the admin page;
+# each field is one box in its form. Saving writes the matching file in content/ to GitHub,
+# and Netlify rebuilds the website about a minute later.
+
+backend:
+  name: github
+  repo: danshul021/bloc11-website
+  branch: main
+  commit_messages:
+    create: 'Add {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Remove {{collection}} “{{slug}}”'
+    uploadMedia: 'Upload “{{path}}”'
+    deleteMedia: 'Delete “{{path}}”'
+
+site_url: https://bloc11.studio
+display_url: https://bloc11.studio
+logo_url: /images/logo-dark.png
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+collections:
+
+  # ------------------------------------------------------------------ PROJECTS
+  - name: projects
+    label: Projects
+    label_singular: Project
+    description: >-
+      Every project in the Work list. Projects with "Give it its own page" switched on also get a
+      page of their own, built from the pictures and text below. Lower "Position" numbers come first.
+    folder: content/projects
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: '{{title}}'
+    identifier_field: title
+    summary: '{{order}} · {{title}} — {{location}} · {{status}}'
+    sortable_fields: ['order', 'title', 'location', 'status']
+    editor: { preview: false }
+    fields:
+      - { name: title, label: Project name, widget: string }
+      - { name: order, label: Position in the Work list, widget: number, value_type: int, min: 1, default: 99, hint: '1 shows first. Two projects with the same number are sorted by name.' }
+      - { name: type, label: Type, widget: string, hint: 'As shown in the list, e.g. Residence, Office, Hotel' }
+      - name: category
+        label: Filter group
+        widget: select
+        options: [Residential, Commercial, Hospitality, Institutional, Interiors, Planning, Installations]
+        hint: 'Decides which filter button on the Work page shows this project'
+      - { name: location, label: City, widget: string }
+      - { name: year, label: Year, widget: string, required: false }
+      - { name: status, label: Status, widget: select, options: [Completed, Ongoing], default: Ongoing }
+      - { name: thumbnail, label: List picture, widget: image, hint: 'A landscape picture; it shows small in the Work list and as a card in the grid view' }
+      - { name: has_page, label: Give it its own page, widget: boolean, default: true, hint: 'Off: the project is only listed. On: its row links to a page built from the fields below.' }
+      - { name: hero_image, label: Main picture (top of the page), widget: image, required: false }
+      - { name: hero_alt, label: Describe the main picture, widget: string, required: false, hint: 'One short sentence for screen readers and Google' }
+      - { name: about, label: About the project, widget: text, required: false, hint: 'Leave an empty line between paragraphs. Put **two stars** around words to make them bold.' }
+      - name: blocks
+        label: Page layout (pictures and text, top to bottom)
+        label_singular: section
+        widget: list
+        required: false
+        typeKey: type
+        hint: 'Add sections in the order they should appear. Use the arrows to move them.'
+        types:
+          - name: full
+            label: One wide picture
+            widget: object
+            summary: '{{fields.alt}}'
+            fields:
+              - { name: image, label: Picture, widget: image }
+              - { name: alt, label: Describe the picture, widget: string, required: false }
+          - name: pair
+            label: Two pictures side by side (tall)
+            widget: object
+            fields:
+              - name: images
+                label: Pictures
+                widget: list
+                min: 2
+                max: 2
+                summary: '{{fields.alt}}'
+                fields:
+                  - { name: image, label: Picture, widget: image }
+                  - { name: alt, label: Describe the picture, widget: string, required: false }
+          - name: trio
+            label: Three pictures side by side (tall)
+            widget: object
+            fields:
+              - name: images
+                label: Pictures
+                widget: list
+                min: 3
+                max: 3
+                summary: '{{fields.alt}}'
+                fields:
+                  - { name: image, label: Picture, widget: image }
+                  - { name: alt, label: Describe the picture, widget: string, required: false }
+          - name: image_text
+            label: Picture with a short note beside it
+            widget: object
+            summary: '{{fields.text}}'
+            fields:
+              - { name: image, label: Picture, widget: image }
+              - { name: alt, label: Describe the picture, widget: string, required: false }
+              - { name: text, label: Note, widget: text }
+          - name: text
+            label: Text section
+            widget: object
+            summary: '{{fields.heading}}'
+            fields:
+              - { name: heading, label: Heading, widget: string, required: false }
+              - { name: text, label: Text, widget: text, hint: 'Leave an empty line between paragraphs.' }
+
+  # ------------------------------------------------------------------ PAGES
+  - name: pages
+    label: Pages
+    description: The words and pictures on the Home, Studio and Work pages.
+    editor: { preview: false }
+    files:
+
+      - name: home
+        label: Home page
+        file: content/home.json
+        fields:
+          - { name: hero_title, label: Headline on the big picture, widget: string }
+          - name: slides
+            label: Big pictures (slideshow)
+            label_singular: picture
+            widget: list
+            summary: '{{fields.caption}}'
+            hint: 'They change every 5 seconds. Drag to reorder.'
+            fields:
+              - { name: image, label: Picture, widget: image, hint: 'Wide landscape picture, at least 2000 pixels across' }
+              - { name: alt, label: Describe the picture, widget: string }
+              - { name: caption, label: Small caption, widget: string, required: false, hint: 'e.g. Residence — exterior at dusk' }
+              - { name: focus, label: Keep in view (0 = top, 50 = middle, 100 = bottom), widget: number, value_type: int, min: 0, max: 100, default: 50, hint: 'Which part of the picture stays visible when the screen crops it' }
+          - name: featured_project
+            label: Project linked under the headline
+            widget: relation
+            collection: projects
+            search_fields: [title]
+            value_field: '{{slug}}'
+            display_fields: [title]
+          - { name: practice_text, label: Practice — text, widget: text }
+          - name: stats
+            label: Numbers
+            label_singular: number
+            widget: list
+            allow_add: false
+            summary: '{{fields.value}}+ {{fields.caption}}'
+            hint: 'Three numbers, shown with a + after them'
+            fields:
+              - { name: value, label: Number, widget: string, pattern: ['^[0-9]{1,4}$', 'Digits only'] }
+              - { name: caption, label: Caption, widget: string }
+          - { name: process_text, label: Process — text, widget: text }
+          - name: steps
+            label: Process steps
+            label_singular: step
+            widget: list
+            allow_add: false
+            summary: '{{fields.title}}'
+            hint: 'Five steps; each keeps its animated symbol (question, decode, experiment, refine, realise) in this order.'
+            fields:
+              - { name: title, label: Step name, widget: string }
+              - { name: text, label: Description, widget: text }
+          - { name: capabilities_heading, label: Capabilities heading, widget: string, hint: 'The list itself is under Site-wide → Capabilities' }
+
+      - name: studio
+        label: Studio page
+        file: content/studio.json
+        fields:
+          - { name: profile_image, label: Profile picture, widget: image }
+          - { name: profile_image_alt, label: Describe the picture, widget: string }
+          - { name: lead, label: Large line, widget: string }
+          - { name: lead_accent, label: Large line — part in terracotta, widget: string, required: false }
+          - { name: intro, label: Opening sentence (semi-bold), widget: string, required: false }
+          - { name: body, label: Profile text, widget: text, hint: 'Leave an empty line between paragraphs. Put **two stars** around words to make them bold.' }
+          - { name: people_text, label: People — text, widget: text, hint: 'Put **two stars** around words to make them bold.' }
+          - name: people
+            label: People
+            label_singular: person
+            widget: list
+            summary: '{{fields.name}} — {{fields.role}}'
+            hint: 'Shown in the carousel in this order. Drag to reorder.'
+            fields:
+              - { name: photo, label: Portrait, widget: image, required: false, hint: 'Square picture works best' }
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Designation, widget: string, required: false }
+              - { name: qualifications, label: Qualifications, widget: text, required: false, hint: 'One per line' }
+          - { name: capabilities_text, label: Capabilities — text, widget: text }
+
+      - name: work
+        label: Work page
+        file: content/work.json
+        fields:
+          - { name: intro, label: Text beside the heading, widget: text }
+
+  # ------------------------------------------------------------------ SITE-WIDE
+  - name: settings
+    label: Site-wide
+    description: Things that appear on more than one page.
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Contact, notice board and capabilities
+        file: content/site.json
+        fields:
+          - name: notice_board
+            label: Notice board messages
+            label_singular: message
+            widget: list
+            field: { name: message, label: Message, widget: string }
+            hint: 'Scrolls on the black board in Contact, in capitals. Remove all messages to hide the board.'
+          - name: capabilities
+            label: Capabilities
+            label_singular: capability
+            widget: list
+            summary: '{{fields.title}}'
+            hint: 'Shown on the Home and Studio pages, numbered in this order'
+            fields:
+              - { name: title, label: Name, widget: string }
+              - { name: text, label: Description, widget: text }
+          - { name: contact_text, label: Contact — text, widget: text }
+          - { name: email, label: Email address, widget: string }
+          - name: offices
+            label: Studios
+            label_singular: studio
+            widget: list
+            allow_add: false
+            summary: '{{fields.city}}'
+            hint: 'Indore first, then Bengaluru — each keeps its map'
+            fields:
+              - { name: city, label: City, widget: string }
+              - { name: address_line_1, label: Address line 1, widget: string }
+              - { name: address_line_2, label: Address line 2, widget: string }
+              - { name: maps_link, label: Google Maps link, widget: string }
+              - { name: map_label, label: Label on the map, widget: string }
+          - name: studio_photos
+            label: Studio photos (slider in Contact)
+            widget: object
+            fields:
+              - { name: indore, label: Indore studio photo, widget: image }
+              - { name: indore_alt, label: Describe the Indore photo, widget: string }
+              - { name: bengaluru, label: Bengaluru studio photo, widget: image }
+              - { name: bengaluru_alt, label: Describe the Bengaluru photo, widget: string }
+          - { name: firm_name, label: Firm name, widget: string }
+          - { name: seo_description, label: Description for Google, widget: text, hint: 'About 150 characters; shown under the site name in search results' }
