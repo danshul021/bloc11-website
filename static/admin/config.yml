@@ -42,7 +42,9 @@ collections:
     slug: '{{title}}'
     identifier_field: title
     summary: '{{order}} · {{title}} — {{location}} · {{status}}'
-    sortable_fields: ['order', 'title', 'location', 'status']
+    sortable_fields:
+      default: { field: order, direction: ascending }
+      fields: ['order', 'title', 'location', 'status']
     editor: { preview: false }
     fields:
       - { name: title, label: Project name, widget: string }
