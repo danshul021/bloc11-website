@@ -116,7 +116,7 @@ export function page({ title, description, path, css, body, image = '/images/sha
 <meta property="og:url" content="${esc(url)}">
 <meta property="og:image" content="${esc(SITE_URL + image)}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/images/emblem.png">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts}">
