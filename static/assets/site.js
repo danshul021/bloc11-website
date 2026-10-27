@@ -54,10 +54,14 @@
       });
     };
     if (window.IntersectionObserver && !reduce) {
-      var rolled = null;
+      // the page arrives showing the final numbers (for search engines and no-script visitors);
+      // wind them back to zero straight away so they can roll up when they come into view
+      set(false);
+      void stats.offsetHeight;
+      var rolled = false;
       var io = new IntersectionObserver(function (es) {
         var e = es[es.length - 1];
-        if (e.isIntersecting && e.intersectionRatio >= 0.35) { if (rolled !== true) { rolled = true; set(true); } }
+        if (e.isIntersecting && e.intersectionRatio >= 0.35) { if (rolled !== true) { rolled = true; void stats.offsetHeight; set(true); } }
         else if (!e.isIntersecting && rolled !== false) { rolled = false; set(false); }
       }, { threshold: [0, 0.35] });
       io.observe(stats);
