@@ -1,6 +1,17 @@
 // Shared helpers and pieces used by every page.
 
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+
 export const SITE_URL = 'https://bloc11.studio';
+
+// a short fingerprint of each script, added to its address, so browsers fetch a fresh copy
+// whenever the file changes instead of reusing an old saved one
+const stamp = (f) => {
+  try { return crypto.createHash('md5').update(fs.readFileSync(new URL('../static/assets/' + f, import.meta.url))).digest('hex').slice(0, 8); }
+  catch (e) { return String(Date.now()); }
+};
+const V_SITE = stamp('site.js'), V_APP = stamp('app.js');
 const ON_NETLIFY = process.env.NETLIFY === 'true';
 
 export const esc = (s) => String(s ?? '')
@@ -117,8 +128,8 @@ ${css}
 <div class="page" style="${PAGE_STYLE}">
 ${body}
 </div>
-<script src="/assets/site.js" defer></script>
-<script src="/assets/app.js" defer></script>
+<script src="/assets/site.js?v=${V_SITE}" defer></script>
+<script src="/assets/app.js?v=${V_APP}" defer></script>
 </body>
 </html>
 `;
