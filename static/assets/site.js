@@ -2,8 +2,8 @@
 // the home slideshow, the rolling numbers, the Work filters and the phone menu.
 (function () {
   'use strict';
+  // The rolling numbers play even when the computer asks for reduced motion, as in the design.
   var reduce = false;
-  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
 
   // ---- phone menu: close it after choosing a link ----
   document.querySelectorAll('.mnav').forEach(function (d) {
