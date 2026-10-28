@@ -40,23 +40,29 @@ collections:
     create: true
     delete: true
     slug: '{{title}}'
+    # photos synced from each project's Google Drive folder live here, so "Choose image"
+    # opens straight onto that project's photos
+    media_folder: '/static/images/projects/{{filename}}'
+    public_folder: '/images/projects/{{filename}}'
     identifier_field: title
     summary: '{{order}} · {{title}} — {{location}} · {{status}}'
     sortable_fields: ['order', 'title', 'location', 'status']
     editor: { preview: false }
     fields:
       - { name: title, label: Project name, widget: string }
+      - { name: show_on_work, label: Show on the Work page, widget: boolean, default: true, hint: 'Off keeps the project here in the admin but hides it from the website (and its page, if it has one).' }
       - { name: order, label: Position in the Work list, widget: number, value_type: int, min: 1, default: 99, hint: '1 shows first. Two projects with the same number are sorted by name.' }
-      - { name: type, label: Type, widget: string, hint: 'As shown in the list, e.g. Residence, Office, Hotel' }
+      - { name: type, label: Type, widget: string, required: false, hint: 'As shown in the list, e.g. Residence, Office, Hotel' }
       - name: category
         label: Filter group
         widget: select
         options: [Residential, Commercial, Hospitality, Institutional, Interiors, Planning, Installations]
+        required: false
         hint: 'Decides which filter button on the Work page shows this project'
-      - { name: location, label: City, widget: string }
+      - { name: location, label: City, widget: string, required: false }
       - { name: year, label: Year, widget: string, required: false }
       - { name: status, label: Status, widget: select, options: [Completed, Ongoing], default: Ongoing }
-      - { name: thumbnail, label: List picture, widget: image, hint: 'A landscape picture; it shows small in the Work list and as a card in the grid view' }
+      - { name: thumbnail, label: List picture, widget: image, required: false, hint: 'A landscape picture; it shows small in the Work list and as a card in the grid view. Projects from Google Drive use the photo named "cover…" until you choose another.' }
       - { name: has_page, label: Give it its own page, widget: boolean, default: true, hint: 'Off: the project is only listed. On: its row links to a page built from the fields below.' }
       - { name: hero_image, label: Main picture (top of the page), widget: image, required: false }
       - { name: hero_alt, label: Describe the main picture, widget: string, required: false, hint: 'One short sentence for screen readers and Google' }
@@ -117,6 +123,8 @@ collections:
             fields:
               - { name: heading, label: Heading, widget: string, required: false }
               - { name: text, label: Text, widget: text, hint: 'Leave an empty line between paragraphs.' }
+      - { name: drive_folder, label: Google Drive folder, widget: hidden, required: false }
+      - { name: photos, label: Photos from Google Drive, widget: hidden, required: false }
 
   # ------------------------------------------------------------------ PAGES
   - name: pages
@@ -208,6 +216,18 @@ collections:
     description: Things that appear on more than one page.
     editor: { preview: false }
     files:
+      - name: drive
+        label: Google Drive folder (projects and photos)
+        file: content/drive.json
+        fields:
+          - name: folder_link
+            label: Link to the projects folder
+            widget: string
+            required: false
+            hint: >-
+              Paste the Google Drive link of the folder that holds one subfolder per project. Share that
+              folder as "Anyone with the link – Viewer". Then use the "Refresh from Drive" button
+              (bottom right) whenever you change photos or add a project folder.
       - name: site
         label: Contact, notice board and capabilities
         file: content/site.json

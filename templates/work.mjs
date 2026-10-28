@@ -1,5 +1,5 @@
 // Work index and project pages
-import { esc, rich, paras, pad, img, page, mnav, footer, MNAV_CSS } from './lib.mjs';
+import { esc, rich, paras, pad, img, has, page, mnav, footer, MNAV_CSS } from './lib.mjs';
 
 const BASE_CSS = `
 body{margin:0;background:#FFFFFF}
@@ -156,18 +156,18 @@ function block(b) {
   const one = (i, extra, sizes) => `<img ${img(i.image, { sizes })} loading="lazy" decoding="async" alt="${esc(i.alt)}" style="${extra}; ${PIC}">`;
   switch (b.type) {
     case 'full':
-      return b.image ? `    ${one(b, 'width: 100%; aspect-ratio: 16 / 9', '100vw')}` : '';
+      return has(b.image) ? `    ${one(b, 'width: 100%; aspect-ratio: 16 / 9', '100vw')}` : '';
     case 'pair':
       return `    <div style="display: flex; flex-wrap: wrap; gap: 28px">
-      ${(b.images || []).filter((i) => i.image).map((i) => one(i, 'flex: 1 1 320px; min-width: 0; aspect-ratio: 4 / 5', '(max-width: 700px) 100vw, 50vw')).join('\n      ')}
+      ${(b.images || []).filter((i) => has(i.image)).map((i) => one(i, 'flex: 1 1 320px; min-width: 0; aspect-ratio: 4 / 5', '(max-width: 700px) 100vw, 50vw')).join('\n      ')}
     </div>`;
     case 'trio':
       return `    <div style="display: flex; flex-wrap: wrap; gap: 28px">
-      ${(b.images || []).filter((i) => i.image).map((i) => one(i, 'flex: 1 1 260px; min-width: 0; aspect-ratio: 3 / 4', '(max-width: 900px) 100vw, 33vw')).join('\n      ')}
+      ${(b.images || []).filter((i) => has(i.image)).map((i) => one(i, 'flex: 1 1 260px; min-width: 0; aspect-ratio: 3 / 4', '(max-width: 900px) 100vw, 33vw')).join('\n      ')}
     </div>`;
     case 'image_text':
       return `    <div style="display: flex; flex-wrap: wrap; gap: 28px 56px; align-items: flex-end; padding-top: clamp(24px, 4cqw, 64px)">
-      ${b.image ? one(b, 'flex: 2 1 560px; min-width: 0; aspect-ratio: 3 / 2', '(max-width: 900px) 100vw, 66vw') : ''}
+      ${has(b.image) ? one(b, 'flex: 2 1 560px; min-width: 0; aspect-ratio: 3 / 2', '(max-width: 900px) 100vw, 66vw') : ''}
       <p style="flex: 1 1 260px; margin: 0 0 8px; font-size: 16px; line-height: 1.6; color: #3D3C3A; max-width: 60ch">${rich(b.text)}</p>
     </div>`;
     case 'text':
@@ -198,7 +198,7 @@ ${header(site, { workCurrent: true })}
       </dl>
     </div>
 
-    ${p.hero_image ? `<img ${img(p.hero_image)} alt="${esc(p.hero_alt)}" fetchpriority="high" style="width: 100%; aspect-ratio: 16 / 9; ${PIC}">` : ''}
+    ${has(p.hero_image) ? `<img ${img(p.hero_image)} alt="${esc(p.hero_alt)}" fetchpriority="high" style="width: 100%; aspect-ratio: 16 / 9; ${PIC}">` : ''}
 
     ${p.about ? `<div style="display: flex; flex-wrap: wrap; gap: 32px 72px; padding: clamp(40px, 5cqw, 80px) 0">
       <h2 style="flex: 1 1 220px; margin: 0; font-size: clamp(26px, 2.4cqw, 32px); line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">About the project</h2>

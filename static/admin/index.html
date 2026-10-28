@@ -6,9 +6,70 @@
   <meta name="robots" content="noindex">
   <title>Bloc 11 — website admin</title>
   <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <style>
+    #b11-sync{position:fixed;right:20px;bottom:20px;z-index:2000;font:14px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;display:none;flex-direction:column;align-items:flex-end;gap:8px}
+    #b11-sync button{border:0;border-radius:6px;background:#141414;color:#fff;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+    #b11-sync button:hover{background:#A5532F}
+    #b11-sync button[disabled]{background:#6B6760;cursor:default}
+    #b11-sync .msg{max-width:340px;background:#fff;color:#141414;border-radius:6px;padding:10px 14px;box-shadow:0 4px 16px rgba(0,0,0,.14);display:none}
+    #b11-sync .msg a{color:#A5532F}
+  </style>
 </head>
 <body>
   <!-- Decap CMS: edits the files in content/ and saves them to GitHub; Netlify then rebuilds the site -->
   <script src="https://unpkg.com/decap-cms@3.17.1/dist/decap-cms.js"></script>
+
+  <!-- "Refresh from Drive": starts the GitHub job that reads the Google Drive projects folder -->
+  <div id="b11-sync"><div class="msg" role="status" aria-live="polite"></div><button type="button">↻ Refresh from Drive</button></div>
+  <script>
+  (function () {
+    var REPO = 'danshul021/bloc11-website', WF = 'sync-drive.yml', API = 'https://api.github.com/repos/' + REPO;
+    var box = document.getElementById('b11-sync'), btn = box.querySelector('button'), msg = box.querySelector('.msg');
+    function token() {
+      var keys = ['decap-cms-user', 'netlify-cms-user'];
+      for (var i = 0; i < keys.length; i++) {
+        try { var u = JSON.parse(localStorage.getItem(keys[i]) || 'null'); if (u && u.token) return u.token; } catch (e) {}
+      }
+      return null;
+    }
+    // only show the button once someone is logged in
+    setInterval(function () { box.style.display = token() ? 'flex' : 'none'; }, 1000);
+    function say(html) { msg.innerHTML = html; msg.style.display = html ? 'block' : 'none'; }
+    function gh(path, opts) {
+      opts = opts || {};
+      opts.headers = { Authorization: 'token ' + token(), Accept: 'application/vnd.github+json' };
+      return fetch(API + path, opts);
+    }
+    var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+    btn.addEventListener('click', async function () {
+      if (!token()) { say('Please log in first.'); return; }
+      btn.disabled = true; btn.textContent = 'Refreshing…';
+      say('Reading your Google Drive folder. This takes a minute or two for new photos.');
+      var started = Date.now() - 5000;
+      try {
+        var r = await gh('/actions/workflows/' + WF + '/dispatches', { method: 'POST', body: JSON.stringify({ ref: 'main' }) });
+        if (r.status !== 204) throw new Error('GitHub said ' + r.status + ' — ' + (await r.text()).slice(0, 160));
+        var run = null;
+        for (var i = 0; i < 240; i++) {               // up to ~20 minutes
+          await wait(5000);
+          var j = await (await gh('/actions/workflows/' + WF + '/runs?per_page=5&event=workflow_dispatch')).json();
+          run = (j.workflow_runs || []).find(function (x) { return new Date(x.created_at).getTime() >= started; }) || run;
+          if (run && run.status === 'completed') break;
+        }
+        var link = run ? ' <a href="' + run.html_url + '" target="_blank" rel="noopener">Details</a>' : '';
+        if (run && run.conclusion === 'success') {
+          say('Done. New projects and photos are in — <b>reload this page</b> to see them. The website updates about a minute later.' + link);
+        } else if (run) {
+          say('The refresh could not finish (' + run.conclusion + ').' + link + ' Check the folder link under Site-wide → Google Drive folder, and that the folder is shared as “Anyone with the link”.');
+        } else {
+          say('Still running — check again in a few minutes.');
+        }
+      } catch (e) {
+        say('Could not start the refresh: ' + e.message);
+      }
+      btn.disabled = false; btn.textContent = '↻ Refresh from Drive';
+    });
+  })();
+  </script>
 </body>
 </html>

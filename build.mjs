@@ -20,7 +20,7 @@ const work = read('work.json');
 const projects = fs.readdirSync(path.join(root, 'content', 'projects'))
   .filter((f) => f.endsWith('.json'))
   .map((f) => ({ slug: f.replace(/\.json$/, ''), ...read(path.join('projects', f)) }))
-  .filter((p) => p.title && p.draft !== true)
+  .filter((p) => p.title && p.draft !== true && p.show_on_work !== false)
   .sort((a, b) => (Number(a.order) || 999) - (Number(b.order) || 999) || a.title.localeCompare(b.title));
 
 fs.rmSync(out, { recursive: true, force: true });

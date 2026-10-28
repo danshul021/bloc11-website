@@ -12,6 +12,10 @@ const stamp = (f) => {
   catch (e) { return String(Date.now()); }
 };
 const V_SITE = stamp('site.js'), V_APP = stamp('app.js');
+
+// true when a picture can actually be shown (a photo removed from Drive simply drops out of the page)
+const STATIC = new URL('../static/', import.meta.url);
+export const has = (src) => !!src && (!src.startsWith('/') || fs.existsSync(new URL('.' + src.split('?')[0], STATIC)));
 const ON_NETLIFY = process.env.NETLIFY === 'true';
 
 export const esc = (s) => String(s ?? '')
@@ -38,7 +42,7 @@ export function cdn(src, w) {
   return `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}`;
 }
 export function img(src, { widths = [800, 1600, 2400], sizes = '100vw' } = {}) {
-  if (!src) return 'src=""';
+  if (!has(src)) return 'src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"';
   if (!ON_NETLIFY || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return `src="${esc(src)}"`;
   const set = widths.map((w) => `${cdn(src, w)} ${w}w`).join(', ');
   return `src="${esc(cdn(src, widths[widths.length - 1]))}" srcset="${esc(set)}" sizes="${esc(sizes)}" data-raw="${esc(src)}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.raw"`;

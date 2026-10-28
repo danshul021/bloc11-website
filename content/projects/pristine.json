@@ -6,6 +6,7 @@
   "location": "Indore",
   "year": "",
   "status": "Completed",
+  "show_on_work": true,
   "thumbnail": "/images/work-pristine.jpg",
   "has_page": false,
   "hero_image": "",

@@ -6,6 +6,7 @@
   "location": "Indore",
   "year": "[Year]",
   "status": "Completed",
+  "show_on_work": true,
   "thumbnail": "/images/shantiniketan-planters.jpg",
   "has_page": true,
   "hero_image": "/images/shantiniketan-dusk.jpg",
