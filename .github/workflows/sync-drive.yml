@@ -29,7 +29,7 @@ jobs:
 
       - name: Read the Drive folder
         env:
-          DRIVE_API_KEY: ${{ secrets.DRIVE_API_KEY }}
+          DRIVE_API_KEY: ${{ secrets.DRIVE_API_KEY || secrets.WEBSITE_PROJECTS_DRIVE_API_KEY }}
         run: node tools/sync-drive.mjs
 
       - name: Save changes
