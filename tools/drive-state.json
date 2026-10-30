@@ -1,3 +1,201 @@
 {
-  "folders": {}
+  "folders": {
+    "1SWdshe-4DoAyaewMjca93VbIkr2Bf0fN": {
+      "slug": "anjaneya",
+      "files": {
+        "1I1spTeChYMNyiH82AoudLGmjZQ-q9FTo": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "75e25328d7ed60a87e26eff0f050617d"
+        }
+      },
+      "cover": "/images/projects/anjaneya/cover.jpg",
+      "name": "Anjaneya"
+    },
+    "1aj9el1LM8gZUb_3Xw5t8QQQdp6drO-6m": {
+      "slug": "co-living",
+      "files": {
+        "1CT0ZJy48T4jLt5kL-vV_Vg-GjJTP2fHL": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "8f49713d15e6ea266fb98c5cfa1408d7"
+        }
+      },
+      "cover": "/images/projects/co-living/cover.jpg",
+      "name": "Co-Living"
+    },
+    "1nQzFV5aidU8reKYONcgffP4HgLBnNLFz": {
+      "slug": "finsen-ritters",
+      "files": {
+        "1Xvof8gfcx8N__tHvd8_BYVtcOU3m40lG": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "b71febeb75c4a5e0d84471839a94a507"
+        }
+      },
+      "cover": "/images/projects/finsen-ritters/cover.jpg",
+      "name": "Finsen Ritters"
+    },
+    "1NNKrLHuv_BkNfDSOuwjMVkBLsl5sKIY_": {
+      "slug": "garden-city",
+      "files": {
+        "1bd7P71MEC8BnlkT_IduJIH2xDDFME3bR": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "2844120090ec7cf6176b57b662d473ae"
+        }
+      },
+      "cover": "/images/projects/garden-city/cover.jpg",
+      "name": "Garden City"
+    },
+    "1Bj2vjhUY6nwnsmFSEoyKUVaS7FoS4GMg": {
+      "slug": "oyster",
+      "files": {
+        "1g2lYydcVkECbgQL4uVJMtTUi7DWEALdz": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "a268dcb67c5c4f497e69bf736bc4a497"
+        }
+      },
+      "cover": "/images/projects/oyster/cover.jpg",
+      "name": "Oyster"
+    },
+    "1FbcflwKbnFeXfa1oODaXBVO8xBFLyO51": {
+      "slug": "pristine",
+      "files": {
+        "17s1BHM7VWs7xYHFeAcTzrx-kIJeQhC4_": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "7abb056cd933dac2c9cd329a79a0b58a"
+        }
+      },
+      "cover": "/images/projects/pristine/cover.jpg",
+      "name": "Pristine"
+    },
+    "1qgFZcCKDyPIEKvKYX-DoG9PlQrGY2Nrd": {
+      "slug": "residence-bengaluru",
+      "files": {
+        "1UVyaXcIU0LKQxMIqeD-PJT8eoCl6DDr2": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "6ee17569cc86afe7e5c6133ddb24822f"
+        }
+      },
+      "cover": "/images/projects/residence-bengaluru/cover.jpg",
+      "name": "Residence, Bengaluru"
+    },
+    "1Ql9W6w3WXFQe3VVfB_vLkas1Y8KhkqTV": {
+      "slug": "salunkes",
+      "files": {
+        "1OsSnAAKrxocq0SW299ZbgaLVVI9gI7J4": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "de519c5496fe81dafd39ec5084bbd78c"
+        }
+      },
+      "cover": "/images/projects/salunkes/cover.jpg",
+      "name": "Salunkes"
+    },
+    "1Xy1KykTGn4LtL-tag-zrLG90rBcW5KXz": {
+      "slug": "shantiniketan",
+      "files": {
+        "1BLJ27Tz5L3I5bMa8hWcyopNYxEvoHKlY": {
+          "name": "00 dusk.jpg",
+          "file": "00-dusk.jpg",
+          "md5": "78986b79c12acf5edca8b295ec6e4207"
+        },
+        "1lzo-aiVc3XzAVfodLj1Kq5jjMIbx_e32": {
+          "name": "01 street front.jpg",
+          "file": "01-street-front.jpg",
+          "md5": "dfb17fd408099cdfcc5868c08bbbd34c"
+        },
+        "18DSc7WoVx-qqDAcjevnAERNoozLGXJ2-": {
+          "name": "02 facade glow.jpg",
+          "file": "02-facade-glow.jpg",
+          "md5": "9902861c206ed4100b16dd560cf92171"
+        },
+        "1yJ2Xt-OmwBv_939A1XB0q9-lma2l9yVv": {
+          "name": "03 garden wall.jpg",
+          "file": "03-garden-wall.jpg",
+          "md5": "b42ac001a6a03542364f89d5437d6d30"
+        },
+        "1PBKq06DKJHhwT7Y0vut0QqCseMUhssTD": {
+          "name": "04 lane.jpg",
+          "file": "04-lane.jpg",
+          "md5": "9e74a12926d274ba01e1ab3b8c627ff8"
+        },
+        "1TC_g-uQZOoTN__93wWbc3LZe44vO2fkk": {
+          "name": "05 screen wall.jpg",
+          "file": "05-screen-wall.jpg",
+          "md5": "656f0f16ea0ac22b863e67ad204c6b4f"
+        },
+        "1Qq7O189Ce8WhqdB_ED3AclBEaEnEXQ7e": {
+          "name": "06 living room.jpg",
+          "file": "06-living-room.jpg",
+          "md5": "278f7ba9a4d5fbe28ae3f3941a04cd0f"
+        },
+        "1cnOYLQgk9ASW_nmtZRAvbedghWFZXQgf": {
+          "name": "07 living dining.jpg",
+          "file": "07-living-dining.jpg",
+          "md5": "dc6195db256d1ec41fbd3ea555a7ef91"
+        },
+        "1dUXTabHr6OBezJCgtZMw6GnJSupbvHNX": {
+          "name": "08 spiral stair.jpg",
+          "file": "08-spiral-stair.jpg",
+          "md5": "72763d980b2d3040fa3a336a032c8764"
+        },
+        "1Tfor5ETs4EHh3YpYK-ytAbac4SOhQAug": {
+          "name": "09 kitchen.jpg",
+          "file": "09-kitchen.jpg",
+          "md5": "176f41784094a4755181a475178a76ae"
+        },
+        "1RI81X-2bd3q4RqZp2KT5ndPJrTwXdjSV": {
+          "name": "10 dining.jpg",
+          "file": "10-dining.jpg",
+          "md5": "b9348d188740dc97dd432819b879dc69"
+        },
+        "1RvW6RJ0Y_foIl3lAV5iQZ2knspoQABA1": {
+          "name": "11 kitchen island.jpg",
+          "file": "11-kitchen-island.jpg",
+          "md5": "6bd4abd0a55fd04631667bbeb99e828d"
+        },
+        "1nz0FL3f_wA9GGrhlnicGsJ3-oXDbyv90": {
+          "name": "12 entrance.jpg",
+          "file": "12-entrance.jpg",
+          "md5": "b2e16a388d3d10044bd2940f5cdddd66"
+        },
+        "1mSWiN2b8_3kEYoZt9SToaOySxzyldvBd": {
+          "name": "cover planters.jpg",
+          "file": "cover-planters.jpg",
+          "md5": "8f4d99a407e34b226e47453b8ee95278"
+        }
+      },
+      "cover": "/images/projects/shantiniketan/cover-planters.jpg",
+      "name": "Shantiniketan"
+    },
+    "1Ft-Bj8tNF5edhTOW2lIazWcndZLTgaWC": {
+      "slug": "vak-workshop",
+      "files": {
+        "1btAJy5BY7MuPiXVBuSJrjcUNFcXGAiVK": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "165ce82ef90f5fa62ec54c71b8dde1ab"
+        }
+      },
+      "cover": "/images/projects/vak-workshop/cover.jpg",
+      "name": "VAK Workshop"
+    },
+    "1UimVionbDdM4_IOMMS5JFja0I_dzTiuf": {
+      "slug": "vistara",
+      "files": {
+        "1v07nbBOrfmP5Cx1OUV05w5eJuI00zOwH": {
+          "name": "cover.jpg",
+          "file": "cover.jpg",
+          "md5": "97e4557fba1eaf44dce6130ec9e10968"
+        }
+      },
+      "cover": "/images/projects/vistara/cover.jpg",
+      "name": "Vistara"
+    }
+  }
 }
