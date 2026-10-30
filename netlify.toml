@@ -10,3 +10,9 @@
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# lets other tools (e.g. Google Drive in the browser) read the site's public photos
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
