@@ -15,32 +15,167 @@
   "blocks": [],
   "drive_folder": "16vss5N-aGmPZp38dI2v0MYYnL5iCNBHu",
   "photos": [
-    "/images/projects/502-gulmohar/20250928-121341-edited-4k.png",
-    "/images/projects/502-gulmohar/20250928-121443-edited-4k.png",
-    "/images/projects/502-gulmohar/20250928-122040-edited-4k.png",
-    "/images/projects/502-gulmohar/20250928-122313-edited-4k.png",
-    "/images/projects/502-gulmohar/20250928-122754-edited-4k.png",
-    "/images/projects/502-gulmohar/20250928-122850-edited-4k.png",
-    "/images/projects/502-gulmohar/20250928-124321-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-124641-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-124916-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-124934-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-125137-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-125407-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-130412.jpg",
-    "/images/projects/502-gulmohar/20250928-130747-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-134217.jpg",
-    "/images/projects/502-gulmohar/20250928-134557-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-134959-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-135057-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-135524-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-135903-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-140710-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-140917-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-141404-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-142520-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-142955-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-150650-edited-4k.jpg",
-    "/images/projects/502-gulmohar/20250928-151041-edited-4k.jpg"
+    {
+      "src": "/images/projects/502-gulmohar/20250928-121341-edited-4k.png",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-121443-edited-4k.png",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-122040-edited-4k.png",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-122313-edited-4k.png",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-122754-edited-4k.png",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-122850-edited-4k.png",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-124321-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-124641-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-124916-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-124934-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-125137-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-125407-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-130412.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-130747-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-134217.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-134557-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-134959-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-135057-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-135524-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-135903-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-140710-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-140917-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-141404-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-142520-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-142955-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-150650-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/502-gulmohar/20250928-151041-edited-4k.jpg",
+      "alt": "502 Gulmohar by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    }
   ]
 }

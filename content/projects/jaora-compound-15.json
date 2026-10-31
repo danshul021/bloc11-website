@@ -15,29 +15,166 @@
   "blocks": [],
   "drive_folder": "1lLSP08uaVs2Q06o4Bhd8V9M7wX83y5_j",
   "photos": [
-    "/images/projects/jaora-compound-15/view-01-p05.png",
-    "/images/projects/jaora-compound-15/view-04-p08.png",
-    "/images/projects/jaora-compound-15/view-07-p11.png",
-    "/images/projects/jaora-compound-15/view-10-p14.png",
-    "/images/projects/jaora-compound-15/view-11-p15.png",
-    "/images/projects/jaora-compound-15/view-14-p18.png",
-    "/images/projects/jaora-compound-15/view-15-p19.png",
-    "/images/projects/jaora-compound-15/view-16-p20.png",
-    "/images/projects/jaora-compound-15/view-18-p22.png",
-    "/images/projects/jaora-compound-15/view-19-p23.png",
-    "/images/projects/jaora-compound-15/view-21-p25.png",
-    "/images/projects/jaora-compound-15/view-23-p27.png",
-    "/images/projects/jaora-compound-15/view-24-p28.png",
-    "/images/projects/jaora-compound-15/view-27-p31.png",
-    "/images/projects/jaora-compound-15/view-29-p33.png",
-    "/images/projects/jaora-compound-15/view-30-p34.png",
-    "/images/projects/jaora-compound-15/view-31-p35.png",
-    "/images/projects/jaora-compound-15/view-32-p36.png",
-    "/images/projects/jaora-compound-15/view-34-p38.png",
-    "/images/projects/jaora-compound-15/view-36-p40.png",
-    "/images/projects/jaora-compound-15/view-37-p41.png",
-    "/images/projects/jaora-compound-15/view-38-p42.png",
-    "/images/projects/jaora-compound-15/view-39-p43.png",
-    "/images/projects/jaora-compound-15/view-49-p53.png"
+    {
+      "src": "/images/projects/jaora-compound-15/view-01-p05.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-04-p08.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-07-p11.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-10-p14.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-11-p15.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-14-p18.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-15-p19.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-16-p20.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-18-p22.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-19-p23.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-21-p25.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-23-p27.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-24-p28.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-27-p31.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-29-p33.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-30-p34.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-31-p35.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-32-p36.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-34-p38.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-36-p40.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-37-p41.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-38-p42.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-39-p43.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-bedroom-timber-headboard.png",
+      "alt": "A modern bedroom interior featuring a timber headboard, blue upholstery, and a tall vertical mirror — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "timber",
+        "wood",
+        "mirror",
+        "upholstery",
+        "bed",
+        "view 41 p45",
+        "jaora compound 15"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/jaora-compound-15/view-49-p53.png",
+      "alt": "Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    }
   ]
 }

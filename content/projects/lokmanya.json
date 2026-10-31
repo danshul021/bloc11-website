@@ -8,18 +8,83 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "/images/projects/lokmanya/hammered-copper-and-linen-bedroom.png",
+  "thumbnail": "/images/projects/lokmanya/lokmanya-contemporary-bedroom-with-metal-partition.png",
   "hero_image": "/images/projects/lokmanya/hammered-copper-and-linen-bedroom.png",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "1_ox-c_k1oUmMxGgU-inxMqbYGMBuonEB",
   "photos": [
-    "/images/projects/lokmanya/hammered-copper-and-linen-bedroom.png",
-    "/images/projects/lokmanya/p04-dining-area-x26.png",
-    "/images/projects/lokmanya/p05-dining-area-x29.png",
-    "/images/projects/lokmanya/p16-master-bedroom-2-x62.png",
-    "/images/projects/lokmanya/p17-master-bedroom-2-x65.png",
-    "/images/projects/lokmanya/p30-bathroom-doorway-4k.png"
+    {
+      "src": "/images/projects/lokmanya/lokmanya-contemporary-bedroom-with-metal-partition.png",
+      "alt": "A spacious contemporary bedroom featuring a sculptural metallic partition, textured walls, and natural light — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "metal",
+        "marble",
+        "wood",
+        "partition",
+        "lighting",
+        "cream headboard beneath arched screen",
+        "lokmanya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/lokmanya/lokmanya-white-building-with-timber-balcony.jpg",
+      "alt": "A white painted building with a large timber-clad balcony and intricate jaali screens under a bright sky — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "balcony",
+        "brick jaali",
+        "timber",
+        "rendering",
+        "jaali screen",
+        "terrace",
+        "white",
+        "elevation1",
+        "lokmanya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/lokmanya/hammered-copper-and-linen-bedroom.png",
+      "alt": "Lokmanya by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/lokmanya/p04-dining-area-x26.png",
+      "alt": "Lokmanya by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/lokmanya/p05-dining-area-x29.png",
+      "alt": "Lokmanya by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/lokmanya/p16-master-bedroom-2-x62.png",
+      "alt": "Lokmanya by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/lokmanya/p17-master-bedroom-2-x65.png",
+      "alt": "Lokmanya by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/lokmanya/p30-bathroom-doorway-4k.png",
+      "alt": "Lokmanya by Bloc 11 Architects",
+      "tags": [],
+      "vault": true
+    }
   ]
 }

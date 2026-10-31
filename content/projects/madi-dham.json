@@ -8,11 +8,147 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "",
+  "thumbnail": "/images/projects/madi-dham/madi-dham-minimalist-bedroom-wooden-furniture.jpg",
   "hero_image": "",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "18hTilxo1DUaCxnevV-576Y9R6B0a5E61",
-  "photos": []
+  "photos": [
+    {
+      "src": "/images/projects/madi-dham/madi-dham-minimalist-bedroom-wooden-furniture.jpg",
+      "alt": "Minimalist bedroom interior featuring textured grey walls, wooden furniture, and a spherical pendant light — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "lighting",
+        "minimalist",
+        "bedside",
+        "grey walls",
+        "wood work",
+        "view 01 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/madi-dham/madi-dham-bedroom-wooden-headboard-desk.jpg",
+      "alt": "A contemporary bedroom featuring a custom wooden headboard bench, integrated desk, and textured curtains — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "wood",
+        "furniture",
+        "lighting",
+        "modern",
+        "view 02 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/madi-dham/madi-dham-built-in-wooden-seating-bench.jpg",
+      "alt": "A custom wooden built-in bench featuring patterned upholstery sits beneath a slatted wall panel — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "timber",
+        "wood",
+        "seating",
+        "curtains",
+        "acoustic guitar",
+        "built-in furniture",
+        "view 03 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/madi-dham/madi-dham-modern-bedroom-with-built-in-seating.jpg",
+      "alt": "A modern bedroom featuring textured grey walls, wooden furniture, and built-in seating with patterned cushions — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "wood",
+        "lighting",
+        "furniture",
+        "curtains",
+        "built-in seating",
+        "view 04 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/madi-dham/madi-dham-contemporary-bedroom-interior-design.jpg",
+      "alt": "A contemporary bedroom featuring a textured grey feature wall, dark wood furniture, and ambient pendant lighting — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "lighting",
+        "texturing",
+        "wood",
+        "render",
+        "contemporary",
+        "view 05 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/madi-dham/madi-dham-minimalist-bedroom-interior.jpg",
+      "alt": "A minimalist bedroom features a textured grey accent wall, bespoke timber bedside table, and pendant lighting — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "stucco",
+        "pendant light",
+        "bedside table",
+        "leather",
+        "lighting",
+        "view 06 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/madi-dham/madi-dham-modern-fluted-panel-bedroom.jpg",
+      "alt": "A contemporary bedroom featuring fluted white wall panels, a circular backlit accent, and a dark wooden door — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "white panels",
+        "lighting",
+        "modern",
+        "bed",
+        "render",
+        "view 07 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/madi-dham/madi-dham-contemporary-bedroom-wooden-bed.jpg",
+      "alt": "A contemporary bedroom featuring a textured grey accent wall, custom wooden bed, and ambient lighting — Madi Dham by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "lighting",
+        "wood",
+        "modern",
+        "paneling",
+        "rendering",
+        "view 08 edited 4k",
+        "madi dham"
+      ],
+      "vault": true
+    }
+  ]
 }
