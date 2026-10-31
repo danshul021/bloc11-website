@@ -1,8 +1,8 @@
 // tools/photo-tags.mjs — writes a description, search tags and an SEO file name for one photo.
 //
 // Uses an AI image-reading service when a key is available (checked in this order):
+//   GEMINI_API_KEY     → Google Gemini   (model: GEMINI_MODEL, default gemini-3.5-flash-lite)
 //   ANTHROPIC_API_KEY  → Claude          (model: TAG_MODEL, default claude-haiku-5-5)
-//   GEMINI_API_KEY     → Google Gemini   (model: GEMINI_MODEL, default gemini-2.5-flash)
 // Without a key it falls back to the project's details and the Drive file name, so the
 // refresh still works — the photo just gets plainer tags, which can be edited in the admin page.
 
@@ -73,8 +73,8 @@ async function claude(jpeg, p) {
 }
 
 async function gemini(jpeg, p) {
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`, {
+  const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+  const r = await fetch(`${process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'}/v1beta/models/${model}:generateContent?key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`, {
     method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ contents: [{ parts: [{ inline_data: { mime_type: 'image/jpeg', data: jpeg.toString('base64') } }, { text: PROMPT(p) }] }] }),
   });
@@ -83,14 +83,14 @@ async function gemini(jpeg, p) {
   return parse(((j.candidates || [])[0]?.content?.parts || []).map((x) => x.text || '').join(''));
 }
 
-export const tagger = process.env.ANTHROPIC_API_KEY ? 'Claude' : process.env.GEMINI_API_KEY ? 'Gemini' : '';
+export const tagger = process.env.GEMINI_API_KEY ? 'Gemini' : process.env.ANTHROPIC_API_KEY ? 'Claude' : '';
 
 // jpeg: a small JPEG of the photo (about 1024 px wide); fileName: its name in Drive
 export async function describe(jpeg, p, fileName) {
   const fromName = String(fileName || '').replace(/\.[^.]+$/, '').replace(/^(cover|img|dsc|pxl|photo)[\s_-]*\d*/i, '').replace(/^\d+[\s._-]*/, '').replace(/[_-]+/g, ' ').trim();
   let got = null, error = '';
   if (tagger) {
-    try { got = tagger === 'Claude' ? await claude(jpeg, p) : await gemini(jpeg, p); }
+    try { got = tagger === 'Gemini' ? await gemini(jpeg, p) : await claude(jpeg, p); }
     catch (e) { error = e.message; }
   }
   const description = got?.description || (fromName ? fromName.charAt(0).toUpperCase() + fromName.slice(1) : '');
