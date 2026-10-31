@@ -196,6 +196,437 @@
       },
       "cover": "/images/projects/vistara/vistara-residence-indore-carved-jaali-facade.jpg",
       "name": "Vistara"
+    },
+    "15foQphedpXKzaE7GysUPjvUOHG4k3Swc": {
+      "slug": "201-gulmohar",
+      "files": {
+        "1DTiN8ghkUblID_pnCqNITl3MspD1pMLZ": {
+          "name": "Enscape_2024-01-06-11-16-34.png",
+          "file": "enscape-2024-01-06-11-16-34.png",
+          "md5": "bcab46a0fb3f106a3cad12852b0d20c7"
+        },
+        "1egQz5XyuRs2RypxO0foOyHycbRpZjXkH": {
+          "name": "Enscape_2024-01-06-14-43-29.png",
+          "file": "enscape-2024-01-06-14-43-29.png",
+          "md5": "dba6cfaf340f0bf766096342bc74f81d"
+        },
+        "17fTWs8ePAspHZns6FEUfis-ubRsDeUYn": {
+          "name": "Enscape_2024-01-06-14-45-27.png",
+          "file": "enscape-2024-01-06-14-45-27.png",
+          "md5": "aebe8f3af85b70395fdb41e3c028d122"
+        },
+        "1HOoh8HrScPSwKuqurn3ArQDDTjNAVuQA": {
+          "name": "Enscape_2024-02-03-00-54-38.png",
+          "file": "enscape-2024-02-03-00-54-38.png",
+          "md5": "112c6d835e31d7d862955440e9e84423"
+        },
+        "1ne0S2_Ym4FyQF2U1JoqLAEB8edUM8NlG": {
+          "name": "Marble dining room in soft daylight.png",
+          "file": "marble-dining-room-in-soft-daylight.png",
+          "md5": "a5e98c68f1c8b77746a5d1b77be15ce6"
+        }
+      },
+      "cover": "/images/projects/201-gulmohar/enscape-2024-01-06-11-16-34.png",
+      "name": "201 Gulmohar"
+    },
+    "16vss5N-aGmPZp38dI2v0MYYnL5iCNBHu": {
+      "slug": "502-gulmohar",
+      "files": {
+        "1P_10LpNV5o6cW9XPJ4a2kopcyn6FSrCm": {
+          "name": "20250928_121341_Edited_4K.png",
+          "file": "20250928-121341-edited-4k.png",
+          "md5": "80a71bc26a38ec78099dd2e111d379c6"
+        },
+        "1VHKCmkcLie4XtmUD9k318z1DbBrYRbTM": {
+          "name": "20250928_121443_Edited_4K.png",
+          "file": "20250928-121443-edited-4k.png",
+          "md5": "4156dce22dce98df5b9e0c5c3fd704c3"
+        },
+        "1JK6T2h7dsrSltZDPdZi9ZjazFQ89ZOCy": {
+          "name": "20250928_122040_Edited_4K.png",
+          "file": "20250928-122040-edited-4k.png",
+          "md5": "734a19b658132649b4b9c240478a5817"
+        },
+        "1Y-eHTWyCBcQvV492VgiZrHv_T5dFJwAV": {
+          "name": "20250928_122313_Edited_4K.png",
+          "file": "20250928-122313-edited-4k.png",
+          "md5": "d08ce51a62dc6bad2635f8b3179e2dff"
+        },
+        "1CvwnUHAknzzCd9kIICYSsO1pmpWJG_mu": {
+          "name": "20250928_122754_Edited_4K.png",
+          "file": "20250928-122754-edited-4k.png",
+          "md5": "919808cb5abc0afc30b67856936157f8"
+        },
+        "1ClhTiDiTJIgsBZEOBTjuoee3s1fhlvuf": {
+          "name": "20250928_122850_Edited_4K.png",
+          "file": "20250928-122850-edited-4k.png",
+          "md5": "e1e2f5c2e55d30c9f58cfa7b3afa91e2"
+        },
+        "1PvIvUyzgZfO9O9J4zGDIBmw4PP_b9LOH": {
+          "name": "20250928_124321_Edited_4K.jpg",
+          "file": "20250928-124321-edited-4k.jpg",
+          "md5": "4a7a8bce5b879d04cac449bafb7f2e9d"
+        },
+        "12e--DkvdZnSVE8NPjZB21IwBSu-HP6gS": {
+          "name": "20250928_124641_Edited_4K.jpg",
+          "file": "20250928-124641-edited-4k.jpg",
+          "md5": "4707f1f3078f35a96d4feb309e4835e4"
+        },
+        "16ixz69b8lT4cCmg-ETO3yaUr0ADVewrE": {
+          "name": "20250928_124916_Edited_4K.jpg",
+          "file": "20250928-124916-edited-4k.jpg",
+          "md5": "eed3d0d4204cb34c3439721f41249d4b"
+        },
+        "1LM4lRseDVbimckXi2BNBeSZdkbpbr1j4": {
+          "name": "20250928_124934_Edited_4K.jpg",
+          "file": "20250928-124934-edited-4k.jpg",
+          "md5": "856271948106c6bd571d4e5542d94cda"
+        },
+        "1lCjWGSCROwfP6qLyDxMgXXqjTIPFxhH0": {
+          "name": "20250928_125137_Edited_4K.jpg",
+          "file": "20250928-125137-edited-4k.jpg",
+          "md5": "479c575b22a4c9e5f61eb7e4f0a544ed"
+        },
+        "1_mjMTayj8NhZktbjikgZ7aj_hXuuZm8X": {
+          "name": "20250928_125407_Edited_4K.jpg",
+          "file": "20250928-125407-edited-4k.jpg",
+          "md5": "6b5fb051a6bbb17f65c84aae3161c5db"
+        },
+        "1oyFBmuIdyHhV99lzgo27lZQuL_gncG_M": {
+          "name": "20250928_130412.jpg",
+          "file": "20250928-130412.jpg",
+          "md5": "57da4471a93967df6e7ee94a677e9d85"
+        },
+        "1U6T-9C8wiLx_QDqGFJFuNjOwt7bdGbqQ": {
+          "name": "20250928_130747_Edited_4K.jpg",
+          "file": "20250928-130747-edited-4k.jpg",
+          "md5": "e503204241d6fb80d1325c5389fde698"
+        },
+        "1epjEa1IAIclm9RQgebmG7Yn7NWGbJWJk": {
+          "name": "20250928_134217.jpg",
+          "file": "20250928-134217.jpg",
+          "md5": "74acd5bb0384b73315c08efff72fa246"
+        },
+        "1PyXcFA-V3ba0opbM0BvrvCXEWWMXlL70": {
+          "name": "20250928_134557_Edited_4K.jpg",
+          "file": "20250928-134557-edited-4k.jpg",
+          "md5": "c69a40bbc5d984bfd69fec5523fb3766"
+        },
+        "1DyLU_FY64-Cn3jgl3UID3xxZNwkjzG7m": {
+          "name": "20250928_134959_Edited_4K.jpg",
+          "file": "20250928-134959-edited-4k.jpg",
+          "md5": "d8a195891e0eac0f4b3fcb13ba98c757"
+        },
+        "1vEvvvfsuXu566WpgqX7f9L-KzpJERj6c": {
+          "name": "20250928_135057_Edited_4K.jpg",
+          "file": "20250928-135057-edited-4k.jpg",
+          "md5": "962509cc9a9185bf0ead708ee614e95a"
+        },
+        "11pKZec8COegHOInrAW5shp6ybWTpCn-u": {
+          "name": "20250928_135524_Edited_4K.jpg",
+          "file": "20250928-135524-edited-4k.jpg",
+          "md5": "ec16808965830dbdbc2a749cf00ba49b"
+        },
+        "13bJkAAHmEUY1YTTErUSSeaYz3bXfoSys": {
+          "name": "20250928_135903_Edited_4K.jpg",
+          "file": "20250928-135903-edited-4k.jpg",
+          "md5": "b449799c80339b6a4a40a1d71e72a7d6"
+        },
+        "1BbHdxos7wgtLWRSSU8dlyTEV2Nqg2o-z": {
+          "name": "20250928_140710_Edited_4K.jpg",
+          "file": "20250928-140710-edited-4k.jpg",
+          "md5": "fe3df919f30f819d56dd21974fa02a6e"
+        },
+        "1Ajgfm92fHeKi_mRDhRzsWtEf_5jaqc1m": {
+          "name": "20250928_140917_Edited_4K.jpg",
+          "file": "20250928-140917-edited-4k.jpg",
+          "md5": "64b742e782e98ced3bd8694706651d27"
+        },
+        "1z7Z8quyAzEQYtz2zOAR4Z7mPsP8axsY3": {
+          "name": "20250928_141404_Edited_4K.jpg",
+          "file": "20250928-141404-edited-4k.jpg",
+          "md5": "7a2d59029c872893e3a3da528f1655cb"
+        },
+        "17CiFgNv5p42Xq5EeXNmvGg7KkAwPIiXO": {
+          "name": "20250928_142520_Edited_4K.jpg",
+          "file": "20250928-142520-edited-4k.jpg",
+          "md5": "26ffb0d04238fe4bd64b6a8de37bd43b"
+        },
+        "1FKwVu75KIgXESuvV4xasPuKVeNt4XVcP": {
+          "name": "20250928_142955_Edited_4K.jpg",
+          "file": "20250928-142955-edited-4k.jpg",
+          "md5": "f84e9a5f78fe719321aae9fd99b017d5"
+        },
+        "1hL_0Nq2VrklZ8gYm9cRCaCeqW_zLcndz": {
+          "name": "20250928_150650_Edited_4K.jpg",
+          "file": "20250928-150650-edited-4k.jpg",
+          "md5": "ef6016b8fb8beb2eb2234269e7410590"
+        },
+        "1njp9fi9CwqGCJM1GB6imChX3gw5E7gAR": {
+          "name": "20250928_151041_Edited_4K.jpg",
+          "file": "20250928-151041-edited-4k.jpg",
+          "md5": "45ec0951df21ca39dad447cfe51af047"
+        }
+      },
+      "cover": "/images/projects/502-gulmohar/20250928-121341-edited-4k.png",
+      "name": "502 Gulmohar"
+    },
+    "1C1wzyN_mnla77vzDn91KOHkvKTwNUD8z": {
+      "slug": "amit-ji-residence",
+      "files": {
+        "1bHCgvpUtG9oQP13dWI2jBRzG3sXO8MV5": {
+          "name": "02_Stair_Kitchen_P14_MEL_4K.png",
+          "file": "02-stair-kitchen-p14-mel-4k.png",
+          "md5": "0cfd4d9c30958ae5ccec06fc8ec496e0"
+        },
+        "13heMG9Qo7YgcHEw4DIpyMhfR8fiEnOdY": {
+          "name": "03_Living_Dining_P15_MEL_4K.png",
+          "file": "03-living-dining-p15-mel-4k.png",
+          "md5": "27bbf8b1b6d0750d165b200ca410c11a"
+        },
+        "13ciZsEtHAKb_l8vVK-ADwE0a9HNYJBwH": {
+          "name": "06_Living_Dining_P19_MEL_4K.png",
+          "file": "06-living-dining-p19-mel-4k.png",
+          "md5": "187176a9afc60b6392dee5c2504f6337"
+        },
+        "1TAphrgXi1xcH30b0dzX5DbxryGRRsIrl": {
+          "name": "07_Stair_Kitchen_P20_MEL_4K.png",
+          "file": "07-stair-kitchen-p20-mel-4k.png",
+          "md5": "810589aec6c0266f2b44972483c18413"
+        },
+        "1z6Qp6Pmm6wwNAFXWP7wXaZDudQfz2QKf": {
+          "name": "08_Mandir_P21_MEL_4K.png",
+          "file": "08-mandir-p21-mel-4k.png",
+          "md5": "db14489849a044605ce5470362fa79ce"
+        },
+        "1oL7qwdpMJiAaAYcowaKVEw9SsmqpCfxg": {
+          "name": "12_Mothers_Bedroom_P25_MEL_4K.png",
+          "file": "12-mothers-bedroom-p25-mel-4k.png",
+          "md5": "c95a2b2bd0b1b98529094da189350b20"
+        },
+        "1wBFk_n5F7O1SdFLLQDHrkfvj5aBoITyi": {
+          "name": "13_Mothers_Bedroom_P26_MEL_4K.png",
+          "file": "13-mothers-bedroom-p26-mel-4k.png",
+          "md5": "d3cb2d177fce02d79795b2846329cb05"
+        },
+        "1AksgQbcusQVL82QP54vwoytp18pZUtAc": {
+          "name": "20_Master_Bedroom_P34_MEL_4K.png",
+          "file": "20-master-bedroom-p34-mel-4k.png",
+          "md5": "0eb6b99134ea18c6c07514ef7898a7db"
+        },
+        "1W_LKXoqvebxd-sFnOt_W86v8fQf3YTeF": {
+          "name": "25_Kids_Bedroom_P41_MEL_4K.png",
+          "file": "25-kids-bedroom-p41-mel-4k.png",
+          "md5": "385633e89cd500724c8cc19471eb0308"
+        },
+        "1bnCuFJO0kmnbpMK8Rl8UU2oetGou06zW": {
+          "name": "27_Kids_Bedroom_P43_MEL_4K.png",
+          "file": "27-kids-bedroom-p43-mel-4k.png",
+          "md5": "5f2cd6d749dab6c313371f4368709d50"
+        }
+      },
+      "cover": "/images/projects/amit-ji-residence/02-stair-kitchen-p14-mel-4k.png",
+      "name": "Amit Ji Residence"
+    },
+    "1lLSP08uaVs2Q06o4Bhd8V9M7wX83y5_j": {
+      "slug": "jaora-compound-15",
+      "files": {
+        "1se78GFmwVyt3ezH43UvFTTA8QhzDYanC": {
+          "name": "View_01_P05.png",
+          "file": "view-01-p05.png",
+          "md5": "dca76614b321366d67267172145e5bbb"
+        },
+        "1OwITC5U5zZQOLpAkwMR8DPIk27JOxwQf": {
+          "name": "View_04_P08.png",
+          "file": "view-04-p08.png",
+          "md5": "d94153c04a2eee84b7feab4bde8f3f1c"
+        },
+        "1pCYfYwM6Y7M3hZ7M6Z7m_QjfjusJoliR": {
+          "name": "View_07_P11.png",
+          "file": "view-07-p11.png",
+          "md5": "ea4c9ff4edbf76bf04667cac8ebe9989"
+        },
+        "1mgrOEmTUc-yR9KW0w-ztmbn-dAXST7TO": {
+          "name": "View_10_P14.png",
+          "file": "view-10-p14.png",
+          "md5": "5773a0efba776696a7b081f9f4a44fc2"
+        },
+        "10xuKwjHgiDEaYjHbCQ6Hadr-2cHmkAzc": {
+          "name": "View_11_P15.png",
+          "file": "view-11-p15.png",
+          "md5": "117b357a43038d3160147d59fd3d867f"
+        },
+        "1nWT16Bm7q06UezPfkAVLMV7wbewUW99X": {
+          "name": "View_14_P18.png",
+          "file": "view-14-p18.png",
+          "md5": "818bce24283cfd938d6856f9999211f3"
+        },
+        "12z8zvOAVcrYuLcuRLcs4cahrs7v98ZCg": {
+          "name": "View_15_P19.png",
+          "file": "view-15-p19.png",
+          "md5": "6125c233d047360febd3a11330020ea5"
+        },
+        "1a_b4oE2vo0GEBv1EkojacxR0--MKujz5": {
+          "name": "View_16_P20.png",
+          "file": "view-16-p20.png",
+          "md5": "75dbfb0adf15b94b89644ce6e8f6700c"
+        },
+        "14HAsusnVjhk6dGO1nN6hlQgJqOBZTmb5": {
+          "name": "View_18_P22.png",
+          "file": "view-18-p22.png",
+          "md5": "0b9dc6d928b88a4288725ce8b4dbc77c"
+        },
+        "12UxlPNwsvuNNb0gBaRUjxcnyUqGQXQg1": {
+          "name": "View_19_P23.png",
+          "file": "view-19-p23.png",
+          "md5": "9becf373be01227de0ad38d31c2cdba4"
+        },
+        "1pO_GlkSkTQvn17cA9VkSj1x5BsXZLMIt": {
+          "name": "View_21_P25.png",
+          "file": "view-21-p25.png",
+          "md5": "c2dbf5905db3051f7408b7a5b6858eba"
+        },
+        "1rzuHbFu6mO6KL-acFa-IlaxfOk4mO0qm": {
+          "name": "View_23_P27.png",
+          "file": "view-23-p27.png",
+          "md5": "f9a13e24fb52da5d5e4450bb6d8b31c1"
+        },
+        "1AEcvfnaUYCq-RUrgVq-bg8FrQ8Vosp2t": {
+          "name": "View_24_P28.png",
+          "file": "view-24-p28.png",
+          "md5": "8eb73590edfce9311cbd916fc336368f"
+        },
+        "1z25zlAaT5XR0uNdDTKK2VB43B1Vt1NWk": {
+          "name": "View_27_P31.png",
+          "file": "view-27-p31.png",
+          "md5": "492fbad0612121bd20dcdc414e0f042a"
+        },
+        "1PevKIPDEqMe0aJe4sd53vtbA5P2i2mnY": {
+          "name": "View_29_P33.png",
+          "file": "view-29-p33.png",
+          "md5": "fc3791afd9243e2f4bde02f66cbc59c0"
+        },
+        "1Ew5Hs1L0KHRZekXDqEAUiohElKIaY-XP": {
+          "name": "View_30_P34.png",
+          "file": "view-30-p34.png",
+          "md5": "d90d5c592daa5961594036c718268c09"
+        },
+        "1r-gdbVeKpv1YKpaUTfTazFxI5U3neDly": {
+          "name": "View_31_P35.png",
+          "file": "view-31-p35.png",
+          "md5": "94d2aae70a5291e95e6c9a53665c3cae"
+        },
+        "1DsCVebY-X2B8nsxVwnXbNzvQ9Zd-K6Cr": {
+          "name": "View_32_P36.png",
+          "file": "view-32-p36.png",
+          "md5": "2c5efacf2ee0585baa9e8047b7dca1a3"
+        },
+        "1ZcZrxB2zOkIbhWxv7YMxoBAggKw5lv4m": {
+          "name": "View_34_P38.png",
+          "file": "view-34-p38.png",
+          "md5": "6fa79916e128f9a01c6b686c9d1dbad8"
+        },
+        "1xR8CcMGLIMI4zB7_v74Zw36Yg7-j2ZHX": {
+          "name": "View_36_P40.png",
+          "file": "view-36-p40.png",
+          "md5": "4bc316488c304d384f2cfcc309f14e61"
+        },
+        "1zPa7CNaQ8wam_zPyVkXw84M58CQ2HHLm": {
+          "name": "View_37_P41.png",
+          "file": "view-37-p41.png",
+          "md5": "f3e51078faf3eaae733911f653cf4ae2"
+        },
+        "1iAzsCdi-sKzv5SXjbIjnBUTLObr_15Ic": {
+          "name": "View_38_P42.png",
+          "file": "view-38-p42.png",
+          "md5": "9108402db4bd53f6c9f79de48e7cfe95"
+        },
+        "1-EB_6flWNCPr27z_s1RiAxtpBBRI7LxV": {
+          "name": "View_39_P43.png",
+          "file": "view-39-p43.png",
+          "md5": "0ff316430804577cc33591593424db98"
+        },
+        "1wA6zKTFlvl5egs-Hcll1sNvrdlC-8EZ0": {
+          "name": "View_49_P53.png",
+          "file": "view-49-p53.png",
+          "md5": "fdabe8e63f7132e33f00f2157f32937a"
+        }
+      },
+      "cover": "/images/projects/jaora-compound-15/view-01-p05.png",
+      "name": "Jaora Compound 15"
+    },
+    "1_ox-c_k1oUmMxGgU-inxMqbYGMBuonEB": {
+      "slug": "lokmanya",
+      "files": {
+        "11ibNAH-EXPtXjHHbDxYcibeLAxxsuCFE": {
+          "name": "Hammered copper and linen bedroom.png",
+          "file": "hammered-copper-and-linen-bedroom.png",
+          "md5": "7b6faea331e56acdf5dc56b7844d825d"
+        },
+        "1PreZ_xHbsOeizTFt2zuW5E5KH_uJvv3i": {
+          "name": "P04_DINING_AREA_x26.png",
+          "file": "p04-dining-area-x26.png",
+          "md5": "92529901b3760139f79bd1913b26749d"
+        },
+        "1QD5hOXo4SLSTKRBbfft9Q1yFqjgwPnva": {
+          "name": "P05_DINING_AREA_x29.png",
+          "file": "p05-dining-area-x29.png",
+          "md5": "c387ab0acf8c27bde9cbb6a80b398d72"
+        },
+        "1IdmKvxoHBpK1Y_cVjIeFl7tkQPVcPtTB": {
+          "name": "P16_MASTER_BEDROOM_2_x62.png",
+          "file": "p16-master-bedroom-2-x62.png",
+          "md5": "4480c61461961a38f3ffaa933b86c878"
+        },
+        "1CTwR9dAfbmztBuwYznYo5jh9xHtedRqe": {
+          "name": "P17_MASTER_BEDROOM_2_x65.png",
+          "file": "p17-master-bedroom-2-x65.png",
+          "md5": "0c130f249c14748ea396f2bca06728a5"
+        },
+        "1Pl5WcSIrtMaqqxnfTNNfsCOUf_fFRpew": {
+          "name": "P30_Bathroom_Doorway_4K.png",
+          "file": "p30-bathroom-doorway-4k.png",
+          "md5": "6e2673398b0b7c46723c98f5eac46b80"
+        }
+      },
+      "cover": "/images/projects/lokmanya/hammered-copper-and-linen-bedroom.png",
+      "name": "Lokmanya"
+    },
+    "18hTilxo1DUaCxnevV-576Y9R6B0a5E61": {
+      "slug": "madi-dham",
+      "files": {},
+      "cover": "",
+      "name": "Madi Dham "
+    },
+    "16IaUoVtxDo_Pokr-xA8Nm95OJyu-Pylh": {
+      "slug": "royal-bungalow",
+      "files": {},
+      "cover": "",
+      "name": "Royal Bungalow"
+    },
+    "16MkXuGyKzB7GCbVGQxOIjhiNq9q-IiKL": {
+      "slug": "vijaynagar-74",
+      "files": {},
+      "cover": "",
+      "name": "Vijaynagar 74"
+    },
+    "1xInUn6OGRkgFvqn1UGRoF833C5_DipIM": {
+      "slug": "vijaynagar-78",
+      "files": {},
+      "cover": "",
+      "name": "VIjaynagar 78"
+    },
+    "12d166Juu3CVbpiUO3wzI1HRVRcYxVpRF": {
+      "slug": "vistara-m",
+      "files": {},
+      "cover": "",
+      "name": "Vistara M"
+    },
+    "1Ut4VEYIce_HcZ1AnZTj8f6vHPLd7hZvg": {
+      "slug": "zameen-mantra-office",
+      "files": {},
+      "cover": "",
+      "name": "Zameen Mantra Office"
     }
   }
 }
