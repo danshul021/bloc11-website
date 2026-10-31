@@ -7,7 +7,7 @@
   "year": "",
   "status": "Completed",
   "show_on_work": true,
-  "thumbnail": "/images/projects/oyster/cover.jpg",
+  "thumbnail": "/images/projects/oyster/oyster-residence-indore-curved-terracotta-facade.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,23 @@
   "blocks": [],
   "drive_folder": "1Bj2vjhUY6nwnsmFSEoyKUVaS7FoS4GMg",
   "photos": [
-    "/images/projects/oyster/cover.jpg"
+    {
+      "src": "/images/projects/oyster/oyster-residence-indore-curved-terracotta-facade.jpg",
+      "alt": "Curving terracotta facade with planted balconies seen from below against a blue sky — Oyster, residence in Indore by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "detail",
+        "curved facade",
+        "terracotta",
+        "balconies",
+        "planters",
+        "oyster",
+        "residence",
+        "residential",
+        "indore"
+      ],
+      "vault": true
+    }
   ]
 }

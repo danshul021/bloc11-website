@@ -1,5 +1,5 @@
 // Work index and project pages
-import { esc, rich, paras, pad, img, has, page, mnav, footer, MNAV_CSS } from './lib.mjs';
+import { esc, rich, paras, pad, img, has, cdn, imageSize, altOf, SITE_URL, page, mnav, footer, MNAV_CSS } from './lib.mjs';
 
 const BASE_CSS = `
 body{margin:0;background:#FFFFFF}
@@ -36,6 +36,35 @@ a.card:hover img{transform:scale(1.03)}
 .lrow>.lmeta{display:block;grid-column:2;grid-row:3;font-size:13px;color:#6B6A67}
 }
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:48px 24px}
+/* ---- Vault: a scrolling collage of every photo, searchable by its tags ---- */
+.vbox{position:relative;height:min(86vh,1000px);overflow:auto;overscroll-behavior:contain;border:1px solid #E6E5E2;background:#FFFFFF;margin-top:-16px}
+.vhead{position:sticky;top:0;z-index:3;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:16px 16px 12px;border-bottom:1px solid #EEEDEA;display:flex;flex-direction:column;gap:12px}
+.vsearch{display:flex;align-items:center;gap:12px;border:1px solid #0E0E0E;border-radius:999px;padding:0 8px 0 18px;min-height:48px;background:#FFFFFF}
+.vsearch input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:400 16px/1.4 'Jost',system-ui,sans-serif;color:#0E0E0E}
+.vsearch input::placeholder{color:#8A8680}
+.vsearch input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;display:none}
+.vsearch button{border:0;background:transparent;font:inherit;font-size:13px;color:#6B6A67;cursor:pointer;padding:8px 10px}
+.vchips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.vchips::-webkit-scrollbar{display:none}
+.vchip{flex:0 0 auto;border:1px solid #D6D2CB;border-radius:999px;background:#FFFFFF;padding:7px 14px;font:400 13px 'Jost',sans-serif;letter-spacing:.03em;color:#0E0E0E;cursor:pointer}
+.vchip:hover{border-color:#0E0E0E}.vchip.on{background:#0E0E0E;color:#FFFFFF;border-color:#0E0E0E}
+.vcount{font-size:12px;letter-spacing:.12em;color:#6B6A67}
+.vgrid{column-width:260px;column-gap:10px;padding:12px}
+@container page (max-width: 640px){.vgrid{column-width:150px;column-gap:6px;padding:6px}.vbox{height:80vh}}
+.vitem{display:block;width:100%;break-inside:avoid;margin:0 0 10px;padding:0;border:0;background:#F3F3F1;cursor:zoom-in;position:relative;overflow:hidden}
+@container page (max-width: 640px){.vitem{margin-bottom:6px}}
+.vitem img{display:block;width:100%;height:auto;transition:transform .6s ease,opacity .3s ease}
+.vitem:hover img{transform:scale(1.03)}
+.vitem .vcap{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.55));color:#FFFFFF;font-size:13px;letter-spacing:.02em;text-align:left;opacity:0;transition:opacity .25s ease}
+.vitem:hover .vcap,.vitem:focus-visible .vcap{opacity:1}
+.vnone{padding:48px 16px;text-align:center;color:#6B6A67;font-size:16px}
+.vlight{font-family:'Jost',system-ui,sans-serif;font-weight:300;position:fixed;inset:0;z-index:100;background:rgba(14,14,14,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 16px 24px;box-sizing:border-box}
+.vlight img{max-width:100%;max-height:calc(100vh - 170px);object-fit:contain;display:block}
+.vlight .vinfo{max-width:900px;margin-top:16px;color:#E8E5E0;text-align:center;font-size:15px;line-height:1.5}
+.vlight .vinfo a{color:#FFFFFF}
+.vlight .vtags{margin-top:8px;font-size:12px;letter-spacing:.08em;color:#9C978F}
+.vlight .vx,.vlight .vp,.vlight .vn{position:absolute;border:0;background:transparent;color:#FFFFFF;cursor:pointer;width:48px;height:48px;font-size:28px;line-height:1}
+.vlight .vx{top:10px;right:10px}.vlight .vp{left:6px;top:50%}.vlight .vn{right:6px;top:50%}
 `;
 
 const PROJECT_CSS = BASE_CSS + `
@@ -44,6 +73,30 @@ const PROJECT_CSS = BASE_CSS + `
 .next:hover{color:#0E0E0E}
 .next:hover .next-title{text-decoration:underline;text-underline-offset:3px}
 `;
+
+ // every photo from every project shown on the site, in a mixed order (round-robin across projects)
+export function vaultData(projects) {
+  const lists = projects.map((p) => (Array.isArray(p.photos) ? p.photos : [])
+    .filter((ph) => ph && typeof ph === 'object' && ph.vault !== false && has(ph.src))
+    .map((ph) => ({ ph, p })));
+  const out = [];
+  for (let k = 0; lists.some((l) => l.length > k); k++) lists.forEach((l) => { if (l[k]) out.push(l[k]); });
+  const items = out.map(({ ph, p }, i) => {
+    const [w, h] = imageSize(ph.src);
+    return {
+      i, s: cdn(ph.src, 800), f: cdn(ph.src, 2000), raw: ph.src, w, h,
+      a: ph.alt || p.title, p: p.title, u: projectHref(p),
+      t: [...(ph.tags || []), p.title, p.type, p.category, p.location].filter(Boolean).join(' | ').toLowerCase(),
+      c: p.category || '', st: p.status || '',
+    };
+  });
+  // quick-search chips: the useful words that actually occur, most common first
+  const PREF = ['bedroom', 'living room', 'kitchen', 'dining', 'bathroom', 'staircase', 'interior', 'exterior', 'elevation', 'facade', 'brick jaali', 'courtyard', 'landscape', 'detail', 'dusk', 'render'];
+  const count = new Map();
+  items.forEach((it) => new Set(it.t.split(' | ')).forEach((t) => count.set(t, (count.get(t) || 0) + 1)));
+  const chips = PREF.filter((t) => count.get(t)).slice(0, 12);
+  return { items, chips };
+}
 
 const CATEGORY_ORDER = ['Residential', 'Commercial', 'Hospitality', 'Institutional', 'Interiors', 'Planning', 'Installations'];
 
@@ -66,7 +119,7 @@ function header(site, { workCurrent }) {
 const statusColor = (s) => (s === 'Ongoing' ? '#A5532F' : '#0E0E0E');
 export const projectHref = (p) => (p.has_page ? `/work/${p.slug}/` : '');
 
-export function renderWork({ site, work, projects }) {
+export function renderWork({ site, work, projects, vault, view = 'list' }) {
   const cats = [...new Set(projects.map((p) => p.category).filter(Boolean))]
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
   const statuses = [...new Set(projects.map((p) => p.status).filter(Boolean))];
@@ -90,7 +143,7 @@ export function renderWork({ site, work, projects }) {
     const href = projectHref(p), tag = href ? 'a' : 'div';
     return `          <${tag}${href ? ` href="${href}"` : ''} class="card" data-cat="${esc(p.category)}" data-status="${esc(p.status)}" style="display: flex; flex-direction: column; gap: 14px">
             <span style="display: block; overflow: hidden; background: #F3F3F1">
-              <img ${img(p.thumbnail, { widths: [640, 1000], sizes: '(max-width: 700px) 100vw, 33vw' })} loading="lazy" decoding="async" alt="${esc(p.title)}" style="width: 100%; aspect-ratio: 8 / 5; object-fit: cover; display: block">
+              <img ${img(p.thumbnail, { widths: [640, 1000], sizes: '(max-width: 700px) 100vw, 33vw' })} loading="lazy" decoding="async" alt="${esc(altOf(p.thumbnail, '') || p.title)}" style="width: 100%; aspect-ratio: 8 / 5; object-fit: cover; display: block">
             </span>
             <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
               <span class="rt" style="font-size: 22px; font-weight: 500; letter-spacing: -0.02em">${esc(p.title)}</span>
@@ -124,6 +177,7 @@ ${header(site, { workCurrent: true })}
         <div role="group" aria-label="View" style="display: flex; gap: 8px">
           ${btn('data-view', 'list', 'List', true)}
           ${btn('data-view', 'grid', 'Grid', false)}
+          ${btn('data-view', 'vault', 'Vault', false)}
         </div>
       </div>
     </div>
@@ -141,19 +195,42 @@ ${projects.map(row).join('\n')}
 ${projects.map(card).join('\n')}
     </div>
 
+    <section id="work-vault" class="vbox" hidden aria-label="Vault — all project photos">
+      <div class="vhead">
+        <label class="vsearch"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E0E0E" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+          <input id="vq" type="search" placeholder="Search photos — bedrooms, elevations, brick jaali, Indore…" autocomplete="off" aria-label="Search photos">
+          <button type="button" id="vclear" hidden>Clear</button>
+        </label>
+        <div class="vchips" role="group" aria-label="Quick searches">${vault.chips.map((c) => `<button type="button" class="vchip" data-q="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+        <div class="vcount" id="vcount" aria-live="polite"></div>
+      </div>
+      <div class="vgrid" id="vgrid">
+${vault.items.slice(0, 40).map((v) => `        <a class="vitem" href="${esc(v.f)}" data-i="${v.i}"><img src="${esc(v.s)}" width="${v.w}" height="${v.h}" loading="lazy" decoding="async" alt="${esc(v.a)}"><span class="vcap">${esc(v.p)}</span></a>`).join('\n')}
+      </div>
+      <script type="application/json" id="vault-data">${JSON.stringify(vault.items).replace(/</g, '\\u003c')}</script>
+    </section>
+
     <p id="work-empty" hidden style="margin: 0; font-size: 16px; color: #6B6A67">No projects match these filters.</p>
   </main>
 
 ${footer(site, { emblemHref: '/', emblemLabel: 'Bloc 11 — back to the home page', contactHref: '/#contact' })}`;
 
-  return page({ title: `Work — ${site.firm_name}`, description: work.intro || site.seo_description, path: '/work/', css: WORK_CSS, body });
+  const isVault = view === 'vault';
+  return page({
+    title: isVault ? `Vault — photos of our architecture and interiors — ${site.firm_name}` : `Work — ${site.firm_name}`,
+    description: isVault ? `Browse and search ${vault.items.length} photos of homes, interiors, facades and spaces designed by ${site.firm_name} in Indore and Bengaluru.` : (work.intro || site.seo_description),
+    path: isVault ? '/work/vault/' : '/work/',
+    css: WORK_CSS,
+    body: body.replace('<main ', `<main data-view="${isVault ? 'vault' : 'list'}" `),
+    image: vault.items[0] ? vault.items[0].raw : undefined,
+  });
 }
 
 // ---------- one project ----------
 const PIC = 'object-fit: cover; display: block; background: #F3F3F1';
 
 function block(b) {
-  const one = (i, extra, sizes) => `<img ${img(i.image, { sizes })} loading="lazy" decoding="async" alt="${esc(i.alt)}" style="${extra}; ${PIC}">`;
+  const one = (i, extra, sizes) => `<img ${img(i.image, { sizes })} loading="lazy" decoding="async" alt="${esc(altOf(i.image, i.alt))}" style="${extra}; ${PIC}">`;
   switch (b.type) {
     case 'full':
       return has(b.image) ? `    ${one(b, 'width: 100%; aspect-ratio: 16 / 9', '100vw')}` : '';
@@ -180,6 +257,18 @@ function block(b) {
   }
 }
 
+function projectLD(site, p) {
+  const photos = (Array.isArray(p.photos) ? p.photos : []).filter((ph) => ph && ph.src && has(ph.src));
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CreativeWork', name: p.title,
+    url: `${SITE_URL}/work/${p.slug}/`, description: (p.about || '').split(/\n/)[0] || undefined,
+    genre: 'Architecture', locationCreated: p.location ? { '@type': 'Place', name: p.location } : undefined,
+    creator: { '@type': 'Organization', name: site.firm_name, url: SITE_URL },
+    image: photos.map((ph) => ({ '@type': 'ImageObject', contentUrl: SITE_URL + ph.src, description: ph.alt, keywords: (ph.tags || []).join(', ') })),
+  };
+  return `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`;
+}
+
 export function renderProject({ site, project: p, index, next, nextIndex }) {
   const facts = [['Type', p.type], ['Location', p.location], ['Year', p.year], ['Status', p.status]].filter(([, v]) => v);
   const nextHref = next ? projectHref(next) || '/work/' : '/work/';
@@ -198,7 +287,7 @@ ${header(site, { workCurrent: true })}
       </dl>
     </div>
 
-    ${has(p.hero_image) ? `<img ${img(p.hero_image)} alt="${esc(p.hero_alt)}" fetchpriority="high" style="width: 100%; aspect-ratio: 16 / 9; ${PIC}">` : ''}
+    ${has(p.hero_image) ? `<img ${img(p.hero_image)} alt="${esc(altOf(p.hero_image, p.hero_alt))}" fetchpriority="high" style="width: 100%; aspect-ratio: 16 / 9; ${PIC}">` : ''}
 
     ${p.about ? `<div style="display: flex; flex-wrap: wrap; gap: 32px 72px; padding: clamp(40px, 5cqw, 80px) 0">
       <h2 style="flex: 1 1 220px; margin: 0; font-size: clamp(26px, 2.4cqw, 32px); line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">About the project</h2>
@@ -219,7 +308,8 @@ ${(p.blocks || []).map(block).filter(Boolean).join('\n\n')}
     </div>
   </main>
 
-${footer(site, { emblemHref: '/', emblemLabel: 'Bloc 11 — back to the home page', contactHref: '/#contact' })}`;
+${footer(site, { emblemHref: '/', emblemLabel: 'Bloc 11 — back to the home page', contactHref: '/#contact' })}
+  ${projectLD(site, p)}`;
 
   return page({
     title: `${p.title}${p.location ? ', ' + p.location : ''} — ${site.firm_name}`,

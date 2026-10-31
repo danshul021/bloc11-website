@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { describe, altFor, seoBase, tagger } from './photo-tags.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
@@ -109,6 +110,8 @@ async function main() {
     const slug = st.slug;
     const pfile = path.join(PROJECTS, `${slug}.json`);
     const exists = fs.existsSync(pfile);
+    const proj = exists ? readJSON(pfile, {}) : { title: folder.name.trim() };
+    const ctx = { slug, title: proj.title || folder.name, type: proj.type, location: proj.location, status: proj.status };
 
     // photos
     const files = (await list(folder.id)).filter((f) => IMAGE_TYPES.test(f.mimeType) && !/^[._]/.test(f.name))
@@ -116,39 +119,61 @@ async function main() {
     const dir = path.join(IMG_ROOT, slug);
     fs.mkdirSync(dir, { recursive: true });
     const keep = new Set();
-    const usedNames = new Set();
+    const usedNames = new Set(Object.values(st.files).map((i) => i.file.replace(/\.[^.]+$/, '')));
+    const fresh = {};                                  // file id → new description/tags for this run
     for (const f of files) {
-      let base = fileSlug(f.name), n = 2;
-      while (usedNames.has(base)) base = `${fileSlug(f.name)}-${n++}`;
-      usedNames.add(base);
       const isPng = /png$/i.test(f.mimeType);
-      const rel = `${base}.${isPng ? 'png' : 'jpg'}`;
       const prev = st.files[f.id];
-      const target = path.join(dir, rel);
       keep.add(f.id);
-      if (prev && prev.md5 === (f.md5Checksum || f.modifiedTime) && prev.file === rel && fs.existsSync(target)) continue;
+      const sum = f.md5Checksum || f.modifiedTime;
+      if (prev && prev.md5 === sum && fs.existsSync(path.join(dir, prev.file))) continue;
       try {
         const buf = await download(f.id);
         let img = sharp(buf, { failOn: 'none' }).rotate();
         const meta = await img.metadata();
         if ((meta.width || 0) > MAX_W) img = img.resize({ width: MAX_W, withoutEnlargement: true });
-        await (isPng ? img.png({ compressionLevel: 9 }) : img.jpeg({ quality: 80, progressive: true, mozjpeg: true })).toFile(target);
-        if (prev && prev.file !== rel) fs.rmSync(path.join(dir, prev.file), { force: true });
-        st.files[f.id] = { name: f.name, file: rel, md5: f.md5Checksum || f.modifiedTime };
+        // a brand-new photo is read and named once; a replaced photo keeps its name (and the tags you may have edited)
+        let rel = prev && prev.file;
+        if (!rel) {
+          const small = await sharp(buf, { failOn: 'none' }).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
+          const info = await describe(small, ctx, f.name);
+          if (info.error) report.skipped.push(`${folder.name}/${f.name}: tags from file name (${info.error.slice(0, 120)})`);
+          let base = seoBase(ctx, info.name) || slugify(f.name.replace(/\.[^.]+$/, '')), n = 2;
+          const b0 = base;
+          while (usedNames.has(base)) base = `${b0}-${n++}`;
+          usedNames.add(base);
+          rel = `${base}.${isPng ? 'png' : 'jpg'}`;
+          fresh[f.id] = info;
+        }
+        await (isPng ? img.png({ compressionLevel: 9 }) : img.jpeg({ quality: 80, progressive: true, mozjpeg: true })).toFile(path.join(dir, rel));
+        st.files[f.id] = { name: f.name, file: rel, md5: sum };
         prev ? report.photosUpdated++ : report.photosAdded++;
       } catch (e) {
         report.skipped.push(`${folder.name}/${f.name} (${e.message.split('\n')[0]})`);
-        keep.delete(f.id);
+        if (!prev) keep.delete(f.id);
       }
     }
     // photos taken out of the Drive folder
     for (const [fid, info] of Object.entries(st.files)) {
       if (!keep.has(fid)) { fs.rmSync(path.join(dir, info.file), { force: true }); delete st.files[fid]; report.photosRemoved++; }
     }
-    const photos = Object.values(st.files).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
-      .map((i) => `/images/projects/${slug}/${i.file}`);
+    // the project's photo list: one entry per Drive photo, with its description and tags
+    const old = new Map((Array.isArray(proj.photos) ? proj.photos : []).map((ph) => typeof ph === 'string' ? [ph, { src: ph }] : [ph.src, ph]));
+    const photos = Object.entries(st.files).sort(([, a], [, b]) => a.name.localeCompare(b.name, undefined, { numeric: true }))
+      .map(([fid, i]) => {
+        const src = `/images/projects/${slug}/${i.file}`;
+        const was = old.get(src) || {};
+        const nu = fresh[fid];
+        return {
+          src,
+          alt: was.alt || (nu ? altFor(nu.description, ctx) : altFor('', ctx)),
+          tags: (was.tags && was.tags.length) ? was.tags : (nu ? nu.tags : []),
+          vault: was.vault !== false,
+        };
+      });
+    if (Object.keys(fresh).length) report.tagged = (report.tagged || 0) + Object.keys(fresh).length;
     const coverInfo = Object.values(st.files).find((i) => /^cover/i.test(i.name));
-    const cover = coverInfo ? `/images/projects/${slug}/${coverInfo.file}` : photos[0] || '';
+    const cover = coverInfo ? `/images/projects/${slug}/${coverInfo.file}` : (photos[0] && photos[0].src) || '';
 
     // the project in the admin page
     if (!exists) {
@@ -159,7 +184,7 @@ async function main() {
       });
       report.added.push(folder.name);
     } else {
-      const p = readJSON(pfile, {});
+      const p = proj;
       if (p.drive_folder !== folder.id) report.linked.push(folder.name);
       p.drive_folder = folder.id;
       p.photos = photos;
@@ -186,6 +211,7 @@ async function main() {
     `New projects: ${report.added.length ? report.added.join(', ') : 'none'}`,
     `Linked to existing projects: ${report.linked.length ? report.linked.join(', ') : 'none'}`,
     `Photos added ${report.photosAdded}, updated ${report.photosUpdated}, removed ${report.photosRemoved}`,
+    `New photos described: ${report.tagged || 0} (${tagger ? `by ${tagger}` : 'from file names — add an ANTHROPIC_API_KEY or GEMINI_API_KEY secret for automatic descriptions'})`,
     ...(report.skipped.length ? [`Could not read: ${report.skipped.join('; ')}`] : []),
     ...(report.missingFolders.length ? [`Folders no longer in Drive (projects kept, unlinked): ${report.missingFolders.join(', ')}`] : []),
   ];

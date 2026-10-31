@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/co-living/cover.jpg",
+  "thumbnail": "/images/projects/co-living/co-living-commercial-hyderabad-brick-facade.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,23 @@
   "blocks": [],
   "drive_folder": "1aj9el1LM8gZUb_3Xw5t8QQQdp6drO-6m",
   "photos": [
-    "/images/projects/co-living/cover.jpg"
+    {
+      "src": "/images/projects/co-living/co-living-commercial-hyderabad-brick-facade.jpg",
+      "alt": "Mid-rise brick building with perforated screens, balconies and a tree-lined street edge — Co-Living, commercial in Hyderabad by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "render",
+        "elevation",
+        "facade",
+        "brick",
+        "perforated screen",
+        "balconies",
+        "mid-rise",
+        "co-living",
+        "commercial",
+        "hyderabad"
+      ],
+      "vault": true
+    }
   ]
 }

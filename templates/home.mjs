@@ -1,5 +1,5 @@
 // Home page
-import { esc, rich, pad, cdn, img, page, mount, mnav, capabilities, contact, footer, MNAV_CSS, CAPS_CSS, CONTACT_CSS } from './lib.mjs';
+import { esc, rich, pad, cdn, img, page, mount, mnav, capabilities, contact, footer, SITE_URL, MNAV_CSS, CAPS_CSS, CONTACT_CSS } from './lib.mjs';
 
 const KINDS = ['question', 'decode', 'experiment', 'refine', 'realise'];
 const ACCENTS = ['#7F7061', '#5D5C4C', '#B9693F', '#34475B', '#8A6D26'];
@@ -175,7 +175,13 @@ ${contact(site, `<div class="shead">
     </div>`)}
   </section>
 
-${footer(site, { emblemHref: '#top', emblemLabel: 'Bloc 11 — back to the top', contactHref: '#contact' })}`;
+${footer(site, { emblemHref: '#top', emblemLabel: 'Bloc 11 — back to the top', contactHref: '#contact' })}
+  <script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'ProfessionalService', name: site.firm_name, url: SITE_URL,
+    logo: SITE_URL + '/images/logo-dark.png', image: SITE_URL + (s0.image || '/images/logo-dark.png'),
+    email: site.email, description: site.seo_description, knowsAbout: (site.capabilities || []).map((c) => c.title),
+    address: (site.offices || []).map((o) => ({ '@type': 'PostalAddress', streetAddress: o.address_line_1, addressLocality: o.city, addressRegion: (o.address_line_2 || '').replace(o.city, '').replace(/[0-9]/g, '').replace(/,/g, ' ').trim(), postalCode: ((o.address_line_2 || '').match(/[0-9]{6}/) || [''])[0], addressCountry: 'IN' })),
+  }).replace(/</g, '\\u003c')}</script>`;
 
   return page({
     title: `${site.firm_name} — Indore & Bengaluru`,

@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/anjaneya/cover.jpg",
+  "thumbnail": "/images/projects/anjaneya/anjaneya-hospitality-bengaluru-landscaped-courtyard-pavilions.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,22 @@
   "blocks": [],
   "drive_folder": "1SWdshe-4DoAyaewMjca93VbIkr2Bf0fN",
   "photos": [
-    "/images/projects/anjaneya/cover.jpg"
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-bengaluru-landscaped-courtyard-pavilions.jpg",
+      "alt": "Clay-tiled pavilions around a landscaped courtyard with stone paving and planting — Anjaneya, hospitality in Bengaluru by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "render",
+        "courtyard",
+        "pavilion",
+        "pitched roof",
+        "clay tiles",
+        "landscape",
+        "hospitality",
+        "anjaneya",
+        "bengaluru"
+      ],
+      "vault": true
+    }
   ]
 }

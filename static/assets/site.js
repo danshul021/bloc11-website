@@ -105,11 +105,15 @@
     }
   }
 
-  // ---- work: filters and list / grid view ----
+  // ---- work: filters and list / grid / vault view ----
   var filters = document.getElementById('work-filters');
   if (filters) {
-    var state = { type: 'All', status: 'Any', view: 'list' };
+    var main = document.querySelector('main[data-view]');
+    var params = new URLSearchParams(location.search);
+    var state = { type: 'All', status: 'Any', view: (main && main.getAttribute('data-view')) || params.get('view') || 'list' };
     var list = document.getElementById('work-list'), grid = document.getElementById('work-grid'), empty = document.getElementById('work-empty');
+    var vaultBox = document.getElementById('work-vault');
+    var vault = vaultBox ? makeVault(vaultBox, function () { return state; }) : null;
     var apply = function () {
       var shown = 0;
       document.querySelectorAll('#work-list .lrow, #work-grid .card').forEach(function (el) {
@@ -117,9 +121,11 @@
         el.hidden = !ok;
         if (ok && el.classList.contains('lrow')) shown++;
       });
+      var isVault = state.view === 'vault' && vault;
       list.hidden = state.view !== 'list' || !shown;
       grid.hidden = state.view !== 'grid' || !shown;
-      empty.hidden = !!shown;
+      empty.hidden = !!shown || isVault;
+      if (vaultBox) { vaultBox.hidden = !isVault; if (isVault) vault.render(); }
       filters.querySelectorAll('button').forEach(function (b) {
         var on = (b.hasAttribute('data-type') && b.getAttribute('data-type') === state.type) ||
           (b.hasAttribute('data-status') && b.getAttribute('data-status') === state.status) ||
@@ -133,8 +139,110 @@
       if (!b) return;
       if (b.hasAttribute('data-type')) state.type = b.getAttribute('data-type');
       if (b.hasAttribute('data-status')) state.status = b.getAttribute('data-status');
-      if (b.hasAttribute('data-view')) state.view = b.getAttribute('data-view');
+      if (b.hasAttribute('data-view')) {
+        state.view = b.getAttribute('data-view');
+        // the Vault has its own address (/work/vault/), so a search can be shared as a link
+        try {
+          var path = state.view === 'vault' ? '/work/vault/' : '/work/';
+          if (location.pathname !== path) history.replaceState(null, '', path + (state.view === 'vault' && vault && vault.q() ? '?q=' + encodeURIComponent(vault.q()) : ''));
+        } catch (err) {}
+      }
       apply();
     });
+    apply();
+    if (state.view === 'vault' && vault && params.get('q')) vault.search(params.get('q'));
+  }
+
+  // ---- the Vault: collage of every project photo, searchable by its description and tags ----
+  function makeVault(box, getState) {
+    var items = [];
+    try { items = JSON.parse(document.getElementById('vault-data').textContent); } catch (e) {}
+    var gridEl = box.querySelector('#vgrid'), input = box.querySelector('#vq'), clear = box.querySelector('#vclear'), countEl = box.querySelector('#vcount');
+    // words that mean the same thing when searching
+    var GROUPS = [
+      ['elevation', 'facade', 'façade', 'front', 'street front'], ['exterior', 'outside', 'outdoor'], ['interior', 'inside'],
+      ['bedroom', 'bed room', 'master bedroom', 'guest room'], ['living', 'lounge', 'drawing room', 'family room', 'sitting'],
+      ['kitchen', 'pantry'], ['bathroom', 'bath', 'toilet', 'washroom'], ['staircase', 'stair', 'stairs', 'steps'],
+      ['dining', 'dinning'], ['residential', 'residence', 'home', 'house', 'villa', 'apartment'],
+      ['commercial', 'office', 'workplace', 'showroom', 'retail'], ['hospitality', 'hotel', 'resort', 'restaurant', 'cafe'],
+      ['jaali', 'jali', 'screen', 'perforated'], ['brick', 'terracotta'], ['dusk', 'night', 'evening'],
+      ['landscape', 'garden', 'planting', 'plants', 'planters', 'trees'], ['render', 'visualisation', 'visualization', '3d'],
+      ['courtyard', 'court', 'atrium'], ['terrace', 'balcony', 'deck'], ['detail', 'close up', 'closeup']
+    ];
+    var stem = function (w) { w = w.toLowerCase().trim(); if (w.length > 4 && /ies$/.test(w)) return w.slice(0, -3) + 'y'; if (w.length > 4 && /(ss|us)$/.test(w)) return w; if (w.length > 3 && /s$/.test(w)) return w.slice(0, -1); return w; };
+    var norm = function (t) { return ' ' + String(t).toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(' ').map(stem).join(' ') + ' '; };
+    items.forEach(function (it) { it.hay = norm(it.t + ' ' + it.a); });
+    var variants = function (word) {
+      var w = stem(word), out = [w];
+      GROUPS.forEach(function (g) { if (g.some(function (x) { return stem(x) === w || norm(x).trim() === w; })) g.forEach(function (x) { out.push(norm(x).trim()); }); });
+      return out;
+    };
+    var query = '';
+    var matches = function (it) {
+      var st = getState();
+      if (st.type !== 'All' && it.c !== st.type) return false;
+      if (st.status !== 'Any' && it.st !== st.status) return false;
+      if (!query) return true;
+      // every word typed has to match (in any of its meanings)
+      return norm(query).trim().split(' ').filter(Boolean).every(function (w) {
+        return variants(w).some(function (v) { return it.hay.indexOf(' ' + v) !== -1; });
+      });
+    };
+    var shown = [];
+    var render = function () {
+      shown = items.filter(matches);
+      gridEl.innerHTML = shown.length ? shown.map(function (it, k) {
+        return '<a class="vitem" href="' + it.f + '" data-k="' + k + '"><img src="' + it.s + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '"><span class="vcap">' + esc(it.p) + '</span></a>';
+      }).join('') : '<p class="vnone">No photos match “' + esc(query) + '” yet. Try another word, or clear the search.</p>';
+      countEl.textContent = shown.length + (shown.length === 1 ? ' photo' : ' photos') + (query ? ' for “' + query + '”' : '');
+      clear.hidden = !query;
+      box.querySelectorAll('.vchip').forEach(function (c) { c.classList.toggle('on', c.getAttribute('data-q') === query); });
+    };
+    var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var timer = 0;
+    var search = function (q) {
+      query = String(q || '').trim(); input.value = query; render(); box.scrollTop = 0;
+      try { if (location.pathname === '/work/vault/') history.replaceState(null, '', '/work/vault/' + (query ? '?q=' + encodeURIComponent(query) : '')); } catch (e) {}
+    };
+    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(function () { search(input.value); input.focus(); }, 180); });
+    clear.addEventListener('click', function () { search(''); input.focus(); });
+    box.querySelectorAll('.vchip').forEach(function (c) { c.addEventListener('click', function () { search(query === c.getAttribute('data-q') ? '' : c.getAttribute('data-q')); }); });
+
+    // big view of one photo
+    var light = null, at = 0;
+    var show = function (k) {
+      at = (k + shown.length) % shown.length;
+      var it = shown[at];
+      if (!light) {
+        light = document.createElement('div');
+        light.className = 'vlight'; light.setAttribute('role', 'dialog'); light.setAttribute('aria-modal', 'true');
+        light.innerHTML = '<button type="button" class="vx" aria-label="Close">×</button><button type="button" class="vp" aria-label="Previous photo">‹</button><img alt=""><div class="vinfo"></div><button type="button" class="vn" aria-label="Next photo">›</button>';
+        document.body.appendChild(light);
+        light.querySelector('.vx').addEventListener('click', hide);
+        light.querySelector('.vp').addEventListener('click', function () { show(at - 1); });
+        light.querySelector('.vn').addEventListener('click', function () { show(at + 1); });
+        light.addEventListener('click', function (e) { if (e.target === light) hide(); });
+        var sx = null;
+        light.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        light.addEventListener('touchend', function (e) { if (sx == null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); });
+      }
+      var im = light.querySelector('img'); im.src = it.f; im.alt = it.a;
+      light.querySelector('.vinfo').innerHTML = esc(it.a) + (it.u ? ' &nbsp;<a href="' + it.u + '">See the project →</a>' : '') +
+        '<div class="vtags">' + esc(it.t.split(' | ').slice(0, 10).join(' · ')) + '</div>';
+      light.hidden = false; document.documentElement.style.overflow = 'hidden';
+      light.querySelector('.vx').focus();
+    };
+    var hide = function () { if (light) { light.hidden = true; document.documentElement.style.overflow = ''; } };
+    document.addEventListener('keydown', function (e) {
+      if (!light || light.hidden) return;
+      if (e.key === 'Escape') hide(); else if (e.key === 'ArrowRight') show(at + 1); else if (e.key === 'ArrowLeft') show(at - 1);
+    });
+    gridEl.addEventListener('click', function (e) {
+      var a = e.target.closest('.vitem'); if (!a) return;
+      e.preventDefault();
+      var k = a.hasAttribute('data-k') ? Number(a.getAttribute('data-k')) : shown.indexOf(items[Number(a.getAttribute('data-i'))]);
+      show(Math.max(0, k));
+    });
+    return { render: render, search: search, q: function () { return query; } };
   }
 })();

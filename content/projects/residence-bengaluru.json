@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/residence-bengaluru/cover.jpg",
+  "thumbnail": "/images/projects/residence-bengaluru/residence-bengaluru-tree-canopy-entrance.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,23 @@
   "blocks": [],
   "drive_folder": "1qgFZcCKDyPIEKvKYX-DoG9PlQrGY2Nrd",
   "photos": [
-    "/images/projects/residence-bengaluru/cover.jpg"
+    {
+      "src": "/images/projects/residence-bengaluru/residence-bengaluru-tree-canopy-entrance.jpg",
+      "alt": "Tree-like white steel canopies over a planted entrance forecourt — Residence, Bengaluru, residence in Bengaluru by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "render",
+        "entrance",
+        "canopy",
+        "steel structure",
+        "landscape",
+        "forecourt",
+        "residence, bengaluru",
+        "residence",
+        "residential",
+        "bengaluru"
+      ],
+      "vault": true
+    }
   ]
 }

@@ -15,6 +15,26 @@ const V_SITE = stamp('site.js'), V_APP = stamp('app.js');
 
 // true when a picture can actually be shown (a photo removed from Drive simply drops out of the page)
 const STATIC = new URL('../static/', import.meta.url);
+// width/height of a JPEG or PNG in static/ (so the Vault can lay out pictures before they load)
+export function imageSize(src) {
+  try {
+    const b = fs.readFileSync(new URL('.' + src.split('?')[0], STATIC));
+    if (b[0] === 0x89 && b[1] === 0x50) return [b.readUInt32BE(16), b.readUInt32BE(20)];
+    let i = 2;
+    while (i < b.length) {
+      if (b[i] !== 0xFF) { i++; continue; }
+      const m = b[i + 1], len = b.readUInt16BE(i + 2);
+      if (m >= 0xC0 && m <= 0xCF && m !== 0xC4 && m !== 0xC8 && m !== 0xCC) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)];
+      i += 2 + len;
+    }
+  } catch (e) {}
+  return [4, 3];
+}
+
+// descriptions written for each Drive photo, looked up by picture address
+export const PHOTO_ALT = new Map();
+export const altOf = (src, fallback = '') => (fallback && String(fallback).trim()) || PHOTO_ALT.get(src) || '';
+
 export const has = (src) => !!src && (!src.startsWith('/') || fs.existsSync(new URL('.' + src.split('?')[0], STATIC)));
 const ON_NETLIFY = process.env.NETLIFY === 'true';
 

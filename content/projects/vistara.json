@@ -7,7 +7,7 @@
   "year": "",
   "status": "Completed",
   "show_on_work": true,
-  "thumbnail": "/images/projects/vistara/cover.jpg",
+  "thumbnail": "/images/projects/vistara/vistara-residence-indore-carved-jaali-facade.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,23 @@
   "blocks": [],
   "drive_folder": "1UimVionbDdM4_IOMMS5JFja0I_dzTiuf",
   "photos": [
-    "/images/projects/vistara/cover.jpg"
+    {
+      "src": "/images/projects/vistara/vistara-residence-indore-carved-jaali-facade.jpg",
+      "alt": "Stone-clad facade with a carved jaali panel, vertical louvres and a tree in front — Vistara, residence in Indore by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "jaali",
+        "carved screen",
+        "louvres",
+        "stone cladding",
+        "vistara",
+        "residence",
+        "residential",
+        "indore"
+      ],
+      "vault": true
+    }
   ]
 }

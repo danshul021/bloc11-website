@@ -7,7 +7,7 @@
   "year": "",
   "status": "Completed",
   "show_on_work": true,
-  "thumbnail": "/images/projects/pristine/cover.jpg",
+  "thumbnail": "/images/projects/pristine/pristine-commercial-indore-perforated-screen-facade.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,22 @@
   "blocks": [],
   "drive_folder": "1FbcflwKbnFeXfa1oODaXBVO8xBFLyO51",
   "photos": [
-    "/images/projects/pristine/cover.jpg"
+    {
+      "src": "/images/projects/pristine/pristine-commercial-indore-perforated-screen-facade.jpg",
+      "alt": "Multi-storey building with perforated screen facades, terrace gardens and a car porch — Pristine, commercial in Indore by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "render",
+        "elevation",
+        "facade",
+        "jaali screen",
+        "terrace garden",
+        "perforated screen",
+        "pristine",
+        "commercial",
+        "indore"
+      ],
+      "vault": true
+    }
   ]
 }

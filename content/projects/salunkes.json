@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/salunkes/cover.jpg",
+  "thumbnail": "/images/projects/salunkes/salunkes-hospitality-bengaluru-cantilevered-roof-pavilion.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,22 @@
   "blocks": [],
   "drive_folder": "1Ql9W6w3WXFQe3VVfB_vLkas1Y8KhkqTV",
   "photos": [
-    "/images/projects/salunkes/cover.jpg"
+    {
+      "src": "/images/projects/salunkes/salunkes-hospitality-bengaluru-cantilevered-roof-pavilion.jpg",
+      "alt": "White pavilion with a thin cantilevered roof above broad steps and a brick plinth — Salunkes, hospitality in Bengaluru by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "render",
+        "elevation",
+        "cantilevered roof",
+        "steps",
+        "brick plinth",
+        "landscape",
+        "salunkes",
+        "hospitality",
+        "bengaluru"
+      ],
+      "vault": true
+    }
   ]
 }

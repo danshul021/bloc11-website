@@ -7,7 +7,7 @@
   "year": "",
   "status": "Completed",
   "show_on_work": true,
-  "thumbnail": "/images/projects/garden-city/cover.jpg",
+  "thumbnail": "/images/projects/garden-city/garden-city-residence-indore-facade-louvres-detail.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,23 @@
   "blocks": [],
   "drive_folder": "1NNKrLHuv_BkNfDSOuwjMVkBLsl5sKIY_",
   "photos": [
-    "/images/projects/garden-city/cover.jpg"
+    {
+      "src": "/images/projects/garden-city/garden-city-residence-indore-facade-louvres-detail.jpg",
+      "alt": "White rendered facade with horizontal grey louvres and a planted balcony — Garden City, residence in Indore by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "detail",
+        "louvres",
+        "white render",
+        "balcony",
+        "planters",
+        "garden city",
+        "residence",
+        "residential",
+        "indore"
+      ],
+      "vault": true
+    }
   ]
 }

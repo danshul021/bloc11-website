@@ -7,7 +7,7 @@
   "year": "",
   "status": "Completed",
   "show_on_work": true,
-  "thumbnail": "/images/projects/vak-workshop/cover.jpg",
+  "thumbnail": "/images/projects/vak-workshop/vak-workshop-commercial-indore-glass-showroom-facade.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,22 @@
   "blocks": [],
   "drive_folder": "1Ft-Bj8tNF5edhTOW2lIazWcndZLTgaWC",
   "photos": [
-    "/images/projects/vak-workshop/cover.jpg"
+    {
+      "src": "/images/projects/vak-workshop/vak-workshop-commercial-indore-glass-showroom-facade.jpg",
+      "alt": "Glazed showroom front with a dark metal fascia and wide forecourt — VAK Workshop, commercial in Indore by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "glazing",
+        "showroom",
+        "metal cladding",
+        "commercial building",
+        "vak workshop",
+        "commercial",
+        "indore"
+      ],
+      "vault": true
+    }
   ]
 }

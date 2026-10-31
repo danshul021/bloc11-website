@@ -5,8 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderHome } from './templates/home.mjs';
 import { renderStudio } from './templates/studio.mjs';
-import { renderWork, renderProject } from './templates/work.mjs';
-import { SITE_URL, esc } from './templates/lib.mjs';
+import { renderWork, renderProject, vaultData } from './templates/work.mjs';
+import { SITE_URL, esc, PHOTO_ALT, has } from './templates/lib.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const out = path.join(root, '_site');
@@ -23,6 +23,10 @@ const projects = fs.readdirSync(path.join(root, 'content', 'projects'))
   .filter((p) => p.title && p.draft !== true && p.show_on_work !== false)
   .sort((a, b) => (Number(a.order) || 999) - (Number(b.order) || 999) || a.title.localeCompare(b.title));
 
+// descriptions of every Drive photo, so pictures get proper alt text wherever they are used
+projects.forEach((p) => (Array.isArray(p.photos) ? p.photos : []).forEach((ph) => { if (ph && ph.src && ph.alt) PHOTO_ALT.set(ph.src, ph.alt); }));
+const vault = vaultData(projects);
+
 fs.rmSync(out, { recursive: true, force: true });
 fs.cpSync(path.join(root, 'static'), out, { recursive: true });
 
@@ -34,8 +38,9 @@ const write = (rel, html) => {
 
 write('index.html', renderHome({ site, home, projects }));
 write('studio/index.html', renderStudio({ site, studio }));
-write('work/index.html', renderWork({ site, work, projects }));
-const urls = ['/', '/studio/', '/work/'];
+write('work/index.html', renderWork({ site, work, projects, vault }));
+write('work/vault/index.html', renderWork({ site, work, projects, vault, view: 'vault' }));
+const urls = ['/', '/studio/', '/work/', '/work/vault/'];
 projects.forEach((p, i) => {
   if (!p.has_page) return;
   const n = (i + 1) % projects.length;
@@ -44,9 +49,19 @@ projects.forEach((p, i) => {
   urls.push(`/work/${p.slug}/`);
 });
 
+// sitemap with the photos on each page (helps them appear in Google Images)
+const pageImages = { '/work/vault/': vault.items.map((v) => ({ src: v.raw, alt: v.a })) };
+projects.forEach((p) => {
+  if (!p.has_page) return;
+  const list = [];
+  const add = (src, alt) => { if (src && has(src) && !list.some((x) => x.src === src)) list.push({ src, alt: alt || PHOTO_ALT.get(src) || p.title }); };
+  add(p.hero_image, p.hero_alt);
+  (p.blocks || []).forEach((b) => { add(b.image, b.alt); (b.images || []).forEach((i) => add(i.image, i.alt)); });
+  pageImages[`/work/${p.slug}/`] = list;
+});
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${esc(SITE_URL + u)}</loc></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${urls.map((u) => `  <url><loc>${esc(SITE_URL + u)}</loc>${(pageImages[u] || []).slice(0, 1000).map((im) => `\n    <image:image><image:loc>${esc(SITE_URL + im.src)}</image:loc></image:image>`).join('')}\n  </url>`).join('\n')}
 </urlset>
 `);
 write('robots.txt', `User-agent: *\nDisallow: /admin/\nSitemap: ${SITE_URL}/sitemap.xml\n`);

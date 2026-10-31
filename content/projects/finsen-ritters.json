@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/finsen-ritters/cover.jpg",
+  "thumbnail": "/images/projects/finsen-ritters/finsen-ritters-commercial-indore-black-glazed-facade.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -15,6 +15,22 @@
   "blocks": [],
   "drive_folder": "1nQzFV5aidU8reKYONcgffP4HgLBnNLFz",
   "photos": [
-    "/images/projects/finsen-ritters/cover.jpg"
+    {
+      "src": "/images/projects/finsen-ritters/finsen-ritters-commercial-indore-black-glazed-facade.jpg",
+      "alt": "Projecting glazed volume framed in black metal beside a perforated white facade — Finsen Ritters, commercial in Indore by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "glazing",
+        "black metal frames",
+        "perforated panels",
+        "commercial building",
+        "finsen ritters",
+        "commercial",
+        "indore"
+      ],
+      "vault": true
+    }
   ]
 }

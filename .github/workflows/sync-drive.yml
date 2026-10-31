@@ -30,6 +30,10 @@ jobs:
       - name: Read the Drive folder
         env:
           DRIVE_API_KEY: ${{ secrets.DRIVE_API_KEY || secrets.WEBSITE_PROJECTS_DRIVE_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          TAG_MODEL: ${{ vars.TAG_MODEL }}
         run: node tools/sync-drive.mjs
 
       - name: Save changes

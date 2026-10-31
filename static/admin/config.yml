@@ -124,7 +124,22 @@ collections:
               - { name: heading, label: Heading, widget: string, required: false }
               - { name: text, label: Text, widget: text, hint: 'Leave an empty line between paragraphs.' }
       - { name: drive_folder, label: Google Drive folder, widget: hidden, required: false }
-      - { name: photos, label: Photos from Google Drive, widget: hidden, required: false }
+      - name: photos
+        label: Photos from Google Drive (descriptions and tags)
+        label_singular: photo
+        widget: list
+        required: false
+        allow_add: false
+        summary: '{{fields.alt}}'
+        hint: >-
+          Filled in by "Refresh from Drive": each photo gets a description (used by Google and screen readers)
+          and search tags (used by the Vault on the Work page). Correct them here if needed — a refresh never
+          overwrites what you change. To add or remove photos, change the project's Drive folder.
+        fields:
+          - { name: src, label: Photo (managed from Google Drive), widget: image }
+          - { name: alt, label: Description, widget: text, required: false }
+          - { name: tags, label: Search tags, widget: list, required: false, hint: 'Separate with commas, e.g. interior, bedroom, timber, residential interiors' }
+          - { name: vault, label: Show in the Vault, widget: boolean, default: true, required: false }
 
   # ------------------------------------------------------------------ PAGES
   - name: pages
