@@ -8,15 +8,15 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "/images/projects/lokmanya/lokmanya-contemporary-bedroom-with-metal-partition.png",
-  "hero_image": "/images/projects/lokmanya/hammered-copper-and-linen-bedroom.png",
+  "thumbnail": "/images/projects/lokmanya/lokmanya-contemporary-bedroom-with-metal-partition.jpg",
+  "hero_image": "/images/projects/lokmanya/lokmanya-bedroom-interior-render.jpg",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "1_ox-c_k1oUmMxGgU-inxMqbYGMBuonEB",
   "photos": [
     {
-      "src": "/images/projects/lokmanya/lokmanya-contemporary-bedroom-with-metal-partition.png",
+      "src": "/images/projects/lokmanya/lokmanya-contemporary-bedroom-with-metal-partition.jpg",
       "alt": "A spacious contemporary bedroom featuring a sculptural metallic partition, textured walls, and natural light — Lokmanya by Bloc 11 Architects",
       "tags": [
         "interior",
@@ -51,39 +51,105 @@
       "vault": true
     },
     {
-      "src": "/images/projects/lokmanya/hammered-copper-and-linen-bedroom.png",
-      "alt": "Lokmanya by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/lokmanya/lokmanya-bedroom-interior-render.jpg",
+      "alt": "An interior bedroom featuring an arched wooden headboard, woven pendant lights, and a copper basin vanity — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "interior",
+        "bedroom",
+        "timber",
+        "copper",
+        "woven light",
+        "modern",
+        "natural light",
+        "lokmanya"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/lokmanya/p04-dining-area-x26.png",
-      "alt": "Lokmanya by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/lokmanya/lokmanya-contemporary-dining-room-interior.jpg",
+      "alt": "An elegant dining room features an organic chandelier, carved wooden partition, and abundant natural light — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dining",
+        "render",
+        "timber",
+        "marble",
+        "lighting",
+        "partition",
+        "curtains",
+        "contemporary",
+        "lokmanya"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/lokmanya/p05-dining-area-x29.png",
-      "alt": "Lokmanya by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/lokmanya/lokmanya-outdoor-vanity-terracotta-roof.jpg",
+      "alt": "A semi-open outdoor vanity area features a terracotta-tiled mini roof, vertical garden wall, and floating marble counter — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "bathroom",
+        "terracotta",
+        "marble",
+        "vertical garden",
+        "tiles",
+        "mirror",
+        "planter",
+        "outdoor",
+        "contemporary",
+        "lokmanya"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/lokmanya/p16-master-bedroom-2-x62.png",
-      "alt": "Lokmanya by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/lokmanya/lokmanya-minimalist-bedroom-interior-render.jpg",
+      "alt": "Minimalist bedroom interior featuring a suspended desk, upholstered bed, and abstract wall art under recessed ceiling lights — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "minimalist",
+        "wood",
+        "neutral tones",
+        "lighting",
+        "custom furniture",
+        "lokmanya"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/lokmanya/p17-master-bedroom-2-x65.png",
-      "alt": "Lokmanya by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/lokmanya/lokmanya-minimalist-living-room-render.jpg",
+      "alt": "An interior view of a contemporary minimalist room featuring custom built-in cabinetry, a curved daybed, and floating shelves — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "render",
+        "built-in furniture",
+        "curved daybed",
+        "shelves",
+        "neutral tones",
+        "wood",
+        "fabric",
+        "minimalist",
+        "lokmanya"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/lokmanya/p30-bathroom-doorway-4k.png",
-      "alt": "Lokmanya by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/lokmanya/lokmanya-open-modern-bathroom-design.jpg",
+      "alt": "An open bathroom features a built-in tub, floating vanity, vertical wall planters, and natural daylight — Lokmanya by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "bathroom",
+        "interior",
+        "terracotta",
+        "concrete",
+        "plants",
+        "green wall",
+        "skylight",
+        "glass partition",
+        "lokmanya"
+      ],
       "vault": true
     }
   ]

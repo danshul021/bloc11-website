@@ -8,41 +8,92 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "/images/projects/201-gulmohar/enscape-2024-01-06-11-16-34.png",
-  "hero_image": "/images/projects/201-gulmohar/enscape-2024-01-06-11-16-34.png",
+  "thumbnail": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
+  "hero_image": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "15foQphedpXKzaE7GysUPjvUOHG4k3Swc",
   "photos": [
     {
-      "src": "/images/projects/201-gulmohar/enscape-2024-01-06-11-16-34.png",
-      "alt": "201 Gulmohar by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
+      "alt": "A sunlit contemporary living space featuring pastel-toned seating, fluted timber wall paneling, and an intricate brass partition — 201 Gulmohar by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "render",
+        "timber",
+        "marble",
+        "partition",
+        "pastel",
+        "contemporary",
+        "furniture",
+        "201 gulmohar"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/201-gulmohar/enscape-2024-01-06-14-43-29.png",
-      "alt": "201 Gulmohar by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/201-gulmohar/201-gulmohar-dining-nook-interior.jpg",
+      "alt": "An elegant dining nook featuring a marble-topped table, maroon velvet chairs, and soft natural light — 201 Gulmohar by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "dining",
+        "interior",
+        "marble",
+        "velvet",
+        "brass",
+        "curtains",
+        "chandelier",
+        "201 gulmohar"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/201-gulmohar/enscape-2024-01-06-14-45-27.png",
-      "alt": "201 Gulmohar by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/201-gulmohar/201-gulmohar-living-and-dining-interior.jpg",
+      "alt": "An open living and dining space featuring marble flooring, fluted architectural wall panels, and warm lighting — 201 Gulmohar by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "dining",
+        "marble",
+        "render",
+        "contemporary",
+        "lighting",
+        "201 gulmohar"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/201-gulmohar/enscape-2024-02-03-00-54-38.png",
-      "alt": "201 Gulmohar by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/201-gulmohar/201-gulmohar-modern-bedroom-marble-headboard.jpg",
+      "alt": "A modern bedroom featuring a patterned marble headboard, fluted wooden bed base, and abundant natural light — 201 Gulmohar by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "marble",
+        "timber",
+        "wood",
+        "fluted panel",
+        "curtains",
+        "bed",
+        "201 gulmohar"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/201-gulmohar/marble-dining-room-in-soft-daylight.png",
-      "alt": "201 Gulmohar by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/201-gulmohar/201-gulmohar-dining-space-interior.jpg",
+      "alt": "A well-lit dining space featuring a marble table, maroon seating, and an arched brass partition — 201 Gulmohar by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dining",
+        "render",
+        "marble",
+        "brass",
+        "textile",
+        "arch",
+        "lighting",
+        "201 gulmohar"
+      ],
       "vault": true
     }
   ]

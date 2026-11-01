@@ -8,153 +8,386 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "/images/projects/jaora-compound-15/view-01-p05.png",
-  "hero_image": "/images/projects/jaora-compound-15/view-01-p05.png",
+  "thumbnail": "/images/projects/jaora-compound-15/jaora-compound-15-entrance-door-metal-jaali.jpg",
+  "hero_image": "/images/projects/jaora-compound-15/jaora-compound-15-entrance-door-metal-jaali.jpg",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "1lLSP08uaVs2Q06o4Bhd8V9M7wX83y5_j",
   "photos": [
     {
-      "src": "/images/projects/jaora-compound-15/view-01-p05.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-entrance-door-metal-jaali.jpg",
+      "alt": "A tall wooden door features a decorative white metal jaali overlay, set in an interior hallway — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "entrance",
+        "render",
+        "door",
+        "metal jaali",
+        "wood",
+        "corridor",
+        "hallway",
+        "decorative screen",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-04-p08.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-entrance-wooden-doorway-interior.jpg",
+      "alt": "A view through a warm wooden doorway into a modern living space featuring marble elements and carved screens — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "entrance",
+        "living room",
+        "marble",
+        "timber",
+        "screen",
+        "staircase",
+        "render",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-07-p11.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-living-and-dining-interior-render.jpg",
+      "alt": "An open plan living and dining space featuring textured upholstery, timber paneling, and marble finishes — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "dining",
+        "render",
+        "timber",
+        "marble",
+        "upholstery",
+        "modern",
+        "lighting",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-10-p14.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-beige-living-room.jpg",
+      "alt": "A light-filled living room featuring beige sectional seating, a curved marble coffee table, and large sliding glass doors — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "living room",
+        "interior",
+        "render",
+        "marble",
+        "timber",
+        "furniture",
+        "lighting",
+        "modern",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-11-p15.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-living-room.jpg",
+      "alt": "A light-filled living room featuring beige upholstery, marble flooring, and intricate ceiling details — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "timber",
+        "marble",
+        "render",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-14-p18.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-round-marble-dining-table.jpg",
+      "alt": "A round marble dining table surrounded by peach seats sits beneath an intricate ceiling medallion — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dining",
+        "marble",
+        "timber",
+        "render",
+        "false ceiling",
+        "mandala",
+        "dining table",
+        "chairs",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-15-p19.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-mandir-unit-wood-glass.jpg",
+      "alt": "A custom mandir unit features fluted glass doors flanked by brass bells set in wood — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "temple",
+        "mandir",
+        "wood",
+        "brass",
+        "glass",
+        "render",
+        "furniture",
+        "custom cabinetry",
+        "residential",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-16-p20.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-built-in-marble-mandir-unit.jpg",
+      "alt": "A built-in marble mandir niche featuring arched detailing, brass bells, and storage drawers below — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "mandir",
+        "puja unit",
+        "marble",
+        "brass",
+        "wood",
+        "niche",
+        "storage",
+        "render",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-18-p22.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-dining-credenza.jpg",
+      "alt": "A neutral-toned interior showcasing a fluted credenza, framed botanical art, and a warm wooden hallway ceiling — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dining",
+        "render",
+        "marble",
+        "timber",
+        "furniture",
+        "art",
+        "hallway",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-19-p23.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-contemporary-l-shaped-kitchen.jpg",
+      "alt": "A contemporary l-shaped kitchen features pastel blue and beige cabinetry with a white marble countertop — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "interior",
+        "kitchen",
+        "marble",
+        "wood",
+        "contemporary",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-21-p25.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-pastel-blue-kitchen.jpg",
+      "alt": "Modern modular kitchen featuring pastel blue cabinetry, fluted glass shutters, and a marble breakfast counter — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "kitchen",
+        "interior",
+        "cabinetry",
+        "marble",
+        "fluted glass",
+        "metal",
+        "contemporary",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-23-p27.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-contemporary-bedroom-interior.jpg",
+      "alt": "A contemporary bedroom featuring a wooden grid wall panel, neutral textiles, and a curved wardrobe — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "timber",
+        "marble",
+        "wardrobe",
+        "bed",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-24-p28.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-contemporary-bedroom-interior-2.jpg",
+      "alt": "A contemporary bedroom featuring bespoke cabinetry, an upholstered headboard, and soft natural daylight — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "bedroom",
+        "interior",
+        "timber",
+        "upholstery",
+        "custom joinery",
+        "wardrobe",
+        "marble",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-27-p31.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-vanity-unit-entrance.jpg",
+      "alt": "A contemporary vanity unit with integrated seating is set against a large mirror and warm walls — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "entrance",
+        "vanity",
+        "wardrobe",
+        "mirror",
+        "render",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-29-p33.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-terracotta-bathroom-interior-render.jpg",
+      "alt": "A contemporary bathroom featuring patterned terracotta tiles, a white vessel sink, and an oval brass-framed mirror — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bathroom",
+        "render",
+        "terracotta tiles",
+        "brass mirror",
+        "vessel sink",
+        "pink vanity",
+        "wall hung toilet",
+        "modern tiles",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-30-p34.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-compact-terracotta-bathroom.jpg",
+      "alt": "A compact modern bathroom featuring terracotta tiles, a brass-framed mirror, and a wall-hung toilet — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bathroom",
+        "terracotta",
+        "tiles",
+        "brass",
+        "modern",
+        "render",
+        "minimalist",
+        "lighting",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-31-p35.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-beige-bathroom.jpg",
+      "alt": "A compact modern bathroom featuring beige tiled walls, a glass shower partition, and terracotta-colored flooring — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bathroom",
+        "terracotta",
+        "tiles",
+        "shower",
+        "glass partition",
+        "render",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-32-p36.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-contemporary-bedroom-marble-accent-wall.jpg",
+      "alt": "A contemporary bedroom featuring an upholstered bed, a striking marble accent wall, and herringbone timber flooring — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "marble",
+        "timber",
+        "herringbone flooring",
+        "accent wall",
+        "modern",
+        "bed",
+        "lighting",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-34-p38.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-contemporary-bedroom-interior-3.jpg",
+      "alt": "A well-lit contemporary bedroom featuring wooden flooring, a rattan-paneled wardrobe, and a patterned accent wall — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "interior",
+        "bedroom",
+        "timber",
+        "rattan",
+        "wardrobe",
+        "wood flooring",
+        "contemporary",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-36-p40.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-dressing-nook-interior.jpg",
+      "alt": "A compact dressing nook featuring a wavy mirror, rattan wardrobe, and a wooden vanity stool — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dressing room",
+        "vanity",
+        "rattan",
+        "timber",
+        "mirror",
+        "render",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-37-p41.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-beige-bathroom-interior.jpg",
+      "alt": "A modern neutral bathroom featuring a wall-hung toilet, custom shelving, and a textured mirror — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bathroom",
+        "render",
+        "beige",
+        "stone",
+        "wood",
+        "sink",
+        "mirror",
+        "toilet",
+        "shower",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-38-p42.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-stone-bathroom-interior.jpg",
+      "alt": "A modern neutral bathroom featuring patterned stone tiles, integrated wall niches, and a sleek vanity — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "bathroom",
+        "interior",
+        "stone tiles",
+        "marble",
+        "vanity",
+        "shower",
+        "recessed niches",
+        "modern",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-39-p43.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-contemporary-wooden-bedroom-interior.jpg",
+      "alt": "A contemporary bedroom featuring a wooden slatted headboard, built-in blue wardrobes, and parquet flooring — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "wardrobe",
+        "herringbone parquet",
+        "slatted headboard",
+        "mirror",
+        "render",
+        "jaora compound 15"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-bedroom-timber-headboard.png",
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-modern-bedroom-timber-headboard.jpg",
       "alt": "A modern bedroom interior featuring a timber headboard, blue upholstery, and a tall vertical mirror — Jaora Compound 15 by Bloc 11 Architects",
       "tags": [
         "interior",
@@ -165,15 +398,23 @@
         "mirror",
         "upholstery",
         "bed",
-        "view 41 p45",
         "jaora compound 15"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/jaora-compound-15/view-49-p53.png",
-      "alt": "Jaora Compound 15 by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/jaora-compound-15/jaora-compound-15-balcony-wooden-swing.jpg",
+      "alt": "A terracotta-tiled balcony features a wooden swinging daybed suspended by chains under a slatted timber ceiling — Jaora Compound 15 by Bloc 11 Architects",
+      "tags": [
+        "terrace",
+        "balcony",
+        "timber",
+        "terracotta",
+        "render",
+        "exterior",
+        "railing",
+        "jaora compound 15"
+      ],
       "vault": true
     }
   ]

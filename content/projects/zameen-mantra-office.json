@@ -8,11 +8,94 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "",
+  "thumbnail": "/images/projects/zameen-mantra-office/zameen-mantra-office-timber-glazed-entrance.jpg",
   "hero_image": "",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "1Ut4VEYIce_HcZ1AnZTj8f6vHPLd7hZvg",
-  "photos": []
+  "photos": [
+    {
+      "src": "/images/projects/zameen-mantra-office/zameen-mantra-office-timber-glazed-entrance.jpg",
+      "alt": "Glazed double doors framed in timber open into a warm office reception area with orange seating — Zameen Mantra Office by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "interior",
+        "entrance",
+        "lobby",
+        "office",
+        "timber",
+        "glass",
+        "furniture",
+        "commercial",
+        "zameen mantra office"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/zameen-mantra-office/zameen-mantra-office-modern-reception-lobby.jpg",
+      "alt": "A modern reception area featuring a fluted wood accent wall, curved marble counter, and warm ambient lighting — Zameen Mantra Office by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "office",
+        "lobby",
+        "reception",
+        "timber",
+        "marble",
+        "render",
+        "furniture",
+        "lighting",
+        "zameen mantra office"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/zameen-mantra-office/zameen-mantra-office-reception-lobby-interior.jpg",
+      "alt": "An interior view of a modern office lobby featuring a textured reception desk and geometric wall art under recessed lighting — Zameen Mantra Office by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "lobby",
+        "office",
+        "reception",
+        "timber",
+        "brass",
+        "wall mural",
+        "render",
+        "furniture",
+        "zameen mantra office"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/zameen-mantra-office/zameen-mantra-office-modern-meeting-room.jpg",
+      "alt": "A compact modern meeting room features a white ribbed table, cream swivel chairs, and herringbone timber flooring — Zameen Mantra Office by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "office",
+        "meeting room",
+        "timber",
+        "marble",
+        "herringbone flooring",
+        "render",
+        "zameen mantra office"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/zameen-mantra-office/zameen-mantra-office-modern-meeting-room-2.jpg",
+      "alt": "A sleek modern office meeting room features a marble conference table, wood-paneled ceiling, and glass partitions — Zameen Mantra Office by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "office",
+        "meeting room",
+        "timber",
+        "marble",
+        "glass",
+        "render",
+        "modern",
+        "zameen mantra office"
+      ],
+      "vault": true
+    }
+  ]
 }

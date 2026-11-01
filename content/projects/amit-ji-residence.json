@@ -8,57 +8,128 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "/images/projects/amit-ji-residence/02-stair-kitchen-p14-mel-4k.png",
-  "hero_image": "/images/projects/amit-ji-residence/02-stair-kitchen-p14-mel-4k.png",
+  "thumbnail": "/images/projects/amit-ji-residence/amit-ji-residence-modern-staircase-interior.jpg",
+  "hero_image": "/images/projects/amit-ji-residence/amit-ji-residence-modern-staircase-interior.jpg",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "1C1wzyN_mnla77vzDn91KOHkvKTwNUD8z",
   "photos": [
     {
-      "src": "/images/projects/amit-ji-residence/02-stair-kitchen-p14-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-modern-staircase-interior.jpg",
+      "alt": "A light-filled contemporary interior featuring a modern staircase with metallic railings and built-in storage — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "staircase",
+        "entrance",
+        "render",
+        "metal",
+        "wood",
+        "marble",
+        "storage",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/03-living-dining-p15-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-contemporary-living-dining-interior.jpg",
+      "alt": "An open plan living and dining area featuring warm neutral tones, curved furniture, and minimalist wall niches — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "dining",
+        "staircase",
+        "render",
+        "marble",
+        "wood",
+        "neutral palette",
+        "contemporary",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/06-living-dining-p19-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-curved-living-dining-interior-render.jpg",
+      "alt": "An open living and dining space featuring curved minimalist furniture, marble accents, and a distinctive arched niche wall — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "dining",
+        "render",
+        "marble",
+        "timber",
+        "arch",
+        "curved",
+        "beige",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/07-stair-kitchen-p20-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-minimalist-dining-and-staircase-interior.jpg",
+      "alt": "Minimalist interior featuring a perforated wall panel, marble dining table, and stone staircase — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dining",
+        "staircase",
+        "marble",
+        "perforated panel",
+        "pendent light",
+        "render",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/08-mandir-p21-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-minimalist-home-temple-pooja-room.jpg",
+      "alt": "A minimalist home temple features a white marble altar, a seated figure, and inscribed timber paneling — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "temple",
+        "pooja room",
+        "marble",
+        "timber",
+        "wood",
+        "rendering",
+        "minimalist",
+        "indian architecture",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/12-mothers-bedroom-p25-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-modern-bedroom-built-in-bed.jpg",
+      "alt": "A compact modern bedroom featuring a built-in wooden daybed, neutral walls, and integrated cabinetry — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "wood",
+        "marble",
+        "built-in furniture",
+        "daybed",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/13-mothers-bedroom-p26-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-modern-bedroom-wardrobe-design.jpg",
+      "alt": "A compact modern bedroom featuring built-in wooden wardrobes and a tufted leather headboard beneath natural daylight — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "wood",
+        "leather",
+        "built-in wardrobe",
+        "neutral tones",
+        "daylight",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/amit-ji-residence-contemporary-bedroom-interior-render.png",
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-contemporary-bedroom-interior-render.jpg",
       "alt": "A contemporary bedroom featuring an integrated wardrobe, textured metallic paneling, and soft diffused lighting — Amit Ji Residence by Bloc 11 Architects",
       "tags": [
         "interior",
@@ -69,27 +140,58 @@
         "upholstered bed",
         "pendant light",
         "false ceiling",
-        "master bedroom p33 backboard cream 4k",
         "amit ji residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/20-master-bedroom-p34-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-modern-bedroom-interior-design.jpg",
+      "alt": "A contemporary bedroom featuring an upholstered green headboard, textured stone panels, and sleek integrated lighting — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "timber",
+        "marble",
+        "lighting",
+        "modern",
+        "bed",
+        "wardrobe",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/25-kids-bedroom-p41-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-children-bedroom-study-desk.jpg",
+      "alt": "A children's bedroom featuring a custom wooden study desk, a pegboard wall, and whimsical space-themed wall art — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "interior",
+        "bedroom",
+        "timber",
+        "study desk",
+        "pegboard",
+        "custom joinery",
+        "children room",
+        "amit ji residence"
+      ],
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/27-kids-bedroom-p43-mel-4k.png",
-      "alt": "Amit Ji Residence by Bloc 11 Architects",
-      "tags": [],
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-children-space-themed-bedroom-render.jpg",
+      "alt": "A children's bedroom featuring space-themed wall murals, custom wooden storage beds, and built-in shelving — Amit Ji Residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "timber",
+        "children room",
+        "custom furniture",
+        "wall mural",
+        "storage bed",
+        "lighting",
+        "amit ji residence"
+      ],
       "vault": true
     }
   ]

@@ -8,11 +8,65 @@
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "",
+  "thumbnail": "/images/projects/vijaynagar-74/vijaynagar-74-bedroom-study-desk-window-seat.jpg",
   "hero_image": "",
   "hero_alt": "",
   "about": "",
   "blocks": [],
   "drive_folder": "16MkXuGyKzB7GCbVGQxOIjhiNq9q-IiKL",
-  "photos": []
+  "photos": [
+    {
+      "src": "/images/projects/vijaynagar-74/vijaynagar-74-bedroom-study-desk-window-seat.jpg",
+      "alt": "A sunlit bedroom features a custom wooden study desk integrated with a cushioned window seat — Vijaynagar 74 by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "bedroom",
+        "interior",
+        "timber",
+        "wood",
+        "study desk",
+        "window seat",
+        "curtains",
+        "lighting",
+        "vijaynagar 74"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/vijaynagar-74/vijaynagar-74-contemporary-wooden-bedroom-interior.jpg",
+      "alt": "A warm contemporary bedroom featuring integrated wooden paneling, a low platform bed, and abundant natural light — Vijaynagar 74 by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "interior",
+        "bedroom",
+        "timber",
+        "wood",
+        "leather",
+        "desk",
+        "window seat",
+        "modern",
+        "minimalist",
+        "vijaynagar 74"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/vijaynagar-74/vijaynagar-74-bay-window-living-room-interior.jpg",
+      "alt": "Sunlit interior space featuring large bay windows, wooden ceiling panels, and a built-in window seat — Vijaynagar 74 by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "render",
+        "timber",
+        "wood",
+        "window seat",
+        "large windows",
+        "natural light",
+        "bay window",
+        "tv unit",
+        "vijaynagar 74"
+      ],
+      "vault": true
+    }
+  ]
 }
