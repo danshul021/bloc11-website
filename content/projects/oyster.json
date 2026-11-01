@@ -1,19 +1,4 @@
 {
-  "title": "Oyster",
-  "order": 3,
-  "type": "Residence",
-  "category": "Residential",
-  "location": "Indore",
-  "year": "",
-  "status": "Completed",
-  "show_on_work": true,
-  "thumbnail": "/images/projects/oyster/oyster-residence-indore-curved-terracotta-facade.jpg",
-  "has_page": false,
-  "hero_image": "",
-  "hero_alt": "",
-  "about": "",
-  "blocks": [],
-  "drive_folder": "1Bj2vjhUY6nwnsmFSEoyKUVaS7FoS4GMg",
   "photos": [
     {
       "src": "/images/projects/oyster/oyster-residence-indore-curved-terracotta-facade.jpg",
@@ -33,5 +18,20 @@
       ],
       "vault": true
     }
-  ]
+  ],
+  "drive_folder": "1Bj2vjhUY6nwnsmFSEoyKUVaS7FoS4GMg",
+  "hero_alt": "",
+  "blocks": [],
+  "thumbnail": "/images/projects/oyster/oyster-residence-indore-curved-terracotta-facade.jpg",
+  "about": "",
+  "order": 3,
+  "show_on_work": true,
+  "status": "Completed",
+  "has_page": false,
+  "location": "",
+  "hero_image": "",
+  "title": "Oyster",
+  "type": "Residence",
+  "year": "",
+  "category": "Residential"
 }
