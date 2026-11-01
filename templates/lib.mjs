@@ -62,22 +62,35 @@ export const json = (o) => esc(JSON.stringify(o));
 // Images go through Netlify's image service once the site is live there: it resizes them and
 // sends modern formats, so a large photo uploaded from the admin page still loads quickly.
 // If the service ever fails the picture falls back to the original file.
+// a short fingerprint of the file, added as ?v=… so a changed or turned photo is never shown from a visitor's old browser copy
+const VER = new Map();
+export function ver(src) {
+  if (!src || !src.startsWith('/') || src.includes('?')) return src;
+  if (!VER.has(src)) {
+    let v = '';
+    try { v = crypto.createHash('md5').update(fs.readFileSync(new URL('.' + src, STATIC))).digest('hex').slice(0, 8); } catch (e) {}
+    VER.set(src, v);
+  }
+  return VER.get(src) ? `${src}?v=${VER.get(src)}` : src;
+}
+
 export function cdn(src, w) {
-  if (!src || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return src;
+  if (!src || !src.startsWith('/')) return src;
+  if (/\.(svg|gif|png)$/i.test(src)) return ver(src);
   if (ON_NETLIFY) return `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}`;
-  if (!RESIZE || !/\.(jpe?g|webp)$/i.test(src) || !has(src)) return src;
+  if (!RESIZE || !/\.(jpe?g|webp)$/i.test(src) || !has(src)) return ver(src);
   const step = STEPS.find((x) => x >= w) || 0;
   const real = imageSize(src);
-  if (!step || (real && real[0] && real[0] <= step * 1.15)) return src;   // already small enough
+  if (!step || (real && real[0] && real[0] <= step * 1.15)) return ver(src);   // already small enough
   RESIZED.add(`${step}|${src}`);
-  return `/r/${step}${src.replace(/\.[^.]+$/, '.jpg')}`;
+  return `/r/${step}${src.replace(/\.[^.]+$/, '.jpg')}${ver(src).slice(src.length)}`;
 }
 export function img(src, { widths = [800, 1600, 2400], sizes = '100vw' } = {}) {
   if (!has(src)) return 'src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"';
-  if (!(ON_NETLIFY || RESIZE) || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return `src="${esc(src)}"`;
+  if (!(ON_NETLIFY || RESIZE) || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return `src="${esc(ver(src))}"`;
   const urls = [...new Set(widths.map((w) => cdn(src, w)))];
-  const set = widths.map((w) => [cdn(src, w), w]).filter(([u], k, a) => a.findIndex(([x]) => x === u) === k).map(([u, w]) => `${u} ${u === src ? ((imageSize(src) || [])[0] || w) : w}w`).join(', ');
-  return `src="${esc(urls[urls.length - 1])}" srcset="${esc(set)}" sizes="${esc(sizes)}" data-raw="${esc(src)}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.raw"`;
+  const set = widths.map((w) => [cdn(src, w), w]).filter(([u], k, a) => a.findIndex(([x]) => x === u) === k).map(([u, w]) => `${u} ${u === ver(src) ? ((imageSize(src) || [])[0] || w) : w}w`).join(', ');
+  return `src="${esc(urls[urls.length - 1])}" srcset="${esc(set)}" sizes="${esc(sizes)}" data-raw="${esc(ver(src))}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.raw"`;
 }
 
 // ---------- shared CSS ----------
