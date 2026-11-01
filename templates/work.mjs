@@ -205,7 +205,7 @@ ${projects.map(card).join('\n')}
         <div class="vcount" id="vcount" aria-live="polite"></div>
       </div>
       <div class="vgrid" id="vgrid">
-${vault.items.slice(0, 40).map((v) => `        <a class="vitem" href="${esc(v.f)}" data-i="${v.i}"><img src="${esc(v.s)}" width="${v.w}" height="${v.h}" loading="lazy" decoding="async" alt="${esc(v.a)}"><span class="vcap">${esc(v.p)}</span></a>`).join('\n')}
+${vault.items.slice(0, 40).map((v) => `        <a class="vitem" href="${esc(v.f)}" data-i="${v.i}"><img src="${esc(v.s)}" width="${v.w}" height="${v.h}" loading="lazy" decoding="async" alt="${esc(v.a)}" onerror="this.onerror=null;this.src=${esc(JSON.stringify(v.raw))}"><span class="vcap">${esc(v.p)}</span></a>`).join('\n')}
       </div>
       <script type="application/json" id="vault-data">${JSON.stringify(vault.items).replace(/</g, '\\u003c')}</script>
     </section>

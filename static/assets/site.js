@@ -22,13 +22,24 @@
     var count = document.getElementById('hero-count');
     var i = 0, timer = 0;
     var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
-    var preload = function (k) { var s = slides[k]; if (s) { var im = new Image(); im.src = s.src; } };
+    // the width that fits this screen (the same choice the browser makes from srcset)
+    var pick = function (s) {
+      if (!s.set) return s.src;
+      var want = (window.innerWidth || 1200) * (window.devicePixelRatio || 1), best = '', bw = 0;
+      s.set.split(', ').forEach(function (part) {
+        var bits = part.split(' '), w = parseInt(bits[1], 10);
+        if (!best || (bw < want && w > bw) || (w >= want && w < bw)) { best = bits[0]; bw = w; }
+      });
+      return best || s.src;
+    };
+    var preload = function (k) { var s = slides[k]; if (s) { var im = new Image(); im.src = pick(s); } };
     var show = function (k) {
       if (!slides.length) return;
       i = (k + slides.length) % slides.length;
       var s = slides[i];
-      heroImg.onerror = function () { heroImg.onerror = null; heroImg.src = s.raw; };
-      heroImg.src = s.src; heroImg.alt = s.alt; heroImg.style.objectPosition = s.pos;
+      heroImg.onerror = function () { heroImg.onerror = null; heroImg.removeAttribute('srcset'); heroImg.src = s.raw; };
+      if (s.set) { heroImg.srcset = s.set; heroImg.sizes = '100vw'; } else heroImg.removeAttribute('srcset');
+      heroImg.src = pick(s); heroImg.alt = s.alt; heroImg.style.objectPosition = s.pos;
       if (kicker) kicker.textContent = s.caption;
       if (count) count.textContent = p2(i + 1) + ' / ' + p2(slides.length);
       if (bars) Array.prototype.forEach.call(bars.children, function (b, n) { b.style.opacity = n === i ? '1' : '0.35'; });
@@ -192,7 +203,7 @@
     var render = function () {
       shown = items.filter(matches);
       gridEl.innerHTML = shown.length ? shown.map(function (it, k) {
-        return '<a class="vitem" href="' + it.f + '" data-k="' + k + '"><img src="' + it.s + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '"><span class="vcap">' + esc(it.p) + '</span></a>';
+        return '<a class="vitem" href="' + it.f + '" data-k="' + k + '"><img src="' + it.s + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>';
       }).join('') : '<p class="vnone">No photos match “' + esc(query) + '” yet. Try another word, or clear the search.</p>';
       countEl.textContent = shown.length + (shown.length === 1 ? ' photo' : ' photos') + (query ? ' for “' + query + '”' : '');
       clear.hidden = !query;
@@ -226,7 +237,7 @@
         light.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
         light.addEventListener('touchend', function (e) { if (sx == null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); });
       }
-      var im = light.querySelector('img'); im.src = it.f; im.alt = it.a;
+      var im = light.querySelector('img'); im.onerror = function () { im.onerror = null; im.src = it.raw; }; im.src = it.f; im.alt = it.a;
       light.querySelector('.vinfo').innerHTML = esc(it.a) + (it.u ? ' &nbsp;<a href="' + it.u + '">See the project →</a>' : '') +
         '<div class="vtags">' + esc(it.t.split(' | ').slice(0, 10).join(' · ')) + '</div>';
       light.hidden = false; document.documentElement.style.overflow = 'hidden';

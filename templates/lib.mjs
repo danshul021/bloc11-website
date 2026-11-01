@@ -79,18 +79,25 @@ export function cdn(src, w) {
   if (/\.(svg|gif|png)$/i.test(src)) return ver(src);
   if (ON_NETLIFY) return `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}`;
   if (!RESIZE || !/\.(jpe?g|webp)$/i.test(src) || !has(src)) return ver(src);
+  // a WebP copy (about 30% lighter than the JPEG): resized to the nearest step, or at full size
+  // when the photo is already about that small. The JPEG stays as the fallback and for Google.
   const step = STEPS.find((x) => x >= w) || 0;
   const real = imageSize(src);
-  if (!step || (real && real[0] && real[0] <= step * 1.15)) return ver(src);   // already small enough
-  RESIZED.add(`${step}|${src}`);
-  return `/r/${step}${src.replace(/\.[^.]+$/, '.jpg')}${ver(src).slice(src.length)}`;
+  const size = step && !(real && real[0] && real[0] <= step * 1.15) ? step : 'full';
+  RESIZED.add(`${size}|${src}`);
+  return `/r/${size}${src.replace(/\.[^.]+$/, '.webp')}${ver(src).slice(src.length)}`;
+}
+// width of the picture a cdn() address delivers (for srcset)
+const cdnWidth = (src, url, w) => (url.includes('/r/full/') || url === ver(src) ? ((imageSize(src) || [])[0] || w) : w);
+export function srcset(src, widths) {
+  const seen = new Set();
+  return widths.map((w) => [cdn(src, w), w]).filter(([u]) => !seen.has(u) && seen.add(u)).map(([u, w]) => `${u} ${cdnWidth(src, u, w)}w`).join(', ');
 }
 export function img(src, { widths = [800, 1600, 2400], sizes = '100vw' } = {}) {
   if (!has(src)) return 'src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"';
   if (!(ON_NETLIFY || RESIZE) || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return `src="${esc(ver(src))}"`;
-  const urls = [...new Set(widths.map((w) => cdn(src, w)))];
-  const set = widths.map((w) => [cdn(src, w), w]).filter(([u], k, a) => a.findIndex(([x]) => x === u) === k).map(([u, w]) => `${u} ${u === ver(src) ? ((imageSize(src) || [])[0] || w) : w}w`).join(', ');
-  return `src="${esc(urls[urls.length - 1])}" srcset="${esc(set)}" sizes="${esc(sizes)}" data-raw="${esc(ver(src))}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.raw"`;
+  const big = cdn(src, widths[widths.length - 1]);
+  return `src="${esc(big)}" srcset="${esc(srcset(src, widths))}" sizes="${esc(sizes)}" data-raw="${esc(ver(src))}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.raw"`;
 }
 
 // ---------- shared CSS ----------

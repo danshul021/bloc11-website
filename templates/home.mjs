@@ -1,5 +1,5 @@
 // Home page
-import { esc, rich, pad, cdn, img, page, mount, mnav, capabilities, contact, footer, SITE_URL, MNAV_CSS, CAPS_CSS, CONTACT_CSS } from './lib.mjs';
+import { esc, rich, pad, cdn, img, srcset, ver, page, mount, mnav, capabilities, contact, footer, SITE_URL, MNAV_CSS, CAPS_CSS, CONTACT_CSS } from './lib.mjs';
 
 const KINDS = ['question', 'decode', 'experiment', 'refine', 'realise'];
 const ACCENTS = ['#7F7061', '#5D5C4C', '#B9693F', '#34475B', '#8A6D26'];
@@ -64,7 +64,9 @@ export function renderHome({ site, home, projects }) {
   const feat = projects.find((p) => p.slug === home.featured_project);
   const featHref = feat ? (feat.has_page ? `/work/${feat.slug}/` : '/work/') : '/work/';
   const featText = feat ? `${feat.title}${feat.location ? ', ' + feat.location : ''} →` : 'See our work →';
-  const heroData = slides.map((s) => ({ src: cdn(s.image, 2400), raw: s.image, alt: s.alt || '', caption: s.caption || '', pos: `center ${Number(s.focus ?? 50)}%` }));
+  // each slide comes in several widths, so a phone downloads a phone-sized picture
+  const HERO_W = [800, 1200, 1600, 2000, 2400];
+  const heroData = slides.map((s) => ({ src: cdn(s.image, 2400), set: srcset(s.image, HERO_W), raw: ver(s.image), alt: s.alt || '', caption: s.caption || '', pos: `center ${Number(s.focus ?? 50)}%` }));
   const steps = (home.steps || []).slice(0, 5);
 
   const stats = (home.stats || []).map((st, si) => {
@@ -82,7 +84,7 @@ ${v.split('').map((ch, di) => `            <span aria-hidden="true" style="displ
   const body = `
   <!-- HERO -->
   <section id="top" class="hero" style="position: relative; height: 860px; overflow: hidden; background: #2a2622">
-    <img id="hero-img" class="hero-img" src="${esc(heroData[0]?.src || '')}" alt="${esc(s0.alt)}" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center ${Number(s0.focus ?? 50)}%">
+    <img id="hero-img" class="hero-img" src="${esc(heroData[0]?.src || '')}"${heroData[0]?.set ? ` srcset="${esc(heroData[0].set)}" sizes="100vw"` : ''} onerror="this.onerror=null;this.removeAttribute('srcset');this.src=${esc(JSON.stringify(heroData[0]?.raw || ''))}" alt="${esc(s0.alt)}" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center ${Number(s0.focus ?? 50)}%">
     <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 180px; background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0))"></div>
     <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 380px; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5))"></div>
 
