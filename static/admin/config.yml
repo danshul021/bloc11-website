@@ -48,7 +48,7 @@ collections:
     media_folder: '/static/images/projects/{{filename}}'
     public_folder: '/images/projects/{{filename}}'
     identifier_field: title
-    summary: '{{order}} · {{title}} — {{location}} · {{status}}'
+    summary: '{{order}} · {{title}} · {{status}}'
     sortable_fields: ['order', 'title', 'location', 'status']
     editor: { preview: false }
     fields:
