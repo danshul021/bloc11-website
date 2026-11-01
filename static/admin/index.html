@@ -50,7 +50,7 @@
         var r = await gh('/actions/workflows/' + WF + '/dispatches', { method: 'POST', body: JSON.stringify({ ref: 'main' }) });
         if (r.status !== 204) throw new Error('GitHub said ' + r.status + ' — ' + (await r.text()).slice(0, 160));
         var run = null;
-        for (var i = 0; i < 240; i++) {               // up to ~20 minutes
+        for (var i = 0; i < 600; i++) {               // up to ~50 minutes
           await wait(5000);
           var j = await (await gh('/actions/workflows/' + WF + '/runs?per_page=5&event=workflow_dispatch')).json();
           run = (j.workflow_runs || []).find(function (x) { return new Date(x.created_at).getTime() >= started; }) || run;

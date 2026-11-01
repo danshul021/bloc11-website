@@ -38,6 +38,10 @@ export function mergeTags(...lists) {
   return out.slice(0, 18);
 }
 
+// camera and render file names ("IMG_20230224_132250_Edited_4K", "View_01_P05", "Enscape_2025-01-08…") make poor tags
+const JUNK = /^[\d\s._-]*$|\d{5,}|\b\d+k\b|\b[pvx]\d+\b|\b(img|dsc|pxl|enscape|view|edited|repaired|final|copy|untitled|render)\s*\d*$|^(img|dsc|pxl|enscape|view|untitled)\b/i;
+export const cleanTags = (tags) => (tags || []).filter((t) => !JUNK.test(String(t)) || /^render$/i.test(String(t)));
+
 const PROMPT = (p) => `You are tagging a photo for the portfolio website of ${FIRM}, an architecture and interior design practice in India.
 Project: ${p.title || 'unknown'}${p.type ? ` — ${p.type}` : ''}${p.location ? ` in ${p.location}` : ''}${p.status ? ` (${p.status})` : ''}.
 
@@ -72,15 +76,38 @@ async function claude(jpeg, p) {
   return parse((j.content || []).map((c) => c.text || '').join(''));
 }
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+let lastCall = 0, outOfQuota = '';
+
 async function gemini(jpeg, p) {
+  if (outOfQuota) throw new Error(outOfQuota);
   const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
-  const r = await fetch(`${process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'}/v1beta/models/${model}:generateContent?key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`, {
-    method: 'POST', headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ contents: [{ parts: [{ inline_data: { mime_type: 'image/jpeg', data: jpeg.toString('base64') } }, { text: PROMPT(p) }] }] }),
-  });
-  if (!r.ok) throw new Error(`Gemini said ${r.status}: ${(await r.text()).slice(0, 200)}`);
-  const j = await r.json();
-  return parse(((j.candidates || [])[0]?.content?.parts || []).map((x) => x.text || '').join(''));
+  const gap = Number(process.env.TAG_GAP_MS || 4500);   // the free tier allows about 15 photos a minute
+  for (let attempt = 0; ; attempt++) {
+    const since = Date.now() - lastCall;
+    if (since < gap) await sleep(gap - since);
+    lastCall = Date.now();
+    let r;
+    try { r = await fetch(`${process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'}/v1beta/models/${model}:generateContent?key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`, {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ inline_data: { mime_type: 'image/jpeg', data: jpeg.toString('base64') } }, { text: PROMPT(p) }] }] }),
+    }); } catch (e) {                                   // network hiccup: try again
+      if (attempt < 3) { await sleep(5000); continue; }
+      throw e;
+    }
+    if (r.ok) {
+      const j = await r.json();
+      return parse(((j.candidates || [])[0]?.content?.parts || []).map((x) => x.text || '').join(''));
+    }
+    const body = await r.text();
+    if (r.status === 429 && /PerDay|per day|daily/i.test(body)) {
+      outOfQuota = 'Gemini daily limit reached — the rest will be described on a later refresh';
+      throw new Error(outOfQuota);
+    }
+    const wait = [20, 40, 60][attempt];
+    if ((r.status === 429 || r.status >= 500) && wait) { console.log(`Gemini is busy (${r.status}) — waiting ${wait} s`); await sleep(wait * 1000); continue; }
+    throw new Error(`Gemini said ${r.status}: ${body.slice(0, 200)}`);
+  }
 }
 
 export const tagger = process.env.GEMINI_API_KEY ? 'Gemini' : process.env.ANTHROPIC_API_KEY ? 'Claude' : '';
@@ -95,5 +122,5 @@ export async function describe(jpeg, p, fileName) {
   }
   const description = got?.description || (fromName ? fromName.charAt(0).toUpperCase() + fromName.slice(1) : '');
   const name = got?.name || fromName || 'photo';
-  return { description, tags: mergeTags(got?.tags || [], fromName ? [fromName] : [], projectTags(p)), name, auto: got ? tagger : 'file name', error };
+  return { description, tags: cleanTags(mergeTags(got?.tags || [], !got && fromName ? [fromName] : [], projectTags(p))), name, auto: got ? tagger : 'file name', error };
 }

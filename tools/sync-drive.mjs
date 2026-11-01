@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
-import { describe, altFor, seoBase, tagger } from './photo-tags.mjs';
+import { describe, altFor, seoBase, tagger, cleanTags } from './photo-tags.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
@@ -39,11 +39,21 @@ const IMAGE_TYPES = /^image\/(jpeg|png|webp|tiff|heic|heif)$/i;
 const MAX_W = 2400;
 
 const log = (...a) => console.log(...a);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+let waited = 0;                                       // seconds spent waiting on a busy Google Drive
+const WAIT_BUDGET = Number(process.env.DRIVE_WAIT_BUDGET || 600);
 const readJSON = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return d; } };
 const writeJSON = (f, o) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, JSON.stringify(o, null, 2) + '\n'); };
 export const slugify = (s) => String(s).normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase()
   .replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'project';
 const fileSlug = (name) => slugify(name.replace(/\.[^.]+$/, ''));
+
+// replace whole picture addresses inside a JSON text
+function swap(txt, map) {
+  let out = txt;
+  for (const [a, b] of map) out = out.split(JSON.stringify(a)).join(JSON.stringify(b));
+  return out;
+}
 
 function folderIdFrom(link) {
   const s = String(link || '').trim();
@@ -54,12 +64,20 @@ function folderIdFrom(link) {
 async function api(p, params = {}) {
   const u = new URL(API + p);
   Object.entries({ ...params, key: KEY, supportsAllDrives: 'true' }).forEach(([k, v]) => u.searchParams.set(k, v));
-  const r = await fetch(u);
-  if (!r.ok) {
+  for (let attempt = 0; ; attempt++) {
+    const r = await fetch(u);
+    if (r.ok) return r;
     const body = await r.text();
-    throw new Error(`Google Drive said ${r.status} for ${p}: ${body.slice(0, 300)}`);
+    // Google answers many quick downloads with a "Sorry…" page (403) or 429: wait and try again
+    const busy = r.status === 429 || r.status >= 500 || (r.status === 403 && /Sorry|automated|rateLimit|userRateLimit|quota/i.test(body));
+    const wait = [15, 30, 60, 90, 120][attempt];
+    if (busy && wait && waited + wait <= WAIT_BUDGET) {
+      log(`Google Drive is busy (${r.status}) — waiting ${wait} s`);
+      waited += wait; await sleep(wait * 1000); continue;
+    }
+    const text = body.replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    throw new Error(`Google Drive said ${r.status}${busy ? ' (too many downloads — the next refresh will pick it up)' : ''}: ${text.slice(0, 160)}`);
   }
-  return r;
 }
 async function list(parent) {
   const out = []; let pageToken = '';
@@ -81,6 +99,23 @@ async function download(id) {
   return Buffer.from(await r.arrayBuffer());
 }
 
+// renders and photos become JPEGs (a fraction of the size); PNG is kept only for real transparency
+async function encode(buf) {
+  const meta = await sharp(buf, { failOn: 'none' }).metadata();
+  let keepPng = false;
+  if (meta.hasAlpha && /png|webp/.test(meta.format || '')) {
+    // keep transparency only when it is real (logos, cut-outs) — not a few stray pixels at a render's edge
+    const st = await sharp(buf, { failOn: 'none' }).stats();
+    const a = st.channels && st.channels[st.channels.length - 1];
+    keepPng = !st.isOpaque && !!a && a.mean < 250;
+  }
+  let img = sharp(buf, { failOn: 'none' }).rotate();
+  if ((meta.width || 0) > MAX_W) img = img.resize({ width: MAX_W, withoutEnlargement: true });
+  return keepPng
+    ? { ext: 'png', out: img.png({ compressionLevel: 9 }) }
+    : { ext: 'jpg', out: img.flatten({ background: '#ffffff' }).jpeg({ quality: 80, progressive: true, mozjpeg: true }) };
+}
+
 async function main() {
   if (!KEY) throw new Error('DRIVE_API_KEY is missing. Add it under the GitHub repository → Settings → Secrets and variables → Actions.');
   const cfg = readJSON(path.join(root, 'content', 'drive.json'), {});
@@ -88,7 +123,8 @@ async function main() {
   if (!rootId) throw new Error('No Google Drive folder set. Paste the folder link in the admin page under Site-wide → Google Drive folder.');
 
   const state = readJSON(STATE_FILE, { folders: {} });
-  const report = { added: [], linked: [], photosAdded: 0, photosUpdated: 0, photosRemoved: 0, skipped: [], missingFolders: [] };
+  const report = { added: [], linked: [], photosAdded: 0, photosUpdated: 0, photosRemoved: 0, upgraded: 0, converted: 0, skipped: [], duplicates: [], missingFolders: [] };
+  const renames = new Map();                           // old picture address → new one (for every page that uses it)
 
   const entries = await list(rootId);
   const folders = entries.filter((f) => f.mimeType === 'application/vnd.google-apps.folder' && !/^[._]/.test(f.name));
@@ -110,7 +146,7 @@ async function main() {
     const slug = st.slug;
     const pfile = path.join(PROJECTS, `${slug}.json`);
     const exists = fs.existsSync(pfile);
-    const proj = exists ? readJSON(pfile, {}) : { title: folder.name.trim() };
+    let proj = exists ? readJSON(pfile, {}) : { title: folder.name.trim() };
     const ctx = { slug, title: proj.title || folder.name, type: proj.type, location: proj.location, status: proj.status };
 
     // photos
@@ -121,38 +157,61 @@ async function main() {
     const keep = new Set();
     const usedNames = new Set(Object.values(st.files).map((i) => i.file.replace(/\.[^.]+$/, '')));
     const fresh = {};                                  // file id → new description/tags for this run
+    const renamedFrom = {};                            // file id → its old picture address
+    const seenMd5 = new Set();
+    // the same photo uploaded twice: keep the copy the site already uses
+    files.sort((a, b) => (st.files[b.id] ? 1 : 0) - (st.files[a.id] ? 1 : 0) || a.name.localeCompare(b.name, undefined, { numeric: true }));
     for (const f of files) {
-      const isPng = /png$/i.test(f.mimeType);
+      if (f.md5Checksum) {
+        if (seenMd5.has(f.md5Checksum)) { report.duplicates.push(`${folder.name}/${f.name}`); continue; }
+        seenMd5.add(f.md5Checksum);
+      }
       const prev = st.files[f.id];
       keep.add(f.id);
       const sum = f.md5Checksum || f.modifiedTime;
-      if (prev && prev.md5 === sum && fs.existsSync(path.join(dir, prev.file))) continue;
+      const have = prev && fs.existsSync(path.join(dir, prev.file));
+      const unchanged = have && prev.md5 === sum;
+      // photos copied in before descriptions were switched on (or when the reader was unavailable)
+      const unnamed = !!prev && (prev.by ? prev.by === 'file name' && !!tagger : !prev.file.startsWith(`${slug}-`));
+      const isPng = !!prev && /\.png$/i.test(prev.file);
+      if (unchanged && !(unnamed && tagger) && !isPng) continue;
       try {
-        const buf = await download(f.id);
-        let img = sharp(buf, { failOn: 'none' }).rotate();
-        const meta = await img.metadata();
-        if ((meta.width || 0) > MAX_W) img = img.resize({ width: MAX_W, withoutEnlargement: true });
+        const buf = unchanged ? fs.readFileSync(path.join(dir, prev.file)) : await download(f.id);
+        const enc = await encode(buf);
+        let base = prev ? prev.file.replace(/\.[^.]+$/, '') : '';
+        let by = prev && prev.by;
         // a brand-new photo is read and named once; a replaced photo keeps its name (and the tags you may have edited)
-        let rel = prev && prev.file;
-        if (!rel) {
-          const small = await sharp(buf, { failOn: 'none' }).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
+        if (!prev || (unnamed && tagger)) {
+          const small = await sharp(buf, { failOn: 'none' }).rotate().resize({ width: 1024, withoutEnlargement: true }).flatten({ background: '#ffffff' }).jpeg({ quality: 78 }).toBuffer();
           const info = await describe(small, ctx, f.name);
-          if (info.error) report.skipped.push(`${folder.name}/${f.name}: tags from file name (${info.error.slice(0, 120)})`);
-          let base = seoBase(ctx, info.name) || slugify(f.name.replace(/\.[^.]+$/, '')), n = 2;
-          const b0 = base;
-          while (usedNames.has(base)) base = `${b0}-${n++}`;
-          usedNames.add(base);
-          rel = `${base}.${isPng ? 'png' : 'jpg'}`;
-          fresh[f.id] = info;
+          if (info.error) report.skipped.push(`${folder.name}/${f.name}: description from file name (${info.error.slice(0, 120)})`);
+          if (!prev || !info.error) {
+            let b = seoBase(ctx, info.name) || fileSlug(f.name), n = 2;
+            const b0 = b;
+            while (usedNames.has(b) && b !== base) b = `${b0}-${n++}`;
+            usedNames.add(b);
+            base = b; by = info.auto;
+            fresh[f.id] = info;
+            if (prev) report.upgraded++;
+          }
         }
-        await (isPng ? img.png({ compressionLevel: 9 }) : img.jpeg({ quality: 80, progressive: true, mozjpeg: true })).toFile(path.join(dir, rel));
-        st.files[f.id] = { name: f.name, file: rel, md5: sum };
-        prev ? report.photosUpdated++ : report.photosAdded++;
+        const rel = `${base}.${enc.ext}`;
+        await enc.out.toFile(path.join(dir, rel));
+        if (prev && prev.file !== rel) {
+          if (have) fs.rmSync(path.join(dir, prev.file), { force: true });
+          renamedFrom[f.id] = `/images/projects/${slug}/${prev.file}`;
+          renames.set(renamedFrom[f.id], `/images/projects/${slug}/${rel}`);
+          if (isPng && enc.ext === 'jpg') report.converted++;
+        }
+        st.files[f.id] = { name: f.name, file: rel, md5: sum, ...(by ? { by } : {}) };
+        if (!prev) report.photosAdded++; else if (!unchanged) report.photosUpdated++;
       } catch (e) {
         report.skipped.push(`${folder.name}/${f.name} (${e.message.split('\n')[0]})`);
         if (!prev) keep.delete(f.id);
       }
     }
+    // renamed pictures: follow them in this project's list picture, main picture and layout
+    if (Object.keys(renamedFrom).length) proj = JSON.parse(swap(JSON.stringify(proj), renames));
     // photos taken out of the Drive folder
     for (const [fid, info] of Object.entries(st.files)) {
       if (!keep.has(fid)) { fs.rmSync(path.join(dir, info.file), { force: true }); delete st.files[fid]; report.photosRemoved++; }
@@ -164,10 +223,12 @@ async function main() {
         const src = `/images/projects/${slug}/${i.file}`;
         const was = old.get(src) || {};
         const nu = fresh[fid];
+        // a new description replaces only the plain one written before (never text typed in the admin page)
+        const plain = !was.alt || was.alt === altFor('', ctx) || !(was.tags && was.tags.length);
         return {
           src,
-          alt: was.alt || (nu ? altFor(nu.description, ctx) : altFor('', ctx)),
-          tags: (was.tags && was.tags.length) ? was.tags : (nu ? nu.tags : []),
+          alt: nu && plain ? altFor(nu.description, ctx) : (was.alt || altFor('', ctx)),
+          tags: cleanTags(nu && plain ? nu.tags : (was.tags || [])),
           vault: was.vault !== false,
         };
       });
@@ -206,11 +267,23 @@ async function main() {
     delete state.folders[fid];
   }
 
+  // pictures renamed this run: update every other page that shows them (e.g. the home slideshow)
+  if (renames.size) {
+    const dirs = [path.join(root, 'content'), PROJECTS];
+    for (const d of dirs) for (const f of fs.readdirSync(d).filter((x) => x.endsWith('.json'))) {
+      const file = path.join(d, f), txt = fs.readFileSync(file, 'utf8'), nu = swap(txt, renames);
+      if (nu !== txt) fs.writeFileSync(file, nu);
+    }
+  }
+
   writeJSON(STATE_FILE, state);
   const lines = [
     `New projects: ${report.added.length ? report.added.join(', ') : 'none'}`,
     `Linked to existing projects: ${report.linked.length ? report.linked.join(', ') : 'none'}`,
     `Photos added ${report.photosAdded}, updated ${report.photosUpdated}, removed ${report.photosRemoved}`,
+    ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
+    ...(report.converted ? [`PNG pictures made into lighter JPEGs: ${report.converted}`] : []),
+    ...(report.duplicates.length ? [`Skipped as duplicates of another photo in the same folder (you can delete these in Drive): ${report.duplicates.join(', ')}`] : []),
     `New photos described: ${report.tagged || 0} (${tagger ? `by ${tagger}` : 'from file names — add an ANTHROPIC_API_KEY or GEMINI_API_KEY secret for automatic descriptions'})`,
     ...(report.skipped.length ? [`Could not read: ${report.skipped.join('; ')}`] : []),
     ...(report.missingFolders.length ? [`Folders no longer in Drive (projects kept, unlinked): ${report.missingFolders.join(', ')}`] : []),
