@@ -1,19 +1,4 @@
 {
-  "title": "201 Gulmohar",
-  "order": 12,
-  "type": "",
-  "category": "",
-  "location": "",
-  "year": "",
-  "status": "Ongoing",
-  "show_on_work": false,
-  "has_page": false,
-  "thumbnail": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
-  "hero_image": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
-  "hero_alt": "",
-  "about": "",
-  "blocks": [],
-  "drive_folder": "15foQphedpXKzaE7GysUPjvUOHG4k3Swc",
   "photos": [
     {
       "src": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
@@ -96,5 +81,20 @@
       ],
       "vault": true
     }
-  ]
+  ],
+  "drive_folder": "15foQphedpXKzaE7GysUPjvUOHG4k3Swc",
+  "hero_alt": "",
+  "blocks": [],
+  "thumbnail": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
+  "about": "",
+  "order": 12,
+  "show_on_work": true,
+  "status": "Completed",
+  "has_page": false,
+  "location": "",
+  "hero_image": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
+  "title": "201 Gulmohar",
+  "type": "",
+  "year": "",
+  "category": ""
 }
