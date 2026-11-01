@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { renderHome } from './templates/home.mjs';
 import { renderStudio } from './templates/studio.mjs';
 import { renderWork, renderProject, vaultData } from './templates/work.mjs';
-import { SITE_URL, esc, PHOTO_ALT, has } from './templates/lib.mjs';
+import { SITE_URL, esc, PHOTO_ALT, has, RESIZED } from './templates/lib.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const out = path.join(root, '_site');
@@ -66,5 +66,7 @@ ${urls.map((u) => `  <url><loc>${esc(SITE_URL + u)}</loc>${(pageImages[u] || [])
 `);
 write('robots.txt', `User-agent: *\nDisallow: /admin/\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 write('404.html', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found — ${esc(site.firm_name)}</title><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="apple-touch-icon" href="/images/apple-touch-icon.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;500&display=swap"><style>body{margin:0;font-family:'Jost',system-ui,sans-serif;font-weight:300;color:#141414;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box}a{color:#141414}h1{font-weight:500;letter-spacing:-0.03em;font-size:40px;margin:24px 0 12px}</style></head><body><div><a href="/"><img src="/images/logo-dark.png" alt="${esc(site.firm_name)}" style="height:42px"></a><h1>Page not found</h1><p>This page has moved or no longer exists. <a href="/">Go to the home page</a> or <a href="/work/">see our work</a>.</p></div></body></html>`);
+
+if (RESIZED.size) fs.writeFileSync(path.join(out, '.resize.json'), JSON.stringify([...RESIZED]));
 
 console.log(`Built ${urls.length} pages and ${projects.length} projects into _site/`);

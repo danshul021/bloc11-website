@@ -37,6 +37,11 @@ export const altOf = (src, fallback = '') => (fallback && String(fallback).trim(
 
 export const has = (src) => !!src && (!src.startsWith('/') || fs.existsSync(new URL('.' + src.split('?')[0], STATIC)));
 const ON_NETLIFY = process.env.NETLIFY === 'true';
+// On GitHub Pages there is no image service, so the publish step makes smaller copies itself:
+// cdn() hands out /r/<width>/images/… addresses and remembers which copies tools/resize.mjs must make.
+const RESIZE = !ON_NETLIFY && process.env.RESIZE_IMAGES === '1';
+const STEPS = [480, 800, 1200, 1600, 2000];
+export const RESIZED = new Set();
 
 export const esc = (s) => String(s ?? '')
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -58,14 +63,21 @@ export const json = (o) => esc(JSON.stringify(o));
 // sends modern formats, so a large photo uploaded from the admin page still loads quickly.
 // If the service ever fails the picture falls back to the original file.
 export function cdn(src, w) {
-  if (!src || !ON_NETLIFY || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return src;
-  return `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}`;
+  if (!src || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return src;
+  if (ON_NETLIFY) return `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}`;
+  if (!RESIZE || !/\.(jpe?g|webp)$/i.test(src) || !has(src)) return src;
+  const step = STEPS.find((x) => x >= w) || 0;
+  const real = imageSize(src);
+  if (!step || (real && real[0] && real[0] <= step * 1.15)) return src;   // already small enough
+  RESIZED.add(`${step}|${src}`);
+  return `/r/${step}${src.replace(/\.[^.]+$/, '.jpg')}`;
 }
 export function img(src, { widths = [800, 1600, 2400], sizes = '100vw' } = {}) {
   if (!has(src)) return 'src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"';
-  if (!ON_NETLIFY || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return `src="${esc(src)}"`;
-  const set = widths.map((w) => `${cdn(src, w)} ${w}w`).join(', ');
-  return `src="${esc(cdn(src, widths[widths.length - 1]))}" srcset="${esc(set)}" sizes="${esc(sizes)}" data-raw="${esc(src)}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.raw"`;
+  if (!(ON_NETLIFY || RESIZE) || !src.startsWith('/') || /\.(svg|gif|png)$/i.test(src)) return `src="${esc(src)}"`;
+  const urls = [...new Set(widths.map((w) => cdn(src, w)))];
+  const set = widths.map((w) => [cdn(src, w), w]).filter(([u], k, a) => a.findIndex(([x]) => x === u) === k).map(([u, w]) => `${u} ${u === src ? ((imageSize(src) || [])[0] || w) : w}w`).join(', ');
+  return `src="${esc(urls[urls.length - 1])}" srcset="${esc(set)}" sizes="${esc(sizes)}" data-raw="${esc(src)}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.raw"`;
 }
 
 // ---------- shared CSS ----------

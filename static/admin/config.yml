@@ -6,6 +6,9 @@ backend:
   name: github
   repo: danshul021/bloc11-website
   branch: main
+  # the admin login goes through Netlify's GitHub sign-in service (free; the website itself is on GitHub Pages)
+  base_url: https://api.netlify.com
+  site_domain: bloc11.netlify.app
   commit_messages:
     create: 'Add {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'

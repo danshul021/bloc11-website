@@ -1,0 +1,65 @@
+# "Publish website" — builds the site and puts it on GitHub Pages (bloc11.studio).
+# Runs after every change saved from the admin page, and after each "Refresh from Drive".
+name: Publish website
+
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Refresh from Drive"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install the photo resizer
+        run: npm install --no-save --no-package-lock sharp@0.33.5
+
+      - name: Reuse photo copies made last time
+        uses: actions/cache@v4
+        with:
+          path: .rcache
+          key: photo-copies-${{ github.run_id }}
+          restore-keys: photo-copies-
+
+      - name: Build the website
+        env:
+          RESIZE_IMAGES: '1'
+        run: |
+          node build.mjs
+          node tools/resize.mjs
+          echo "bloc11.studio" > _site/CNAME
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
