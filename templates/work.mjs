@@ -136,7 +136,7 @@ export function renderWork({ site, work, projects, vault, view = 'list' }) {
               <span class="lcol">${esc(p.type)}</span>
               <span class="lcol">${esc(p.location)}</span>
               <span class="lcol" style="color: ${statusColor(p.status)}">${esc(p.status)}</span>
-              <span class="lmeta">${esc(p.type)} · ${esc(p.location)} · <span style="color: ${statusColor(p.status)}">${esc(p.status)}</span></span>
+              <span class="lmeta">${[p.type, p.location].filter(Boolean).map((v) => esc(v) + ' · ').join('')}<span style="color: ${statusColor(p.status)}">${esc(p.status)}</span></span>
             </${tag}>`;
   };
   const card = (p, k) => {
@@ -149,7 +149,7 @@ export function renderWork({ site, work, projects, vault, view = 'list' }) {
               <span class="rt" style="font-size: 22px; font-weight: 500; letter-spacing: -0.02em">${esc(p.title)}</span>
               <span style="font-size: 12px; letter-spacing: 0.12em; color: #6B6A67">${pad(k + 1, 3)}</span>
             </span>
-            <span style="font-size: 14px; color: #6B6A67">${esc(p.type)} · ${esc(p.location)} · <span style="color: ${statusColor(p.status)}">${esc(p.status)}</span></span>
+            <span style="font-size: 14px; color: #6B6A67">${[p.type, p.location].filter(Boolean).map((v) => esc(v) + ' · ').join('')}<span style="color: ${statusColor(p.status)}">${esc(p.status)}</span></span>
           </${tag}>`;
   };
 

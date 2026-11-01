@@ -46,17 +46,19 @@ const PROMPT = (p) => `You are tagging a photo for the portfolio website of ${FI
 Project: ${p.title || 'unknown'}${p.type ? ` — ${p.type}` : ''}${p.location ? ` in ${p.location}` : ''}${p.status ? ` (${p.status})` : ''}.
 
 Look at the photo and reply with JSON only, no other text:
-{"description": "...", "tags": ["..."], "name": "..."}
+{"description": "...", "tags": ["..."], "name": "...", "rotate": 0}
 
 - description: one plain sentence (8–18 words) describing what is visible, the way an architect would — space or view, key elements, materials, light. No project name, no marketing words.
 - tags: 6–12 short lowercase search tags. Always include the view type (one of: exterior, interior, elevation, detail, aerial, plan, section, sketch, model, render, site) and the space if any (e.g. living room, bedroom, kitchen, bathroom, dining, staircase, entrance, courtyard, terrace, office, lobby, facade, landscape). Add materials and features you can see (e.g. brick jaali, terracotta, exposed concrete, timber, marble, louvres, double height, skylight). Say "render" if it is a computer visualisation.
-- name: 2–5 lowercase words for an SEO file name (e.g. "double height living room").`;
+- name: 2–5 lowercase words for an SEO file name (e.g. "double height living room").
+- rotate: 0 if the photo is upright. Only if it is clearly saved sideways or upside down (sky at the side or bottom, walls and people lying horizontal, upside-down text), give the clockwise turn in degrees that makes it upright: 90, 180 or 270. Upward views of a facade and tilted artistic angles are upright — answer 0 for those.`;
 
 function parse(text) {
   const m = String(text || '').match(/\{[\s\S]*\}/);
   if (!m) throw new Error('no JSON in reply');
   const j = JSON.parse(m[0]);
-  return { description: String(j.description || '').trim(), tags: Array.isArray(j.tags) ? j.tags.map(String) : [], name: String(j.name || '').trim() };
+  const rotate = [90, 180, 270].includes(Number(j.rotate)) ? Number(j.rotate) : 0;
+  return { description: String(j.description || '').trim(), tags: Array.isArray(j.tags) ? j.tags.map(String) : [], name: String(j.name || '').trim(), rotate };
 }
 
 async function claude(jpeg, p) {
@@ -122,5 +124,5 @@ export async function describe(jpeg, p, fileName) {
   }
   const description = got?.description || (fromName ? fromName.charAt(0).toUpperCase() + fromName.slice(1) : '');
   const name = got?.name || fromName || 'photo';
-  return { description, tags: cleanTags(mergeTags(got?.tags || [], !got && fromName ? [fromName] : [], projectTags(p))), name, auto: got ? tagger : 'file name', error };
+  return { description, tags: cleanTags(mergeTags(got?.tags || [], !got && fromName ? [fromName] : [], projectTags(p))), name, rotate: got?.rotate || 0, auto: got ? tagger : 'file name', error };
 }

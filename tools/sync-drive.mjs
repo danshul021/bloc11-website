@@ -177,13 +177,15 @@ async function main() {
       if (unchanged && !(unnamed && tagger) && !isPng) continue;
       try {
         const buf = unchanged ? fs.readFileSync(path.join(dir, prev.file)) : await download(f.id);
-        const enc = await encode(buf);
+        let enc = await encode(buf);
         let base = prev ? prev.file.replace(/\.[^.]+$/, '') : '';
         let by = prev && prev.by;
         // a brand-new photo is read and named once; a replaced photo keeps its name (and the tags you may have edited)
         if (!prev || (unnamed && tagger)) {
           const small = await sharp(buf, { failOn: 'none' }).rotate().resize({ width: 1024, withoutEnlargement: true }).flatten({ background: '#ffffff' }).jpeg({ quality: 78 }).toBuffer();
           const info = await describe(small, ctx, f.name);
+          // a photo saved sideways or upside down (the reader says how far to turn it) is turned upright
+          if (!prev && info.rotate) { const upright = await sharp(buf, { failOn: 'none' }).rotate().toBuffer(); enc = await encode(await sharp(upright).rotate(info.rotate).toBuffer()); report.turned = (report.turned || 0) + 1; }
           if (info.error) report.skipped.push(`${folder.name}/${f.name}: description from file name (${info.error.slice(0, 120)})`);
           if (!prev || !info.error) {
             let b = seoBase(ctx, info.name) || fileSlug(f.name), n = 2;
@@ -238,8 +240,10 @@ async function main() {
 
     // the project in the admin page
     if (!exists) {
+      // a new project is numbered after the last one (e.g. 23 when the list ends at 22)
+      const orders = fs.readdirSync(PROJECTS).filter((x) => x.endsWith('.json')).map((x) => Number(readJSON(path.join(PROJECTS, x), {}).order) || 0).filter((o) => o < 99);
       writeJSON(pfile, {
-        title: folder.name.trim(), order: 99, type: '', category: '', location: '', year: '', status: 'Ongoing',
+        title: folder.name.trim(), order: Math.max(0, ...orders) + 1, type: '', category: '', location: '', year: '', status: 'Ongoing',
         show_on_work: false, has_page: false, thumbnail: cover, hero_image: cover, hero_alt: '', about: '', blocks: [],
         drive_folder: folder.id, photos,
       });
@@ -282,6 +286,7 @@ async function main() {
     `Linked to existing projects: ${report.linked.length ? report.linked.join(', ') : 'none'}`,
     `Photos added ${report.photosAdded}, updated ${report.photosUpdated}, removed ${report.photosRemoved}`,
     ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
+    ...(report.turned ? [`Sideways photos turned upright: ${report.turned}`] : []),
     ...(report.converted ? [`PNG pictures made into lighter JPEGs: ${report.converted}`] : []),
     ...(report.duplicates.length ? [`Skipped as duplicates of another photo in the same folder (you can delete these in Drive): ${report.duplicates.join(', ')}`] : []),
     `New photos described: ${report.tagged || 0} (${tagger ? `by ${tagger}` : 'from file names — add an ANTHROPIC_API_KEY or GEMINI_API_KEY secret for automatic descriptions'})`,
