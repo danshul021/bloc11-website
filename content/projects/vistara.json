@@ -1,19 +1,4 @@
 {
-  "title": "Vistara",
-  "order": 2,
-  "type": "Residence",
-  "category": "Residential",
-  "location": "Indore",
-  "year": "",
-  "status": "Completed",
-  "show_on_work": true,
-  "thumbnail": "/images/projects/vistara/vistara-residence-indore-carved-jaali-facade.jpg",
-  "has_page": false,
-  "hero_image": "",
-  "hero_alt": "",
-  "about": "",
-  "blocks": [],
-  "drive_folder": "1UimVionbDdM4_IOMMS5JFja0I_dzTiuf",
   "photos": [
     {
       "src": "/images/projects/vistara/vistara-residence-indore-carved-jaali-facade.jpg",
@@ -33,5 +18,20 @@
       ],
       "vault": true
     }
-  ]
+  ],
+  "drive_folder": "1UimVionbDdM4_IOMMS5JFja0I_dzTiuf",
+  "hero_alt": "",
+  "blocks": [],
+  "thumbnail": "/images/projects/vistara/vistara-residence-indore-carved-jaali-facade.jpg",
+  "about": "",
+  "order": 2,
+  "show_on_work": true,
+  "status": "Completed",
+  "has_page": false,
+  "location": "",
+  "hero_image": "",
+  "title": "Vistara",
+  "type": "Residence",
+  "year": "",
+  "category": "Residential"
 }
