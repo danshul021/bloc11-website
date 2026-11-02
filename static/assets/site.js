@@ -18,6 +18,7 @@
     var slides = [];
     try { slides = JSON.parse(dataEl.textContent); } catch (e) {}
     var kicker = document.getElementById('hero-kicker');
+    var feat = document.getElementById('hero-feat');
     var bars = document.getElementById('hero-bars');
     var count = document.getElementById('hero-count');
     var i = 0, timer = 0;
@@ -41,6 +42,7 @@
       if (s.set) { heroImg.srcset = s.set; heroImg.sizes = '100vw'; } else heroImg.removeAttribute('srcset');
       heroImg.src = pick(s); heroImg.alt = s.alt; heroImg.style.objectPosition = s.pos;
       if (kicker) kicker.textContent = s.caption;
+      if (feat && s.href) { feat.href = s.href; feat.textContent = s.label; }
       if (count) count.textContent = p2(i + 1) + ' / ' + p2(slides.length);
       if (bars) Array.prototype.forEach.call(bars.children, function (b, n) { b.style.opacity = n === i ? '1' : '0.35'; });
       preload((i + 1) % slides.length);

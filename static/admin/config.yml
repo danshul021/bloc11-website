@@ -161,7 +161,7 @@ collections:
             label_singular: picture
             widget: list
             summary: '{{fields.caption}}'
-            hint: 'They change every 5 seconds. Drag to reorder.'
+            hint: 'They change every 5 seconds. Filled from the "Homepage slideshow" folder in Google Drive on every Refresh (photos in file-name order, the file name is the caption, e.g. "03 Oyster — terracotta facade.jpg") — change the photos there. Only "Keep in view" is kept from here.'
             fields:
               - { name: image, label: Picture, widget: image, hint: 'Wide landscape picture, at least 2000 pixels across' }
               - { name: alt, label: Describe the picture, widget: string }

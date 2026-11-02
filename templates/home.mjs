@@ -66,7 +66,18 @@ export function renderHome({ site, home, projects }) {
   const featText = feat ? `${feat.title}${feat.location ? ', ' + feat.location : ''} →` : 'See our work →';
   // each slide comes in several widths, so a phone downloads a phone-sized picture
   const HERO_W = [800, 1200, 1600, 2000, 2400];
-  const heroData = slides.map((s) => ({ src: cdn(s.image, 2400), set: srcset(s.image, HERO_W), raw: ver(s.image), alt: s.alt || '', caption: s.caption || '', pos: `center ${Number(s.focus ?? 50)}%` }));
+  // a slide captioned "Project — view" links to that project and shows "Type — view" above the link
+  const byTitle = new Map(projects.map((p) => [p.title.trim().toLowerCase(), p]));
+  const slideInfo = (sl) => {
+    const cap = String(sl.caption || '');
+    const [head, ...rest] = cap.split(/\s+[—–-]\s+/);
+    const p = (sl.project && projects.find((x) => x.slug === sl.project)) || byTitle.get(String(head || '').trim().toLowerCase());
+    if (!p) return { kicker: cap, href: '/work/', label: 'See our work →' };
+    const view = rest.join(' — ');
+    return { kicker: [p.type, view].filter(Boolean).join(' — ') || cap, href: p.has_page ? `/work/${p.slug}/` : '/work/', label: `${p.title} →` };
+  };
+  const heroData = slides.map((s) => ({ src: cdn(s.image, 2400), set: srcset(s.image, HERO_W), raw: ver(s.image), alt: s.alt || '', caption: slideInfo(s).kicker, href: slideInfo(s).href, label: slideInfo(s).label, pos: `center ${Number(s.focus ?? 50)}%` }));
+  const i0 = heroData[0] || { caption: s0.caption, href: featHref, label: featText };
   const steps = (home.steps || []).slice(0, 5);
 
   const stats = (home.stats || []).map((st, si) => {
@@ -103,12 +114,12 @@ ${v.split('').map((ch, di) => `            <span aria-hidden="true" style="displ
     <div style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 0 clamp(20px, 4cqw, 56px) 40px; color: #ffffff">
       <div style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
         <h1 style="margin: 0 0 clamp(16px, 2.4cqw, 28px); max-width: 15em; font-size: clamp(28px, 3.4cqw, 48px); line-height: 1.08; font-weight: 500; letter-spacing: -0.03em">${esc(home.hero_title)}</h1>
-        <div id="hero-kicker" style="font-size: 13px; letter-spacing: 0.32em; opacity: 0.9">${esc(s0.caption)}</div>
-        <a href="${featHref}" class="hero-link" style="font-size: 20px; font-weight: 500; letter-spacing: -0.02em">${esc(featText)}</a>
+        <div id="hero-kicker" style="font-size: 13px; letter-spacing: 0.32em; opacity: 0.9">${esc(i0.caption)}</div>
+        <a id="hero-feat" href="${esc(i0.href)}" class="hero-link" style="font-size: 20px; font-weight: 500; letter-spacing: -0.02em">${esc(i0.label)}</a>
       </div>
       ${slides.length > 1 ? `<div style="display: flex; align-items: center; gap: 20px">
         <div id="hero-bars" style="display: flex; gap: 6px" aria-hidden="true">
-          ${slides.map((s, k) => `<span style="display: block; width: 28px; height: 2px; background: #ffffff; opacity: ${k === 0 ? 1 : 0.35}"></span>`).join('')}
+          ${slides.map((s, k) => `<span style="display: block; width: ${slides.length > 8 ? 12 : 28}px; height: 2px; background: #ffffff; opacity: ${k === 0 ? 1 : 0.35}"></span>`).join('')}
         </div>
         <div id="hero-count" style="font-size: 12px; letter-spacing: 0.12em; min-width: 56px; text-align: center">01 / ${pad(slides.length, 2)}</div>
         <div style="display: flex; gap: 8px">

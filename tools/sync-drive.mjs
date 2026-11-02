@@ -55,6 +55,59 @@ export const slugify = (s) => String(s).normalize('NFKD').replace(/[̀-ͯ]/g, ''
   .replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'project';
 const fileSlug = (name) => slugify(name.replace(/\.[^.]+$/, ''));
 
+// ---- the "Homepage slideshow" folder ----
+// Its photos, in file-name order, become the home page's big pictures. The file name (without its
+// number) is the caption: "03 Oyster — terracotta facade.jpg" shows "Residence — terracotta facade"
+// and links to the Oyster page. Each photo is described once by the photo reader for its alt text.
+const HOME_FOLDER = /^(home ?page|home) ?(slide ?show|slides|images|pictures|photos)?$/i;
+async function syncHome(folder, files, state, progress) {
+  const hs = state.home = state.home || { files: {} };
+  const dir = path.join(root, 'static', 'images', 'home');
+  fs.mkdirSync(dir, { recursive: true });
+  files = files.slice().sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+  const homeFile = path.join(root, 'content', 'home.json');
+  const home = readJSON(homeFile, {});
+  const before = new Map((home.slides || []).map((sl) => [sl.image, sl]));
+  const keep = new Set(); let added = 0, removed = 0;
+  const caption = (name) => name.replace(/\.[^.]+$/, '').replace(/^\s*\d+[\s._)-]*/, '').replace(/_/g, ' ').trim();
+  for (const f of files) {
+    const prev = hs.files[f.id], sum = f.md5Checksum || f.modifiedTime;
+    keep.add(f.id);
+    const cap = caption(f.name);
+    if (prev && prev.md5 === sum && fs.existsSync(path.join(dir, prev.file))) { prev.caption = cap; continue; }
+    log(progress() + ` · ${f.name}`);
+    try {
+      const buf = await download(f.id);
+      const enc = await encode(buf);
+      let base = prev ? prev.file.replace(/\.[^.]+$/, '') : `home-${slugify(cap).slice(0, 70) || 'photo'}`, n = 2;
+      const b0 = base;
+      while (!prev && Object.values(hs.files).some((x) => x.file.replace(/\.[^.]+$/, '') === base)) base = `${b0}-${n++}`;
+      const rel = `${base}.${enc.ext}`;
+      await enc.out.toFile(path.join(dir, rel));
+      if (prev && prev.file !== rel) fs.rmSync(path.join(dir, prev.file), { force: true });
+      let alt = prev && prev.alt;
+      if (!alt && tagger) {
+        const small = await sharp(buf, { failOn: 'none' }).rotate().resize({ width: 1024, withoutEnlargement: true }).flatten({ background: '#ffffff' }).jpeg({ quality: 78 }).toBuffer();
+        const info = await describe(small, { title: cap.split(/\s+[—–-]\s+/)[0] }, f.name);
+        if (!info.error) alt = `${info.description.replace(/\.$/, '')} — ${cap.split(/\s+[—–-]\s+/)[0]} by Bloc 11 Architects`;
+      }
+      hs.files[f.id] = { name: f.name, file: rel, md5: sum, caption: cap, ...(alt ? { alt } : {}) };
+      added++;
+    } catch (e) { if (!prev) keep.delete(f.id); log(`  could not bring in ${f.name}: ${e.message.split('\n')[0]}`); }
+  }
+  for (const [fid, info] of Object.entries(hs.files)) {
+    if (!keep.has(fid)) { fs.rmSync(path.join(dir, info.file), { force: true }); delete hs.files[fid]; removed++; }
+  }
+  const order = files.filter((f) => hs.files[f.id]);
+  if (!order.length) return 'the folder has no photos — the slideshow was left as it was';
+  home.slides = order.map((f) => {
+    const info = hs.files[f.id], image = `/images/home/${info.file}`, was = before.get(image) || {};
+    return { image, alt: info.alt || info.caption, caption: info.caption, focus: Number.isFinite(Number(was.focus)) ? Number(was.focus) : 50 };
+  });
+  writeJSON(homeFile, home);
+  return `${home.slides.length} photo(s)${added ? `, ${added} new or changed` : ''}${removed ? `, ${removed} removed` : ''}`;
+}
+
 // ---- the "Website projects" Google Sheet ----
 function sheetIdFrom(link) {
   const m = String(link || '').match(/spreadsheets\/d\/([A-Za-z0-9_-]{20,})/) || String(link || '').match(/^([A-Za-z0-9_-]{30,})$/);
@@ -209,7 +262,10 @@ async function main() {
   const renames = new Map();                           // old picture address → new one (for every page that uses it)
 
   const entries = await list(rootId);
-  const folders = entries.filter((f) => f.mimeType === 'application/vnd.google-apps.folder' && !/^[._]/.test(f.name));
+  const allFolders = entries.filter((f) => f.mimeType === 'application/vnd.google-apps.folder' && !/^[._]/.test(f.name));
+  // the "Homepage slideshow" folder feeds the home page's big pictures; every other folder is a project
+  const homeFolder = allFolders.find((f) => HOME_FOLDER.test(f.name.trim()));
+  const folders = allFolders.filter((f) => f !== homeFolder);
   log(`Drive folder has ${folders.length} project folder(s).`);
 
   const takenSlugs = new Map(Object.entries(state.folders).map(([fid, s]) => [s.slug, fid]));
@@ -226,6 +282,12 @@ async function main() {
       const prev = st && st.files[f.id];
       if (!prev || prev.md5 !== (f.md5Checksum || f.modifiedTime) || (/\.png$/i.test(prev.file) && !prev.transparent) || (tagger && (prev.by ? prev.by === 'file name' : !prev.file.startsWith(`${st.slug}-`)))) total++;
     }
+  }
+  let homeFiles = [];
+  if (homeFolder) {
+    homeFiles = (await list(homeFolder.id)).filter((f) => IMAGE_TYPES.test(f.mimeType) && !/^[._]/.test(f.name));
+    const hs = state.home || { files: {} };
+    total += homeFiles.filter((f) => { const pr = hs.files[f.id]; return !pr || pr.md5 !== (f.md5Checksum || f.modifiedTime); }).length;
   }
   log(total ? `${total} photo(s) to bring in.` : 'No new or changed photos.');
 
@@ -394,6 +456,11 @@ async function main() {
     delete state.folders[fid];
   }
 
+  if (homeFolder) {
+    try { report.home = await syncHome(homeFolder, homeFiles, state, () => `[${clock()}] photo ${++done} of ${Math.max(total, done)} · ${homeFolder.name}`); }
+    catch (e) { report.skipped.push(`Homepage slideshow: ${e.message.slice(0, 160)}`); }
+  }
+
   // the "Website projects" Google Sheet: whatever is filled in there is applied to the projects
   const sheetId = sheetIdFrom(cfg.sheet_link);
   if (sheetId) {
@@ -418,6 +485,7 @@ async function main() {
     ...(viaImageServer + viaDrive ? [`Downloaded ${viaImageServer} from Google's image servers, ${viaDrive} as originals from Drive`] : []),
     ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
     ...(report.deferred ? [`Left for the next refresh (time limit reached): ${report.deferred} photo(s) — press Refresh again`] : []),
+    ...(report.home ? [`Home page slideshow: ${report.home}`] : []),
     ...(report.sheet ? [`From the projects sheet: ${report.sheet.length ? report.sheet.join('; ') : 'no changes'}`] : []),
     ...(report.grouped ? [`Filter groups chosen: ${report.grouped.join('; ')}`] : []),
     ...(report.turned ? [`Sideways photos turned upright: ${report.turned}`] : []),
