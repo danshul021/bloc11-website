@@ -94,8 +94,24 @@ async function list(parent) {
   } while (pageToken);
   return out;
 }
+// Photos come from Google's image servers as a ready-made copy at most 2400 px wide — the size the
+// website keeps anyway. That is a fraction of a 10 MB render, and those servers don't refuse long runs
+// of downloads the way Drive's file downloads do. If that copy isn't available, the original is used.
+const IMG_BASE = process.env.DRIVE_IMAGE_BASE || 'https://lh3.googleusercontent.com/d/';
+let viaImageServer = 0, viaDrive = 0;
 async function download(id) {
+  if (IMG_BASE !== 'off') {
+    try {
+      const r = await fetch(`${IMG_BASE}${id}=w${MAX_W}`, { redirect: 'follow' });
+      const type = r.headers.get('content-type') || '';
+      if (r.ok && type.startsWith('image/')) {
+        const buf = Buffer.from(await r.arrayBuffer());
+        if (buf.length > 2000) { viaImageServer++; return buf; }
+      }
+    } catch (e) {}
+  }
   const r = await api(`/files/${id}`, { alt: 'media' });
+  viaDrive++;
   return Buffer.from(await r.arrayBuffer());
 }
 
@@ -303,6 +319,7 @@ async function main() {
     `New projects: ${report.added.length ? report.added.join(', ') : 'none'}`,
     `Linked to existing projects: ${report.linked.length ? report.linked.join(', ') : 'none'}`,
     `Photos added ${report.photosAdded}, updated ${report.photosUpdated}, removed ${report.photosRemoved}`,
+    ...(viaImageServer + viaDrive ? [`Downloaded ${viaImageServer} from Google's image servers, ${viaDrive} as originals from Drive`] : []),
     ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
     ...(report.grouped ? [`Filter groups chosen: ${report.grouped.join('; ')}`] : []),
     ...(report.turned ? [`Sideways photos turned upright: ${report.turned}`] : []),
