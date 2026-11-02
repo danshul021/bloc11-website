@@ -29,7 +29,8 @@ function setup() {
   sh.setName('Projects');
   sh.getRange(1, 1, 1, HEAD.length).setValues([HEAD]).setFontWeight('bold').setBackground('#141414').setFontColor('#ffffff');
   sh.setFrozenRows(1);
-  const n = Math.max(sh.getMaxRows() - 1, 200);
+  if (sh.getMaxRows() < 201) sh.insertRowsAfter(sh.getMaxRows(), 201 - sh.getMaxRows());
+  const n = sh.getMaxRows() - 1;
   const rule = (list) => SpreadsheetApp.newDataValidation().requireValueInList(list, true).setAllowInvalid(false).build();
   sh.getRange(2, 2, n, 1).setDataValidation(rule(['Yes', 'No']));
   sh.getRange(2, 4, n, 1).setDataValidation(rule(CATEGORIES));
