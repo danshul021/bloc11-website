@@ -31,6 +31,93 @@
         "indore"
       ],
       "vault": true
+    },
+    {
+      "src": "/images/projects/finsen-ritters/finsen-ritters-commercial-building-facade-render.jpg",
+      "alt": "A modern commercial building facade features large glass curtain walls and geometric architectural framing — Finsen Ritters, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "render",
+        "commercial",
+        "glass",
+        "steel",
+        "timber",
+        "balcony",
+        "modern",
+        "finsen ritters"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/finsen-ritters/finsen-ritters-commercial-exterior-facade.jpg",
+      "alt": "A contemporary commercial building facade featuring large black-framed windows, stone cladding, and a rooftop pavilion — Finsen Ritters, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "commercial",
+        "render",
+        "stone cladding",
+        "glass",
+        "metal framing",
+        "office",
+        "balcony",
+        "terrace",
+        "finsen ritters"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/finsen-ritters/finsen-ritters-commercial-facade.jpg",
+      "alt": "A contemporary commercial building featuring glazed curtain walls, precast concrete panels, and a landscaped rooftop terrace — Finsen Ritters, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "office",
+        "render",
+        "glass",
+        "concrete",
+        "commercial",
+        "balcony",
+        "landscaping",
+        "finsen ritters"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/finsen-ritters/finsen-ritters-commercial-facade-timber-soffit.jpg",
+      "alt": "Modern commercial facade with glazed storefronts, timber soffits, and a curved basement parking ramp — Finsen Ritters, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "entrance",
+        "landscape",
+        "timber",
+        "glass",
+        "concrete",
+        "louvres",
+        "render",
+        "commercial",
+        "finsen ritters"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/finsen-ritters/finsen-ritters-commercial-exterior-elevation.jpg",
+      "alt": "Front elevation of a modern commercial office building featuring a glass facade with black metal framing — Finsen Ritters, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "office",
+        "commercial",
+        "glass",
+        "metal",
+        "render",
+        "modern",
+        "finsen ritters"
+      ],
+      "vault": true
     }
   ]
 }

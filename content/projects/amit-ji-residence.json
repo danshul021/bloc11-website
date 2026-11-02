@@ -1,8 +1,8 @@
 {
   "title": "Amit Ji Residence",
   "order": 16,
-  "type": "",
-  "category": "",
+  "type": "Interiors",
+  "category": "Interiors",
   "location": "",
   "year": "",
   "status": "Ongoing",
@@ -81,18 +81,16 @@
       "vault": true
     },
     {
-      "src": "/images/projects/amit-ji-residence/amit-ji-residence-minimalist-home-temple-pooja-room.jpg",
-      "alt": "A minimalist home temple features a white marble altar, a seated figure, and inscribed timber paneling — Amit Ji Residence by Bloc 11 Architects",
+      "src": "/images/projects/amit-ji-residence/amit-ji-residence-home-temple-interior.jpg",
+      "alt": "A compact home temple niche featuring marble finishes, warm wood paneling, and a white marble statue — Amit Ji Residence by Bloc 11 Architects",
       "tags": [
         "interior",
         "temple",
-        "pooja room",
         "marble",
-        "timber",
         "wood",
-        "rendering",
-        "minimalist",
-        "indian architecture",
+        "niche",
+        "shrine",
+        "render",
         "amit ji residence"
       ],
       "vault": true

@@ -1,0 +1,134 @@
+{
+  "title": "Paperfurn",
+  "order": 28,
+  "type": "Interiors",
+  "category": "Interiors",
+  "location": "",
+  "year": "",
+  "status": "Ongoing",
+  "show_on_work": false,
+  "has_page": false,
+  "thumbnail": "/images/projects/paperfurn/paperfurn-modular-furniture-design-diagram.jpg",
+  "hero_image": "/images/projects/paperfurn/paperfurn-modular-furniture-design-diagram.jpg",
+  "hero_alt": "",
+  "about": "",
+  "blocks": [],
+  "drive_folder": "1PCdEA8-5gv__Jvqgau_FkI2KfaThojXg",
+  "photos": [
+    {
+      "src": "/images/projects/paperfurn/paperfurn-modular-furniture-design-diagram.jpg",
+      "alt": "Architectural drawings and diagrams illustrating a modular and transformable concrete furniture unit design — Paperfurn by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "model",
+        "furniture",
+        "concrete",
+        "modular",
+        "design",
+        "diagram",
+        "product",
+        "paperfurn"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/paperfurn/paperfurn-courtyard-render.jpg",
+      "alt": "A tranquil outdoor courtyard featuring lightweight cardboard furniture pieces arranged near a water body — Paperfurn by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "courtyard",
+        "exterior",
+        "landscape",
+        "paper",
+        "cardboard",
+        "furniture",
+        "modern",
+        "sustainable",
+        "paperfurn"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/paperfurn/paperfurn-modular-paper-furniture.jpg",
+      "alt": "Modular furniture pieces made from stacked cardboard with green laminate surfaces fit together into a single unit — Paperfurn by Bloc 11 Architects",
+      "tags": [
+        "furniture",
+        "model",
+        "cardboard",
+        "modular",
+        "product design",
+        "contemporary",
+        "interior",
+        "paperfurn"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/paperfurn/paperfurn-paper-furniture-exhibition-interior.jpg",
+      "alt": "Minimalist interior spaces and product displays featuring sculptural paper furniture elements against architectural backdrops — Paperfurn by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "exhibition space",
+        "paper",
+        "furniture",
+        "marble",
+        "render",
+        "minimalist",
+        "sculptural",
+        "display",
+        "paperfurn"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/paperfurn/paperfurn-modular-cardboard-stool-render.png",
+      "alt": "A set of modular cardboard stools with curved cutouts and pale grey cushioned seats on metal legs — Paperfurn by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "furniture",
+        "cardboard",
+        "metal",
+        "product design",
+        "modular",
+        "seating",
+        "sustainable",
+        "contemporary",
+        "paperfurn"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/paperfurn/paperfurn-modular-paper-furniture-detail.png",
+      "alt": "A minimalist modular furniture assembly showcases paper tubes and wooden box components — Paperfurn by Bloc 11 Architects",
+      "tags": [
+        "detail",
+        "render",
+        "furniture",
+        "wood",
+        "paper",
+        "modular",
+        "minimalist",
+        "joints",
+        "paperfurn"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/paperfurn/paperfurn-cardboard-furniture.png",
+      "alt": "A minimalist rectangular modular furniture piece constructed from corrugated cardboard and grey paper accents — Paperfurn by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "furniture",
+        "cardboard",
+        "paper",
+        "modular",
+        "brown",
+        "grey",
+        "minimalist",
+        "product design",
+        "paperfurn"
+      ],
+      "vault": true
+    }
+  ]
+}

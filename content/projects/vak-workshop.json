@@ -16,6 +16,86 @@
   "drive_folder": "1Ft-Bj8tNF5edhTOW2lIazWcndZLTgaWC",
   "photos": [
     {
+      "src": "/images/projects/vak-workshop/vak-workshop-commercial-facade-design.jpg",
+      "alt": "A modern commercial facade featuring corrugated blue metal cladding, large glass windows, and a metallic upper band — VAK Workshop, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "commercial",
+        "metal cladding",
+        "glass",
+        "entrance",
+        "stairs",
+        "modern",
+        "vak workshop"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/vak-workshop/vak-workshop-commercial-vak-group-facade.jpg",
+      "alt": "A modern commercial facade featuring expansive glass curtain walls and prominent corporate branding signage — VAK Workshop, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "commercial",
+        "glass",
+        "metal",
+        "double height",
+        "office",
+        "entrance",
+        "vak workshop"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/vak-workshop/vak-workshop-commercial-metal-screen-facade-view.jpg",
+      "alt": "A vertical slatted metal screen frames an exterior view of trees and parked vehicles — VAK Workshop, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "metal",
+        "screen",
+        "louvres",
+        "commercial",
+        "workshop",
+        "vak workshop"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/vak-workshop/vak-workshop-commercial-industrial-interior.jpg",
+      "alt": "Industrial workshop interior featuring corrugated metal roof structure, steel columns, and smooth concrete flooring — VAK Workshop, commercial by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "workshop",
+        "industrial",
+        "steel structure",
+        "metal roof",
+        "concrete floor",
+        "commercial",
+        "double height",
+        "vak workshop"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/vak-workshop/vak-workshop-commercial-building-facade-exterior.jpg",
+      "alt": "A modern commercial building featuring a large glass facade, orange framing, and a corrugated metal roof — VAK Workshop, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "commercial",
+        "glass",
+        "steel",
+        "orange",
+        "entrance",
+        "landscape",
+        "modern",
+        "vak workshop"
+      ],
+      "vault": true
+    },
+    {
       "src": "/images/projects/vak-workshop/vak-workshop-commercial-indore-glass-showroom-facade.jpg",
       "alt": "Glazed showroom front with a dark metal fascia and wide forecourt — VAK Workshop, commercial in Indore by Bloc 11 Architects",
       "tags": [

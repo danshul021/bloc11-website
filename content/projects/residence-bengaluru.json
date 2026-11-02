@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/residence-bengaluru/residence-bengaluru-tree-canopy-entrance.jpg",
+  "thumbnail": "/images/projects/residence-bengaluru/residence-bengaluru-residential-community-landscape-aerial-render.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -16,20 +16,36 @@
   "drive_folder": "1qgFZcCKDyPIEKvKYX-DoG9PlQrGY2Nrd",
   "photos": [
     {
-      "src": "/images/projects/residence-bengaluru/residence-bengaluru-tree-canopy-entrance.jpg",
-      "alt": "Tree-like white steel canopies over a planted entrance forecourt — Residence, Bengaluru, residence in Bengaluru by Bloc 11 Architects",
+      "src": "/images/projects/residence-bengaluru/residence-bengaluru-residential-community-landscape-aerial-render.jpg",
+      "alt": "Aerial view of a contemporary residential community landscape with amphitheatre seating and white tensile canopies — Residence, Bengaluru, residence by Bloc 11 Architects",
+      "tags": [
+        "aerial",
+        "landscape",
+        "render",
+        "exterior",
+        "courtyard",
+        "terrace",
+        "pavilion",
+        "public space",
+        "residence, bengaluru",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/residence-bengaluru/residence-bengaluru-open-air-market-render.jpg",
+      "alt": "An open-air food market shaded by a large tensile membrane structure with concrete stalls — Residence, Bengaluru, residence by Bloc 11 Architects",
       "tags": [
         "exterior",
-        "render",
-        "entrance",
-        "canopy",
-        "steel structure",
         "landscape",
-        "forecourt",
+        "render",
+        "tensile structure",
+        "concrete",
+        "market",
+        "food trucks",
+        "public space",
         "residence, bengaluru",
-        "residence",
-        "residential",
-        "bengaluru"
+        "residence"
       ],
       "vault": true
     }

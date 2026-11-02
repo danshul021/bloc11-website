@@ -1,0 +1,116 @@
+{
+  "title": "Hansi HS School",
+  "order": 26,
+  "type": "Institutional",
+  "category": "Institutional",
+  "location": "",
+  "year": "",
+  "status": "Ongoing",
+  "show_on_work": false,
+  "has_page": false,
+  "thumbnail": "/images/projects/hansi-hs-school/hansi-hs-school-hs-exterior.jpg",
+  "hero_image": "/images/projects/hansi-hs-school/hansi-hs-school-hs-exterior.jpg",
+  "hero_alt": "",
+  "about": "",
+  "blocks": [],
+  "drive_folder": "1E9HkxmpJnJGAnzCKaRFZcI7bhpfD1GXf",
+  "photos": [
+    {
+      "src": "/images/projects/hansi-hs-school/hansi-hs-school-hs-exterior.jpg",
+      "alt": "A low-angle exterior view of a modern school building with light-colored masonry and expansive glass facades — Hansi HS School by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "entrance",
+        "landscape",
+        "render",
+        "hansi hs school"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/hansi-hs-school/hansi-hs-school-hs-entrance-facade.jpg",
+      "alt": "An institutional campus entrance features a prominent brick-clad portal gate framing the administrative building — Hansi HS School by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "entrance",
+        "gate",
+        "brick",
+        "courtyard",
+        "render",
+        "institutional",
+        "school",
+        "hansi hs school"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/hansi-hs-school/hansi-hs-school-public-hs-entrance.jpg",
+      "alt": "A modern two-story school facade features white and terracotta walls with large glass windows under a bright sky — Hansi HS School by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "entrance",
+        "courtyard",
+        "landscape",
+        "render",
+        "hansi hs school"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/hansi-hs-school/hansi-hs-school-building-exterior-facade.jpg",
+      "alt": "A low-angle view of a school building facade featuring a covered colonnade, terraced steps, and children playing on a lawn — Hansi HS School by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "courtyard",
+        "render",
+        "school",
+        "timber",
+        "column",
+        "balcony",
+        "staircase",
+        "landscape",
+        "hansi hs school"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/hansi-hs-school/hansi-hs-school-building-exterior-facade-2.jpg",
+      "alt": "An exterior view of a modern school building featuring open corridors, columns, and students in the courtyard — Hansi HS School by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "courtyard",
+        "render",
+        "columns",
+        "balcony",
+        "staircase",
+        "landscaping",
+        "school",
+        "hansi hs school"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/hansi-hs-school/hansi-hs-school-hs-exterior-2.jpg",
+      "alt": "Front facade of a modern school building featuring a central recessed brick portal and students — Hansi HS School by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "render",
+        "brick",
+        "concrete",
+        "school",
+        "entrance",
+        "courtyard",
+        "hansi hs school"
+      ],
+      "vault": true
+    }
+  ]
+}

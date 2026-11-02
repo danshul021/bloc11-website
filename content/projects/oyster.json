@@ -17,6 +17,197 @@
         "indore"
       ],
       "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-curved-facade-with-louvres.jpg",
+      "alt": "Looking up at a modern curving facade with louvred sunshades and integrated planters under a bright blue sky — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "balcony",
+        "louvres",
+        "terrace",
+        "landscape",
+        "metal",
+        "stucco",
+        "architecture",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-modern-brick-kitchen-interior.jpg",
+      "alt": "Modern kitchen with white cabinetry, exposed brick wall, and a skylight flooding the dining area with natural light — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "kitchen",
+        "dining",
+        "brick",
+        "marble",
+        "skylight",
+        "double height",
+        "modern",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-kitchen-and-living-interior.jpg",
+      "alt": "An open-plan kitchen and living space featuring a timber-beamed ceiling, textured brick feature wall, and a hanging swing — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "kitchen",
+        "dining",
+        "living room",
+        "timber",
+        "brick",
+        "marble",
+        "swing",
+        "double height",
+        "skylight",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-double-height-living-dining-interior.jpg",
+      "alt": "Double-height interior dining and living space featuring exposed brickwork, stone flooring, and a suspended wooden swing — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "dining",
+        "double height",
+        "skylight",
+        "brick",
+        "timber",
+        "marble",
+        "glass",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-bedroom-wooden-louvred-doors.jpg",
+      "alt": "A rustic bedroom with a wooden bedframe and louvred doors opening to a sunlit balcony — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "louvres",
+        "door",
+        "balcony",
+        "furniture",
+        "sunlight",
+        "residential",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-wooden-louvred-bedroom-door.jpg",
+      "alt": "A bedroom corner featuring a carved wooden door with louvred panels opening inward — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "wood",
+        "timber",
+        "door",
+        "louvres",
+        "bed",
+        "lighting",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-timber-louvered-door-balcony.jpg",
+      "alt": "A curved white balcony with vertical railings sits before a rich timber louvered door on a textured plaster facade — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "balcony",
+        "timber",
+        "louvres",
+        "metal",
+        "plaster",
+        "door",
+        "detail",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-modern-brown-facade-exterior.jpg",
+      "alt": "Low-angle view of a modern brown facade featuring cantilevered balconies and vertical louvres — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "balcony",
+        "louvres",
+        "terrace",
+        "cantilever",
+        "modern",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-contemporary-living-room-interior.jpg",
+      "alt": "Sunlight streams across a contemporary living room featuring a mauve sofa and timber accents — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "timber",
+        "marble",
+        "contemporary",
+        "furniture",
+        "lighting",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-sunlit-interior-marble-floor.jpg",
+      "alt": "A high-angle view of a sunlit interior featuring patterned marble flooring and upholstered armchairs — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "marble",
+        "furniture",
+        "sunlight",
+        "minimal",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/oyster/oyster-residence-white-spiral-staircase-exterior.jpg",
+      "alt": "An exterior white spiral staircase featuring mesh balustrades against a clear blue sky background — Oyster, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "staircase",
+        "metal",
+        "mesh",
+        "spiral stairs",
+        "terrace",
+        "landscape",
+        "railing",
+        "modern",
+        "oyster",
+        "residence"
+      ],
+      "vault": true
     }
   ],
   "drive_folder": "1Bj2vjhUY6nwnsmFSEoyKUVaS7FoS4GMg",

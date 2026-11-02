@@ -1,14 +1,14 @@
 {
   "title": "Royal Bungalow",
   "order": 19,
-  "type": "",
-  "category": "",
+  "type": "Interiors",
+  "category": "Interiors",
   "location": "",
   "year": "",
   "status": "Ongoing",
   "show_on_work": false,
   "has_page": false,
-  "thumbnail": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-interior.jpg",
+  "thumbnail": "/images/projects/royal-bungalow/royal-bungalow-modern-living-room-interior.jpg",
   "hero_image": "",
   "hero_alt": "",
   "about": "",
@@ -16,231 +16,236 @@
   "drive_folder": "16IaUoVtxDo_Pokr-xA8Nm95OJyu-Pylh",
   "photos": [
     {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-interior.jpg",
-      "alt": "A contemporary living room featuring a tan leather sofa, grey textured walls, and a staircase railing — Royal Bungalow by Bloc 11 Architects",
+      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-living-room-interior.jpg",
+      "alt": "A warm modern living room featuring a tan leather sofa, textured grey wall, and sleek ceiling fan — Royal Bungalow by Bloc 11 Architects",
       "tags": [
         "interior",
         "living room",
         "staircase",
-        "leather",
-        "wood",
-        "ceiling fan",
-        "contemporary",
-        "render",
-        "royal bungalow"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-staircase.jpg",
-      "alt": "A contemporary living room interior featuring a light fixture, blue paneling, and a staircase railing — Royal Bungalow by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "living room",
-        "staircase",
-        "lighting",
-        "wood",
-        "glass",
-        "metal",
-        "render",
-        "royal bungalow"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-corner-seating-nook-render.jpg",
-      "alt": "A corner seating nook features a curved marble-top table, textured plaster walls, and a copper pendant light — Royal Bungalow by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "living room",
-        "textured wall",
-        "marble",
-        "copper pendant light",
-        "curved wall",
-        "planter",
-        "sofa",
-        "render",
-        "royal bungalow"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-window-seat.jpg",
-      "alt": "An interior view of a contemporary living room with a curved window seat and layered curtains — Royal Bungalow by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "living room",
-        "window seat",
-        "curtain",
-        "marble",
-        "wood",
-        "pendant light",
-        "render",
-        "royal bungalow"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-design.jpg",
-      "alt": "A contemporary living room featuring a tan leather sofa, textured grey wall, and a curved window seat — Royal Bungalow by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "living room",
         "leather sofa",
         "textured wall",
-        "curved window seat",
-        "marble",
-        "pendant light",
-        "glass table",
+        "false ceiling",
+        "modern",
+        "rendering",
+        "residential",
         "royal bungalow"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-living-room-staircase.jpg",
-      "alt": "A contemporary living room interior features a tan leather sofa beneath a lit ceiling panel and blue slatted staircase wall — Royal Bungalow by Bloc 11 Architects",
+      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-living-room-interior-2.jpg",
+      "alt": "A contemporary living room interior featuring a leather sofa, glass coffee table, and a decorative staircase partition — Royal Bungalow by Bloc 11 Architects",
       "tags": [
         "interior",
         "living room",
         "staircase",
-        "leather",
-        "wood",
-        "marble",
-        "skylight",
-        "louvres",
-        "royal bungalow"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-bright-dining-area-display-units.jpg",
-      "alt": "A bright dining area featuring bespoke glass display units, white walls, and warm lighting — Royal Bungalow by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "dining",
-        "glass",
-        "metal",
-        "lighting",
-        "furniture",
-        "royal bungalow"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-white-display-unit-interior.jpg",
-      "alt": "A minimalist white open-shelving unit and display cabinet define an interior living and dining partition — Royal Bungalow by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "living room",
-        "dining",
-        "metal",
+        "leather sofa",
         "glass",
         "wood",
-        "white",
-        "display unit",
-        "staircase",
-        "royal bungalow"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-interior-partition-shelving-unit.jpg",
-      "alt": "An interior divider with open shelving displaying decorative objects, an aquarium, and potted plants next to white curtains — Royal Bungalow by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "living room",
+        "modern",
         "partition",
-        "shelving",
-        "display unit",
+        "lighting",
+        "render",
+        "royal bungalow"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/royal-bungalow/royal-bungalow-yellow-wall-corner-nook.jpg",
+      "alt": "A corner seating nook features curved yellow wall accents, a modern pendant light, and a patterned curtain — Royal Bungalow by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "lighting",
+        "wall paint",
+        "curtain",
+        "furniture",
+        "render",
+        "royal bungalow"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-window-seat-2.jpg",
+      "alt": "A contemporary living room features a built-in window seating bench with upholstered cushions and ambient lighting — Royal Bungalow by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "window seating",
+        "marble",
         "wood",
-        "glass",
-        "planter",
+        "fabric",
+        "curtains",
+        "pendant light",
         "lighting",
         "royal bungalow"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-wainscoting.jpg",
-      "alt": "A contemporary living space features textured walls, wainscoting panels, a tan leather sofa, and a staircase with vertical blue slats — Royal Bungalow by Bloc 11 Architects",
+      "src": "/images/projects/royal-bungalow/royal-bungalow-contemporary-living-room-leather-sofa.jpg",
+      "alt": "A contemporary living room featuring a tan leather sofa, grey textured accent wall, and integrated window seating — Royal Bungalow by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "leather sofa",
+        "textured wall",
+        "window seat",
+        "curtains",
+        "glass coffee table",
+        "pendant light",
+        "marble",
+        "royal bungalow"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-living-room-interior-3.jpg",
+      "alt": "A contemporary living room interior featuring a light tan leather sofa and a marble ceiling panel — Royal Bungalow by Bloc 11 Architects",
       "tags": [
         "interior",
         "living room",
         "staircase",
-        "textured walls",
-        "wainscoting",
-        "leather sofa",
-        "slats",
-        "ceiling light",
+        "leather",
+        "marble",
+        "wood",
+        "glass",
+        "modern",
+        "residential",
         "royal bungalow"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-dining-area-interior.jpg",
-      "alt": "A well-lit dining area features a glass-topped table, dark wood chairs, and minimalist wall lighting fixtures — Royal Bungalow by Bloc 11 Architects",
+      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-dining-room-interior.jpg",
+      "alt": "A well-lit dining space featuring custom white display cabinets, wooden furniture, and glass accents — Royal Bungalow by Bloc 11 Architects",
       "tags": [
         "interior",
         "dining",
-        "glass table",
-        "wood chairs",
-        "pendant light",
-        "display cabinet",
-        "mandir",
-        "minimalist",
-        "contemporary",
+        "glass",
+        "timber",
+        "furniture",
+        "lighting",
+        "storage",
+        "modern",
         "royal bungalow"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-dining-room-interior.jpg",
-      "alt": "A well-lit dining space featuring a glass-top table, wooden chairs, and a contemporary pendant light fixture — Royal Bungalow by Bloc 11 Architects",
+      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-interior-living-room-storage.jpg",
+      "alt": "A contemporary Indian interior featuring white curtains, open shelving units, and a minimalist display cabinet — Royal Bungalow by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "staircase",
+        "dining",
+        "timber",
+        "marble",
+        "glass",
+        "modern",
+        "lighting",
+        "india",
+        "royal bungalow"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/royal-bungalow/royal-bungalow-white-wooden-partition-screen.jpg",
+      "alt": "A white wooden partition screen features illuminated display niches holding decorative artifacts and potted plants — Royal Bungalow by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "partition",
+        "screen",
+        "wood",
+        "glass",
+        "lighting",
+        "decor",
+        "display shelf",
+        "india",
+        "royal bungalow"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/royal-bungalow/royal-bungalow-blue-wall-living-room.jpg",
+      "alt": "A corner view showing textured grey and blue walls, a tan leather sofa, and a staircase screen — Royal Bungalow by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "living room",
+        "staircase",
+        "leather sofa",
+        "wall panels",
+        "textured paint",
+        "modern",
+        "residential",
+        "royal bungalow"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/royal-bungalow/royal-bungalow-minimalist-dining-room-interior.jpg",
+      "alt": "Minimalist dining room featuring glass-topped table, dark wood chairs, wall sconces, and built-in display cabinets — Royal Bungalow by Bloc 11 Architects",
       "tags": [
         "interior",
         "dining",
         "dining room",
-        "furniture",
         "glass table",
-        "wood",
+        "wood chairs",
+        "display cabinets",
         "lighting",
-        "pendant light",
-        "window blinds",
+        "contemporary",
         "royal bungalow"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-glass-home-temple.jpg",
-      "alt": "A modern white and glass home temple with integrated lighting and brass devotional artifacts — Royal Bungalow by Bloc 11 Architects",
+      "src": "/images/projects/royal-bungalow/royal-bungalow-dining-space-interior.jpg",
+      "alt": "A well-lit dining space featuring a glass-top table, dark wood chairs, and a minimalist mandir — Royal Bungalow by Bloc 11 Architects",
       "tags": [
         "interior",
-        "puja room",
+        "dining",
+        "glass",
+        "timber",
+        "metal",
+        "lighting",
+        "windows",
+        "plant",
+        "royal bungalow"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-glass-wooden-mandir.jpg",
+      "alt": "A glass and white wood mandir unit features built-in lighting and tiered brass idols — Royal Bungalow by Bloc 11 Architects",
+      "tags": [
+        "interior",
         "temple",
+        "mandir",
         "glass",
         "wood",
         "brass",
         "lighting",
-        "cabinet",
+        "shrine",
         "render",
         "royal bungalow"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/royal-bungalow/royal-bungalow-modern-kitchen-terrazzo-wall.jpg",
-      "alt": "A modern kitchen and dining alcove featuring terrazzo walls, white cabinetry, and a sloped louvered glass roof — Royal Bungalow by Bloc 11 Architects",
+      "src": "/images/projects/royal-bungalow/royal-bungalow-kitchen-terrazzo-terrace.jpg",
+      "alt": "A bright kitchen and utility terrace features terrazzo walls, white cabinetry, and a slatted glass roof — Royal Bungalow by Bloc 11 Architects",
       "tags": [
         "interior",
         "kitchen",
-        "dining",
+        "terrace",
         "terrazzo",
-        "white cabinets",
+        "glass roof",
         "skylight",
-        "louvres",
+        "white cabinets",
         "bench",
-        "glass door",
-        "modern",
+        "courtyard",
+        "natural light",
         "royal bungalow"
       ],
       "vault": true

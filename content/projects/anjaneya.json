@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/anjaneya/anjaneya-hospitality-bengaluru-landscaped-courtyard-pavilions.jpg",
+  "thumbnail": "/images/projects/anjaneya/anjaneya-hospitality-resort-master-plan-aerial-render.png",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -16,19 +16,391 @@
   "drive_folder": "1SWdshe-4DoAyaewMjca93VbIkr2Bf0fN",
   "photos": [
     {
-      "src": "/images/projects/anjaneya/anjaneya-hospitality-bengaluru-landscaped-courtyard-pavilions.jpg",
-      "alt": "Clay-tiled pavilions around a landscaped courtyard with stone paving and planting — Anjaneya, hospitality in Bengaluru by Bloc 11 Architects",
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-resort-master-plan-aerial-render.png",
+      "alt": "An aerial master plan perspective of an extensive campus featuring terracotta-roofed pavilions, pools, and manicured green spaces — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "aerial",
+        "master plan",
+        "render",
+        "hospitality",
+        "resort",
+        "landscape",
+        "swimming pool",
+        "terracotta",
+        "courtyard",
+        "site",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-brick-courtyard-walkway-render.jpg",
+      "alt": "An open courtyard connects brick pavilions under a covered timber walkway on a sunny day — Anjaneya, hospitality by Bloc 11 Architects",
       "tags": [
         "exterior",
-        "render",
         "courtyard",
-        "pavilion",
-        "pitched roof",
-        "clay tiles",
-        "landscape",
+        "brick jaali",
+        "terracotta",
+        "timber",
+        "pathway",
+        "garden",
+        "render",
         "hospitality",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-steel-pergola-landscaped-courtyard.jpg",
+      "alt": "A rusted steel pergola frames a landscaped courtyard with stone planters and hanging vegetation — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "courtyard",
+        "pergola",
+        "steel",
+        "stone",
+        "planters",
+        "render",
+        "hospitality",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-steel-pergola-outdoor-courtyard.jpg",
+      "alt": "A shaded outdoor courtyard featuring weathered steel pergolas, draped vegetation, and a central circular table — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "courtyard",
+        "landscape",
+        "steel",
+        "pergola",
+        "metal",
+        "stone",
+        "render",
         "anjaneya",
-        "bengaluru"
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-outdoor-bar-landscape.jpg",
+      "alt": "A circular outdoor bar with brick base and umbrella roof overlooking a landscaped garden pool — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "brick",
+        "timber",
+        "metal",
+        "pool",
+        "render",
+        "anjaneya",
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-stone-courtyard-exterior.jpg",
+      "alt": "Low-slung stone-clad hospitality structures frame an open gravel courtyard under a bright overcast sky — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "stone cladding",
+        "terracotta roof",
+        "courtyard",
+        "hospitality",
+        "render",
+        "pathway",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-landscape-lawn-seating.jpg",
+      "alt": "An open landscaped lawn surrounded by mature trees, low stone walls, and seating — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "render",
+        "stone",
+        "grass",
+        "trees",
+        "seating",
+        "hospitality",
+        "courtyard",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-landscape-stone-pavilion.jpg",
+      "alt": "Low-slung stone pavilions with terracotta tiled roofs sit within a lushly landscaped open courtyard — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "courtyard",
+        "stone",
+        "terracotta",
+        "render",
+        "hospitality",
+        "pavilion",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-project-exterior-view.jpg",
+      "alt": "A low-angle exterior view of an ongoing hospitality project featuring a stupa structure, timber porch, and modern hotel wing — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "entrance",
+        "landscape",
+        "render",
+        "hospitality",
+        "hotel",
+        "timber",
+        "brick",
+        "concrete",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-covered-walkway-entrance-render.jpg",
+      "alt": "A spacious covered walkway features an intricate timber lattice roof and textured stone columns — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "exterior",
+        "entrance",
+        "timber",
+        "stone",
+        "lattice",
+        "roof",
+        "pathway",
+        "anjaneya",
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-timber-roof-pavilion-interior.jpg",
+      "alt": "An open-air pavilion featuring an intricate timber lattice roof supported by stone pillars — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "pavilion",
+        "timber",
+        "stone",
+        "lighting",
+        "render",
+        "columns",
+        "roof",
+        "anjaneya",
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-courtyard-walkway-render.jpg",
+      "alt": "A covered walkway framing a paved courtyard between a multi-story building and low pavilion — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "courtyard",
+        "walkway",
+        "render",
+        "terracotta tile",
+        "timber",
+        "columns",
+        "concrete",
+        "anjaneya",
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-lotus-pond-exterior-render.jpg",
+      "alt": "A tranquil water body with lotus flowers in front of a white stepped pavilion under a bright sky — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "render",
+        "water body",
+        "lotus pond",
+        "stone columns",
+        "pergola",
+        "pavilion",
+        "hospitality",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-stone-arched-corridor-exterior.jpg",
+      "alt": "An open stone-clad arched corridor with lush greenery running alongside a large glass facade — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "exterior",
+        "landscape",
+        "corridor",
+        "arch",
+        "stone",
+        "glass",
+        "facade",
+        "hospitality",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-spacious-banquet-hall-interior.jpg",
+      "alt": "A vast banquet hall features exposed wooden roof trusses, tiled ceilings, and cylindrical skylights — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "hall",
+        "render",
+        "timber",
+        "terracotta",
+        "skylight",
+        "arches",
+        "lighting",
+        "seating",
+        "anjaneya",
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-stone-arcade-facade.jpg",
+      "alt": "A stone arcade and terracotta-rendered hospitality facade with arched openings framing interior views — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "render",
+        "stone",
+        "terracotta",
+        "arch",
+        "landscape",
+        "arcade",
+        "hospitality",
+        "glass",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-project-exterior-render.jpg",
+      "alt": "White multi-story hotel volumes paired with a terracotta-roofed pavilion overlook a manicured lawn — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "hospitality",
+        "facade",
+        "render",
+        "terracotta",
+        "white plaster",
+        "courtyard",
+        "landscape",
+        "pathway",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-timber-columned-dining-hall.jpg",
+      "alt": "A vast, columned open-air dining hall features timber beam ceilings, pendant lights, and lattice screens — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dining",
+        "timber",
+        "brick jaali",
+        "skylight",
+        "double height",
+        "render",
+        "anjaneya",
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-resort-pool-and-pavilion.jpg",
+      "alt": "A spacious resort pool foregrounds an open-air dining pavilion featuring terracotta-tiled roofs and timber columns — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "render",
+        "hospitality",
+        "swimming pool",
+        "terracotta",
+        "timber",
+        "resort architecture",
+        "pavilion",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-resort-pool-exterior.jpg",
+      "alt": "A curved arrangement of hotel cottages features stone and brick facades overlooking a circular swimming pool under an expansive daytime sky — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "render",
+        "hospitality",
+        "resort",
+        "swimming pool",
+        "stone",
+        "brick",
+        "cottages",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-resort-pool-exterior-2.jpg",
+      "alt": "A resort hospitality project featuring a tranquil swimming pool foreground and a low-slung stone and timber accommodation block — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "render",
+        "hospitality",
+        "resort",
+        "swimming pool",
+        "stone",
+        "timber",
+        "roof",
+        "glazing",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-stone-curved-walls-courtyard.jpg",
+      "alt": "Curved stone walls frame a paved walkway leading toward a timber-clad entrance pavilion — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "courtyard",
+        "render",
+        "stone",
+        "timber",
+        "pathway",
+        "curved walls",
+        "hospitality",
+        "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-stone-masonry-curved-walls.jpg",
+      "alt": "Curved stone masonry walls and arched gateway rise amidst lush landscaping under an open sky — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "render",
+        "stone",
+        "arch",
+        "pathway",
+        "hospitality",
+        "contemporary",
+        "anjaneya"
       ],
       "vault": true
     }

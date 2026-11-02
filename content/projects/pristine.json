@@ -7,7 +7,7 @@
   "year": "",
   "status": "Completed",
   "show_on_work": true,
-  "thumbnail": "/images/projects/pristine/pristine-commercial-indore-perforated-screen-facade.jpg",
+  "thumbnail": "/images/projects/pristine/pristine-commercial-facade.jpg",
   "has_page": false,
   "hero_image": "",
   "hero_alt": "",
@@ -16,19 +16,69 @@
   "drive_folder": "1FbcflwKbnFeXfa1oODaXBVO8xBFLyO51",
   "photos": [
     {
-      "src": "/images/projects/pristine/pristine-commercial-indore-perforated-screen-facade.jpg",
-      "alt": "Multi-storey building with perforated screen facades, terrace gardens and a car porch — Pristine, commercial in Indore by Bloc 11 Architects",
+      "src": "/images/projects/pristine/pristine-commercial-facade.jpg",
+      "alt": "A contemporary commercial building facade featuring brick jaali work, textured stucco, and tall vertical windows — Pristine, commercial by Bloc 11 Architects",
       "tags": [
         "exterior",
-        "render",
         "elevation",
         "facade",
-        "jaali screen",
-        "terrace garden",
-        "perforated screen",
-        "pristine",
+        "brick jaali",
+        "stucco",
         "commercial",
-        "indore"
+        "balcony",
+        "modern architecture",
+        "pristine"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/pristine/pristine-commercial-wellness-centre-facade.jpg",
+      "alt": "A modern commercial facade featuring perforated brick jaali screens and textured stucco under bright sunlight — Pristine, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "brick jaali",
+        "stucco",
+        "commercial",
+        "architecture",
+        "daylight",
+        "india",
+        "completed",
+        "pristine"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/pristine/pristine-commercial-building-facade-elevation.jpg",
+      "alt": "A low-angle view of a modern multi-story commercial building facade featuring perforated terracotta jaalis and tall vertical windows — Pristine, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "terracotta",
+        "brick jaali",
+        "commercial",
+        "brick",
+        "windows",
+        "modern architecture",
+        "pristine"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/pristine/pristine-commercial-wellness-centre-facade-2.jpg",
+      "alt": "A modern multi-storey commercial building facade featuring textured terracotta jaali screens, vertical louvres, and clean plaster finishes — Pristine, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "brick jaali",
+        "louvres",
+        "terracotta",
+        "commercial",
+        "balcony",
+        "contemporary",
+        "pristine"
       ],
       "vault": true
     }

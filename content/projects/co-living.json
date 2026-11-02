@@ -16,6 +16,71 @@
   "drive_folder": "1aj9el1LM8gZUb_3Xw5t8QQQdp6drO-6m",
   "photos": [
     {
+      "src": "/images/projects/co-living/co-living-commercial-co-bedroom-timber-render.jpg",
+      "alt": "Minimalist co-living bedroom featuring a raised platform bed, integrated desks, and built-in bookshelves beneath — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "timber",
+        "render",
+        "lighting",
+        "minimalist",
+        "built-in storage",
+        "co-living",
+        "commercial"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-coliving-bedroom-timber-interior.jpg",
+      "alt": "A compact co-living bedroom featuring light timber platforms, built-in desks, and ample natural light — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "timber",
+        "co-living",
+        "lighting",
+        "minimalist",
+        "bed",
+        "commercial"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-timber-partition-bedroom-interior.jpg",
+      "alt": "Minimalist bedroom interior featuring light timber finishes, a built-in wooden partition, and soft daylight — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "timber",
+        "wood",
+        "built-in furniture",
+        "partition",
+        "co-living",
+        "commercial"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-coliving-bedroom-timber-shelving.jpg",
+      "alt": "A compact co-living bedroom with built-in timber shelving, a recessed bed, and fitted wardrobe units under soft daylight — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "bedroom",
+        "render",
+        "timber",
+        "wood",
+        "co-living",
+        "wardrobe",
+        "minimalist",
+        "lighting",
+        "commercial"
+      ],
+      "vault": true
+    },
+    {
       "src": "/images/projects/co-living/co-living-commercial-hyderabad-brick-facade.jpg",
       "alt": "Mid-rise brick building with perforated screens, balconies and a tree-lined street edge — Co-Living, commercial in Hyderabad by Bloc 11 Architects",
       "tags": [
@@ -30,6 +95,106 @@
         "co-living",
         "commercial",
         "hyderabad"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-brick-co-building-facade.jpg",
+      "alt": "A five-storey brick co-living building featuring rhythmic windows, patterned jaali screens, and a flat roof overhang — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "commercial",
+        "brick",
+        "jaali screen",
+        "terracotta",
+        "windows",
+        "render",
+        "co-living"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-coliving-building-exterior.jpg",
+      "alt": "A terracotta brick co-living building facade features vertical jaali screens, balconies, and an angular roof terrace — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "render",
+        "brick",
+        "terracotta",
+        "balcony",
+        "jaali",
+        "commercial",
+        "co-living"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-coliving-brick-building-facade-render.jpg",
+      "alt": "Exterior architectural render of a multi-story brick co-living building featuring rhythmic balconies and intricate jaali screens — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "render",
+        "brick",
+        "jaali",
+        "terracotta",
+        "balconies",
+        "co-living",
+        "commercial"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-co-brick-facade.jpg",
+      "alt": "A multi-story red brick co-living facade featuring decorative jaali screens, protruding balconies, and green planters under a blue sky — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "commercial",
+        "brick",
+        "jaali screen",
+        "terracotta",
+        "balconies",
+        "render",
+        "co-living"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-brick-facade-co-building.jpg",
+      "alt": "Red brick façade featuring perforated jaali screens, large windows, and a planted terrace roof — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "elevation",
+        "render",
+        "brick",
+        "brick jaali",
+        "terracotta",
+        "terrace",
+        "commercial",
+        "co-living"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/co-living/co-living-commercial-building-under-construction.jpg",
+      "alt": "Multi-story commercial building under construction with exposed concrete frame, brick masonry infill, and scaffolding — Co-Living, commercial by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "commercial",
+        "concrete frame",
+        "brick masonry",
+        "scaffolding",
+        "construction",
+        "ongoing project",
+        "co-living"
       ],
       "vault": true
     }

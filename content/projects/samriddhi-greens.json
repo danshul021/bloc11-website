@@ -1,0 +1,120 @@
+{
+  "title": "Samriddhi Greens",
+  "order": 29,
+  "type": "Commercial",
+  "category": "Commercial",
+  "location": "",
+  "year": "",
+  "status": "Ongoing",
+  "show_on_work": false,
+  "has_page": false,
+  "thumbnail": "/images/projects/samriddhi-greens/samriddhi-greens-terrace-balcony-terracotta-jaali-shadows.jpg",
+  "hero_image": "/images/projects/samriddhi-greens/samriddhi-greens-terrace-balcony-terracotta-jaali-shadows.jpg",
+  "hero_alt": "",
+  "about": "",
+  "blocks": [],
+  "drive_folder": "14lqtLP9fwDGMCckz2acD0dpGPKWKN9mo",
+  "photos": [
+    {
+      "src": "/images/projects/samriddhi-greens/samriddhi-greens-terrace-balcony-terracotta-jaali-shadows.jpg",
+      "alt": "An open balcony featuring a patterned terracotta jaali skylight casting intricate shadows on the floor and wall — Samriddhi Greens by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "terrace",
+        "balcony",
+        "terracotta",
+        "brick jaali",
+        "jaali",
+        "skylight",
+        "light and shadow",
+        "wood flooring",
+        "railing",
+        "samriddhi greens"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/samriddhi-greens/samriddhi-greens-double-height-facade-elevation.jpg",
+      "alt": "Double-height facade featuring geometric fenestration, terracotta jalis, and textured stucco walls against a bright sky — Samriddhi Greens by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "double height",
+        "brick jaali",
+        "terracotta",
+        "stucco",
+        "glazing",
+        "architecture",
+        "samriddhi greens"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/samriddhi-greens/samriddhi-greens-arched-facade.jpg",
+      "alt": "Large arched glazed facade elements feature segmented metal framing above pale roller shutters — Samriddhi Greens by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "elevation",
+        "glass",
+        "metal",
+        "arch",
+        "double height",
+        "windows",
+        "samriddhi greens"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/samriddhi-greens/samriddhi-greens-facade-arched-windows-exterior.jpg",
+      "alt": "A close-up view of a building facade featuring arched window frames and metallic security shutters — Samriddhi Greens by Bloc 11 Architects",
+      "tags": [
+        "elevation",
+        "facade",
+        "metal",
+        "glass",
+        "arch",
+        "window",
+        "exterior",
+        "building",
+        "shutter",
+        "samriddhi greens"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/samriddhi-greens/samriddhi-greens-facade-design.jpg",
+      "alt": "A modern commercial facade featuring arched glazed openings and a geometric terracotta jaali screen above — Samriddhi Greens by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "terracotta",
+        "brick jaali",
+        "glass",
+        "arches",
+        "balcony",
+        "commercial",
+        "building",
+        "samriddhi greens"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/samriddhi-greens/samriddhi-greens-tall-arched-facade-windows.jpg",
+      "alt": "Tall arched windows with white metal framing and ribbed white blinds set in a peach-colored facade — Samriddhi Greens by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "arch",
+        "window",
+        "metal",
+        "blinds",
+        "double height",
+        "elevation",
+        "samriddhi greens"
+      ],
+      "vault": true
+    }
+  ]
+}

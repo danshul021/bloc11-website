@@ -1,0 +1,135 @@
+{
+  "title": "Etasha",
+  "order": 24,
+  "type": "Residence",
+  "category": "Residential",
+  "location": "",
+  "year": "",
+  "status": "Ongoing",
+  "show_on_work": false,
+  "has_page": false,
+  "thumbnail": "/images/projects/etasha/etasha-modern-entrance-canopy-render.jpg",
+  "hero_image": "/images/projects/etasha/etasha-modern-entrance-canopy-render.jpg",
+  "hero_alt": "",
+  "about": "",
+  "blocks": [],
+  "drive_folder": "1qjVlZ6whr5HjmYU1ZzKSm5FhGFunctXa",
+  "photos": [
+    {
+      "src": "/images/projects/etasha/etasha-modern-entrance-canopy-render.jpg",
+      "alt": "A modern curved white canopy is supported by structural tree columns at a gated entrance — Etasha by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "entrance",
+        "canopy",
+        "steel",
+        "concrete",
+        "landscape",
+        "driveway",
+        "render",
+        "etasha"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/etasha/etasha-entrance-canopy-render.jpg",
+      "alt": "A grand entrance canopy supported by sculptural tree-like columns framing a landscaped driveway — Etasha by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "entrance",
+        "landscape",
+        "canopy",
+        "columns",
+        "render",
+        "metal",
+        "concrete",
+        "driveway",
+        "etasha"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/etasha/etasha-brick-arched-gateway-facade.jpg",
+      "alt": "A brick-clad architectural gateway structure features arched openings, a staircase, and a prominent signage panel under an overcast sky — Etasha by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "brick",
+        "arch",
+        "staircase",
+        "entrance",
+        "concrete",
+        "metal",
+        "etasha"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/etasha/etasha-construction-site-canopy.jpg",
+      "alt": "Scaffolding surrounds a curved canopy structure supported by slender inverted-conical golden columns on site — Etasha by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "site",
+        "canopy",
+        "columns",
+        "scaffolding",
+        "structure",
+        "construction",
+        "steel",
+        "metal",
+        "etasha"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/etasha/etasha-construction-site-canopy-2.jpg",
+      "alt": "Under-construction canopy structure featuring sculptural inverted-cone columns and intricate bamboo scaffolding on site — Etasha by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "site",
+        "canopy",
+        "scaffolding",
+        "steel",
+        "concrete",
+        "columns",
+        "construction",
+        "architecture",
+        "etasha"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/etasha/etasha-landscape-construction-site.jpg",
+      "alt": "An open landscaped site featuring curved concrete pathways, built-in benches, and freshly paved interlock tiles under bright daylight — Etasha by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "concrete",
+        "pathway",
+        "paving",
+        "benches",
+        "site",
+        "hardscape",
+        "etasha"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/etasha/etasha-landscape-park-design-path.jpg",
+      "alt": "Landscape design featuring interlocking paver pathways, earth mounds, seating structures, and retaining walls under a bright sky — Etasha by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "pathway",
+        "paving",
+        "concrete",
+        "seating",
+        "site",
+        "park",
+        "garden",
+        "etasha"
+      ],
+      "vault": true
+    }
+  ]
+}

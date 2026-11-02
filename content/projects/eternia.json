@@ -1,0 +1,135 @@
+{
+  "title": "Eternia",
+  "order": 25,
+  "type": "Residence",
+  "category": "Residential",
+  "location": "",
+  "year": "",
+  "status": "Ongoing",
+  "show_on_work": false,
+  "has_page": false,
+  "thumbnail": "/images/projects/eternia/eternia-entrance-canopy-sculptural-columns.jpg",
+  "hero_image": "/images/projects/eternia/eternia-entrance-canopy-sculptural-columns.jpg",
+  "hero_alt": "",
+  "about": "",
+  "blocks": [],
+  "drive_folder": "11sbrYpHxbzejPqGOFPlIsPoiS70hgBUZ",
+  "photos": [
+    {
+      "src": "/images/projects/eternia/eternia-entrance-canopy-sculptural-columns.jpg",
+      "alt": "A grand curvilinear entrance canopy supported by sculptural tree-like columns frames a gated drive — Eternia by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "exterior",
+        "entrance",
+        "gate",
+        "canopy",
+        "sculptural columns",
+        "steel",
+        "concrete",
+        "landscape",
+        "trees",
+        "eternia"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-entrance-canopy-driveway.jpg",
+      "alt": "An architectural canopy featuring tree-like columns sheltering a driveway and reflection pool below — Eternia by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "entrance",
+        "landscape",
+        "canopy",
+        "columns",
+        "water feature",
+        "render",
+        "trees",
+        "metal",
+        "modern",
+        "eternia"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-brick-arch-entrance-facade.jpg",
+      "alt": "An exposed red brick gateway featuring arched openings and a white signage volume above — Eternia by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "entrance",
+        "arch",
+        "brick",
+        "terracotta",
+        "metal",
+        "staircase",
+        "eternia"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-canopy-construction-site.jpg",
+      "alt": "A structural steel canopy under construction supported by slender columns amidst a green landscape — Eternia by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "site",
+        "structure",
+        "steel",
+        "canopy",
+        "construction",
+        "landscape",
+        "columns",
+        "eternia"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-construction-site-canopy.jpg",
+      "alt": "Under-construction canopy structure supported by inverted conical columns amidst bamboo scaffolding on a site — Eternia by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "site",
+        "canopy",
+        "columns",
+        "scaffolding",
+        "construction",
+        "steel",
+        "concrete",
+        "eternia"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-landscaped-park-pathways-concrete-seating.jpg",
+      "alt": "A landscaped public park featuring winding paved pathways, concrete curved seating, and exposed soil beds — Eternia by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "paved pathways",
+        "concrete seating",
+        "hardscape",
+        "site",
+        "park",
+        "courtyard",
+        "eternia"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-outdoor-landscape-under-construction.jpg",
+      "alt": "An expansive outdoor landscape under construction featuring winding paved pathways, seating areas, and earthen mounds — Eternia by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "pathways",
+        "paving",
+        "concrete",
+        "site",
+        "garden",
+        "public space",
+        "eternia"
+      ],
+      "vault": true
+    }
+  ]
+}
