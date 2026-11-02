@@ -16,118 +16,171 @@
   "drive_folder": "11sbrYpHxbzejPqGOFPlIsPoiS70hgBUZ",
   "photos": [
     {
-      "src": "/images/projects/eternia/eternia-entrance-canopy-sculptural-columns.jpg",
-      "alt": "A grand curvilinear entrance canopy supported by sculptural tree-like columns frames a gated drive — Eternia by Bloc 11 Architects",
+      "src": "/images/projects/eternia/eternia-residence-entrance-gate-render.jpg",
+      "alt": "Stone-clad gate structure with decorative metal screen ceilings, vertical columns, and a central water feature — Eternia, residence by Bloc 11 Architects",
       "tags": [
-        "render",
         "exterior",
         "entrance",
+        "facade",
         "gate",
-        "canopy",
-        "sculptural columns",
-        "steel",
-        "concrete",
+        "render",
+        "stone",
+        "metal",
+        "water feature",
+        "columns",
         "landscape",
-        "trees",
-        "eternia"
+        "eternia",
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/eternia/eternia-entrance-canopy-driveway.jpg",
-      "alt": "An architectural canopy featuring tree-like columns sheltering a driveway and reflection pool below — Eternia by Bloc 11 Architects",
+      "src": "/images/projects/eternia/eternia-residence-stone-entrance-portal-render.jpg",
+      "alt": "A monumental stone portal frames an entrance with intricate ceiling panels and a water feature — Eternia, residence by Bloc 11 Architects",
       "tags": [
         "exterior",
         "entrance",
-        "landscape",
-        "canopy",
-        "columns",
-        "water feature",
+        "facade",
         "render",
-        "trees",
+        "stone",
         "metal",
-        "modern",
-        "eternia"
+        "water feature",
+        "pergola",
+        "gate",
+        "landscaping",
+        "eternia",
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/eternia/eternia-brick-arch-entrance-facade.jpg",
-      "alt": "An exposed red brick gateway featuring arched openings and a white signage volume above — Eternia by Bloc 11 Architects",
+      "src": "/images/projects/eternia/eternia-residence-facade.jpg",
+      "alt": "Contemporary multi-level residence featuring a prominent terracotta jaali screen, exposed concrete surfaces, and cantilevered volumes — Eternia, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "terracotta",
+        "brick jaali",
+        "exposed concrete",
+        "stone",
+        "landscape",
+        "render",
+        "eternia",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-residence-contemporary-brick-facade-render.jpg",
+      "alt": "A contemporary facade featuring a terracotta brick jaali wall, timber entrance portal, and exposed concrete — Eternia, residence by Bloc 11 Architects",
+      "tags": [
+        "facade",
+        "exterior",
+        "render",
+        "terracotta",
+        "brick jaali",
+        "timber",
+        "exposed concrete",
+        "entrance",
+        "elevation",
+        "residential",
+        "eternia",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-residence-pool-pergola-stone-columns.jpg",
+      "alt": "A swimming pool beneath a gridded concrete pergola and stone arched columns — Eternia, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "pool",
+        "terrace",
+        "exposed concrete",
+        "stone",
+        "pergola",
+        "skylight",
+        "columns",
+        "water",
+        "render",
+        "eternia",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-residence-stone-arch-pergola-veranda-exterior.jpg",
+      "alt": "An open outdoor veranda featuring organic stone-clad arches, a grid pergola roof, and flagstone paving — Eternia, residence by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "exterior",
+        "veranda",
+        "stone",
+        "pergola",
+        "arch",
+        "paving",
+        "courtyard",
+        "seating",
+        "eternia",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-residence-modern-pool-courtyard.jpg",
+      "alt": "A modern residence featuring a swimming pool, stone-clad arches, and an exposed concrete waffle slab ceiling — Eternia, residence by Bloc 11 Architects",
+      "tags": [
+        "render",
+        "courtyard",
+        "swimming pool",
+        "stone",
+        "concrete",
+        "waffle slab",
+        "facade",
+        "landscape",
+        "architecture",
+        "exterior",
+        "eternia",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/eternia/eternia-residence-courtyard-pool-facade-render.jpg",
+      "alt": "An outdoor courtyard featuring a swimming pool beneath a cantilevered concrete structure with terracotta jaali screen walls — Eternia, residence by Bloc 11 Architects",
       "tags": [
         "exterior",
         "facade",
-        "entrance",
-        "arch",
-        "brick",
+        "landscape",
+        "terrace",
+        "brick jaali",
         "terracotta",
-        "metal",
-        "staircase",
-        "eternia"
+        "exposed concrete",
+        "stone",
+        "pool",
+        "render",
+        "eternia",
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/eternia/eternia-canopy-construction-site.jpg",
-      "alt": "A structural steel canopy under construction supported by slender columns amidst a green landscape — Eternia by Bloc 11 Architects",
+      "src": "/images/projects/eternia/eternia-residence-contemporary-facade-terracotta-jaali.jpg",
+      "alt": "A contemporary residential facade featuring a vertical terracotta jaali screen, exposed concrete, and cantilevered volumes — Eternia, residence by Bloc 11 Architects",
       "tags": [
         "exterior",
-        "site",
-        "structure",
-        "steel",
-        "canopy",
-        "construction",
-        "landscape",
-        "columns",
-        "eternia"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/eternia/eternia-construction-site-canopy.jpg",
-      "alt": "Under-construction canopy structure supported by inverted conical columns amidst bamboo scaffolding on a site — Eternia by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "site",
-        "canopy",
-        "columns",
-        "scaffolding",
-        "construction",
-        "steel",
-        "concrete",
-        "eternia"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/eternia/eternia-landscaped-park-pathways-concrete-seating.jpg",
-      "alt": "A landscaped public park featuring winding paved pathways, concrete curved seating, and exposed soil beds — Eternia by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "landscape",
-        "paved pathways",
-        "concrete seating",
-        "hardscape",
-        "site",
-        "park",
-        "courtyard",
-        "eternia"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/eternia/eternia-outdoor-landscape-under-construction.jpg",
-      "alt": "An expansive outdoor landscape under construction featuring winding paved pathways, seating areas, and earthen mounds — Eternia by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "landscape",
-        "pathways",
-        "paving",
-        "concrete",
-        "site",
-        "garden",
-        "public space",
-        "eternia"
+        "facade",
+        "elevation",
+        "render",
+        "terracotta",
+        "brick jaali",
+        "exposed concrete",
+        "stone",
+        "cantilever",
+        "balcony",
+        "eternia",
+        "residence"
       ],
       "vault": true
     }
