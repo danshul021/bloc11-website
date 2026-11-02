@@ -2029,6 +2029,7 @@
         "name": "01 Shantiniketan — exterior at dusk.jpg",
         "file": "home-shantiniketan-exterior-at-dusk.jpg",
         "md5": "78986b79c12acf5edca8b295ec6e4207",
+        "v": 2,
         "caption": "Shantiniketan — exterior at dusk",
         "alt": "A terracotta-toned building facade partially obscured by lush green trees and a gated entrance — Shantiniketan by Bloc 11 Architects"
       },
@@ -2036,6 +2037,7 @@
         "name": "02 Anjaneya — lotus court.png",
         "file": "home-anjaneya-lotus-court.jpg",
         "md5": "0b97b04d7446f660dbcafb8397744558",
+        "v": 2,
         "caption": "Anjaneya — lotus court",
         "alt": "An open courtyard features a reflective lotus pond framed by colonnaded walkways and a central shrine — Anjaneya by Bloc 11 Architects"
       },
@@ -2043,6 +2045,7 @@
         "name": "03 Oyster — terracotta facade.jpg",
         "file": "home-oyster-terracotta-facade.jpg",
         "md5": "8b884a929a7a8220cc407c0387fe9d01",
+        "v": 2,
         "caption": "Oyster — terracotta facade",
         "alt": "A modern building facade features curving balconies, textured stucco, vertical louvres, and vibrant planters — Oyster by Bloc 11 Architects"
       },
@@ -2050,6 +2053,7 @@
         "name": "05 Co-Living — brick facade.png",
         "file": "home-co-living-brick-facade.jpg",
         "md5": "a07129b81d502f3734a0b604647dc957",
+        "v": 2,
         "caption": "Co-Living — brick facade",
         "alt": "An exterior view of a multi-story red brick co-living building featuring deep balconies, patterned jaalis, and a sloped roof — Co-Living by Bloc 11 Architects"
       },
@@ -2057,6 +2061,7 @@
         "name": "06 Shantiniketan — sunken living room.jpg",
         "file": "home-shantiniketan-sunken-living-room.jpg",
         "md5": "278f7ba9a4d5fbe28ae3f3941a04cd0f",
+        "v": 2,
         "caption": "Shantiniketan — sunken living room",
         "alt": "Double-height living room featuring custom built-in seating, a perforated wall, and expansive glass sliding doors — Shantiniketan by Bloc 11 Architects"
       },
@@ -2064,6 +2069,7 @@
         "name": "07 Salunkes — entrance.png",
         "file": "home-salunkes-entrance.jpg",
         "md5": "5e73a86df951462a9e44b02f1705b44a",
+        "v": 2,
         "caption": "Salunkes — entrance",
         "alt": "A grand entrance porch with a sweeping roof and brick planters connects two light-filled volumes — Salunkes by Bloc 11 Architects"
       },
@@ -2071,6 +2077,7 @@
         "name": "08 Pristine — wellness centre at dusk.png",
         "file": "home-pristine-wellness-centre-at-dusk.jpg",
         "md5": "960363d5d1df258d905154b98a8997aa",
+        "v": 2,
         "caption": "Pristine — wellness centre at dusk",
         "alt": "A modern multi-story wellness centre facade features terracotta jali screens, vertical louvres, and clean plaster volumes — Pristine by Bloc 11 Architects"
       },
@@ -2078,6 +2085,7 @@
         "name": "Copy of DLF_IMG_4135_Planter_Approved_4K.png",
         "file": "home-copy-of-dlf-img-4135-planter-approved-4k.jpg",
         "md5": "0759065acca9faab4c3f26095ea95236",
+        "v": 2,
         "caption": "Copy of DLF IMG 4135 Planter Approved 4K",
         "alt": "A spacious double-height kitchen and dining area featuring blue cabinetry, patterned tiles, and a timber screen — Copy of DLF IMG 4135 Planter Approved 4K by Bloc 11 Architects"
       },
@@ -2085,6 +2093,7 @@
         "name": "Copy of Enscape_2026-02-20-17-56-01.png",
         "file": "home-copy-of-enscape-2026-02-20-17-56-01.jpg",
         "md5": "b445aa452298182bc8cfabaa6ebd5f0c",
+        "v": 2,
         "caption": "Copy of Enscape 2026-02-20-17-56-01",
         "alt": "A spacious open-air dining hall featuring wooden columns, beamed ceilings, and woven pendant lights — Copy of Enscape 2026-02-20-17-56-01 by Bloc 11 Architects"
       },
@@ -2092,9 +2101,13 @@
         "name": "Copy of cover.jpg",
         "file": "home-copy-of-cover.jpg",
         "md5": "97e4557fba1eaf44dce6130ec9e10968",
+        "v": 2,
         "caption": "Copy of cover",
         "alt": "Modern residence exterior showcasing a perforated facade panel and vertical timber louvres — Copy of cover by Bloc 11 Architects"
       }
     }
+  },
+  "homeMobile": {
+    "files": {}
   }
 }
