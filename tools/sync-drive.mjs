@@ -55,6 +55,60 @@ export const slugify = (s) => String(s).normalize('NFKD').replace(/[̀-ͯ]/g, ''
   .replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'project';
 const fileSlug = (name) => slugify(name.replace(/\.[^.]+$/, ''));
 
+// ---- the "Website projects" Google Sheet ----
+function sheetIdFrom(link) {
+  const m = String(link || '').match(/spreadsheets\/d\/([A-Za-z0-9_-]{20,})/) || String(link || '').match(/^([A-Za-z0-9_-]{30,})$/);
+  return m ? m[1] : '';
+}
+function csv(text) {                                   // a small CSV reader (quotes, commas and line breaks inside quotes)
+  const rows = []; let row = [], cell = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += c; }
+    else if (c === '"') q = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n' || c === '\r') { if (c === '\r' && text[i + 1] === '\n') i++; row.push(cell); rows.push(row); row = []; cell = ''; }
+    else cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+const GROUPS = ['Residential', 'Commercial', 'Hospitality', 'Institutional', 'Interiors', 'Planning', 'Installations'];
+async function applySheet(id) {
+  const r = await fetch(`${process.env.SHEET_BASE || 'https://docs.google.com'}/spreadsheets/d/${id}/export?format=csv`, { signal: AbortSignal.timeout(60000) });
+  const text = await r.text();
+  if (!r.ok || /^\s*<(!doctype|html)/i.test(text)) throw new Error(`Google said ${r.status}`);
+  const rows = csv(text).filter((x) => x.some((c) => c.trim()));
+  const head = (rows.shift() || []).map((h) => h.trim().toLowerCase());
+  const col = (...names) => head.findIndex((h) => names.some((n) => h === n || h.startsWith(n)));
+  const C = { id: col('id'), title: col('project'), show: col('show'), order: col('position', 'order', 'no'), category: col('category', 'filter'), type: col('type'), status: col('status'), year: col('year'), city: col('city', 'location') };
+  const files = fs.readdirSync(PROJECTS).filter((x) => x.endsWith('.json'));
+  const byId = new Map(files.map((x) => [x.replace(/\.json$/, ''), x]));
+  const byTitle = new Map(files.map((x) => [String(readJSON(path.join(PROJECTS, x), {}).title || '').trim().toLowerCase(), x]));
+  const changes = [];
+  for (const row of rows) {
+    const get = (k) => (C[k] >= 0 ? String(row[C[k]] || '').trim() : '');
+    const file = byId.get(get('id')) || byTitle.get(get('title').toLowerCase());
+    if (!file) continue;
+    const pf = path.join(PROJECTS, file), p = readJSON(pf, {}), was = JSON.stringify(p), what = [];
+    const set = (key, v, label) => { if (v !== '' && v !== undefined && p[key] !== v) { p[key] = v; what.push(label); } };
+    if (get('title')) set('title', get('title'), 'name');
+    const sh = get('show').toLowerCase();
+    if (/^(yes|y|true|on|show|shown|✓|✔|1)$/.test(sh)) set('show_on_work', true, 'shown');
+    else if (/^(no|n|false|off|hide|hidden|✗|✘|0)$/.test(sh)) set('show_on_work', false, 'hidden');
+    if (/^\d+$/.test(get('order'))) set('order', Number(get('order')), `position ${get('order')}`);
+    const g = GROUPS.find((x) => x.toLowerCase() === get('category').toLowerCase());
+    if (g) set('category', g, g);
+    set('type', get('type'), 'type');
+    const stt = ['Completed', 'Ongoing'].find((x) => x.toLowerCase() === get('status').toLowerCase());
+    if (stt) set('status', stt, stt);
+    set('year', get('year'), 'year');
+    set('location', get('city'), 'city');
+    if (JSON.stringify(p) !== was) { writeJSON(pf, p); changes.push(`${p.title}: ${what.join(', ')}`); }
+  }
+  return changes;
+}
+
 // replace whole picture addresses inside a JSON text
 function swap(txt, map) {
   let out = txt;
@@ -158,6 +212,20 @@ async function main() {
   const takenSlugs = new Map(Object.entries(state.folders).map(([fid, s]) => [s.slug, fid]));
   const seenFolders = new Set();
 
+  // list every folder first, so the log can say "photo 12 of 70"
+  const listed = new Map();
+  for (const folder of folders) listed.set(folder.id, (await list(folder.id)).filter((f) => IMAGE_TYPES.test(f.mimeType) && !/^[._]/.test(f.name)));
+  let total = 0;
+  for (const folder of folders) {
+    const st = state.folders[folder.id], seen = new Set();
+    for (const f of listed.get(folder.id)) {
+      if (f.md5Checksum) { if (seen.has(f.md5Checksum)) continue; seen.add(f.md5Checksum); }
+      const prev = st && st.files[f.id];
+      if (!prev || prev.md5 !== (f.md5Checksum || f.modifiedTime) || (/\.png$/i.test(prev.file) && !prev.transparent) || (tagger && (prev.by ? prev.by === 'file name' : !prev.file.startsWith(`${st.slug}-`)))) total++;
+    }
+  }
+  log(total ? `${total} photo(s) to bring in.` : 'No new or changed photos.');
+
   for (const folder of folders) {
     seenFolders.add(folder.id);
     let st = state.folders[folder.id];
@@ -175,7 +243,7 @@ async function main() {
     const ctx = { slug, title: proj.title || folder.name, type: proj.type, location: proj.location, status: proj.status };
 
     // photos
-    const files = (await list(folder.id)).filter((f) => IMAGE_TYPES.test(f.mimeType) && !/^[._]/.test(f.name))
+    const files = listed.get(folder.id)
       .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
     const dir = path.join(IMG_ROOT, slug);
     fs.mkdirSync(dir, { recursive: true });
@@ -198,14 +266,14 @@ async function main() {
       const unchanged = have && prev.md5 === sum;
       // photos copied in before descriptions were switched on (or when the reader was unavailable)
       const unnamed = !!prev && (prev.by ? prev.by === 'file name' && !!tagger : !prev.file.startsWith(`${slug}-`));
-      const isPng = !!prev && /\.png$/i.test(prev.file);
+      const isPng = !!prev && /\.png$/i.test(prev.file) && !prev.transparent;   // a PNG kept for real transparency stays
       if (unchanged && !(unnamed && tagger) && !isPng) continue;
       if (overTime()) {                                // time's up: leave this photo for the next refresh
         report.deferred = (report.deferred || 0) + 1;
         if (!prev) keep.delete(f.id);
         continue;
       }
-      log(`[${clock()}] photo ${++done} · ${folder.name} · ${f.name}`);
+      log(`[${clock()}] photo ${++done} of ${Math.max(total, done)} · ${folder.name} · ${f.name}`);
       try {
         const buf = unchanged ? fs.readFileSync(path.join(dir, prev.file)) : await download(f.id);
         let enc = await encode(buf);
@@ -236,7 +304,7 @@ async function main() {
           renames.set(renamedFrom[f.id], `/images/projects/${slug}/${rel}`);
           if (isPng && enc.ext === 'jpg') report.converted++;
         }
-        st.files[f.id] = { name: f.name, file: rel, md5: sum, ...(by ? { by } : {}) };
+        st.files[f.id] = { name: f.name, file: rel, md5: sum, ...(by ? { by } : {}), ...(enc.ext === 'png' ? { transparent: true } : {}) };
         if (!prev) report.photosAdded++; else if (!unchanged) report.photosUpdated++;
       } catch (e) {
         report.skipped.push(`${folder.name}/${f.name} (${e.message.split('\n')[0]})`);
@@ -321,6 +389,13 @@ async function main() {
     delete state.folders[fid];
   }
 
+  // the "Website projects" Google Sheet: whatever is filled in there is applied to the projects
+  const sheetId = sheetIdFrom(cfg.sheet_link);
+  if (sheetId) {
+    try { report.sheet = await applySheet(sheetId); }
+    catch (e) { report.skipped.push(`Projects sheet could not be read (${e.message.slice(0, 120)}) — check it is shared as "Anyone with the link"`); }
+  }
+
   // pictures renamed this run: update every other page that shows them (e.g. the home slideshow)
   if (renames.size) {
     const dirs = [path.join(root, 'content'), PROJECTS];
@@ -338,6 +413,7 @@ async function main() {
     ...(viaImageServer + viaDrive ? [`Downloaded ${viaImageServer} from Google's image servers, ${viaDrive} as originals from Drive`] : []),
     ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
     ...(report.deferred ? [`Left for the next refresh (time limit reached): ${report.deferred} photo(s) — press Refresh again`] : []),
+    ...(report.sheet ? [`From the projects sheet: ${report.sheet.length ? report.sheet.join('; ') : 'no changes'}`] : []),
     ...(report.grouped ? [`Filter groups chosen: ${report.grouped.join('; ')}`] : []),
     ...(report.turned ? [`Sideways photos turned upright: ${report.turned}`] : []),
     ...(report.converted ? [`PNG pictures made into lighter JPEGs: ${report.converted}`] : []),

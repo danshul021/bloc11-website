@@ -246,6 +246,13 @@ collections:
               Paste the Google Drive link of the folder that holds one subfolder per project. Share that
               folder as "Anyone with the link – Viewer". Then use the "Refresh from Drive" button
               (bottom right) whenever you change photos or add a project folder.
+          - name: sheet_link
+            label: Link to the "Website projects" sheet
+            widget: string
+            required: false
+            hint: >-
+              The Google Sheet listing every project (show on site, position, category, type, status, year, city).
+              What is filled in there is applied on each "Refresh from Drive" and wins over the same boxes here.
       - name: site
         label: Contact, notice board and capabilities
         file: content/site.json

@@ -7,7 +7,8 @@
           "name": "Axo1.png",
           "file": "anjaneya-hospitality-resort-master-plan-aerial-render.png",
           "md5": "7d463afd42044ae58528b41d94ee6a43",
-          "by": "Gemini"
+          "by": "Gemini",
+          "transparent": true
         },
         "1NhBOxxU6UhDyHF2ZgfAJEX3uqC7GdSAL": {
           "name": "ChatGPT Image Feb 22, 2026, 12_32_25 PM.png",
@@ -431,7 +432,7 @@
           "by": "Gemini"
         },
         "1brk-zB9Kdtwo4T8eb3WNxYawruct6Iih": {
-          "name": "Sunlit Terracotta Wellness Centre Façade.png",
+          "name": "Sunlit Terracotta Wellness Centre Fa\u00e7ade.png",
           "file": "pristine-commercial-wellness-centre-facade.jpg",
           "md5": "dc1869ef59e8326575a9a249416fad14",
           "by": "Gemini"
@@ -1955,19 +1956,22 @@
           "name": "Scene 1.png",
           "file": "paperfurn-modular-cardboard-stool-render.png",
           "md5": "0b748feeffc52cd4f0893e325a30b628",
-          "by": "Gemini"
+          "by": "Gemini",
+          "transparent": true
         },
         "1RBHDnfD0GMEYG3GLRvygnbo-t92f1xKf": {
           "name": "Scene 2.png",
           "file": "paperfurn-modular-paper-furniture-detail.png",
           "md5": "382a6bc50d1b5c08ae70d6a45830fe16",
-          "by": "Gemini"
+          "by": "Gemini",
+          "transparent": true
         },
         "1mESxLBpzzfkeprq9NrHMh7jIJ7k23SEL": {
           "name": "Scene 3.png",
           "file": "paperfurn-cardboard-furniture.png",
           "md5": "a96e54e5360d784ab052cf0bd629497b",
-          "by": "Gemini"
+          "by": "Gemini",
+          "transparent": true
         }
       },
       "cover": "/images/projects/paperfurn/paperfurn-modular-furniture-design-diagram.jpg",
