@@ -218,7 +218,7 @@
   "order": 3,
   "show_on_work": true,
   "status": "Completed",
-  "has_page": false,
+  "has_page": true,
   "location": "",
   "hero_image": "",
   "title": "Oyster",

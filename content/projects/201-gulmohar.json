@@ -90,7 +90,7 @@
   "order": 12,
   "show_on_work": true,
   "status": "Completed",
-  "has_page": false,
+  "has_page": true,
   "location": "",
   "hero_image": "/images/projects/201-gulmohar/201-gulmohar-contemporary-living-room-pastel-furniture.jpg",
   "title": "201 Gulmohar",
