@@ -65,6 +65,7 @@ async function claude(jpegs, text) {
   const r = await fetch((process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com') + '/v1/messages', {
     method: 'POST',
     headers: { 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+    signal: AbortSignal.timeout(90000),
     body: JSON.stringify({
       model: process.env.TAG_MODEL || 'claude-haiku-5-5', max_tokens: 400,
       messages: [{ role: 'user', content: [
@@ -93,6 +94,7 @@ async function gemini(jpegs, text) {
     try { r = await fetch(`${process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'}/v1beta/models/${model}:generateContent?key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`, {
       method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ contents: [{ parts: [...jpegs.map((jpeg) => ({ inline_data: { mime_type: 'image/jpeg', data: jpeg.toString('base64') } })), { text }] }] }),
+      signal: AbortSignal.timeout(90000),
     }); } catch (e) {                                   // network hiccup: try again
       if (attempt < 3) { await sleep(5000); continue; }
       throw e;

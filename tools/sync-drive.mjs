@@ -41,6 +41,13 @@ const MAX_W = 2400;
 const log = (...a) => console.log(...a);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let waited = 0;                                       // seconds spent waiting on a busy Google Drive
+// a refresh stops taking new photos after this long and saves what it has, so GitHub's time limit
+// never throws away a long run; the rest come in on the next refresh
+const T0 = Date.now();
+const TIME_BUDGET = Number(process.env.SYNC_TIME_BUDGET_MIN || 35) * 60000;
+const overTime = () => Date.now() - T0 > TIME_BUDGET;
+const clock = () => { const t = Math.round((Date.now() - T0) / 1000); return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`; };
+let done = 0;
 const WAIT_BUDGET = Number(process.env.DRIVE_WAIT_BUDGET || 600);
 const readJSON = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return d; } };
 const writeJSON = (f, o) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, JSON.stringify(o, null, 2) + '\n'); };
@@ -65,7 +72,9 @@ async function api(p, params = {}) {
   const u = new URL(API + p);
   Object.entries({ ...params, key: KEY, supportsAllDrives: 'true' }).forEach(([k, v]) => u.searchParams.set(k, v));
   for (let attempt = 0; ; attempt++) {
-    const r = await fetch(u);
+    let r;
+    try { r = await fetch(u, { signal: AbortSignal.timeout(p.includes('alt=media') || params.alt ? 180000 : 60000) }); }
+    catch (e) { if (attempt < 2) { log(`Google Drive did not answer — trying again`); continue; } throw new Error(`Google Drive did not answer (${e.name})`); }
     if (r.ok) return r;
     const body = await r.text();
     // Google answers many quick downloads with a "Sorry…" page (403) or 429: wait and try again
@@ -102,7 +111,7 @@ let viaImageServer = 0, viaDrive = 0;
 async function download(id) {
   if (IMG_BASE !== 'off') {
     try {
-      const r = await fetch(`${IMG_BASE}${id}=w${MAX_W}`, { redirect: 'follow' });
+      const r = await fetch(`${IMG_BASE}${id}=w${MAX_W}`, { redirect: 'follow', signal: AbortSignal.timeout(60000) });
       const type = r.headers.get('content-type') || '';
       if (r.ok && type.startsWith('image/')) {
         const buf = Buffer.from(await r.arrayBuffer());
@@ -191,6 +200,12 @@ async function main() {
       const unnamed = !!prev && (prev.by ? prev.by === 'file name' && !!tagger : !prev.file.startsWith(`${slug}-`));
       const isPng = !!prev && /\.png$/i.test(prev.file);
       if (unchanged && !(unnamed && tagger) && !isPng) continue;
+      if (overTime()) {                                // time's up: leave this photo for the next refresh
+        report.deferred = (report.deferred || 0) + 1;
+        if (!prev) keep.delete(f.id);
+        continue;
+      }
+      log(`[${clock()}] photo ${++done} · ${folder.name} · ${f.name}`);
       try {
         const buf = unchanged ? fs.readFileSync(path.join(dir, prev.file)) : await download(f.id);
         let enc = await encode(buf);
@@ -257,7 +272,8 @@ async function main() {
     // the project's filter group (Residential, Interiors …): decided once by the photo reader from a few
     // of its photos, only while it is empty — a group chosen in the admin page is never changed
     let picked = null;
-    if (tagger && !st.classified && !(exists && proj.category) && photos.length) {
+    if (tagger && !st.classified && !(exists && proj.category) && photos.length && !overTime()) {
+      log(`[${clock()}] choosing the filter group · ${folder.name}`);
       const pick = photos.filter((ph, k) => k % Math.max(1, Math.floor(photos.length / 4)) === 0).slice(0, 4);
       const jpegs = [];
       for (const ph of pick) {
@@ -321,6 +337,7 @@ async function main() {
     `Photos added ${report.photosAdded}, updated ${report.photosUpdated}, removed ${report.photosRemoved}`,
     ...(viaImageServer + viaDrive ? [`Downloaded ${viaImageServer} from Google's image servers, ${viaDrive} as originals from Drive`] : []),
     ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
+    ...(report.deferred ? [`Left for the next refresh (time limit reached): ${report.deferred} photo(s) — press Refresh again`] : []),
     ...(report.grouped ? [`Filter groups chosen: ${report.grouped.join('; ')}`] : []),
     ...(report.turned ? [`Sideways photos turned upright: ${report.turned}`] : []),
     ...(report.converted ? [`PNG pictures made into lighter JPEGs: ${report.converted}`] : []),
