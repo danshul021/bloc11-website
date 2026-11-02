@@ -46,8 +46,8 @@ a.card:hover img{transform:scale(1.03)}
 }
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:48px 24px}
 /* ---- Vault: a scrolling collage of every photo, searchable by its tags ---- */
-.vbox{position:relative;height:min(86vh,1000px);overflow:auto;overscroll-behavior:contain;border:1px solid #E6E5E2;background:#FFFFFF;margin-top:-16px}
-.vhead{position:sticky;top:0;z-index:3;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:16px 16px 12px;border-bottom:1px solid #EEEDEA;display:flex;flex-direction:column;gap:12px}
+.vbox{position:relative;border:1px solid #E6E5E2;background:#FFFFFF;margin-top:-16px}
+.vhead{position:relative;z-index:3;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:16px 16px 12px;border-bottom:1px solid #EEEDEA;display:flex;flex-direction:column;gap:12px}
 .vsearch{display:flex;align-items:center;gap:12px;border:1px solid #0E0E0E;border-radius:999px;padding:0 8px 0 18px;min-height:48px;background:#FFFFFF}
 .vsearch input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:400 16px/1.4 'Jost',system-ui,sans-serif;color:#0E0E0E}
 .vsearch input::placeholder{color:#8A8680}
@@ -58,10 +58,21 @@ a.card:hover img{transform:scale(1.03)}
 .vchip{flex:0 0 auto;border:1px solid #D6D2CB;border-radius:999px;background:#FFFFFF;padding:7px 14px;font:400 13px 'Jost',sans-serif;letter-spacing:.03em;color:#0E0E0E;cursor:pointer}
 .vchip:hover{border-color:#0E0E0E}.vchip.on{background:#0E0E0E;color:#FFFFFF;border-color:#0E0E0E}
 .vcount{font-size:12px;letter-spacing:.12em;color:#6B6A67}
-.vgrid{column-width:260px;column-gap:10px;padding:12px}
-@container page (max-width: 640px){.vgrid{column-width:150px;column-gap:6px;padding:6px}.vbox{height:80vh}}
+/* the collage runs sideways: columns of photos fill a fixed height and continue to the right */
+.vgrid{column-width:260px;column-gap:10px;column-fill:auto;height:min(72vh,820px);box-sizing:border-box;padding:12px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:thin}
+@container page (max-width: 640px){.vgrid{column-width:150px;column-gap:6px;padding:6px;height:64vh}}
+.vgwrap{position:relative}
+.vnav{position:absolute;top:50%;z-index:2;width:44px;height:44px;margin-top:-22px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:#0E0E0E;box-shadow:0 2px 12px rgba(0,0,0,.18);font:400 20px/44px 'Jost',sans-serif;cursor:pointer;transition:opacity .2s}
+.vnav[disabled]{opacity:0;pointer-events:none}.vnav.prev{left:10px}.vnav.next{right:10px}
+@media (pointer: coarse){.vnav{display:none}}
 .vitem{display:block;width:100%;break-inside:avoid;margin:0 0 10px;padding:0;border:0;background:#F3F3F1;cursor:zoom-in;position:relative;overflow:hidden}
 @container page (max-width: 640px){.vitem{margin-bottom:6px}}
+@container page (max-width: 560px){
+#work-filters{gap:10px !important}
+#work-filters .btn{min-height:34px;padding:0 12px;font-size:13px}
+#work-filters .vault-btn{padding-left:9px;gap:6px}
+#work-filters .vdial{width:16px;height:16px}
+}
 .vitem img{display:block;width:100%;height:auto;transition:transform .6s ease,opacity .3s ease}
 .vitem:hover img{transform:scale(1.03)}
 .vitem .vcap{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.55));color:#FFFFFF;font-size:13px;letter-spacing:.02em;text-align:left;opacity:0;transition:opacity .25s ease}
@@ -213,9 +224,10 @@ ${projects.map(card).join('\n')}
         <div class="vchips" role="group" aria-label="Quick searches">${vault.chips.map((c) => `<button type="button" class="vchip" data-q="${esc(c)}">${esc(c)}</button>`).join('')}</div>
         <div class="vcount" id="vcount" aria-live="polite"></div>
       </div>
+      <div class="vgwrap"><button type="button" class="vnav prev" aria-label="Scroll the photos left" disabled>←</button><button type="button" class="vnav next" aria-label="Scroll the photos right">→</button>
       <div class="vgrid" id="vgrid">
 ${vault.items.slice(0, 40).map((v) => `        <a class="vitem" href="${esc(v.f)}" data-i="${v.i}"><img src="${esc(v.s)}" width="${v.w}" height="${v.h}" loading="lazy" decoding="async" alt="${esc(v.a)}" onerror="this.onerror=null;this.src=${esc(JSON.stringify(v.raw))}"><span class="vcap">${esc(v.p)}</span></a>`).join('\n')}
-      </div>
+      </div></div>
       <script type="application/json" id="vault-data">${JSON.stringify(vault.items).replace(/</g, '\\u003c')}</script>
     </section>
 

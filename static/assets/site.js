@@ -221,17 +221,33 @@
         return '<a class="vitem" href="' + it.f + '" data-k="' + k + '"><img src="' + it.s + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>';
       }).join('') : '<p class="vnone">No photos match “' + esc(query) + '” yet. Try another word, or clear the search.</p>';
       countEl.textContent = shown.length + (shown.length === 1 ? ' photo' : ' photos') + (query ? ' for “' + query + '”' : '');
+      if (shown.length > 6) countEl.textContent += '  ·  scroll sideways →';
+      setTimeout(navState, 60);
       clear.hidden = !query;
       box.querySelectorAll('.vchip').forEach(function (c) { c.classList.toggle('on', c.getAttribute('data-q') === query); });
     };
     var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
     var timer = 0;
     var search = function (q) {
-      query = String(q || '').trim(); input.value = query; render(); box.scrollTop = 0;
+      query = String(q || '').trim(); input.value = query; render(); gridEl.scrollLeft = 0; navState();
       try { if (location.pathname === '/work/vault/') history.replaceState(null, '', '/work/vault/' + (query ? '?q=' + encodeURIComponent(query) : '')); } catch (e) {}
     };
     input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(function () { search(input.value); input.focus(); }, 180); });
     clear.addEventListener('click', function () { search(''); input.focus(); });
+    // the collage scrolls sideways: arrow buttons (mouse) and swiping (touch); the arrows hide at either end
+    var prevB = box.querySelector('.vnav.prev'), nextB = box.querySelector('.vnav.next');
+    function navState() {
+      if (!prevB) return;
+      prevB.disabled = gridEl.scrollLeft < 8;
+      nextB.disabled = gridEl.scrollLeft + gridEl.clientWidth > gridEl.scrollWidth - 8;
+    }
+    if (prevB) {
+      prevB.addEventListener('click', function () { gridEl.scrollBy({ left: -gridEl.clientWidth * 0.8, behavior: 'smooth' }); });
+      nextB.addEventListener('click', function () { gridEl.scrollBy({ left: gridEl.clientWidth * 0.8, behavior: 'smooth' }); });
+      gridEl.addEventListener('scroll', navState, { passive: true });
+      window.addEventListener('resize', navState);
+      setTimeout(navState, 300);
+    }
     box.querySelectorAll('.vchip').forEach(function (c) { c.addEventListener('click', function () { search(query === c.getAttribute('data-q') ? '' : c.getAttribute('data-q')); }); });
 
     // big view of one photo

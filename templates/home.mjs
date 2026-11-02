@@ -38,6 +38,7 @@ ${CONTACT_CSS}
 /* ---- phones ---- */
 @container page (max-width: 560px){
 .hero{height:640px !important}
+#hero-bars{display:none !important}
 .statcap{font-size:12px !important;letter-spacing:0 !important}
 /* process: the five steps play in one place like a short film */
 .pwrap{gap:0 !important}
