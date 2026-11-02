@@ -81,7 +81,7 @@ async function applySheet(id) {
   const rows = csv(text).filter((x) => x.some((c) => c.trim()));
   const head = (rows.shift() || []).map((h) => h.trim().toLowerCase());
   const col = (...names) => head.findIndex((h) => names.some((n) => h === n || h.startsWith(n)));
-  const C = { id: col('id'), title: col('project'), show: col('show'), order: col('position', 'order', 'no'), category: col('category', 'filter'), type: col('type'), status: col('status'), year: col('year'), city: col('city', 'location') };
+  const C = { id: col('id'), title: col('project'), show: col('show'), order: col('position', 'order', 'no'), category: col('category', 'filter'), type: col('type'), status: col('status'), year: col('year'), city: col('city', 'location'), page: col('own page') };
   const files = fs.readdirSync(PROJECTS).filter((x) => x.endsWith('.json'));
   const byId = new Map(files.map((x) => [x.replace(/\.json$/, ''), x]));
   const byTitle = new Map(files.map((x) => [String(readJSON(path.join(PROJECTS, x), {}).title || '').trim().toLowerCase(), x]));
@@ -96,6 +96,9 @@ async function applySheet(id) {
     const sh = get('show').toLowerCase();
     if (/^(yes|y|true|on|show|shown|✓|✔|1)$/.test(sh)) set('show_on_work', true, 'shown');
     else if (/^(no|n|false|off|hide|hidden|✗|✘|0)$/.test(sh)) set('show_on_work', false, 'hidden');
+    const pg = get('page').toLowerCase();
+    if (/^(yes|y|true|on|1)$/.test(pg)) set('has_page', true, 'own page on');
+    else if (/^(no|n|false|off|0)$/.test(pg)) set('has_page', false, 'own page off');
     if (/^\d+$/.test(get('order'))) set('order', Number(get('order')), `position ${get('order')}`);
     const g = GROUPS.find((x) => x.toLowerCase() === get('category').toLowerCase());
     if (g) set('category', g, g);

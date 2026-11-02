@@ -269,7 +269,29 @@ function projectLD(site, p) {
   return `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`;
 }
 
+// A project switched to "own page" without a layout gets one from its Drive photos:
+// wide photos full width, upright photos side by side in twos and threes (as on Shantiniketan's page).
+function autoBlocks(p, hero) {
+  const list = (Array.isArray(p.photos) ? p.photos : []).filter((ph) => ph && ph.src && ph.src !== hero && has(ph.src))
+    .map((ph) => { const [w, h] = imageSize(ph.src); return { image: ph.src, alt: ph.alt || '', tall: h > w * 1.05 }; });
+  const out = [];
+  for (let k = 0; k < list.length;) {
+    if (!list[k].tall) { out.push({ type: 'full', image: list[k].image, alt: list[k].alt }); k++; continue; }
+    let n = 0; while (k + n < list.length && list[k + n].tall && n < 3) n++;
+    if (n === 1) {                                   // a single upright photo: pair it with the next one, if any
+      if (k + 1 < list.length) { out.push({ type: 'pair', images: [list[k], list[k + 1]] }); k += 2; }
+      else { out.push({ type: 'pair', images: [list[k]] }); k++; }
+      continue;
+    }
+    out.push({ type: n === 3 ? 'trio' : 'pair', images: list.slice(k, k + n) }); k += n;
+  }
+  return out;
+}
+
 export function renderProject({ site, project: p, index, next, nextIndex }) {
+  const firstPhoto = (Array.isArray(p.photos) ? p.photos : []).map((ph) => ph && ph.src).find((s) => has(s));
+  const hero = has(p.hero_image) ? p.hero_image : has(p.thumbnail) ? p.thumbnail : firstPhoto;
+  const blocks = (p.blocks || []).length ? p.blocks : autoBlocks(p, hero);
   const facts = [['Type', p.type], ['Location', p.location], ['Year', p.year], ['Status', p.status]].filter(([, v]) => v);
   const nextHref = next ? projectHref(next) || '/work/' : '/work/';
   const body = `
@@ -287,14 +309,14 @@ ${header(site, { workCurrent: true })}
       </dl>
     </div>
 
-    ${has(p.hero_image) ? `<img ${img(p.hero_image)} alt="${esc(altOf(p.hero_image, p.hero_alt))}" fetchpriority="high" style="width: 100%; aspect-ratio: 16 / 9; ${PIC}">` : ''}
+    ${hero ? `<img ${img(hero)} alt="${esc(altOf(hero, p.hero_alt))}" fetchpriority="high" style="width: 100%; aspect-ratio: 16 / 9; ${PIC}">` : ''}
 
     ${p.about ? `<div style="display: flex; flex-wrap: wrap; gap: 32px 72px; padding: clamp(40px, 5cqw, 80px) 0">
       <h2 style="flex: 1 1 220px; margin: 0; font-size: clamp(26px, 2.4cqw, 32px); line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">About the project</h2>
       <div style="flex: 3 1 560px; display: flex; flex-direction: column; gap: 18px; max-width: 34em">${paras(p.about).map((t) => `<p style="margin: 0; font-size: clamp(20px, 2cqw, 26px); line-height: 1.45; font-weight: 300; letter-spacing: -0.01em">${rich(t)}</p>`).join('')}</div>
     </div>` : ''}
 
-${(p.blocks || []).map(block).filter(Boolean).join('\n\n')}
+${blocks.map(block).filter(Boolean).join('\n\n')}
 
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding: clamp(48px, 6cqw, 88px) 0; border-top: 1px solid #0E0E0E; margin-top: clamp(40px, 5cqw, 80px)">
       <a href="/work/" style="font-size: 15px; font-weight: 400; padding: 12px 0">← All work</a>
@@ -317,6 +339,6 @@ ${footer(site, { emblemHref: '/', emblemLabel: 'Bloc 11 — back to the home pag
     path: `/work/${p.slug}/`,
     css: PROJECT_CSS,
     body,
-    image: p.hero_image || p.thumbnail || undefined,
+    image: hero || undefined,
   });
 }

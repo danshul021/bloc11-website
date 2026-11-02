@@ -9,7 +9,7 @@
 const SITE = 'https://bloc11.studio/data/projects.json';
 const HEAD = ['Project', 'Show on website', 'Position', 'Category', 'Type', 'Status', 'Year', 'City', 'Photos', 'Own page', 'ID'];
 const KEYS = ['title', 'show', 'order', 'category', 'type', 'status', 'year', 'city', 'photos', 'page', 'id'];
-const INFO = ['photos', 'page'];          // read-only columns, always refreshed from the website
+const INFO = ['photos'];                 // read-only column, always refreshed from the website
 const CATEGORIES = ['Residential', 'Commercial', 'Hospitality', 'Institutional', 'Interiors', 'Planning', 'Installations'];
 
 function onOpen() {
@@ -35,8 +35,9 @@ function setup() {
   sh.getRange(2, 2, n, 1).setDataValidation(rule(['Yes', 'No']));
   sh.getRange(2, 4, n, 1).setDataValidation(rule(CATEGORIES));
   sh.getRange(2, 6, n, 1).setDataValidation(rule(['Completed', 'Ongoing']));
+  sh.getRange(2, 10, n, 1).setDataValidation(rule(['Yes', 'No'])).setFontColor('#141414');
   sh.getRange(2, 3, n, 1).setDataValidation(SpreadsheetApp.newDataValidation().requireNumberGreaterThan(0).setAllowInvalid(false).build());
-  sh.getRange(2, 9, n, 2).setFontColor('#8a8782');          // read-only info
+  sh.getRange(2, 9, n, 1).setFontColor('#8a8782');          // read-only info
   sh.hideColumns(11);                                        // ID: links the row to the project
   sh.setColumnWidth(1, 220);
   ScriptApp.getProjectTriggers().forEach((t) => ScriptApp.deleteTrigger(t));
