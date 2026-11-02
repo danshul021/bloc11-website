@@ -3,34 +3,94 @@
   "featured_project": "shantiniketan",
   "slides": [
     {
-      "image": "/images/shantiniketan-dusk.jpg",
-      "alt": "Shantiniketan at dusk, almost hidden behind a garden of trees",
-      "caption": "Residence — exterior at dusk",
-      "focus": 40
-    },
-    {
-      "image": "/images/projects/anjaneya/anjaneya-hospitality-lotus-pond-exterior-render.jpg",
-      "alt": "Anjaneya — A tranquil water body with lotus flowers in front of a white stepped pavilion under a brig",
-      "caption": "Hospitality — Anjaneya, lotus court",
-      "focus": 55
-    },
-    {
-      "image": "/images/projects/co-living/co-living-commercial-coliving-brick-building-facade-render.jpg",
-      "alt": "Co-Living — Exterior architectural render of a multi-story brick co-living building featuring rhythmic",
-      "caption": "Co-living — brick facade",
-      "focus": 45
-    },
-    {
-      "image": "/images/projects/finsen-ritters/finsen-ritters-commercial-facade.jpg",
-      "alt": "Finsen Ritters — A contemporary commercial building featuring glazed curtain walls, precast concrete panels",
-      "caption": "Commercial — Finsen Ritters at dusk",
+      "image": "/images/home/home-shantiniketan-exterior-at-dusk.jpg",
+      "alt": "A terracotta-toned building facade partially obscured by lush green trees and a gated entrance — Shantiniketan by Bloc 11 Architects",
+      "caption": "Shantiniketan — exterior at dusk",
       "focus": 50
     },
     {
-      "image": "/images/projects/salunkes/salunkes-hospitality-entrance-facade-render.jpg",
-      "alt": "Salunkes — A low-angle view of a contemporary hospitality entrance featuring a wide flat roof and bri",
-      "caption": "Hospitality — Salunkes, entrance",
-      "focus": 55
+      "image": "/images/home/home-anjaneya-lotus-court.jpg",
+      "alt": "An open courtyard features a reflective lotus pond framed by colonnaded walkways and a central shrine — Anjaneya by Bloc 11 Architects",
+      "caption": "Anjaneya — lotus court",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-oyster-terracotta-facade.jpg",
+      "alt": "A modern building facade features curving balconies, textured stucco, vertical louvres, and vibrant planters — Oyster by Bloc 11 Architects",
+      "caption": "Oyster — terracotta facade",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-vistara-m-staircase-nook.jpg",
+      "alt": "A contemporary double-height foyer features a curved built-in bench, dark staircase, and terracotta accent wall — Vistara M by Bloc 11 Architects",
+      "caption": "Vistara M — staircase nook",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-co-living-brick-facade.jpg",
+      "alt": "An exterior view of a multi-story red brick co-living building featuring deep balconies, patterned jaalis, and a sloped roof — Co-Living by Bloc 11 Architects",
+      "caption": "Co-Living — brick facade",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-shantiniketan-sunken-living-room.jpg",
+      "alt": "Double-height living room featuring custom built-in seating, a perforated wall, and expansive glass sliding doors — Shantiniketan by Bloc 11 Architects",
+      "caption": "Shantiniketan — sunken living room",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-salunkes-entrance.jpg",
+      "alt": "A grand entrance porch with a sweeping roof and brick planters connects two light-filled volumes — Salunkes by Bloc 11 Architects",
+      "caption": "Salunkes — entrance",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-pristine-wellness-centre-at-dusk.jpg",
+      "alt": "A modern multi-story wellness centre facade features terracotta jali screens, vertical louvres, and clean plaster volumes — Pristine by Bloc 11 Architects",
+      "caption": "Pristine — wellness centre at dusk",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-vistara-reading-nook-and-leaf-screen.jpg",
+      "alt": "A light-filled study and seating nook opens onto a lush vertical garden and a patterned courtyard — Vistara by Bloc 11 Architects",
+      "caption": "Vistara — reading nook and leaf screen",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-finsen-ritters-facade-at-dusk.jpg",
+      "alt": "A contemporary commercial building featuring dual massing with glazed curtain walls and stone cladding under a pink sky — Finsen Ritters by Bloc 11 Architects",
+      "caption": "Finsen Ritters — facade at dusk",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-mds-english-academy-hs-school-front.jpg",
+      "alt": "Front elevation of a modern school building featuring rhythmic brick louvres, a prominent arched entrance element, and deep sunshades — MDS English Academy HS by Bloc 11 Architects",
+      "caption": "MDS English Academy HS — school front",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-zameen-mantra-office-reception.jpg",
+      "alt": "An interior lobby featuring a fluted wood wall, brass reception desk, and geometric mural — Zameen Mantra Office by Bloc 11 Architects",
+      "caption": "Zameen Mantra Office — reception",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-vak-workshop-showroom.jpg",
+      "alt": "A contemporary commercial facade features floor-to-ceiling glass windows framed by blue metal structure beneath dark signage — VAK Workshop by Bloc 11 Architects",
+      "caption": "VAK Workshop — showroom",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-residence-bengaluru-community-plaza.jpg",
+      "alt": "An aerial rendering shows a multi-level public plaza with tensile membrane canopies, outdoor seating, and tiered amphitheater seating — Residence, Bengaluru by Bloc 11 Architects",
+      "caption": "Residence, Bengaluru — community plaza",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-etasha-entrance-canopy.jpg",
+      "alt": "A sweeping entrance canopy supported by sculptural steel tree-like columns frames a landscaped vehicular gateway — Etasha by Bloc 11 Architects",
+      "caption": "Etasha — entrance canopy",
+      "focus": 50
     }
   ],
   "practice_text": "An independent, multidisciplinary design practice working across architecture, master planning, interiors, objects and research — combining curiosity, rigorous process and contemporary technology to build spaces that respond to people and place.",
