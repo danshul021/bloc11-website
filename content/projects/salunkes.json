@@ -7,7 +7,7 @@
   "year": "",
   "status": "Ongoing",
   "show_on_work": true,
-  "thumbnail": "/images/projects/salunkes/salunkes-hospitality-bengaluru-cantilevered-roof-pavilion.jpg",
+  "thumbnail": "/images/projects/salunkes/salunkes-hospitality-modern-facade-entrance.jpg",
   "has_page": true,
   "hero_image": "",
   "hero_alt": "",
@@ -16,19 +16,21 @@
   "drive_folder": "1Ql9W6w3WXFQe3VVfB_vLkas1Y8KhkqTV",
   "photos": [
     {
-      "src": "/images/projects/salunkes/salunkes-hospitality-bengaluru-cantilevered-roof-pavilion.jpg",
-      "alt": "White pavilion with a thin cantilevered roof above broad steps and a brick plinth — Salunkes, hospitality in Bengaluru by Bloc 11 Architects",
+      "src": "/images/projects/salunkes/salunkes-hospitality-modern-facade-entrance.jpg",
+      "alt": "An asymmetrical modern facade features a large overhanging timber-clad canopy, brick planters, and expansive glazing — Salunkes, hospitality by Bloc 11 Architects",
       "tags": [
         "exterior",
+        "facade",
+        "entrance",
         "render",
-        "elevation",
-        "cantilevered roof",
-        "steps",
-        "brick plinth",
+        "brick",
+        "timber",
+        "glass",
+        "canopy",
         "landscape",
+        "modern architecture",
         "salunkes",
-        "hospitality",
-        "bengaluru"
+        "hospitality"
       ],
       "vault": true
     },

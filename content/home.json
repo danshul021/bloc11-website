@@ -3,18 +3,6 @@
   "featured_project": "shantiniketan",
   "slides": [
     {
-      "image": "/images/home/home-shantiniketan-exterior-at-dusk.jpg",
-      "alt": "A terracotta-toned building facade partially obscured by lush green trees and a gated entrance — Shantiniketan by Bloc 11 Architects",
-      "caption": "Shantiniketan — exterior at dusk",
-      "focus": 50
-    },
-    {
-      "image": "/images/home/home-anjaneya-lotus-court.jpg",
-      "alt": "An open courtyard features a reflective lotus pond framed by colonnaded walkways and a central shrine — Anjaneya by Bloc 11 Architects",
-      "caption": "Anjaneya — lotus court",
-      "focus": 50
-    },
-    {
       "image": "/images/home/home-oyster-terracotta-facade.jpg",
       "alt": "A modern building facade features curving balconies, textured stucco, vertical louvres, and vibrant planters — Oyster by Bloc 11 Architects",
       "caption": "Oyster — terracotta facade",
@@ -27,15 +15,9 @@
       "focus": 50
     },
     {
-      "image": "/images/home/home-shantiniketan-sunken-living-room.jpg",
-      "alt": "Double-height living room featuring custom built-in seating, a perforated wall, and expansive glass sliding doors — Shantiniketan by Bloc 11 Architects",
-      "caption": "Shantiniketan — sunken living room",
-      "focus": 50
-    },
-    {
-      "image": "/images/home/home-salunkes-entrance.jpg",
-      "alt": "A grand entrance porch with a sweeping roof and brick planters connects two light-filled volumes — Salunkes by Bloc 11 Architects",
-      "caption": "Salunkes — entrance",
+      "image": "/images/home/home-living-dining-p19-mel-4k.jpg",
+      "alt": "Minimalist living and dining space featuring sculptural wall niches, marble tables, and textured upholstery — Living Dining P19 MEL 4K by Bloc 11 Architects",
+      "caption": "Living Dining P19 MEL 4K",
       "focus": 50
     },
     {
@@ -57,9 +39,39 @@
       "focus": 50
     },
     {
-      "image": "/images/home/home-copy-of-enscape-2026-02-20-17-56-01.jpg",
-      "alt": "A spacious open-air dining hall featuring wooden columns, beamed ceilings, and woven pendant lights — Anjaneya by Bloc 11 Architects",
-      "caption": "Anjaneya — timber dining hall",
+      "image": "/images/home/home-enscape-2025-01-08-20-35-36-repaired-4k.jpg",
+      "alt": "A spacious contemporary bedroom featuring a wooden slat wall, platform bed, and integrated marble ledges under soft daylight — Enscape 2025-01-08-20-35-36 Repaired 4K by Bloc 11 Architects",
+      "caption": "Enscape 2025-01-08-20-35-36 Repaired 4K",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-entrance-exterior-view-4k-upscaled.jpg",
+      "alt": "An inviting entrance pavilion featuring large glass openings, brick planter walls, and a prominent timber-clad cantilevered roof — Entrance Exterior View 4K Upscaled by Bloc 11 Architects",
+      "caption": "Entrance Exterior View 4K Upscaled",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-entrance-staircase-closeup-4k-upscaled.jpg",
+      "alt": "A grand entrance staircase with brick steps and planters leads up to a modern building with a timber ceiling — Entrance Staircase Closeup 4K Upscaled by Bloc 11 Architects",
+      "caption": "Entrance Staircase Closeup 4K Upscaled",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-p13-5k-upscaled.jpg",
+      "alt": "Lush tropical landscaping frames a contemporary peach-toned facade featuring a central decorative jaali screen — P13 5K Upscaled by Bloc 11 Architects",
+      "caption": "P13 5K Upscaled",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-resort-pool-view-4k-upscaled.jpg",
+      "alt": "A tranquil resort pool view features low-slung terracotta-roofed villas flanked by lush tropical landscaping under bright daylight — Resort Pool View 4K Upscaled by Bloc 11 Architects",
+      "caption": "Resort Pool View 4K Upscaled",
+      "focus": 50
+    },
+    {
+      "image": "/images/home/home-temple-pond-view-4k-upscaled.jpg",
+      "alt": "Serene courtyard featuring a central water body with lotus flowers flanked by colonnaded wooden walkways — Temple Pond View 4K Upscaled by Bloc 11 Architects",
+      "caption": "Temple Pond View 4K Upscaled",
       "focus": 50
     }
   ],
@@ -101,5 +113,79 @@
       "text": "Carry design through execution with consultants, craftsmen and site teams to protect the original intent."
     }
   ],
-  "capabilities_heading": "Our capabilities"
+  "capabilities_heading": "Our capabilities",
+  "slides_mobile": [
+    {
+      "image": "/images/home-mobile/home-mobile-asddassad.jpg",
+      "alt": "A minimalist bedroom featuring a textured botanical wallpaper headboard wall with integrated vertical timber paneling — asddassad by Bloc 11 Architects",
+      "caption": "asddassad",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-132632.jpg",
+      "alt": "A minimalist white wall features a warm arched niche with indirect lighting and a pendant lamp above — 132632 by Bloc 11 Architects",
+      "caption": "132632",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-boutique-cafe-facade-approved-4k-upscaled.jpg",
+      "alt": "A terracotta-clad facade features grand arched windows on the ground floor and intricate brick jaalis above — Boutique Cafe Facade Approved 4K Upscaled by Bloc 11 Architects",
+      "caption": "Boutique Cafe Facade Approved 4K Upscaled",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-dlf-peti8602-street-exterior-approved-4k.jpg",
+      "alt": "Modern residential facade featuring textured stucco, terracotta accents, horizontal louvres, and a balcony with pergolas — DLF PETI8602 Street Exterior Approved 4K by Bloc 11 Architects",
+      "caption": "DLF PETI8602 Street Exterior Approved 4K",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-entrance-staircase-closeup-4k-upscaled.jpg",
+      "alt": "An expansive outdoor entrance features a broad brick staircase beneath a deep timber-slatted canopy — Entrance Staircase Closeup 4K Upscaled by Bloc 11 Architects",
+      "caption": "Entrance Staircase Closeup 4K Upscaled",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-img-20230324-080514.jpg",
+      "alt": "A low-angle view of a modern brown facade with cantilevered balconies, planters, and vertical louvres — IMG 20230324 080514 by Bloc 11 Architects",
+      "caption": "IMG 20230324 080514",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-kitchen-dining-ss-fridge-4k-denoised.jpg",
+      "alt": "An open kitchen and dining area featuring a curved wooden platform and pitched tiled ceiling — Kitchen Dining SS Fridge 4K Denoised by Bloc 11 Architects",
+      "caption": "Kitchen Dining SS Fridge 4K Denoised",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-p05.jpg",
+      "alt": "A terracotta-clad facade features a perforated jaali screen glowing warmly at dusk behind a mature tree — P05 by Bloc 11 Architects",
+      "caption": "P05",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-p09.jpg",
+      "alt": "An orange plastered facade featuring square jaali ventilation blocks, large windows, and lush green potted plants — P09 by Bloc 11 Architects",
+      "caption": "P09",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-p23.jpg",
+      "alt": "A sunlit double-height living room featuring a curved striped sofa and sheer curtains — P23 by Bloc 11 Architects",
+      "caption": "P23",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-vistara-exterior-lowangle-2k.jpg",
+      "alt": "A low-angle exterior view of a modern building facade featuring intricate screens, louvres, and textured plaster — Vistara Exterior LowAngle 2K by Bloc 11 Architects",
+      "caption": "Vistara Exterior LowAngle 2K",
+      "focus": 50
+    },
+    {
+      "image": "/images/home-mobile/home-mobile-wellness-centre-entrance-approved-edit-upscaled-4k.jpg",
+      "alt": "An asymmetrical building facade featuring patterned brick jaali screens, vertical windows, and a dark steel entrance canopy — Wellness Centre Entrance Approved Edit Upscaled 4K by Bloc 11 Architects",
+      "caption": "Wellness Centre Entrance Approved Edit Upscaled 4K",
+      "focus": 50
+    }
+  ]
 }

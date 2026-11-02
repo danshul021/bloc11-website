@@ -355,24 +355,6 @@
       "vault": true
     },
     {
-      "src": "/images/projects/anjaneya/anjaneya-hospitality-resort-pool-exterior-2.jpg",
-      "alt": "A resort hospitality project featuring a tranquil swimming pool foreground and a low-slung stone and timber accommodation block — Anjaneya, hospitality by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "landscape",
-        "render",
-        "hospitality",
-        "resort",
-        "swimming pool",
-        "stone",
-        "timber",
-        "roof",
-        "glazing",
-        "anjaneya"
-      ],
-      "vault": true
-    },
-    {
       "src": "/images/projects/anjaneya/anjaneya-hospitality-stone-curved-walls-courtyard.jpg",
       "alt": "Curved stone walls frame a paved walkway leading toward a timber-clad entrance pavilion — Anjaneya, hospitality by Bloc 11 Architects",
       "tags": [
@@ -401,6 +383,40 @@
         "hospitality",
         "contemporary",
         "anjaneya"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-resort-pool-pavilion-facade.jpg",
+      "alt": "A resort swimming pool reflects a series of low-slung terracotta-roofed pavilions under bright sunlight — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "facade",
+        "terracotta",
+        "stone",
+        "timber",
+        "pool",
+        "render",
+        "anjaneya",
+        "hospitality"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/anjaneya/anjaneya-hospitality-pavilion-landscape-water-feature.jpg",
+      "alt": "A tranquil water body with lotus flowers flanked by covered walkways and a pyramidal pavilion structure — Anjaneya, hospitality by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "landscape",
+        "pavilion",
+        "water feature",
+        "walkway",
+        "stone",
+        "timber",
+        "render",
+        "anjaneya",
+        "hospitality"
       ],
       "vault": true
     }
