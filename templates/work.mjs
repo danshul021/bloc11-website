@@ -15,6 +15,15 @@ const WORK_CSS = BASE_CSS + `
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box;padding:0 18px;border:1px solid #BDB7AE;border-radius:999px;background:transparent;color:#0E0E0E;font-family:'Jost',sans-serif;font-weight:400;font-size:14px;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
 .btn:hover{border-color:#0E0E0E}
 .btn.on{background:#0E0E0E;color:#FFFFFF;border-color:#0E0E0E}
+/* the Vault button: terracotta, with a little safe-dial that ticks round like a combination lock */
+.vault-btn{gap:8px;padding:0 18px 0 13px;border-color:#A5532F;color:#A5532F;font-weight:500;transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,color .2s}
+.vault-btn:hover{border-color:#A5532F;background:#FBF1EB;transform:rotate(-3deg) scale(1.05)}
+.vault-btn.on{background:#A5532F;color:#FFFFFF;border-color:#A5532F;transform:none}
+.vdial{width:19px;height:19px;flex:0 0 auto;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;animation:vdial 5.5s cubic-bezier(.7,0,.25,1) infinite}
+.vdial .vdot{fill:currentColor;stroke:none}
+.vault-btn:hover .vdial{animation:vspin .7s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes vdial{0%,8%{transform:rotate(0)}24%,34%{transform:rotate(140deg)}50%,60%{transform:rotate(-70deg)}78%,90%{transform:rotate(230deg)}100%{transform:rotate(360deg)}}
+@keyframes vspin{to{transform:rotate(360deg)}}
 .row-link{text-decoration:none}
 .row-link:hover{color:#0E0E0E}
 .row-link:hover .rt,.card:hover .rt{color:#A5532F}
@@ -177,7 +186,7 @@ ${header(site, { workCurrent: true })}
         <div role="group" aria-label="View" style="display: flex; gap: 8px">
           ${btn('data-view', 'list', 'List', true)}
           ${btn('data-view', 'grid', 'Grid', false)}
-          ${btn('data-view', 'vault', 'Vault', false)}
+          <button type="button" class="btn vault-btn" data-view="vault" aria-pressed="false"><svg class="vdial" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="none"/><g><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(0 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(30 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(60 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(90 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(120 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(150 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(180 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(210 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(240 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(270 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(300 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(330 10 10)"/></g><circle cx="10" cy="10" r="4.2" fill="none"/><line x1="10" y1="10" x2="10" y2="5.8" stroke-width="1.6"/><circle cx="10" cy="10" r="1.1" class="vdot"/></svg><span>Vault</span></button>
         </div>
       </div>
     </div>
