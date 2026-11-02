@@ -66,7 +66,31 @@ const HOME_KIND = {
   home: { state: 'home', dir: 'home', key: 'slides', long: 3200 },
   mobile: { state: 'homeMobile', dir: 'home-mobile', key: 'slides_mobile', long: 2800 },
 };
-const HOME_VER = 2;                                    // bump to bring every slideshow photo in again
+const HOME_VER = 3;                                    // bump to bring every slideshow photo in again
+// A caption written as "Project — view" in the file name is used as it is. Otherwise it is worked out:
+// a copy of a project photo gets "Project — view" from that photo; a new photo gets the reader's short name.
+function homeCaption(fileCap, md5, state, aiName, fileName = '') {
+  if (/\s[—–-]\s/.test(fileCap)) return fileCap;
+  const bare = (n) => String(n || '').toLowerCase().replace(/^copy of\s+/, '').replace(/\s*\(\d+\)(?=\.[^.]+$)/, '').replace(/\.[^.]+$/, '');
+  const want = bare(fileName);
+  for (const pass of ['md5', 'name']) for (const st of Object.values(state.folders || {})) {
+    const hit = Object.values(st.files || {}).find((v) => (pass === 'md5' ? v.md5 && v.md5 === md5 : want && bare(v.name) === want));
+    if (!hit) continue;
+    const proj = readJSON(path.join(PROJECTS, `${st.slug}.json`), {});
+    const drop = new Set(['render', 'residence', 'residential', 'commercial', 'hospitality', 'interiors', 'institutional', 'project', 'design',
+      ...slugify(proj.type || '').split('-'), ...slugify(proj.location || '').split('-'), ...st.slug.split('-')]);
+    const view = hit.file.replace(/\.[^.]+$/, '').replace(/-\d+$/, '').split('-').filter((w) => w && !drop.has(w) && !/^\d+$/.test(w)).join(' ');
+    return `${proj.title || st.name || st.slug}${view ? ` — ${view}` : ''}`;
+  }
+  // a project's name inside the file name ("Vistara_Exterior_LowAngle.png") still tells which project it is
+  const plain = ` ${want.replace(/[_\-.]+/g, ' ')} `;
+  const titles = fs.readdirSync(PROJECTS).filter((x) => x.endsWith('.json')).map((x) => readJSON(path.join(PROJECTS, x), {}).title || '')
+    .filter((t) => t.trim().length >= 4).sort((x, y) => y.length - x.length);
+  const named = titles.find((t) => plain.includes(` ${t.toLowerCase().replace(/[,]/g, '').trim()} `));
+  if (named) return `${named}${aiName ? ` — ${aiName}` : ''}`;
+  if (aiName) return aiName.charAt(0).toUpperCase() + aiName.slice(1);
+  return fileCap;
+}
 async function syncHome(folder, files, state, kind, progress) {
   const K = HOME_KIND[kind];
   const hs = state[K.state] = state[K.state] || { files: {} };
@@ -83,26 +107,32 @@ async function syncHome(folder, files, state, kind, progress) {
     keep.add(f.id);
     const cap = caption(f.name);
     if (prev && prev.md5 === sum && prev.v === HOME_VER && fs.existsSync(path.join(dir, prev.file))) {
-      if (prev.caption !== cap && prev.alt) prev.alt = `${prev.alt.split(' — ')[0]} — ${cap.split(/\s+[—–-]\s+/)[0]} by Bloc 11 Architects`;   // renamed in Drive
-      prev.name = f.name; prev.caption = cap; continue;
+      const c2 = homeCaption(cap, sum, state, prev.ai, f.name);
+      if (prev.caption !== c2 && prev.alt) prev.alt = `${prev.alt.split(' — ')[0]} — ${c2.split(/\s+[—–-]\s+/)[0]} by Bloc 11 Architects`;   // renamed in Drive
+      prev.name = f.name; prev.caption = c2; continue;
     }
     log(progress() + ` · ${f.name}`);
     try {
       const buf = await download(f.id, K.long);
       const enc = await encode(buf, K.long);
-      let base = prev ? prev.file.replace(/\.[^.]+$/, '') : `${K.dir}-${slugify(cap).slice(0, 70) || 'photo'}`, n = 2;
+      let base = prev ? prev.file.replace(/\.[^.]+$/, '') : `${K.dir}-${slugify(homeCaption(cap, sum, state, '', f.name)).slice(0, 70) || 'photo'}`, n = 2;
       const b0 = base;
       while (!prev && Object.values(hs.files).some((x) => x.file.replace(/\.[^.]+$/, '') === base)) base = `${b0}-${n++}`;
       const rel = `${base}.${enc.ext}`;
       await enc.out.toFile(path.join(dir, rel));
       if (prev && prev.file !== rel) fs.rmSync(path.join(dir, prev.file), { force: true });
-      let alt = prev && prev.alt;
-      if (!alt && tagger) {
+      let alt = '', ai = prev && prev.ai;
+      const known = homeCaption(cap, sum, state, '', f.name);
+      const proj0 = /\s[—–-]\s/.test(known) ? known.split(/\s+[—–-]\s+/)[0] : '';
+      if (tagger) {
         const small = await sharp(buf, { failOn: 'none' }).rotate().resize({ width: 1024, withoutEnlargement: true }).flatten({ background: '#ffffff' }).jpeg({ quality: 78 }).toBuffer();
-        const info = await describe(small, { title: cap.split(/\s+[—–-]\s+/)[0] }, f.name);
-        if (!info.error) alt = `${info.description.replace(/\.$/, '')} — ${cap.split(/\s+[—–-]\s+/)[0]} by Bloc 11 Architects`;
+        const info = await describe(small, { title: proj0 || 'a Bloc 11 project' }, /\s[—–-]\s/.test(cap) ? f.name : '');
+        if (!info.error) { alt = info.description.replace(/\.$/, ''); ai = info.name; }
       }
-      hs.files[f.id] = { name: f.name, file: rel, md5: sum, v: HOME_VER, caption: cap, ...(alt ? { alt } : {}) };
+      const finalCap = homeCaption(cap, sum, state, ai, f.name);
+      const who = /\s[—–-]\s/.test(finalCap) ? finalCap.split(/\s+[—–-]\s+/)[0] : '';
+      if (alt) alt = `${alt}${who ? ` — ${who}` : ''} by Bloc 11 Architects`;
+      hs.files[f.id] = { name: f.name, file: rel, md5: sum, v: HOME_VER, caption: finalCap, ...(ai ? { ai } : {}), ...(alt ? { alt } : {}) };
       added++;
     } catch (e) { if (!prev) keep.delete(f.id); log(`  could not bring in ${f.name}: ${e.message.split('\n')[0]}`); }
   }
