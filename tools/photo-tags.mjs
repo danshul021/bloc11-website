@@ -61,27 +61,27 @@ function parse(text) {
   return { description: String(j.description || '').trim(), tags: Array.isArray(j.tags) ? j.tags.map(String) : [], name: String(j.name || '').trim(), rotate };
 }
 
-async function claude(jpeg, p) {
+async function claude(jpegs, text) {
   const r = await fetch((process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com') + '/v1/messages', {
     method: 'POST',
     headers: { 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
     body: JSON.stringify({
       model: process.env.TAG_MODEL || 'claude-haiku-5-5', max_tokens: 400,
       messages: [{ role: 'user', content: [
-        { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: jpeg.toString('base64') } },
-        { type: 'text', text: PROMPT(p) },
+        ...jpegs.map((jpeg) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: jpeg.toString('base64') } })),
+        { type: 'text', text },
       ] }],
     }),
   });
   if (!r.ok) throw new Error(`Claude said ${r.status}: ${(await r.text()).slice(0, 200)}`);
   const j = await r.json();
-  return parse((j.content || []).map((c) => c.text || '').join(''));
+  return (j.content || []).map((c) => c.text || '').join('');
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let lastCall = 0, outOfQuota = '';
 
-async function gemini(jpeg, p) {
+async function gemini(jpegs, text) {
   if (outOfQuota) throw new Error(outOfQuota);
   const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
   const gap = Number(process.env.TAG_GAP_MS || 4500);   // the free tier allows about 15 photos a minute
@@ -92,14 +92,14 @@ async function gemini(jpeg, p) {
     let r;
     try { r = await fetch(`${process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'}/v1beta/models/${model}:generateContent?key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`, {
       method: 'POST', headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ inline_data: { mime_type: 'image/jpeg', data: jpeg.toString('base64') } }, { text: PROMPT(p) }] }] }),
+      body: JSON.stringify({ contents: [{ parts: [...jpegs.map((jpeg) => ({ inline_data: { mime_type: 'image/jpeg', data: jpeg.toString('base64') } })), { text }] }] }),
     }); } catch (e) {                                   // network hiccup: try again
       if (attempt < 3) { await sleep(5000); continue; }
       throw e;
     }
     if (r.ok) {
       const j = await r.json();
-      return parse(((j.candidates || [])[0]?.content?.parts || []).map((x) => x.text || '').join(''));
+      return ((j.candidates || [])[0]?.content?.parts || []).map((x) => x.text || '').join('');
     }
     const body = await r.text();
     if (r.status === 429 && /PerDay|per day|daily/i.test(body)) {
@@ -113,16 +113,45 @@ async function gemini(jpeg, p) {
 }
 
 export const tagger = process.env.GEMINI_API_KEY ? 'Gemini' : process.env.ANTHROPIC_API_KEY ? 'Claude' : '';
+const ask = (jpegs, text) => (tagger === 'Gemini' ? gemini(jpegs, text) : claude(jpegs, text));
 
 // jpeg: a small JPEG of the photo (about 1024 px wide); fileName: its name in Drive
 export async function describe(jpeg, p, fileName) {
   const fromName = String(fileName || '').replace(/\.[^.]+$/, '').replace(/^(cover|img|dsc|pxl|photo)[\s_-]*\d*/i, '').replace(/^\d+[\s._-]*/, '').replace(/[_-]+/g, ' ').trim();
   let got = null, error = '';
   if (tagger) {
-    try { got = tagger === 'Gemini' ? await gemini(jpeg, p) : await claude(jpeg, p); }
+    try { got = parse(await ask([jpeg], PROMPT(p))); }
     catch (e) { error = e.message; }
   }
   const description = got?.description || (fromName ? fromName.charAt(0).toUpperCase() + fromName.slice(1) : '');
   const name = got?.name || fromName || 'photo';
   return { description, tags: cleanTags(mergeTags(got?.tags || [], !got && fromName ? [fromName] : [], projectTags(p))), name, rotate: got?.rotate || 0, auto: got ? tagger : 'file name', error };
+}
+
+// ---- the project's filter group (Residential, Commercial …), decided from a few of its photos ----
+export const CATEGORIES = ['Residential', 'Commercial', 'Hospitality', 'Institutional', 'Interiors'];
+// the word shown in the Work list ("Residence · Completed"), in the same style as the existing projects
+export const TYPE_FOR = { Residential: 'Residence', Commercial: 'Commercial', Hospitality: 'Hospitality', Institutional: 'Institutional', Interiors: 'Interiors' };
+
+const CLASSIFY = (p, notes) => `These are photos of one project by ${FIRM}, an architecture and interior design practice in India.
+Project name: ${p.title || 'unknown'}.
+${notes.length ? `Descriptions of its photos:\n${notes.map((n) => `- ${n}`).join('\n')}\n` : ''}
+Which ONE group does the project belong to?
+- Residential: a house, villa, bungalow, apartment building or housing — the building itself is shown (exteriors, facades, elevations), even if interiors are shown too.
+- Interiors: interior design only — every photo is an inside view (rooms, furniture, joinery) and no exterior of the building is shown.
+- Commercial: offices, shops, showrooms, workshops, factories, mixed-use or co-living buildings.
+- Hospitality: hotels, resorts, restaurants, cafes, clubs, banquet or event venues.
+- Institutional: schools, colleges, hospitals, clinics, temples, community and government buildings.
+Use the project name as a hint too (e.g. "Residence", "Office", "School").
+Reply with JSON only: {"category": "Residential" | "Interiors" | "Commercial" | "Hospitality" | "Institutional", "reason": "a few words"}`;
+
+// jpegs: up to 4 small JPEGs of the project; notes: its photo descriptions
+export async function classify(jpegs, p, notes = []) {
+  if (!tagger) return { category: '', error: 'no AI key' };
+  try {
+    const m = String(await ask(jpegs.slice(0, 4), CLASSIFY(p, notes.slice(0, 12)))).match(/\{[\s\S]*\}/);
+    const j = m ? JSON.parse(m[0]) : {};
+    const category = CATEGORIES.find((c) => c.toLowerCase() === String(j.category || '').trim().toLowerCase()) || '';
+    return { category, reason: String(j.reason || '').slice(0, 80), error: category ? '' : 'unclear answer' };
+  } catch (e) { return { category: '', error: e.message }; }
 }

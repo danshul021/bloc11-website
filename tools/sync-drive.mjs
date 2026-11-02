@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
-import { describe, altFor, seoBase, tagger, cleanTags } from './photo-tags.mjs';
+import { describe, altFor, seoBase, tagger, cleanTags, classify, TYPE_FOR } from './photo-tags.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
@@ -238,12 +238,29 @@ async function main() {
     const coverInfo = Object.values(st.files).find((i) => /^cover/i.test(i.name));
     const cover = coverInfo ? `/images/projects/${slug}/${coverInfo.file}` : (photos[0] && photos[0].src) || '';
 
+    // the project's filter group (Residential, Interiors …): decided once by the photo reader from a few
+    // of its photos, only while it is empty — a group chosen in the admin page is never changed
+    let picked = null;
+    if (tagger && !st.classified && !(exists && proj.category) && photos.length) {
+      const pick = photos.filter((ph, k) => k % Math.max(1, Math.floor(photos.length / 4)) === 0).slice(0, 4);
+      const jpegs = [];
+      for (const ph of pick) {
+        try { jpegs.push(await sharp(fs.readFileSync(path.join(root, 'static', ph.src)), { failOn: 'none' }).rotate().resize({ width: 768, withoutEnlargement: true }).flatten({ background: '#ffffff' }).jpeg({ quality: 75 }).toBuffer()); } catch (e) {}
+      }
+      const notes = photos.map((ph) => String(ph.alt || '').split(' — ')[0]).filter(Boolean);
+      const got = jpegs.length ? await classify(jpegs, ctx, notes) : { category: '', error: 'no photos' };
+      if (got.category) {
+        picked = got.category; st.classified = true;
+        (report.grouped = report.grouped || []).push(`${folder.name} → ${got.category}${got.reason ? ` (${got.reason})` : ''}`);
+      } else report.skipped.push(`${folder.name}: filter group not decided (${got.error})`);
+    }
+
     // the project in the admin page
     if (!exists) {
       // a new project is numbered after the last one (e.g. 23 when the list ends at 22)
       const orders = fs.readdirSync(PROJECTS).filter((x) => x.endsWith('.json')).map((x) => Number(readJSON(path.join(PROJECTS, x), {}).order) || 0).filter((o) => o < 99);
       writeJSON(pfile, {
-        title: folder.name.trim(), order: Math.max(0, ...orders) + 1, type: '', category: '', location: '', year: '', status: 'Ongoing',
+        title: folder.name.trim(), order: Math.max(0, ...orders) + 1, type: picked ? TYPE_FOR[picked] : '', category: picked || '', location: '', year: '', status: 'Ongoing',
         show_on_work: false, has_page: false, thumbnail: cover, hero_image: cover, hero_alt: '', about: '', blocks: [],
         drive_folder: folder.id, photos,
       });
@@ -253,6 +270,7 @@ async function main() {
       if (p.drive_folder !== folder.id) report.linked.push(folder.name);
       p.drive_folder = folder.id;
       p.photos = photos;
+      if (picked && !p.category) { p.category = picked; if (!p.type) p.type = TYPE_FOR[picked]; }
       // follow the Drive cover only while the list picture is still the one the sync chose
       if (!p.thumbnail || p.thumbnail === st.cover || !fs.existsSync(path.join(root, 'static', p.thumbnail))) p.thumbnail = cover || p.thumbnail;
       if (p.has_page && !p.hero_image) p.hero_image = cover;
@@ -286,6 +304,7 @@ async function main() {
     `Linked to existing projects: ${report.linked.length ? report.linked.join(', ') : 'none'}`,
     `Photos added ${report.photosAdded}, updated ${report.photosUpdated}, removed ${report.photosRemoved}`,
     ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
+    ...(report.grouped ? [`Filter groups chosen: ${report.grouped.join('; ')}`] : []),
     ...(report.turned ? [`Sideways photos turned upright: ${report.turned}`] : []),
     ...(report.converted ? [`PNG pictures made into lighter JPEGs: ${report.converted}`] : []),
     ...(report.duplicates.length ? [`Skipped as duplicates of another photo in the same folder (you can delete these in Drive): ${report.duplicates.join(', ')}`] : []),
