@@ -17,16 +17,28 @@
   if (heroImg && dataEl) {
     var slides = [];
     try { slides = JSON.parse(dataEl.textContent); } catch (e) {}
+    // phones use their own upright pictures, when the "mobile" folder has some
+    var srcM = document.getElementById('hero-src-m'), mEl = document.getElementById('hero-data-m'), mobile = false;
+    if (mEl && window.matchMedia && window.matchMedia('(max-width: 560px)').matches) {
+      try { var ms = JSON.parse(mEl.textContent); if (ms.length) { slides = ms; mobile = true; } } catch (e) {}
+    }
     var kicker = document.getElementById('hero-kicker');
     var feat = document.getElementById('hero-feat');
     var bars = document.getElementById('hero-bars');
     var count = document.getElementById('hero-count');
     var i = 0, timer = 0;
+    if (mobile) {                                      // the bars and the count follow the phone set
+      if (bars) bars.innerHTML = slides.map(function (x, n) { return '<span style="display:block;width:' + (slides.length > 8 ? 12 : 28) + 'px;height:2px;background:#fff;opacity:' + (n ? 0.35 : 1) + '"></span>'; }).join('');
+      if (count) count.textContent = '01 / ' + (slides.length < 10 ? '0' : '') + slides.length;
+      if (kicker && slides[0]) kicker.textContent = slides[0].caption;
+      if (feat && slides[0] && slides[0].href) { feat.href = slides[0].href; feat.textContent = slides[0].label; }
+      if (slides[0]) heroImg.style.objectPosition = slides[0].pos;
+    }
     var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
     // the width that fits this screen (the same choice the browser makes from srcset)
     var pick = function (s) {
       if (!s.set) return s.src;
-      var want = (window.innerWidth || 1200) * (window.devicePixelRatio || 1), best = '', bw = 0;
+      var want = (mobile ? 1.3 : Math.max(1, 1530 / (window.innerWidth || 1530))) * (window.innerWidth || 1200) * (window.devicePixelRatio || 1), best = '', bw = 0;
       s.set.split(', ').forEach(function (part) {
         var bits = part.split(' '), w = parseInt(bits[1], 10);
         if (!best || (bw < want && w > bw) || (w >= want && w < bw)) { best = bits[0]; bw = w; }
@@ -38,7 +50,8 @@
       if (!slides.length) return;
       i = (k + slides.length) % slides.length;
       var s = slides[i];
-      heroImg.onerror = function () { heroImg.onerror = null; heroImg.removeAttribute('srcset'); heroImg.src = s.raw; };
+      heroImg.onerror = function () { heroImg.onerror = null; heroImg.removeAttribute('srcset'); if (srcM) srcM.srcset = s.raw; heroImg.src = s.raw; };
+      if (srcM && mobile) srcM.srcset = s.set || s.src;
       if (s.set) { heroImg.srcset = s.set; heroImg.sizes = '100vw'; } else heroImg.removeAttribute('srcset');
       heroImg.src = pick(s); heroImg.alt = s.alt; heroImg.style.objectPosition = s.pos;
       if (kicker) kicker.textContent = s.caption;

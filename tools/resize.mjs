@@ -28,7 +28,7 @@ for (const item of list) {
   if (fs.existsSync(cached)) { fs.copyFileSync(cached, out); reused++; continue; }
   let img = sharp(buf, { failOn: 'none' }).rotate();
   if (w !== 'full') img = img.resize({ width: Number(w), withoutEnlargement: true });
-  await img.webp({ quality: 76, effort: 5 }).toFile(out);
+  await img.webp({ quality: /^\/images\/home/.test(src) ? 86 : 76, effort: 5 }).toFile(out);
   fs.mkdirSync(path.dirname(cached), { recursive: true });
   fs.copyFileSync(out, cached);
   made++;

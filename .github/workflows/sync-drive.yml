@@ -40,7 +40,7 @@ jobs:
         run: |
           git config user.name "Bloc 11 website"
           git config user.email "info@bloc11.studio"
-          git add -A content static/images/projects static/images/home tools/drive-state.json
+          git add -A content static/images/projects static/images/home static/images/home-mobile tools/drive-state.json
           if git diff --cached --quiet; then
             echo "Nothing changed in Drive."
             exit 0

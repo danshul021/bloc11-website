@@ -65,7 +65,8 @@ export function renderHome({ site, home, projects }) {
   const featHref = feat ? (feat.has_page ? `/work/${feat.slug}/` : '/work/') : '/work/';
   const featText = feat ? `${feat.title}${feat.location ? ', ' + feat.location : ''} →` : 'See our work →';
   // each slide comes in several widths, so a phone downloads a phone-sized picture
-  const HERO_W = [800, 1200, 1600, 2000, 2400];
+  const HERO_W = [800, 1200, 1600, 2000, 2400, 2800, 3200];
+  const HERO_M = [600, 900, 1200, 1600, 2000, 2400];
   // a slide captioned "Project — view" links to that project and shows "Type — view" above the link
   const byTitle = new Map(projects.map((p) => [p.title.trim().toLowerCase(), p]));
   const slideInfo = (sl) => {
@@ -77,6 +78,9 @@ export function renderHome({ site, home, projects }) {
     return { kicker: [p.type, view].filter(Boolean).join(' — ') || cap, href: p.has_page ? `/work/${p.slug}/` : '/work/', label: `${p.title} →` };
   };
   const heroData = slides.map((s) => ({ src: cdn(s.image, 2400), set: srcset(s.image, HERO_W), raw: ver(s.image), alt: s.alt || '', caption: slideInfo(s).kicker, href: slideInfo(s).href, label: slideInfo(s).label, pos: `center ${Number(s.focus ?? 50)}%` }));
+  // phones: their own upright pictures from the "Homepage slideshow — mobile" folder, when there are any
+  const mslides = (home.slides_mobile || []).filter((s) => s.image);
+  const heroM = mslides.map((s) => ({ src: cdn(s.image, 1600), set: srcset(s.image, HERO_M), raw: ver(s.image), alt: s.alt || '', caption: slideInfo(s).kicker, href: slideInfo(s).href, label: slideInfo(s).label, pos: `center ${Number(s.focus ?? 50)}%` }));
   const i0 = heroData[0] || { caption: s0.caption, href: featHref, label: featText };
   const steps = (home.steps || []).slice(0, 5);
 
@@ -95,7 +99,7 @@ ${v.split('').map((ch, di) => `            <span aria-hidden="true" style="displ
   const body = `
   <!-- HERO -->
   <section id="top" class="hero" style="position: relative; height: 860px; overflow: hidden; background: #2a2622">
-    <img id="hero-img" class="hero-img" src="${esc(heroData[0]?.src || '')}"${heroData[0]?.set ? ` srcset="${esc(heroData[0].set)}" sizes="100vw"` : ''} onerror="this.onerror=null;this.removeAttribute('srcset');this.src=${esc(JSON.stringify(heroData[0]?.raw || ''))}" alt="${esc(s0.alt)}" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center ${Number(s0.focus ?? 50)}%">
+    <picture style="position: absolute; inset: 0; display: block">${heroM[0] ? `<source id="hero-src-m" media="(max-width: 560px)" srcset="${esc(heroM[0].set)}" sizes="130vw">` : ''}<img id="hero-img" class="hero-img" src="${esc(heroData[0]?.src || '')}"${heroData[0]?.set ? ` srcset="${esc(heroData[0].set)}" sizes="max(100vw, 1530px)"` : ''} onerror="this.onerror=null;this.removeAttribute('srcset');this.src=${esc(JSON.stringify(heroData[0]?.raw || ''))}" alt="${esc(s0.alt)}" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center ${Number(s0.focus ?? 50)}%"></picture>
     <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 180px; background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0))"></div>
     <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 380px; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5))"></div>
 
@@ -133,6 +137,7 @@ ${v.split('').map((ch, di) => `            <span aria-hidden="true" style="displ
       </div>` : ''}
     </div>
     <script type="application/json" id="hero-data">${JSON.stringify(heroData).replace(/</g, '\\u003c')}</script>
+    ${heroM.length ? `<script type="application/json" id="hero-data-m">${JSON.stringify(heroM).replace(/</g, '\\u003c')}</script>` : ''}
   </section>
 
   <!-- PRACTICE -->

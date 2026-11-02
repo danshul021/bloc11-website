@@ -40,7 +40,7 @@ const ON_NETLIFY = process.env.NETLIFY === 'true';
 // On GitHub Pages there is no image service, so the publish step makes smaller copies itself:
 // cdn() hands out /r/<width>/images/… addresses and remembers which copies tools/resize.mjs must make.
 const RESIZE = !ON_NETLIFY && process.env.RESIZE_IMAGES === '1';
-const STEPS = [480, 800, 1200, 1600, 2000];
+const STEPS = [480, 600, 800, 900, 1200, 1600, 2000, 2400, 2800, 3200];
 export const RESIZED = new Set();
 
 export const esc = (s) => String(s ?? '')
