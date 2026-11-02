@@ -131,7 +131,7 @@ export function renderWork({ site, work, projects, vault, view = 'list' }) {
     const attrs = `data-cat="${esc(p.category)}" data-status="${esc(p.status)}"`;
     return `            <${tag}${href ? ` href="${href}"` : ''} class="row-link lrow" ${attrs} style="${GRID}; padding: 14px 0; border-bottom: 1px solid #E6E5E2; font-size: 15px">
               <span class="lno" style="font-size: 12px; letter-spacing: 0.12em; color: #6B6A67">${pad(k + 1, 3)}</span>
-              <img ${img(p.thumbnail, { widths: [320, 640], sizes: '160px' })} loading="lazy" decoding="async" alt="" style="width: 160px; height: 120px; object-fit: cover; display: block; background: #F3F3F1">
+              <img ${img(coverFor(p), { widths: [320, 640], sizes: '160px' })} loading="lazy" decoding="async" alt="" style="width: 160px; height: 120px; object-fit: cover; display: block; background: #F3F3F1">
               <span class="rt" style="font-size: 24px; font-weight: 500; letter-spacing: -0.025em">${esc(p.title)}</span>
               <span class="lcol">${esc(p.type)}</span>
               <span class="lcol">${esc(p.location)}</span>
@@ -143,7 +143,7 @@ export function renderWork({ site, work, projects, vault, view = 'list' }) {
     const href = projectHref(p), tag = href ? 'a' : 'div';
     return `          <${tag}${href ? ` href="${href}"` : ''} class="card" data-cat="${esc(p.category)}" data-status="${esc(p.status)}" style="display: flex; flex-direction: column; gap: 14px">
             <span style="display: block; overflow: hidden; background: #F3F3F1">
-              <img ${img(p.thumbnail, { widths: [640, 1000], sizes: '(max-width: 700px) 100vw, 33vw' })} loading="lazy" decoding="async" alt="${esc(altOf(p.thumbnail, '') || p.title)}" style="width: 100%; aspect-ratio: 8 / 5; object-fit: cover; display: block">
+              <img ${img(coverFor(p), { widths: [640, 1000], sizes: '(max-width: 700px) 100vw, 33vw' })} loading="lazy" decoding="async" alt="${esc(altOf(coverFor(p), '') || p.title)}" style="width: 100%; aspect-ratio: 8 / 5; object-fit: cover; display: block">
             </span>
             <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
               <span class="rt" style="font-size: 22px; font-weight: 500; letter-spacing: -0.02em">${esc(p.title)}</span>
@@ -269,10 +269,35 @@ function projectLD(site, p) {
   return `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`;
 }
 
+// ---- covers: the list picture and the big picture on a project page must suit their wide frames ----
+// A picture chosen in the admin is used when it is sharp enough and wide; otherwise the project's best
+// photo is used: wide, at least 1000 px, an outside view first (except interiors projects), Drive order next.
+const sizeOf = (src) => (has(src) ? imageSize(src) : [0, 0]);
+const fits = (src) => { const [w, h] = sizeOf(src); return w >= 1000 && w >= h * 1.1; };
+export function bestPhoto(p) {
+  const photos = (Array.isArray(p.photos) ? p.photos : []).filter((ph) => ph && has(ph.src));
+  const scored = photos.map((ph, k) => {
+    const [w, h] = sizeOf(ph.src), tags = (ph.tags || []).join(' | ').toLowerCase();
+    let s = 0;
+    if (w >= h * 1.2) s += 100; else if (w >= h) s += 40;
+    if (w >= 1600) s += 40; else if (w >= 1000) s += 20;
+    if (p.category !== 'Interiors') {
+      if (/\b(exterior|facade|elevation)\b/.test(tags)) s += 30;
+      if (/\b(entrance|dusk|courtyard)\b/.test(tags)) s += 10;
+      if (/\binterior\b/.test(tags)) s -= 10;
+    }
+    if (/\b(plan|section|model|sketch|detail)\b/.test(tags)) s -= 25;
+    return { src: ph.src, s: s - k * 0.5 };
+  }).sort((a, b) => b.s - a.s);
+  return scored[0] ? scored[0].src : '';
+}
+export const coverFor = (p, key = 'thumbnail') =>
+  (fits(p[key]) ? p[key] : fits(p.thumbnail) ? p.thumbnail : fits(p.hero_image) ? p.hero_image : bestPhoto(p) || (has(p[key]) ? p[key] : p.thumbnail));
+
 // A project switched to "own page" without a layout gets one from its Drive photos:
 // wide photos full width, upright photos side by side in twos and threes (as on Shantiniketan's page).
 function autoBlocks(p, hero) {
-  const list = (Array.isArray(p.photos) ? p.photos : []).filter((ph) => ph && ph.src && ph.src !== hero && has(ph.src))
+  const list = (Array.isArray(p.photos) ? p.photos : []).filter((ph) => ph && ph.src && ph.src !== hero && has(ph.src) && sizeOf(ph.src)[0] >= 800)
     .map((ph) => { const [w, h] = imageSize(ph.src); return { image: ph.src, alt: ph.alt || '', tall: h > w * 1.05 }; });
   const out = [];
   for (let k = 0; k < list.length;) {
@@ -289,8 +314,7 @@ function autoBlocks(p, hero) {
 }
 
 export function renderProject({ site, project: p, index, next, nextIndex }) {
-  const firstPhoto = (Array.isArray(p.photos) ? p.photos : []).map((ph) => ph && ph.src).find((s) => has(s));
-  const hero = has(p.hero_image) ? p.hero_image : has(p.thumbnail) ? p.thumbnail : firstPhoto;
+  const hero = coverFor(p, 'hero_image');
   const blocks = (p.blocks || []).length ? p.blocks : autoBlocks(p, hero);
   const facts = [['Type', p.type], ['Location', p.location], ['Year', p.year], ['Status', p.status]].filter(([, v]) => v);
   const nextHref = next ? projectHref(next) || '/work/' : '/work/';
@@ -325,7 +349,7 @@ ${blocks.map(block).filter(Boolean).join('\n\n')}
           <span style="font-size: 12px; letter-spacing: 0.12em; color: #6B6A67">Next · ${pad(nextIndex + 1, 3)}</span>
           <span class="next-title" style="font-size: clamp(26px, 2.6cqw, 36px); font-weight: 500; letter-spacing: -0.03em">${esc(next.title)}</span>
         </span>
-        <img ${img(next.thumbnail, { widths: [320], sizes: '160px' })} loading="lazy" decoding="async" alt="" style="width: 160px; height: 120px; ${PIC}">
+        <img ${img(coverFor(next), { widths: [320], sizes: '160px' })} loading="lazy" decoding="async" alt="" style="width: 160px; height: 120px; ${PIC}">
       </a>` : ''}
     </div>
   </main>

@@ -338,7 +338,9 @@ async function main() {
       });
     if (Object.keys(fresh).length) report.tagged = (report.tagged || 0) + Object.keys(fresh).length;
     const coverInfo = Object.values(st.files).find((i) => /^cover/i.test(i.name));
-    const cover = coverInfo ? `/images/projects/${slug}/${coverInfo.file}` : (photos[0] && photos[0].src) || '';
+    // the list picture: a photo named "cover…" in the Drive folder; without one the website picks the
+    // project's best wide photo by itself when it is built (see coverFor in templates/work.mjs)
+    const cover = coverInfo ? `/images/projects/${slug}/${coverInfo.file}` : '';
 
     // the project's filter group (Residential, Interiors …): decided once by the photo reader from a few
     // of its photos, only while it is empty — a group chosen in the admin page is never changed
@@ -364,7 +366,7 @@ async function main() {
       const orders = fs.readdirSync(PROJECTS).filter((x) => x.endsWith('.json')).map((x) => Number(readJSON(path.join(PROJECTS, x), {}).order) || 0).filter((o) => o < 99);
       writeJSON(pfile, {
         title: folder.name.trim(), order: Math.max(0, ...orders) + 1, type: picked ? TYPE_FOR[picked] : '', category: picked || '', location: '', year: '', status: 'Ongoing',
-        show_on_work: false, has_page: true, thumbnail: cover, hero_image: cover, hero_alt: '', about: '', blocks: [],
+        show_on_work: false, has_page: true, thumbnail: cover, hero_image: '', hero_alt: '', about: '', blocks: [],
         drive_folder: folder.id, photos,
       });
       report.added.push(folder.name);
@@ -375,8 +377,8 @@ async function main() {
       p.photos = photos;
       if (picked && !p.category) { p.category = picked; if (!p.type) p.type = TYPE_FOR[picked]; }
       // follow the Drive cover only while the list picture is still the one the sync chose
-      if (!p.thumbnail || p.thumbnail === st.cover || !fs.existsSync(path.join(root, 'static', p.thumbnail))) p.thumbnail = cover || p.thumbnail;
-      if (p.has_page && !p.hero_image) p.hero_image = cover;
+      if (!p.thumbnail || p.thumbnail === st.cover || !fs.existsSync(path.join(root, 'static', p.thumbnail))) p.thumbnail = cover;
+      if (p.hero_image && p.hero_image === st.cover && p.hero_image !== cover) p.hero_image = '';   // follows the cover photo only
       writeJSON(pfile, p);
     }
     st.cover = cover;

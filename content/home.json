@@ -2,25 +2,74 @@
   "hero_title": "Shaping spaces. Enriching everyday life.",
   "featured_project": "shantiniketan",
   "slides": [
-    { "image": "/images/shantiniketan-dusk.jpg", "alt": "Shantiniketan at dusk, almost hidden behind a garden of trees", "caption": "Residence — exterior at dusk", "focus": 40 },
-    { "image": "/images/shantiniketan-street-front.jpg", "alt": "Street front with terracotta walls and a perforated brick screen", "caption": "Residence — street front", "focus": 55 },
-    { "image": "/images/shantiniketan-entrance.jpg", "alt": "Entrance gate and screen wall under a large tree", "caption": "Residence — entrance", "focus": 55 },
-    { "image": "/images/shantiniketan-living-room.jpg", "alt": "Double-height living room with a sunken seating well", "caption": "Residence — living room", "focus": 60 },
-    { "image": "/images/shantiniketan-living-dining.jpg", "alt": "Living and dining space opening to the kitchen", "caption": "Residence — living and dining", "focus": 55 }
+    {
+      "image": "/images/shantiniketan-dusk.jpg",
+      "alt": "Shantiniketan at dusk, almost hidden behind a garden of trees",
+      "caption": "Residence — exterior at dusk",
+      "focus": 40
+    },
+    {
+      "image": "/images/projects/anjaneya/anjaneya-hospitality-lotus-pond-exterior-render.jpg",
+      "alt": "Anjaneya — A tranquil water body with lotus flowers in front of a white stepped pavilion under a brig",
+      "caption": "Hospitality — Anjaneya, lotus court",
+      "focus": 55
+    },
+    {
+      "image": "/images/projects/co-living/co-living-commercial-coliving-brick-building-facade-render.jpg",
+      "alt": "Co-Living — Exterior architectural render of a multi-story brick co-living building featuring rhythmic",
+      "caption": "Co-living — brick facade",
+      "focus": 45
+    },
+    {
+      "image": "/images/projects/finsen-ritters/finsen-ritters-commercial-facade.jpg",
+      "alt": "Finsen Ritters — A contemporary commercial building featuring glazed curtain walls, precast concrete panels",
+      "caption": "Commercial — Finsen Ritters at dusk",
+      "focus": 50
+    },
+    {
+      "image": "/images/projects/salunkes/salunkes-hospitality-entrance-facade-render.jpg",
+      "alt": "Salunkes — A low-angle view of a contemporary hospitality entrance featuring a wide flat roof and bri",
+      "caption": "Hospitality — Salunkes, entrance",
+      "focus": 55
+    }
   ],
   "practice_text": "An independent, multidisciplinary design practice working across architecture, master planning, interiors, objects and research — combining curiosity, rigorous process and contemporary technology to build spaces that respond to people and place.",
   "stats": [
-    { "value": "40", "caption": "Projects delivered across scales and typologies" },
-    { "value": "30", "caption": "Years of collective industry experience" },
-    { "value": "11", "caption": "Cities across the country with our projects" }
+    {
+      "value": "40",
+      "caption": "Projects delivered across scales and typologies"
+    },
+    {
+      "value": "30",
+      "caption": "Years of collective industry experience"
+    },
+    {
+      "value": "11",
+      "caption": "Cities across the country with our projects"
+    }
   ],
   "process_text": "An evolving, inclusive process that brings people into the conversation — arriving at thoughtful solutions with the users, for the users.",
   "steps": [
-    { "title": "Question", "text": "Challenge assumptions, interrogate the brief and look beyond the obvious." },
-    { "title": "Decode", "text": "Read the project through people, place, climate, culture, programme and constraints." },
-    { "title": "Experiment", "text": "Test ideas through sketches, models, materials and digital tools before settling on answers." },
-    { "title": "Refine", "text": "Bring space, structure, services, materials, detailing and cost into one coherent system." },
-    { "title": "Realise", "text": "Carry design through execution with consultants, craftsmen and site teams to protect the original intent." }
+    {
+      "title": "Question",
+      "text": "Challenge assumptions, interrogate the brief and look beyond the obvious."
+    },
+    {
+      "title": "Decode",
+      "text": "Read the project through people, place, climate, culture, programme and constraints."
+    },
+    {
+      "title": "Experiment",
+      "text": "Test ideas through sketches, models, materials and digital tools before settling on answers."
+    },
+    {
+      "title": "Refine",
+      "text": "Bring space, structure, services, materials, detailing and cost into one coherent system."
+    },
+    {
+      "title": "Realise",
+      "text": "Carry design through execution with consultants, craftsmen and site teams to protect the original intent."
+    }
   ],
   "capabilities_heading": "Our capabilities"
 }
