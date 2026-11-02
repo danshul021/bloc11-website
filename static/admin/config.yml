@@ -66,7 +66,7 @@ collections:
       - { name: year, label: Year, widget: string, required: false }
       - { name: status, label: Status, widget: select, options: [Completed, Ongoing], default: Ongoing }
       - { name: thumbnail, label: List picture, widget: image, required: false, hint: 'A landscape picture; it shows small in the Work list and as a card in the grid view. Projects from Google Drive use the photo named "cover…" until you choose another.' }
-      - { name: has_page, label: Give it its own page, widget: boolean, default: true, hint: 'Off: the project is only listed. On: its row links to a page built from the fields below.' }
+      - { name: has_page, label: Give it its own page, widget: boolean, default: true, hint: 'Off: the project is only listed. On: its row links to its own page — built from "Page layout" below, or automatically from its Drive photos when no layout is set.' }
       - { name: hero_image, label: Main picture (top of the page), widget: image, required: false }
       - { name: hero_alt, label: Describe the main picture, widget: string, required: false, hint: 'One short sentence for screen readers and Google' }
       - { name: about, label: About the project, widget: text, required: false, hint: 'Leave an empty line between paragraphs. Put **two stars** around words to make them bold.' }

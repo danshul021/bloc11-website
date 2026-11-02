@@ -364,7 +364,7 @@ async function main() {
       const orders = fs.readdirSync(PROJECTS).filter((x) => x.endsWith('.json')).map((x) => Number(readJSON(path.join(PROJECTS, x), {}).order) || 0).filter((o) => o < 99);
       writeJSON(pfile, {
         title: folder.name.trim(), order: Math.max(0, ...orders) + 1, type: picked ? TYPE_FOR[picked] : '', category: picked || '', location: '', year: '', status: 'Ongoing',
-        show_on_work: false, has_page: false, thumbnail: cover, hero_image: cover, hero_alt: '', about: '', blocks: [],
+        show_on_work: false, has_page: true, thumbnail: cover, hero_image: cover, hero_alt: '', about: '', blocks: [],
         drive_folder: folder.id, photos,
       });
       report.added.push(folder.name);
