@@ -82,7 +82,10 @@ async function syncHome(folder, files, state, kind, progress) {
     const prev = hs.files[f.id], sum = f.md5Checksum || f.modifiedTime;
     keep.add(f.id);
     const cap = caption(f.name);
-    if (prev && prev.md5 === sum && prev.v === HOME_VER && fs.existsSync(path.join(dir, prev.file))) { prev.caption = cap; continue; }
+    if (prev && prev.md5 === sum && prev.v === HOME_VER && fs.existsSync(path.join(dir, prev.file))) {
+      if (prev.caption !== cap && prev.alt) prev.alt = `${prev.alt.split(' — ')[0]} — ${cap.split(/\s+[—–-]\s+/)[0]} by Bloc 11 Architects`;   // renamed in Drive
+      prev.name = f.name; prev.caption = cap; continue;
+    }
     log(progress() + ` · ${f.name}`);
     try {
       const buf = await download(f.id, K.long);
