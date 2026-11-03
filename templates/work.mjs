@@ -89,14 +89,14 @@ a.card:hover img{transform:scale(1.03)}
 .vchip:hover{border-color:#0E0E0E}.vchip.on{background:#0E0E0E;color:#FFFFFF;border-color:#0E0E0E}
 .vcount{font-size:12px;letter-spacing:.12em;color:#6B6A67}
 /* the collage runs sideways like a magazine strip: two or three rows of photos at their own shape */
-.vgrid{display:flex;flex-direction:column;gap:10px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;padding:12px;scrollbar-width:thin;--rh:min(25vh,270px)}
+.vgrid{display:flex;flex-direction:column;gap:10px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;padding:12px;scrollbar-width:thin;--rh:clamp(180px,calc((100vh - 230px) / 3),340px)}
 .vrow{display:flex;gap:10px;height:var(--rh);width:max-content}
 .vrow .vitem{flex:0 0 auto;height:100%;width:auto;margin:0}
 .vrow .vitem img{height:100%;width:100%;object-fit:cover}
 @container page (max-width: 640px){
 /* phones: edge to edge, two rows of big photos */
 .vbox{margin-left:calc(-1 * clamp(16px, 4cqw, 56px));margin-right:calc(-1 * clamp(16px, 4cqw, 56px));border-left:0;border-right:0}
-.vgrid{gap:6px;padding:8px 16px;--rh:31svh}
+.vgrid{gap:6px;padding:6px 0 6px 6px;--rh:calc((100svh - 150px) / 2)}
 .vrow{gap:6px}
 .vhead{padding:14px 16px 10px}
 }
@@ -138,7 +138,7 @@ export function vaultData(projects) {
   const items = out.map(({ ph, p }, i) => {
     const [w, h] = imageSize(ph.src);
     return {
-      i, s: cdn(ph.src, 800), f: cdn(ph.src, 2000), raw: ph.src, w, h,
+      i, s: cdn(ph.src, 800), m: cdn(ph.src, 1200), l: cdn(ph.src, 1600), f: cdn(ph.src, 2000), raw: ph.src, w, h,
       a: ph.alt || p.title, p: p.title, u: projectHref(p),
       t: [...(ph.tags || []), p.title, p.type, p.category, p.location].filter(Boolean).join(' | ').toLowerCase(),
       c: p.category || '', st: p.status || '',

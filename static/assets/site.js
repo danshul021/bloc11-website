@@ -188,6 +188,14 @@
   function makeVault(box, getState) {
     var items = [];
     try { items = JSON.parse(document.getElementById('vault-data').textContent); } catch (e) {}
+    // a fresh random arrangement on every visit; a search or a filter shows the photos in their usual order
+    var shuffled = items.slice();
+    for (var si = shuffled.length - 1; si > 0; si--) { var sj = Math.floor(Math.random() * (si + 1)); var st = shuffled[si]; shuffled[si] = shuffled[sj]; shuffled[sj] = st; }
+    // the copy of each photo that is sharp at its size on this screen
+    var pickSrc = function (it, rowH) {
+      var need = rowH * ((it.w || 4) / (it.h || 3)) * (window.devicePixelRatio || 1);
+      return need <= 760 ? it.s : need <= 1150 ? (it.m || it.f) : need <= 1550 ? (it.l || it.f) : it.f;
+    };
     var gridEl = box.querySelector('#vgrid'), input = box.querySelector('#vq'), clear = box.querySelector('#vclear'), countEl = box.querySelector('#vcount');
     // words that mean the same thing when searching
     var GROUPS = [
@@ -221,7 +229,11 @@
     };
     var shown = [];
     var render = function () {
-      shown = items.filter(matches);
+      var st0 = getState ? getState() : {};
+      var plain = !query && (!st0.type || st0.type === 'All') && (!st0.status || st0.status === 'Any');
+      shown = (plain ? shuffled : items).filter(matches);
+      var rowH = parseFloat(getComputedStyle(gridEl).getPropertyValue('--rh')) || 0;
+      if (!rowH) { var probe = document.createElement('div'); probe.style.height = 'var(--rh)'; gridEl.appendChild(probe); rowH = probe.offsetHeight || 260; gridEl.removeChild(probe); }
       // share the photos out over the rows, always to the shortest row, so the rows end up about equally long
       var nRows = window.matchMedia && window.matchMedia('(max-width: 640px)').matches ? 2 : 3;
       if (shown.length < 8) nRows = 1;
@@ -229,7 +241,7 @@
       for (var r = 0; r < nRows; r++) { rows.push([]); len.push(0); }
       shown.forEach(function (it, k) {
         var shortest = len.indexOf(Math.min.apply(null, len));
-        rows[shortest].push('<a class="vitem" href="' + it.f + '" data-k="' + k + '" style="aspect-ratio:' + (it.w || 4) + ' / ' + (it.h || 3) + '"><img src="' + it.s + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>');
+        rows[shortest].push('<a class="vitem" href="' + it.f + '" data-k="' + k + '" style="aspect-ratio:' + (it.w || 4) + ' / ' + (it.h || 3) + '"><img src="' + pickSrc(it, rowH) + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>');
         len[shortest] += (it.w || 4) / (it.h || 3) + 0.05;
       });
       gridEl.innerHTML = shown.length ? rows.map(function (r) { return '<div class="vrow">' + r.join('') + '</div>'; }).join('')
