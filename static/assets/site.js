@@ -159,11 +159,16 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
+      var sel = document.getElementById('wstatus');
+      if (sel && sel.value !== state.status) sel.value = state.status;
     };
+    var statusSel = document.getElementById('wstatus');
+    if (statusSel) statusSel.addEventListener('change', function () { state.status = statusSel.value; apply(); });
     filters.addEventListener('click', function (e) {
       var b = e.target.closest('button');
       if (!b) return;
       if (b.hasAttribute('data-type')) state.type = b.getAttribute('data-type');
+      if (b.classList.contains('wtab')) b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
       if (b.hasAttribute('data-status')) state.status = b.getAttribute('data-status');
       if (b.hasAttribute('data-view')) {
         state.view = b.getAttribute('data-view');

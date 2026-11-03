@@ -15,6 +15,34 @@ const WORK_CSS = BASE_CSS + `
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box;padding:0 18px;border:1px solid #BDB7AE;border-radius:999px;background:transparent;color:#0E0E0E;font-family:'Jost',sans-serif;font-weight:400;font-size:14px;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
 .btn:hover{border-color:#0E0E0E}
 .btn.on{background:#0E0E0E;color:#FFFFFF;border-color:#0E0E0E}
+/* ---- the top of the Work page: quiet tabs for the type, a slim row for status and view ---- */
+.wf{display:flex;flex-direction:column;border-bottom:1px solid #0E0E0E}
+.wtabs{display:flex;gap:30px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #E6E5E2;white-space:nowrap}
+.wtabs::-webkit-scrollbar{display:none}
+.wtab{flex:0 0 auto;border:0;background:none;padding:0 0 13px;margin-bottom:-1px;border-bottom:2px solid transparent;font:400 16px 'Jost',sans-serif;letter-spacing:.01em;color:#6B6A67;cursor:pointer;transition:color .2s,border-color .2s}
+.wtab:hover{color:#0E0E0E}
+.wtab.on{color:#0E0E0E;font-weight:500;border-bottom-color:#A5532F}
+.wbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0}
+.wstatus select{-webkit-appearance:none;appearance:none;border:0;border-radius:0;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236B6A67' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right center;padding:8px 20px 8px 0;font:400 14px 'Jost',sans-serif;letter-spacing:.02em;color:#0E0E0E;cursor:pointer}
+.wseg{display:inline-flex;border:1px solid #CFCAC2;border-radius:999px;padding:3px;gap:2px}
+.wseg button{display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;border-radius:999px;padding:8px 16px;min-height:0;font:400 14px 'Jost',sans-serif;color:#0E0E0E;cursor:pointer;transition:background .2s,color .2s}
+.wseg button:hover{background:#F3F1EE}
+.wseg button.on{background:#0E0E0E;color:#FFFFFF}
+.wseg .vault-btn{color:#A5532F;font-weight:500;padding:8px 15px 8px 12px}
+.wseg .vault-btn.on{background:#A5532F;color:#FFFFFF}
+@container page (min-width: 900px){
+.wf{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:32px}
+.wtabs{border-bottom:0;min-width:0}
+.wtab{padding-bottom:16px}
+.wbar{padding:0 0 10px;gap:28px}
+}
+@container page (max-width: 560px){
+.wtabs{gap:22px}.wtab{font-size:15px;padding-bottom:12px}
+.wbar{padding:12px 0}
+.wstatus select{font-size:13px}
+.wseg button{padding:7px 12px;font-size:13px}.wseg .vault-btn{padding:7px 12px 7px 10px}
+.wseg .vdial{width:15px;height:15px}
+}
 /* the Vault button: terracotta, with a little safe-dial that ticks round like a combination lock */
 .vault-btn{gap:8px;padding:0 18px 0 13px;border-color:#A5532F;color:#A5532F;font-weight:500;transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,color .2s}
 .vault-btn:hover{border-color:#A5532F;background:#FBF1EB;transform:rotate(-3deg) scale(1.05)}
@@ -78,12 +106,7 @@ a.card:hover img{transform:scale(1.03)}
 @media (pointer: coarse){.vnav{display:none}}
 .vitem{display:block;width:100%;break-inside:avoid;margin:0 0 10px;padding:0;border:0;background:#F3F3F1;cursor:zoom-in;position:relative;overflow:hidden}
 @container page (max-width: 640px){.vitem{margin-bottom:6px}}
-@container page (max-width: 560px){
-#work-filters{gap:10px !important}
-#work-filters .btn{min-height:34px;padding:0 12px;font-size:13px}
-#work-filters .vault-btn{padding-left:9px;gap:6px}
-#work-filters .vdial{width:16px;height:16px}
-}
+
 .vitem img{display:block;width:100%;height:auto;transition:transform .6s ease,opacity .3s ease}
 .vitem:hover img{transform:scale(1.03)}
 .vitem .vcap{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.55));color:#FFFFFF;font-size:13px;letter-spacing:.02em;text-align:left;opacity:0;transition:opacity .25s ease}
@@ -197,18 +220,19 @@ ${header(site, { workCurrent: true })}
       <p style="margin: 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: #3D3C3A">${rich(work.intro)}</p>
     </div>
 
-    <div id="work-filters" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid #0E0E0E">
-      <div role="group" aria-label="Filter by type" style="display: flex; flex-wrap: wrap; gap: 8px">
-        ${[btn('data-type', 'All', 'All', true), ...cats.map((c) => btn('data-type', c, c, false))].join('\n        ')}
+    <div id="work-filters" class="wf">
+      <div class="wtabs" role="group" aria-label="Filter by type">
+        ${['All', ...cats].map((c, k) => `<button type="button" class="wtab${k ? '' : ' on'}" data-type="${esc(c)}" aria-pressed="${!k}">${esc(c)}</button>`).join('\n        ')}
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px">
-        <div role="group" aria-label="Filter by status" style="display: flex; flex-wrap: wrap; gap: 8px">
-          ${[btn('data-status', 'Any', 'Any status', true), ...statuses.map((s) => btn('data-status', s, s, false))].join('\n          ')}
-        </div>
-        <div role="group" aria-label="View" style="display: flex; gap: 8px">
-          ${btn('data-view', 'list', 'List', true)}
-          ${btn('data-view', 'grid', 'Grid', false)}
-          <button type="button" class="btn vault-btn" data-view="vault" aria-pressed="false"><svg class="vdial" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="none"/><g><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(0 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(30 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(60 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(90 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(120 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(150 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(180 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(210 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(240 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(270 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(300 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(330 10 10)"/></g><circle cx="10" cy="10" r="4.2" fill="none"/><line x1="10" y1="10" x2="10" y2="5.8" stroke-width="1.6"/><circle cx="10" cy="10" r="1.1" class="vdot"/></svg><span>Vault</span></button>
+      <div class="wbar">
+        <label class="wstatus"><select id="wstatus" aria-label="Filter by status">
+          <option value="Any">Any status</option>
+          ${statuses.map((st) => `<option value="${esc(st)}">${esc(st)}</option>`).join('\n          ')}
+        </select></label>
+        <div class="wseg" role="group" aria-label="View">
+          <button type="button" class="on" data-view="list" aria-pressed="true">List</button>
+          <button type="button" data-view="grid" aria-pressed="false">Grid</button>
+          <button type="button" class="vault-btn" data-view="vault" aria-pressed="false"><svg class="vdial" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="none"/><g><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(0 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(30 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(60 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(90 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(120 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(150 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(180 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(210 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(240 10 10)"/><line x1="10" y1="1.6" x2="10" y2="3.6" transform="rotate(270 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(300 10 10)"/><line x1="10" y1="1.6" x2="10" y2="2.8" transform="rotate(330 10 10)"/></g><circle cx="10" cy="10" r="4.2" fill="none"/><line x1="10" y1="10" x2="10" y2="5.8" stroke-width="1.6"/><circle cx="10" cy="10" r="1.1" class="vdot"/></svg><span>Vault</span></button>
         </div>
       </div>
     </div>
