@@ -217,11 +217,21 @@
     var shown = [];
     var render = function () {
       shown = items.filter(matches);
-      gridEl.innerHTML = shown.length ? shown.map(function (it, k) {
-        return '<a class="vitem" href="' + it.f + '" data-k="' + k + '"><img src="' + it.s + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>';
-      }).join('') : '<p class="vnone">No photos match “' + esc(query) + '” yet. Try another word, or clear the search.</p>';
+      // share the photos out over the rows, always to the shortest row, so the rows end up about equally long
+      var nRows = window.matchMedia && window.matchMedia('(max-width: 640px)').matches ? 2 : 3;
+      if (shown.length < 8) nRows = 1;
+      var rows = [], len = [];
+      for (var r = 0; r < nRows; r++) { rows.push([]); len.push(0); }
+      shown.forEach(function (it, k) {
+        var shortest = len.indexOf(Math.min.apply(null, len));
+        rows[shortest].push('<a class="vitem" href="' + it.f + '" data-k="' + k + '" style="aspect-ratio:' + (it.w || 4) + ' / ' + (it.h || 3) + '"><img src="' + it.s + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>');
+        len[shortest] += (it.w || 4) / (it.h || 3) + 0.05;
+      });
+      gridEl.innerHTML = shown.length ? rows.map(function (r) { return '<div class="vrow">' + r.join('') + '</div>'; }).join('')
+        : '<p class="vnone">No photos match “' + esc(query) + '” yet. Try another word, or clear the search.</p>';
       countEl.textContent = shown.length + (shown.length === 1 ? ' photo' : ' photos') + (query ? ' for “' + query + '”' : '');
       if (shown.length > 6) countEl.textContent += '  ·  scroll sideways →';
+      box.classList.toggle('searching', !!query || document.activeElement === input);
       setTimeout(navState, 60);
       clear.hidden = !query;
       box.querySelectorAll('.vchip').forEach(function (c) { c.classList.toggle('on', c.getAttribute('data-q') === query); });
@@ -234,6 +244,12 @@
     };
     input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(function () { search(input.value); input.focus(); }, 180); });
     clear.addEventListener('click', function () { search(''); input.focus(); });
+    // the quick-search words show only while searching (input in use, or a search active)
+    var chipsEl = box.querySelector('.vchips');
+    var searching = function (on) { box.classList.toggle('searching', !!on || !!query); };
+    input.addEventListener('focus', function () { searching(true); });
+    input.addEventListener('blur', function () { setTimeout(function () { searching(box.querySelector('.vhead').contains(document.activeElement)); }, 250); });
+    if (chipsEl) chipsEl.addEventListener('mousedown', function (e) { e.preventDefault(); });   // tapping a word keeps the search open
     // the collage scrolls sideways: arrow buttons (mouse) and swiping (touch); the arrows hide at either end
     var prevB = box.querySelector('.vnav.prev'), nextB = box.querySelector('.vnav.next');
     function navState() {
@@ -246,6 +262,7 @@
       nextB.addEventListener('click', function () { gridEl.scrollBy({ left: gridEl.clientWidth * 0.8, behavior: 'smooth' }); });
       gridEl.addEventListener('scroll', navState, { passive: true });
       window.addEventListener('resize', navState);
+      if (window.matchMedia) { var mqr = window.matchMedia('(max-width: 640px)'); if (mqr.addEventListener) mqr.addEventListener('change', function () { if (!box.hidden) render(); }); }
       setTimeout(navState, 300);
     }
     box.querySelectorAll('.vchip').forEach(function (c) { c.addEventListener('click', function () { search(query === c.getAttribute('data-q') ? '' : c.getAttribute('data-q')); }); });
