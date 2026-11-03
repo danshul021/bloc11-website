@@ -566,84 +566,116 @@
     "1Xy1KykTGn4LtL-tag-zrLG90rBcW5KXz": {
       "slug": "shantiniketan",
       "files": {
-        "1BLJ27Tz5L3I5bMa8hWcyopNYxEvoHKlY": {
-          "name": "00 dusk.jpg",
-          "file": "shantiniketan-residence-indore-dusk-garden-view.jpg",
-          "md5": "78986b79c12acf5edca8b295ec6e4207"
-        },
-        "1lzo-aiVc3XzAVfodLj1Kq5jjMIbx_e32": {
-          "name": "01 street front.jpg",
-          "file": "shantiniketan-residence-indore-street-elevation-brick-jaali.jpg",
-          "md5": "dfb17fd408099cdfcc5868c08bbbd34c"
-        },
-        "18DSc7WoVx-qqDAcjevnAERNoozLGXJ2-": {
-          "name": "02 facade glow.jpg",
-          "file": "shantiniketan-residence-indore-glowing-brick-jaali-facade.jpg",
-          "md5": "9902861c206ed4100b16dd560cf92171"
-        },
-        "1yJ2Xt-OmwBv_939A1XB0q9-lma2l9yVv": {
-          "name": "03 garden wall.jpg",
-          "file": "shantiniketan-residence-indore-lit-garden-wall.jpg",
-          "md5": "b42ac001a6a03542364f89d5437d6d30"
-        },
-        "1PBKq06DKJHhwT7Y0vut0QqCseMUhssTD": {
-          "name": "04 lane.jpg",
-          "file": "shantiniketan-residence-indore-lane-view.jpg",
-          "md5": "9e74a12926d274ba01e1ab3b8c627ff8"
-        },
-        "1TC_g-uQZOoTN__93wWbc3LZe44vO2fkk": {
-          "name": "05 screen wall.jpg",
-          "file": "shantiniketan-residence-indore-brick-screen-wall.jpg",
-          "md5": "656f0f16ea0ac22b863e67ad204c6b4f"
-        },
-        "1Qq7O189Ce8WhqdB_ED3AclBEaEnEXQ7e": {
-          "name": "06 living room.jpg",
-          "file": "shantiniketan-residence-indore-double-height-living-room.jpg",
-          "md5": "278f7ba9a4d5fbe28ae3f3941a04cd0f"
-        },
-        "1cnOYLQgk9ASW_nmtZRAvbedghWFZXQgf": {
-          "name": "07 living dining.jpg",
-          "file": "shantiniketan-residence-indore-open-plan-living-dining.jpg",
-          "md5": "dc6195db256d1ec41fbd3ea555a7ef91"
-        },
-        "1dUXTabHr6OBezJCgtZMw6GnJSupbvHNX": {
-          "name": "08 spiral stair.jpg",
-          "file": "shantiniketan-residence-indore-spiral-staircase.jpg",
-          "md5": "72763d980b2d3040fa3a336a032c8764"
-        },
-        "1Tfor5ETs4EHh3YpYK-ytAbac4SOhQAug": {
-          "name": "09 kitchen.jpg",
-          "file": "shantiniketan-residence-indore-kitchen-marble-island.jpg",
-          "md5": "176f41784094a4755181a475178a76ae"
-        },
-        "1RI81X-2bd3q4RqZp2KT5ndPJrTwXdjSV": {
-          "name": "10 dining.jpg",
-          "file": "shantiniketan-residence-indore-dining-display-niches.jpg",
-          "md5": "b9348d188740dc97dd432819b879dc69"
-        },
-        "1RvW6RJ0Y_foIl3lAV5iQZ2knspoQABA1": {
-          "name": "11 kitchen island.jpg",
-          "file": "shantiniketan-residence-indore-kitchen-island-view.jpg",
-          "md5": "6bd4abd0a55fd04631667bbeb99e828d"
-        },
-        "1nz0FL3f_wA9GGrhlnicGsJ3-oXDbyv90": {
-          "name": "12 entrance.jpg",
-          "file": "shantiniketan-residence-indore-entrance-gate.jpg",
-          "md5": "b2e16a388d3d10044bd2940f5cdddd66"
-        },
-        "1mSWiN2b8_3kEYoZt9SToaOySxzyldvBd": {
-          "name": "cover planters.jpg",
-          "file": "shantiniketan-residence-indore-planters-brick-wall.jpg",
-          "md5": "8f4d99a407e34b226e47453b8ee95278"
-        },
         "191WipfyxxHSyCmduEYDzzkQ9GIFzW5c2": {
           "name": "P28.png",
           "file": "shantiniketan-residence-wooden-study-desk-window-view.jpg",
           "md5": "9a07a657b3c63e73a498c84254776584",
           "by": "Gemini"
+        },
+        "1J-2Hc4p2IMLfn-Dd3z_YhJosEVoAc1fS": {
+          "name": "1.png",
+          "file": "shantiniketan-residence-living-room-terrace-view.jpg",
+          "md5": "6917769870c29b73d427e2670af04ead",
+          "by": "Gemini"
+        },
+        "1VkHQHdMUZBqh_8lGJNDxQDPN3Xbvv7Ss": {
+          "name": "2.png",
+          "file": "shantiniketan-residence-double-height-living-room-interior.jpg",
+          "md5": "30cc1ed27322f939695ded953941464c",
+          "by": "Gemini"
+        },
+        "1JqSN7d-3_ds2NaEejjalqqe4xM5q1l_d": {
+          "name": "3.1.png",
+          "file": "shantiniketan-residence-sunken-living-room-kitchen.jpg",
+          "md5": "5e3dc96928a801b7034e005d1465591e",
+          "by": "Gemini"
+        },
+        "1gU8A23OkVwcUrRYvTpFBpZPxWUxYmSv6": {
+          "name": "5.1.png",
+          "file": "shantiniketan-residence-sunlit-kitchen-double-height.jpg",
+          "md5": "b7c3ef0fa305602caf48edd1c358efcc",
+          "by": "Gemini"
+        },
+        "14F_vDhqLF0TXpErmasEkM2ogqwFcLk_X": {
+          "name": "6.png",
+          "file": "shantiniketan-residence-modern-dining-living-space.jpg",
+          "md5": "fcb374231acbe04f5e3b094e0c1647ea",
+          "by": "Gemini"
+        },
+        "1aghpKk-vEpMSt0jpb5zuXnXuWHhSqJ0_": {
+          "name": "P02.png",
+          "file": "shantiniketan-residence-terracotta-facade-jaali-wall.jpg",
+          "md5": "a6a153958c39bc95bf108bbe5650c857",
+          "by": "Gemini"
+        },
+        "1K_4aRWULCnZMYospXBodSnkLcpbjz9jp": {
+          "name": "P03.png",
+          "file": "shantiniketan-residence-exterior.jpg",
+          "md5": "d23dd52098ab16bc459667d76b5524da",
+          "by": "Gemini"
+        },
+        "1cpIL015RorDgJWlX_S0dEoozyQaBn0iW": {
+          "name": "P04.png",
+          "file": "shantiniketan-residence-peach-facade-evening.jpg",
+          "md5": "658e98c491dab753da0db8199132be06",
+          "by": "Gemini"
+        },
+        "19atRMNf1QWlYJXMP9f6hFrvHgoD6XDF5": {
+          "name": "P06.png",
+          "file": "shantiniketan-residence-facade.jpg",
+          "md5": "e3e5631d5c5747b7a6afd4a0c3768bbb",
+          "by": "Gemini"
+        },
+        "1YIWRVTA8MA5fPkmYofzsLpD6DnTUoFap": {
+          "name": "P09.png",
+          "file": "shantiniketan-residence-terracotta-facade-jaali.jpg",
+          "md5": "3fd06d2aac94c4428db43daea55d6c92",
+          "by": "Gemini"
+        },
+        "1tBEwCdG44tvVdRDAOEnqc80LqhcofC10": {
+          "name": "P10.png",
+          "file": "shantiniketan-residence-terracotta-brick-jaali-boundary-wall.jpg",
+          "md5": "46bcdad17ffc305abc95a7b601edb3d3",
+          "by": "Gemini"
+        },
+        "1zvPMbz5pXaJXkHX1ucSuDWEmOT4J87rw": {
+          "name": "P11.png",
+          "file": "shantiniketan-residence-terracotta-facade-with-jaali-screen.jpg",
+          "md5": "9ae66ee7de4175df0bf17288f7d791c9",
+          "by": "Gemini"
+        },
+        "1DaxU4s-pjt4WS0LtpXuw7j1TnP97F0Jt": {
+          "name": "P13.png",
+          "file": "shantiniketan-residence-facade-landscape.jpg",
+          "md5": "1ada4591451cfcbd54e9979a79660cd6",
+          "by": "Gemini"
+        },
+        "1GVg3d3mAvCYZ5fHQlYvQeNzK5rsPB5Im": {
+          "name": "P22.png",
+          "file": "shantiniketan-residence-metal-spiral-staircase-interior.jpg",
+          "md5": "aa37e08d9b65c6adf0704165d803322d",
+          "by": "Gemini"
+        },
+        "1pHQoeed6FNr3nDZ1IaZIg-3OawlbaY5X": {
+          "name": "P23.png",
+          "file": "shantiniketan-residence-curved-living-room-daybed.jpg",
+          "md5": "924c651eb1ffb314c81c0813c09d34ab",
+          "by": "Gemini"
+        },
+        "1Oxw9lHRtjY6dFTR93aH_BW5spoQABSY5": {
+          "name": "P25.png",
+          "file": "shantiniketan-residence-exterior-landscape-passageway.jpg",
+          "md5": "ac3a5bba59d0f7238c26c743526160b4",
+          "by": "Gemini"
+        },
+        "1THLjnJWnnCWdn7eIlAKFuBOWzX1qJtV_": {
+          "name": "P26.png",
+          "file": "shantiniketan-residence-double-height-staircase-interior.jpg",
+          "md5": "2768adc99e26fb0dcced75c977996bce",
+          "by": "Gemini"
         }
       },
-      "cover": "/images/projects/shantiniketan/shantiniketan-residence-indore-planters-brick-wall.jpg",
+      "cover": "",
       "name": "Shantiniketan"
     },
     "1Ft-Bj8tNF5edhTOW2lIazWcndZLTgaWC": {
@@ -2230,18 +2262,18 @@
         "file": "home-mobile-p09.jpg",
         "md5": "3fd06d2aac94c4428db43daea55d6c92",
         "v": 3,
-        "caption": "Terracotta facade brick jaali",
+        "caption": "Shantiniketan — terracotta facade jaali",
         "ai": "terracotta facade brick jaali",
-        "alt": "A terracotta-rendered facade features structured jaali screens and lush cascading potted greenery under tropical trees by Bloc 11 Architects"
+        "alt": "A terracotta-rendered facade features structured jaali screens and lush cascading potted greenery under tropical trees by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects"
       },
       "1FgYupW7zVN4heFG7n0BL9I7sVwl4yVX8": {
         "name": "P23.png",
         "file": "home-mobile-p23.jpg",
         "md5": "924c651eb1ffb314c81c0813c09d34ab",
         "v": 3,
-        "caption": "Curved sofa living room",
+        "caption": "Shantiniketan — curved living room daybed",
         "ai": "curved sofa living room",
-        "alt": "A curved built-in sofa sits beneath tall windows in a light-filled modern living space by Bloc 11 Architects"
+        "alt": "A curved built-in sofa sits beneath tall windows in a light-filled modern living space by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects"
       },
       "1PckY1GR0BcUxyOnT4SBZ8shXe1LdAp5U": {
         "name": "Vistara_Exterior_LowAngle_2K.png",

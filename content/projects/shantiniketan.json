@@ -1,247 +1,293 @@
 {
   "photos": [
     {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-dusk-garden-view.jpg",
-      "alt": "House at dusk almost hidden behind a garden of mature trees — Shantiniketan, residence in Indore by Bloc 11 Architects",
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-living-room-terrace-view.jpg",
+      "alt": "A spacious living room featuring a striped sectional sofa opens directly onto a sunny terrace with a spiral staircase — Shantiniketan, residence by Bloc 11 Architects",
       "tags": [
-        "exterior",
-        "dusk",
-        "garden",
-        "trees",
-        "landscape",
-        "terracotta",
-        "brick jaali",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-street-elevation-brick-jaali.jpg",
-      "alt": "Street front with terracotta walls, an entrance gate and a perforated brick jaali screen — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "elevation",
-        "street front",
-        "facade",
-        "entrance",
-        "gate",
-        "brick jaali",
-        "terracotta",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-glowing-brick-jaali-facade.jpg",
-      "alt": "Perforated brick facade glowing at dusk, lit from within — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "facade",
-        "detail",
-        "dusk",
-        "lighting",
-        "brick jaali",
-        "terracotta",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-lit-garden-wall.jpg",
-      "alt": "Garden wall and brick screen lit from within, seen through a tree — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "garden wall",
-        "brick jaali",
-        "dusk",
-        "lighting",
-        "tree",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-lane-view.jpg",
-      "alt": "The house seen from the lane under a canopy of trees — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "lane",
-        "trees",
-        "terracotta",
-        "facade",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-brick-screen-wall.jpg",
-      "alt": "Long perforated brick boundary wall with planters along the street — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "boundary wall",
-        "brick jaali",
+        "interior",
+        "living room",
+        "terrace",
+        "balcony",
+        "spiral staircase",
+        "sliding glass doors",
+        "curtains",
+        "wood",
+        "textiles",
         "planters",
-        "street",
-        "detail",
         "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-double-height-living-room.jpg",
-      "alt": "Double-height living room with a sunken seating well and a jaali display wall — Shantiniketan, residence in Indore by Bloc 11 Architects",
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-double-height-living-room-interior.jpg",
+      "alt": "Double-height living room featuring custom built-in seating, a perforated wall, and expansive glass sliding doors — Shantiniketan, residence by Bloc 11 Architects",
       "tags": [
         "interior",
         "living room",
         "double height",
-        "sunken seating",
-        "residential interiors",
-        "jaali wall",
-        "daylight",
+        "timber",
+        "brick jaali",
+        "marble",
+        "glass sliding doors",
         "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-open-plan-living-dining.jpg",
-      "alt": "Living and dining space opening to the kitchen around a curved sunken sofa — Shantiniketan, residence in Indore by Bloc 11 Architects",
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-sunken-living-room-kitchen.jpg",
+      "alt": "Curved striped sofa in a sunken living area overlooking an open kitchen and spiral staircase — Shantiniketan, residence by Bloc 11 Architects",
       "tags": [
         "interior",
         "living room",
-        "dining",
         "kitchen",
-        "open plan",
-        "sunken seating",
-        "residential interiors",
+        "dining",
+        "staircase",
+        "skylight",
+        "double height",
+        "marble",
+        "timber",
         "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-spiral-staircase.jpg",
-      "alt": "Steel spiral staircase beside tall windows — Shantiniketan, residence in Indore by Bloc 11 Architects",
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-sunlit-kitchen-double-height.jpg",
+      "alt": "A sunlit kitchen featuring dark green marble countertops, a skylight, and white cabinetry — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "kitchen",
+        "skylight",
+        "marble",
+        "double height",
+        "wood",
+        "modern",
+        "residential",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-modern-dining-living-space.jpg",
+      "alt": "A spacious modern dining and living area featuring a long marble-topped island and pendant lighting — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "dining",
+        "living room",
+        "marble",
+        "timber",
+        "pendant light",
+        "double height",
+        "modern",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-terracotta-facade-jaali-wall.jpg",
+      "alt": "A terracotta orange exterior wall features intricate square jaali patterns and lush potted plants — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "elevation",
+        "facade",
+        "exterior",
+        "terracotta",
+        "brick jaali",
+        "orange",
+        "plants",
+        "tree",
+        "courtyard",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-exterior.jpg",
+      "alt": "A peach terracotta residence featuring rhythmic brick jaali screens and lush greenery against lush trees — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "entrance",
+        "brick jaali",
+        "terracotta",
+        "house",
+        "residential",
+        "architecture",
+        "india",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-peach-facade-evening.jpg",
+      "alt": "A warm peach-toned residence facade features punctured brick jaali walls glowing softly at twilight — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "terracotta",
+        "brick jaali",
+        "courtyard",
+        "landscape",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-facade.jpg",
+      "alt": "A warm peach-toned residence facade featuring a perforated jaali boundary wall, lush planters, and dramatic interior lighting — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "elevation",
+        "facade",
+        "brick jaali",
+        "terracotta",
+        "lighting",
+        "landscape",
+        "entrance",
+        "residential",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-terracotta-facade-jaali.jpg",
+      "alt": "A striking terracotta-colored residence facade featuring geometric jaali ventilation screens and lush hanging foliage — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "elevation",
+        "terracotta",
+        "brick jaali",
+        "landscape",
+        "residential",
+        "architecture",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-terracotta-brick-jaali-boundary-wall.jpg",
+      "alt": "Terracotta-toned perforated brick boundary wall featuring cascading potted greenery and a pedestrian walkway under shade trees — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "landscape",
+        "brick jaali",
+        "terracotta",
+        "wall",
+        "planters",
+        "shantiniketan",
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-terracotta-facade-with-jaali-screen.jpg",
+      "alt": "A terracotta-clad facade features a geometric jaali screen framed by lush green tropical foliage — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "terracotta",
+        "jaali screen",
+        "brick jaali",
+        "landscape",
+        "tropical plants",
+        "residence",
+        "architecture",
+        "shantiniketan"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-facade-landscape.jpg",
+      "alt": "Lush tropical landscaping frames the salmon-colored stucco facade featuring geometric brick jaali screens — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "exterior",
+        "facade",
+        "landscape",
+        "brick jaali",
+        "stucco",
+        "terracotta",
+        "entrance",
+        "residence",
+        "shantiniketan"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-metal-spiral-staircase-interior.jpg",
+      "alt": "A metal spiral staircase rises within a sunlit double-height interior space with gridded windows — Shantiniketan, residence by Bloc 11 Architects",
       "tags": [
         "interior",
         "staircase",
-        "spiral stair",
-        "steel",
+        "double height",
+        "metal",
+        "mesh",
         "windows",
-        "detail",
-        "residential interiors",
+        "plants",
         "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-kitchen-marble-island.jpg",
-      "alt": "Kitchen with green tiles and a marble island under a skylight — Shantiniketan, residence in Indore by Bloc 11 Architects",
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-curved-living-room-daybed.jpg",
+      "alt": "Curved daybed and patterned cushions sit below a double-height window filled with sheer curtains — Shantiniketan, residence by Bloc 11 Architects",
       "tags": [
         "interior",
-        "kitchen",
-        "marble island",
-        "green tiles",
-        "skylight",
-        "residential interiors",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-dining-display-niches.jpg",
-      "alt": "Dining area beside a wall of display niches, with the spiral stair beyond — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "dining",
-        "display niches",
-        "jaali wall",
-        "residential interiors",
-        "spiral stair",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-kitchen-island-view.jpg",
-      "alt": "Kitchen island looking through to the living room — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "interior",
-        "kitchen",
-        "marble island",
-        "open plan",
-        "residential interiors",
         "living room",
+        "double height",
+        "curved sofa",
+        "daybed",
+        "sheer curtains",
+        "wood",
+        "fabric",
+        "natural light",
         "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
+        "residence"
       ],
       "vault": true
     },
     {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-entrance-gate.jpg",
-      "alt": "Entrance gate and brick screen wall under a large tree — Shantiniketan, residence in Indore by Bloc 11 Architects",
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-exterior-landscape-passageway.jpg",
+      "alt": "An outdoor passageway features concrete pavers bordered by river stones alongside a terracotta-colored perforated boundary wall — Shantiniketan, residence by Bloc 11 Architects",
       "tags": [
         "exterior",
-        "entrance",
-        "gate",
-        "brick jaali",
-        "tree",
-        "terracotta",
-        "facade",
-        "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
-      ],
-      "vault": true
-    },
-    {
-      "src": "/images/projects/shantiniketan/shantiniketan-residence-indore-planters-brick-wall.jpg",
-      "alt": "Planters spilling over the perforated brick wall — Shantiniketan, residence in Indore by Bloc 11 Architects",
-      "tags": [
-        "exterior",
-        "brick jaali",
-        "planters",
         "landscape",
         "terracotta",
-        "detail",
+        "brick jaali",
+        "planter box",
+        "stone paving",
+        "courtyard",
+        "passageway",
         "shantiniketan",
-        "residence",
-        "residential",
-        "indore"
+        "residence"
+      ],
+      "vault": true
+    },
+    {
+      "src": "/images/projects/shantiniketan/shantiniketan-residence-double-height-staircase-interior.jpg",
+      "alt": "A double-height transitional space featuring an ornate multi-tier glass chandelier and framed countryside views — Shantiniketan, residence by Bloc 11 Architects",
+      "tags": [
+        "interior",
+        "staircase",
+        "double height",
+        "metal railing",
+        "glass chandelier",
+        "window",
+        "light",
+        "decor",
+        "shantiniketan",
+        "residence"
       ],
       "vault": true
     },
@@ -336,7 +382,7 @@
       "alt": "Kitchen island looking through to the living room"
     }
   ],
-  "thumbnail": "/images/projects/shantiniketan/shantiniketan-residence-indore-planters-brick-wall.jpg",
+  "thumbnail": "",
   "about": "A family home in Indore wrapped in a perforated terracotta screen. The brick lets light and breeze through to the rooms behind it, and glows like a lantern after dark. Inside, a double-height living room steps down into a sunken seating well.",
   "order": 1,
   "show_on_work": true,
