@@ -378,7 +378,7 @@ export function renderProject({ site, project: p, index, next, nextIndex }) {
   const used = new Set([hero, ...kept.flatMap(imgsOf)]);
   const rest = autoBlocks({ ...p, photos: (p.photos || []).filter((ph) => ph && !used.has(ph.src)) }, hero);
   const blocks = [...kept, ...rest];
-  const facts = [['Type', p.type], ['Location', p.location], ['Year', p.year], ['Status', p.status]].filter(([, v]) => v);
+  const facts = [['Type', p.type], ['Location', p.location], ['Year', p.year], ['Status', p.status]].filter(([, v]) => v && !/^\s*\[[^\]]*\]\s*$/.test(String(v)));
   const nextHref = next ? projectHref(next) || '/work/' : '/work/';
   const body = `
 ${header(site, { workCurrent: true })}

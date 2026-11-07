@@ -27,7 +27,9 @@ const LEAD = 'flex: 2 1 560px; margin: 0; font-size: clamp(20px, 1.9cqw, 26px); 
 const BODY = 'font-size: clamp(17px, 1.4cqw, 19px); line-height: 1.55; color: #2A2724';
 
 export function renderStudio({ site, studio }) {
-  const people = (studio.people || []).filter((p) => p.name).map((p) => ({ img: p.photo ? cdn(p.photo, 600) : '', name: p.name, role: p.role || '', edu: p.qualifications || '' }));
+  // "[Team member]"-style placeholders from the design stay hidden until they are filled in
+  const real = (v) => (/^\s*\[[^\]]*\]\s*$/.test(String(v || '')) ? '' : String(v || ''));
+  const people = (studio.people || []).filter((p) => real(p.name)).map((p) => ({ img: p.photo ? cdn(p.photo, 600) : '', name: p.name, role: real(p.role), edu: real(p.qualifications) }));
   const body = `
   <!-- HEADER -->
   <header style="border-bottom: 1px solid #E2DED7">
