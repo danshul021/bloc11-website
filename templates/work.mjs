@@ -122,6 +122,16 @@ a.card:hover img{transform:scale(1.03)}
 `;
 
 const PROJECT_CSS = BASE_CSS + `
+.prow{display:flex;gap:28px;align-items:flex-start}
+.pcell{margin:0;min-width:0;background:#F3F3F1}
+.pcell img{display:block;width:100%;height:auto}
+.prow.solo{justify-content:center}
+.prow.solo .pcell{flex:0 1 auto !important;width:min(100%, calc(88vh * var(--a)))}
+@container page (max-width: 560px){
+.prow{flex-direction:column;gap:16px}
+.prow .pcell{flex:none !important;width:100% !important}
+}
+
 @container page (max-width: 640px){.facts{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:16px 24px !important;width:100%}}
 .next{text-decoration:none}
 .next:hover{color:#0E0E0E}
@@ -285,22 +295,31 @@ ${footer(site, { emblemHref: '/', emblemLabel: 'Bloc 11 — back to the home pag
 // ---------- one project ----------
 const PIC = 'object-fit: cover; display: block; background: #F3F3F1';
 
+// A row of photos at their own shape: they share one height and together fill the width (no cropping).
+// A photo alone in a row is kept within the screen's height.
+export function photoRow(list) {
+  const pics = list.filter((i) => i && has(i.image));
+  if (!pics.length) return '';
+  const n = pics.length;
+  const sizes = n === 1 ? '100vw' : n === 2 ? '(max-width: 560px) 100vw, 50vw' : '(max-width: 560px) 100vw, 34vw';
+  return `    <div class="prow${n === 1 ? ' solo' : ''}">
+      ${pics.map((i) => { const [w, h] = imageSize(i.image); const a = w && h ? w / h : 1.5;
+        return `<figure class="pcell" style="flex: ${a.toFixed(4)} 1 0%; --a: ${a.toFixed(4)}"><img ${img(i.image, { sizes })} width="${w}" height="${h}" loading="lazy" decoding="async" alt="${esc(altOf(i.image, i.alt))}"></figure>`; }).join('\n      ')}
+    </div>`;
+}
+
 function block(b) {
   const one = (i, extra, sizes) => `<img ${img(i.image, { sizes })} loading="lazy" decoding="async" alt="${esc(altOf(i.image, i.alt))}" style="${extra}; ${PIC}">`;
   switch (b.type) {
     case 'full':
-      return has(b.image) ? `    ${one(b, 'width: 100%; aspect-ratio: 16 / 9', '100vw')}` : '';
+      return photoRow([b]);
     case 'pair':
-      return `    <div style="display: flex; flex-wrap: wrap; gap: 28px">
-      ${(b.images || []).filter((i) => has(i.image)).map((i) => one(i, 'flex: 1 1 320px; min-width: 0; aspect-ratio: 4 / 5', '(max-width: 700px) 100vw, 50vw')).join('\n      ')}
-    </div>`;
     case 'trio':
-      return `    <div style="display: flex; flex-wrap: wrap; gap: 28px">
-      ${(b.images || []).filter((i) => has(i.image)).map((i) => one(i, 'flex: 1 1 260px; min-width: 0; aspect-ratio: 3 / 4', '(max-width: 900px) 100vw, 33vw')).join('\n      ')}
-    </div>`;
+    case 'row':
+      return photoRow(b.images || []);
     case 'image_text':
       return `    <div style="display: flex; flex-wrap: wrap; gap: 28px 56px; align-items: flex-end; padding-top: clamp(24px, 4cqw, 64px)">
-      ${has(b.image) ? one(b, 'flex: 2 1 560px; min-width: 0; aspect-ratio: 3 / 2', '(max-width: 900px) 100vw, 66vw') : ''}
+      ${has(b.image) ? one(b, 'flex: 2 1 560px; min-width: 0; height: auto; object-fit: contain', '(max-width: 900px) 100vw, 66vw') : ''}
       <p style="flex: 1 1 260px; margin: 0 0 8px; font-size: 16px; line-height: 1.6; color: #3D3C3A; max-width: 60ch">${rich(b.text)}</p>
     </div>`;
     case 'text':
@@ -355,16 +374,18 @@ export const coverFor = (p, key = 'thumbnail') =>
 function autoBlocks(p, hero) {
   const list = (Array.isArray(p.photos) ? p.photos : []).filter((ph) => ph && ph.src && ph.src !== hero && has(ph.src) && sizeOf(ph.src)[0] >= 800)
     .map((ph) => { const [w, h] = imageSize(ph.src); return { image: ph.src, alt: ph.alt || '', tall: h > w * 1.05 }; });
+  // a varied rhythm of single photos, pairs and threes — "random", but the same for a project on every visit
+  let seed = [...String(p.slug || p.title || '')].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
+  const rnd = () => ((seed = (seed * 1103515245 + 12345) >>> 0) / 4294967296);
   const out = [];
   for (let k = 0; k < list.length;) {
-    if (!list[k].tall) { out.push({ type: 'full', image: list[k].image, alt: list[k].alt }); k++; continue; }
-    let n = 0; while (k + n < list.length && list[k + n].tall && n < 3) n++;
-    if (n === 1) {                                   // a single upright photo: pair it with the next one, if any
-      if (k + 1 < list.length) { out.push({ type: 'pair', images: [list[k], list[k + 1]] }); k += 2; }
-      else { out.push({ type: 'pair', images: [list[k]] }); k++; }
-      continue;
-    }
-    out.push({ type: n === 3 ? 'trio' : 'pair', images: list.slice(k, k + n) }); k += n;
+    const left = list.length - k, r = rnd();
+    let n = list[k].tall ? (r < 0.55 ? 2 : 3) : (r < 0.4 ? 1 : r < 0.85 ? 2 : 3);
+    n = Math.min(n, left);
+    if (n === 1 && list[k].tall && left > 1) n = 2;               // an upright photo never sits alone in a row
+    if (left - n === 1 && list[k + n].tall && n < 3) n++;          // nor is one left over at the end
+    out.push({ type: 'row', images: list.slice(k, k + n) });
+    k += n;
   }
   return out;
 }
@@ -395,7 +416,7 @@ ${header(site, { workCurrent: true })}
       </dl>
     </div>
 
-    ${hero ? `<img ${img(hero)} alt="${esc(altOf(hero, p.hero_alt))}" fetchpriority="high" style="width: 100%; aspect-ratio: 16 / 9; ${PIC}">` : ''}
+    ${hero ? (() => { const [w, h] = imageSize(hero); const a = w && h ? w / h : 1.6; return `<div class="prow solo phero"><figure class="pcell" style="--a: ${a.toFixed(4)}"><img ${img(hero)} width="${w}" height="${h}" alt="${esc(altOf(hero, p.hero_alt))}" fetchpriority="high"></figure></div>`; })() : ''}
 
     ${p.about ? `<div style="display: flex; flex-wrap: wrap; gap: 32px 72px; padding: clamp(40px, 5cqw, 80px) 0">
       <h2 style="flex: 1 1 220px; margin: 0; font-size: clamp(26px, 2.4cqw, 32px); line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">About the project</h2>
