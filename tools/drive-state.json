@@ -2089,7 +2089,9 @@
         "v": 3,
         "caption": "Oyster — terracotta facade",
         "ai": "modern brown facade elevation",
-        "alt": "Low-angle view of a modern brown facade featuring curved balconies and louvred details — Oyster by Bloc 11 Architects"
+        "alt": "Low-angle view of a modern brown facade featuring curved balconies and louvred details — Oyster by Bloc 11 Architects",
+        "shownCap": "Oyster — terracotta facade",
+        "shownAlt": "Low-angle view of a modern brown facade featuring curved balconies and louvred details — Oyster by Bloc 11 Architects"
       },
       "1OSCUgc88J8_ZCJvAJCvi1j19Guib1CWF": {
         "name": "05 Co-Living — brick facade.png",
@@ -2098,7 +2100,9 @@
         "v": 3,
         "caption": "Co-Living — brick facade",
         "ai": "co-living brick facade exterior render",
-        "alt": "A modern multi-storey co-living building featuring textured red brick facades, projecting balconies, and perforated jaali screens — Co-Living by Bloc 11 Architects"
+        "alt": "A modern multi-storey co-living building featuring textured red brick facades, projecting balconies, and perforated jaali screens — Co-Living by Bloc 11 Architects",
+        "shownCap": "Co-Living — brick facade",
+        "shownAlt": "A modern multi-storey co-living building featuring textured red brick facades, projecting balconies, and perforated jaali screens — Co-Living by Bloc 11 Architects"
       },
       "1iJXDQlBEniiv5hKFz-kgQvuhaMotd18C": {
         "name": "10 Garden City — kitchen and dining.png",
@@ -2107,7 +2111,9 @@
         "v": 3,
         "caption": "Garden City — kitchen and dining",
         "ai": "modern open kitchen and dining",
-        "alt": "A spacious modern open-plan kitchen and dining area featuring pastel blue cabinetry, a slatted room divider, and double-height ceilings — Garden City by Bloc 11 Architects"
+        "alt": "A spacious modern open-plan kitchen and dining area featuring pastel blue cabinetry, a slatted room divider, and double-height ceilings — Garden City by Bloc 11 Architects",
+        "shownCap": "Garden City — kitchen and dining",
+        "shownAlt": "A spacious modern open-plan kitchen and dining area featuring pastel blue cabinetry, a slatted room divider, and double-height ceilings — Garden City by Bloc 11 Architects"
       },
       "1SyKJJ2QWcwikM0xs7SBKcT56f0cDKbYc": {
         "name": "Enscape_2025-01-08-20-35-36_Repaired_4K.png",
@@ -2116,7 +2122,9 @@
         "v": 3,
         "caption": "Vistara M — contemporary bedroom timber paneling",
         "ai": "contemporary bedroom with wood slats",
-        "alt": "A spacious contemporary bedroom featuring a low platform bed, marble finishes, and wood-slat accent walls — Vistara M by Bloc 11 Architects"
+        "alt": "A spacious contemporary bedroom featuring a low platform bed, marble finishes, and wood-slat accent walls — Vistara M by Bloc 11 Architects",
+        "shownCap": "Vistara M — contemporary bedroom timber paneling",
+        "shownAlt": "A spacious contemporary bedroom featuring a low platform bed, marble finishes, and wood-slat accent walls — Vistara M by Bloc 11 Architects"
       },
       "1iwmufRZsI44TukDpL3Kiqm0siGBVdp-F": {
         "name": "Entrance_Exterior_View_4K_Upscaled.png",
@@ -2125,7 +2133,9 @@
         "v": 3,
         "caption": "Salunkes — modern facade entrance",
         "ai": "modern building entrance facade",
-        "alt": "A modern building facade featuring a large overhanging roof canopy, brick planters, and expansive glass windows — Salunkes by Bloc 11 Architects"
+        "alt": "A modern building facade featuring a large overhanging roof canopy, brick planters, and expansive glass windows — Salunkes by Bloc 11 Architects",
+        "shownCap": "Salunkes — modern facade entrance",
+        "shownAlt": "A modern building facade featuring a large overhanging roof canopy, brick planters, and expansive glass windows — Salunkes by Bloc 11 Architects"
       },
       "1sI5_umqBmanVvwjfSrsFBagKagZp7u9r": {
         "name": "Entrance_Staircase_Closeup_4K_Upscaled.png",
@@ -2134,7 +2144,9 @@
         "v": 3,
         "caption": "Entrance brick steps canopy render",
         "ai": "entrance brick steps canopy render",
-        "alt": "An expansive outdoor entryway features wide brick steps, a textured brick screen wall, and a large timber-clad canopy overhead by Bloc 11 Architects"
+        "alt": "An expansive outdoor entryway features wide brick steps, a textured brick screen wall, and a large timber-clad canopy overhead by Bloc 11 Architects",
+        "shownCap": "Entrance brick steps canopy render",
+        "shownAlt": "An expansive outdoor entryway features wide brick steps, a textured brick screen wall, and a large timber-clad canopy overhead by Bloc 11 Architects"
       },
       "1aWD8Dsyz0inFU3tBqLu_FVo3byPJ0jbY": {
         "name": "P13_5K_Upscaled.png",
@@ -2143,7 +2155,9 @@
         "v": 3,
         "caption": "Terracotta facade landscape entrance",
         "ai": "terracotta facade landscape entrance",
-        "alt": "Lush tropical landscaping frames the warm terracotta facade with patterned jaali screens at dusk by Bloc 11 Architects"
+        "alt": "Lush tropical landscaping frames the warm terracotta facade with patterned jaali screens at dusk by Bloc 11 Architects",
+        "shownCap": "Terracotta facade landscape entrance",
+        "shownAlt": "Lush tropical landscaping frames the warm terracotta facade with patterned jaali screens at dusk by Bloc 11 Architects"
       },
       "1eAOKn5Y7zppoctWfyTuxrfVzEcf7hxRi": {
         "name": "Resort_Pool_View_4K_Upscaled.png",
@@ -2152,7 +2166,9 @@
         "v": 3,
         "caption": "Anjaneya — resort pool pavilion facade",
         "ai": "resort pool exterior",
-        "alt": "A low-slung resort building with terracotta tiled roofs and stone buttresses overlooks a tranquil swimming pool — Anjaneya by Bloc 11 Architects"
+        "alt": "A low-slung resort building with terracotta tiled roofs and stone buttresses overlooks a tranquil swimming pool — Anjaneya by Bloc 11 Architects",
+        "shownCap": "Anjaneya — resort pool pavilion facade",
+        "shownAlt": "A low-slung resort building with terracotta tiled roofs and stone buttresses overlooks a tranquil swimming pool — Anjaneya by Bloc 11 Architects"
       },
       "1-t5g9NCOfLlYPQIWWFBIBhclUMvH4b5x": {
         "name": "Temple_Pond_View_4K_Upscaled.png",
@@ -2161,7 +2177,9 @@
         "v": 3,
         "caption": "Anjaneya — pavilion landscape water feature",
         "ai": "anjaneya temple water pool",
-        "alt": "A tranquil reflection pool frames a pyramidal stone temple structure under a bright blue sky — Anjaneya by Bloc 11 Architects"
+        "alt": "A tranquil reflection pool frames a pyramidal stone temple structure under a bright blue sky — Anjaneya by Bloc 11 Architects",
+        "shownCap": "Anjaneya — pavilion landscape water feature",
+        "shownAlt": "A tranquil reflection pool frames a pyramidal stone temple structure under a bright blue sky — Anjaneya by Bloc 11 Architects"
       },
       "1_E37gj5D5AL3F7iBHY_V1AzJu20O-M9b": {
         "name": "20250928_124321_Edited_4K.jpg",
@@ -2170,7 +2188,9 @@
         "v": 3,
         "caption": "502 Gulmohar — dining area interior",
         "ai": "contemporary dining banquette seating",
-        "alt": "A contemporary dining area featuring banquette seating, a marble-topped table, and integrated window seating — 502 Gulmohar by Bloc 11 Architects"
+        "alt": "A contemporary dining area featuring banquette seating, a marble-topped table, and integrated window seating — 502 Gulmohar by Bloc 11 Architects",
+        "shownCap": "502 Gulmohar — dining area interior",
+        "shownAlt": "A contemporary dining area featuring banquette seating, a marble-topped table, and integrated window seating — 502 Gulmohar by Bloc 11 Architects"
       },
       "1vCjKTJhzBt2RrV3_WTqxW5pmGkxJ421e": {
         "name": "Sunlit Terracotta Wellness Centre Façade.png",
@@ -2179,7 +2199,9 @@
         "v": 3,
         "caption": "Pristine — wellness centre facade",
         "ai": "pristine wellness centre facade",
-        "alt": "Textured peach facade featuring geometric brick jaali screens and vertical windows under bright sunlight — Pristine by Bloc 11 Architects"
+        "alt": "Textured peach facade featuring geometric brick jaali screens and vertical windows under bright sunlight — Pristine by Bloc 11 Architects",
+        "shownCap": "Pristine — wellness centre facade",
+        "shownAlt": "Textured peach facade featuring geometric brick jaali screens and vertical windows under bright sunlight — Pristine by Bloc 11 Architects"
       }
     }
   },
@@ -2192,7 +2214,9 @@
         "v": 3,
         "caption": "Bedroom timber wall panel",
         "ai": "bedroom timber wall panel",
-        "alt": "A modern bedroom featuring a patterned fabric wall panel and upholstered pink headboard by Bloc 11 Architects"
+        "alt": "A modern bedroom featuring a patterned fabric wall panel and upholstered pink headboard by Bloc 11 Architects",
+        "shownCap": "Bedroom timber wall panel",
+        "shownAlt": "A modern bedroom featuring a patterned fabric wall panel and upholstered pink headboard by Bloc 11 Architects"
       },
       "1oNI5y-plLQIzUl53tIWCACLCFWU1TQ-J": {
         "name": "20250420_132632.png",
@@ -2201,7 +2225,9 @@
         "v": 3,
         "caption": "Arched wall niche",
         "ai": "arched wall niche",
-        "alt": "A minimalist white wall features a warm yellow arched niche and a matching dome pendant light by Bloc 11 Architects"
+        "alt": "A minimalist white wall features a warm yellow arched niche and a matching dome pendant light by Bloc 11 Architects",
+        "shownCap": "Arched wall niche",
+        "shownAlt": "A minimalist white wall features a warm yellow arched niche and a matching dome pendant light by Bloc 11 Architects"
       },
       "1Vb-0yPP-KjUpkY0wVg-yzraIr7cI0bDF": {
         "name": "Boutique_Cafe_Facade_Approved_4K_Upscaled.png",
@@ -2210,7 +2236,9 @@
         "v": 3,
         "caption": "Terracotta facade arched windows",
         "ai": "terracotta facade arched windows",
-        "alt": "A terracotta-clad commercial facade featuring dramatic arched windows and intricate patterned jaali screens above by Bloc 11 Architects"
+        "alt": "A terracotta-clad commercial facade featuring dramatic arched windows and intricate patterned jaali screens above by Bloc 11 Architects",
+        "shownCap": "Terracotta facade arched windows",
+        "shownAlt": "A terracotta-clad commercial facade featuring dramatic arched windows and intricate patterned jaali screens above by Bloc 11 Architects"
       },
       "1gtOgmLNi7hgreMliBHyZnKXzRQ_OWRWS": {
         "name": "DLF_PETI8602_Street_Exterior_Approved_4K.png",
@@ -2219,7 +2247,9 @@
         "v": 3,
         "caption": "Garden City — facade",
         "ai": "garden city modern facade",
-        "alt": "Modern residential facade featuring cream stucco, terracotta accents, horizontal louvres, and a balcony — Garden City by Bloc 11 Architects"
+        "alt": "Modern residential facade featuring cream stucco, terracotta accents, horizontal louvres, and a balcony — Garden City by Bloc 11 Architects",
+        "shownCap": "Garden City — facade",
+        "shownAlt": "Modern residential facade featuring cream stucco, terracotta accents, horizontal louvres, and a balcony — Garden City by Bloc 11 Architects"
       },
       "1jLm8LaDucq7VCfL7hOnfEhB4LFxwWU4g": {
         "name": "Entrance_Staircase_Closeup_4K_Upscaled.png",
@@ -2228,7 +2258,9 @@
         "v": 3,
         "caption": "Grand entrance porch facade",
         "ai": "grand entrance porch facade",
-        "alt": "A grand entrance porch features a sloped timber ceiling, large glass volumes, and terraced brick planters by Bloc 11 Architects"
+        "alt": "A grand entrance porch features a sloped timber ceiling, large glass volumes, and terraced brick planters by Bloc 11 Architects",
+        "shownCap": "Grand entrance porch facade",
+        "shownAlt": "A grand entrance porch features a sloped timber ceiling, large glass volumes, and terraced brick planters by Bloc 11 Architects"
       },
       "14CEYulY5tGVAzGbC2Wxmky5AJGDOz6lZ": {
         "name": "IMG_20230324_080514.jpg",
@@ -2237,7 +2269,9 @@
         "v": 3,
         "caption": "Oyster — modern brown facade exterior",
         "ai": "modern brown facade louvres balcony",
-        "alt": "An upward perspective of a modern brown facade featuring curving balconies with planters and vertical louvres — Oyster by Bloc 11 Architects"
+        "alt": "An upward perspective of a modern brown facade featuring curving balconies with planters and vertical louvres — Oyster by Bloc 11 Architects",
+        "shownCap": "Oyster — modern brown facade exterior",
+        "shownAlt": "An upward perspective of a modern brown facade featuring curving balconies with planters and vertical louvres — Oyster by Bloc 11 Architects"
       },
       "1rZILBxdL8ZB5iaf7kK5GvjHWID4unqn5": {
         "name": "Kitchen_Dining_SS_Fridge_4K_Denoised.png",
@@ -2246,7 +2280,9 @@
         "v": 3,
         "caption": "Kitchen dining wooden platform ceiling",
         "ai": "kitchen dining wooden platform ceiling",
-        "alt": "An open kitchen and dining area features a timber-clad vaulted ceiling and a raised wooden platform with floor seating by Bloc 11 Architects"
+        "alt": "An open kitchen and dining area features a timber-clad vaulted ceiling and a raised wooden platform with floor seating by Bloc 11 Architects",
+        "shownCap": "Kitchen dining wooden platform ceiling",
+        "shownAlt": "An open kitchen and dining area features a timber-clad vaulted ceiling and a raised wooden platform with floor seating by Bloc 11 Architects"
       },
       "130CJ31rsXUb1dYVle6-8ib9rT-2Af1lS": {
         "name": "P05.png",
@@ -2255,7 +2291,9 @@
         "v": 3,
         "caption": "Terracotta facade lighting design",
         "ai": "terracotta facade lighting design",
-        "alt": "An illuminated terracotta building facade features a grid of square perforations and lush rooftop planters by Bloc 11 Architects"
+        "alt": "An illuminated terracotta building facade features a grid of square perforations and lush rooftop planters by Bloc 11 Architects",
+        "shownCap": "Terracotta facade lighting design",
+        "shownAlt": "An illuminated terracotta building facade features a grid of square perforations and lush rooftop planters by Bloc 11 Architects"
       },
       "1sMvG8i-WZXVoUhJ1EwkvW4lhPFRi06j4": {
         "name": "P09.png",
@@ -2264,7 +2302,9 @@
         "v": 3,
         "caption": "Shantiniketan — terracotta facade jaali",
         "ai": "terracotta facade brick jaali",
-        "alt": "A terracotta-rendered facade features structured jaali screens and lush cascading potted greenery under tropical trees by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects"
+        "alt": "A terracotta-rendered facade features structured jaali screens and lush cascading potted greenery under tropical trees by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects",
+        "shownCap": "Shantiniketan — terracotta facade jaali",
+        "shownAlt": "A terracotta-rendered facade features structured jaali screens and lush cascading potted greenery under tropical trees by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects"
       },
       "1FgYupW7zVN4heFG7n0BL9I7sVwl4yVX8": {
         "name": "P23.png",
@@ -2273,7 +2313,9 @@
         "v": 3,
         "caption": "Shantiniketan — curved living room daybed",
         "ai": "curved sofa living room",
-        "alt": "A curved built-in sofa sits beneath tall windows in a light-filled modern living space by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects"
+        "alt": "A curved built-in sofa sits beneath tall windows in a light-filled modern living space by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects",
+        "shownCap": "Shantiniketan — curved living room daybed",
+        "shownAlt": "A curved built-in sofa sits beneath tall windows in a light-filled modern living space by Bloc 11 Architects — Shantiniketan by Bloc 11 Architects"
       },
       "1PckY1GR0BcUxyOnT4SBZ8shXe1LdAp5U": {
         "name": "Vistara_Exterior_LowAngle_2K.png",
@@ -2282,7 +2324,9 @@
         "v": 3,
         "caption": "Vistara — contemporary facade louvres screen",
         "ai": "contemporary facade louvres screen",
-        "alt": "A contemporary Indian residence facade features a laser-cut metal screen, timber louvres, and concrete planes — Vistara by Bloc 11 Architects"
+        "alt": "A contemporary Indian residence facade features a laser-cut metal screen, timber louvres, and concrete planes — Vistara by Bloc 11 Architects",
+        "shownCap": "Vistara — contemporary facade louvres screen",
+        "shownAlt": "A contemporary Indian residence facade features a laser-cut metal screen, timber louvres, and concrete planes — Vistara by Bloc 11 Architects"
       },
       "1KyJrYFRLGECMmXu0gVfWdbWIQE6Idn4B": {
         "name": "Wellness_Centre_Entrance_Approved_Edit_Upscaled_4K.png",
@@ -2291,7 +2335,9 @@
         "v": 3,
         "caption": "Pristine — building facade elevation",
         "ai": "pristine facade architecture",
-        "alt": "A modern building facade featuring perforated brick jaali screens, vertical windows, and a warm terracotta finish — Pristine by Bloc 11 Architects"
+        "alt": "A modern building facade featuring perforated brick jaali screens, vertical windows, and a warm terracotta finish — Pristine by Bloc 11 Architects",
+        "shownCap": "Pristine — building facade elevation",
+        "shownAlt": "A modern building facade featuring perforated brick jaali screens, vertical windows, and a warm terracotta finish — Pristine by Bloc 11 Architects"
       }
     }
   }
