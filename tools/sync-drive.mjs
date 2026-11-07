@@ -144,10 +144,18 @@ async function syncHome(folder, files, state, kind, progress) {
     if (kind === 'mobile' && home[K.key]) { delete home[K.key]; writeJSON(homeFile, home); return 'folder is empty — phones show the wide pictures'; }
     return 'the folder has no photos — the slideshow was left as it was';
   }
-  home[K.key] = order.map((f) => {
+  // the order set by dragging in the admin page is kept; photos new to the folder join at the end
+  // (in file-name order). A caption or description changed in the admin page is kept too.
+  const prevOrder = (home[K.key] || []).map((sl) => sl.image);
+  const rank = (img) => { const k = prevOrder.indexOf(img); return k < 0 ? Infinity : k; };
+  home[K.key] = order.map((f, n) => {
     const info = hs.files[f.id], image = `/images/${K.dir}/${info.file}`, was = before.get(image) || {};
-    return { image, alt: info.alt || info.caption, caption: info.caption, focus: Number.isFinite(Number(was.focus)) ? Number(was.focus) : 50 };
-  });
+    const autoCap = info.caption, autoAlt = info.alt || info.caption;
+    const caption = was.caption && info.shownCap && was.caption !== info.shownCap ? was.caption : autoCap;
+    const alt = was.alt && info.shownAlt && was.alt !== info.shownAlt ? was.alt : autoAlt;
+    info.shownCap = autoCap; info.shownAlt = autoAlt;
+    return { slide: { image, alt, caption, focus: Number.isFinite(Number(was.focus)) ? Number(was.focus) : 50 }, r: rank(image), n };
+  }).sort((x, y) => (x.r - y.r) || (x.n - y.n)).map((x) => x.slide);
   writeJSON(homeFile, home);
   return `${home[K.key].length} photo(s)${added ? `, ${added} new or changed` : ''}${removed ? `, ${removed} removed` : ''}`;
 }

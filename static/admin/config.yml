@@ -157,13 +157,27 @@ collections:
         fields:
           - { name: hero_title, label: Headline on the big picture, widget: string }
           - name: slides
-            label: Big pictures (slideshow)
+            label: Big pictures on laptops and tablets (slideshow)
             label_singular: picture
             widget: list
+            allow_add: false
             summary: '{{fields.caption}}'
-            hint: 'They change every 5 seconds. Filled from the "Homepage slideshow" folder in Google Drive on every Refresh (photos in file-name order, the file name is the caption, e.g. "03 Oyster — terracotta facade.jpg") — change the photos there. Only "Keep in view" is kept from here.'
+            hint: 'Drag to change the order (the first one shows first). The photos come from the "Homepage slideshow" folder in Google Drive: add or remove them there and press Refresh — new ones join at the end, and your order, captions and "Keep in view" are kept.'
             fields:
-              - { name: image, label: Picture, widget: image, hint: 'Wide landscape picture, at least 2000 pixels across' }
+              - { name: image, label: Picture, widget: image, hint: 'Managed from the Drive folder' }
+              - { name: alt, label: Describe the picture, widget: string }
+              - { name: caption, label: Small caption, widget: string, required: false, hint: 'e.g. Residence — exterior at dusk' }
+              - { name: focus, label: Keep in view (0 = top, 50 = middle, 100 = bottom), widget: number, value_type: int, min: 0, max: 100, default: 50, hint: 'Which part of the picture stays visible when the screen crops it' }
+          - name: slides_mobile
+            label: Big pictures on phones (slideshow)
+            label_singular: picture
+            widget: list
+            allow_add: false
+            required: false
+            summary: '{{fields.caption}}'
+            hint: 'Drag to change the order. The photos come from the "Homepage slideshow - mobile" folder in Google Drive (upright photos work best): add or remove them there and press Refresh — new ones join at the end, and your order, captions and "Keep in view" are kept. When this list is empty, phones show the laptop pictures.'
+            fields:
+              - { name: image, label: Picture, widget: image, hint: 'Managed from the Drive folder' }
               - { name: alt, label: Describe the picture, widget: string }
               - { name: caption, label: Small caption, widget: string, required: false, hint: 'e.g. Residence — exterior at dusk' }
               - { name: focus, label: Keep in view (0 = top, 50 = middle, 100 = bottom), widget: number, value_type: int, min: 0, max: 100, default: 50, hint: 'Which part of the picture stays visible when the screen crops it' }
