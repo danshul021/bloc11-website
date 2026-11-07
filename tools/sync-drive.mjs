@@ -427,6 +427,13 @@ async function main() {
     }
     // renamed pictures: follow them in this project's list picture, main picture and layout
     if (Object.keys(renamedFrom).length) proj = JSON.parse(swap(JSON.stringify(proj), renames));
+    // photos taken out of Drive that the project's page layout (admin page) still shows: tell the user
+    {
+      const gone = Object.entries(st.files).filter(([fid]) => !keep.has(fid)).map(([, info]) => `/images/projects/${slug}/${info.file}`);
+      const lay = JSON.stringify(proj.blocks || []) + JSON.stringify([proj.hero_image || '', proj.thumbnail || '']);
+      const hit = gone.filter((src) => lay.includes(JSON.stringify(src)));
+      if (hit.length) (report.layout = report.layout || []).push(`${folder.name} (${hit.length})`);
+    }
     // photos taken out of the Drive folder
     for (const [fid, info] of Object.entries(st.files)) {
       if (!keep.has(fid)) { fs.rmSync(path.join(dir, info.file), { force: true }); delete st.files[fid]; report.photosRemoved++; }
@@ -534,6 +541,7 @@ async function main() {
     ...(viaImageServer + viaDrive ? [`Downloaded ${viaImageServer} from Google's image servers, ${viaDrive} as originals from Drive`] : []),
     ...(report.upgraded ? [`Earlier photos given descriptions and search names: ${report.upgraded}`] : []),
     ...(report.deferred ? [`Left for the next refresh (time limit reached): ${report.deferred} photo(s) — press Refresh again`] : []),
+    ...(report.layout ? [`Photos removed that a page layout used — those sections are skipped, the remaining photos are laid out automatically: ${report.layout.join(', ')}`] : []),
     ...(report.home ? [`Home page slideshow: ${report.home}`] : []),
     ...(report.mobile ? [`Home page slideshow on phones: ${report.mobile}`] : []),
     ...(report.sheet ? [`From the projects sheet: ${report.sheet.length ? report.sheet.join('; ') : 'no changes'}`] : []),

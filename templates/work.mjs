@@ -371,7 +371,13 @@ function autoBlocks(p, hero) {
 
 export function renderProject({ site, project: p, index, next, nextIndex }) {
   const hero = coverFor(p, 'hero_image');
-  const blocks = (p.blocks || []).length ? p.blocks : autoBlocks(p, hero);
+  // the hand-made layout (from the admin page), without sections whose photos have left Drive;
+  // every Drive photo the layout doesn't use is laid out automatically below it, so new photos always show
+  const imgsOf = (b) => [b.image, ...((b.images || []).map((i) => i.image))].filter(Boolean);
+  const kept = (p.blocks || []).filter((b) => b.type === 'text' || (b.type === 'image_text' && b.text) || imgsOf(b).some((src) => has(src)));
+  const used = new Set([hero, ...kept.flatMap(imgsOf)]);
+  const rest = autoBlocks({ ...p, photos: (p.photos || []).filter((ph) => ph && !used.has(ph.src)) }, hero);
+  const blocks = [...kept, ...rest];
   const facts = [['Type', p.type], ['Location', p.location], ['Year', p.year], ['Status', p.status]].filter(([, v]) => v);
   const nextHref = next ? projectHref(next) || '/work/' : '/work/';
   const body = `

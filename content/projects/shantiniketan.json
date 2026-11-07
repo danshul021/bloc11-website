@@ -311,75 +311,12 @@
     }
   ],
   "drive_folder": "1Xy1KykTGn4LtL-tag-zrLG90rBcW5KXz",
-  "hero_alt": "Shantiniketan at dusk, almost hidden behind a garden of trees",
+  "hero_alt": "",
   "blocks": [
     {
-      "type": "full",
-      "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-street-elevation-brick-jaali.jpg",
-      "alt": "Street front: terracotta walls with a perforated brick screen, framed by trees"
-    },
-    {
-      "type": "pair",
-      "images": [
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-glowing-brick-jaali-facade.jpg",
-          "alt": "The perforated façade glowing at dusk"
-        },
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-lit-garden-wall.jpg",
-          "alt": "Garden wall and screen lit from within, seen through a tree"
-        }
-      ]
-    },
-    {
-      "type": "trio",
-      "images": [
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-planters-brick-wall.jpg",
-          "alt": "Planters spilling over the perforated brick wall"
-        },
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-lane-view.jpg",
-          "alt": "The house seen from the lane under a canopy of trees"
-        },
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-brick-screen-wall.jpg",
-          "alt": "The long brick screen wall along the street"
-        }
-      ]
-    },
-    {
-      "type": "image_text",
-      "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-double-height-living-room.jpg",
-      "alt": "Double-height living room with a sunken seating well",
+      "type": "text",
+      "heading": "",
       "text": "Inside, the screen becomes a wall of display niches; light falls through a high clerestory into the living room and kitchen."
-    },
-    {
-      "type": "full",
-      "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-open-plan-living-dining.jpg",
-      "alt": "Living and dining space opening to the kitchen"
-    },
-    {
-      "type": "trio",
-      "images": [
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-spiral-staircase.jpg",
-          "alt": "Spiral stair beside tall windows"
-        },
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-kitchen-marble-island.jpg",
-          "alt": "Kitchen with green tiles and a marble island under a skylight"
-        },
-        {
-          "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-dining-display-niches.jpg",
-          "alt": "Dining area beside a wall of display niches"
-        }
-      ]
-    },
-    {
-      "type": "full",
-      "image": "/images/projects/shantiniketan/shantiniketan-residence-indore-kitchen-island-view.jpg",
-      "alt": "Kitchen island looking through to the living room"
     }
   ],
   "thumbnail": "",
@@ -389,7 +326,7 @@
   "status": "Completed",
   "has_page": true,
   "location": "",
-  "hero_image": "/images/projects/shantiniketan/shantiniketan-residence-indore-dusk-garden-view.jpg",
+  "hero_image": "",
   "title": "Shantiniketan",
   "type": "Residence",
   "year": "[Year]",
