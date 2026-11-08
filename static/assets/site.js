@@ -241,7 +241,7 @@
       for (var r = 0; r < nRows; r++) { rows.push([]); len.push(0); }
       shown.forEach(function (it, k) {
         var shortest = len.indexOf(Math.min.apply(null, len));
-        rows[shortest].push('<a class="vitem" href="' + it.f + '" data-k="' + k + '" style="aspect-ratio:' + (it.w || 4) + ' / ' + (it.h || 3) + '"><img src="' + pickSrc(it, rowH) + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>');
+        rows[shortest].push('<a class="vitem" href="' + it.f + '" data-k="' + k + '" style="width:calc(var(--rh) * ' + ((it.w || 4) / (it.h || 3)).toFixed(4) + ')"><img src="' + pickSrc(it, rowH) + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="' + esc(it.a) + '" onerror="this.onerror=null;this.src=\'' + esc(it.raw) + '\'"><span class="vcap">' + esc(it.p) + '</span></a>');
         len[shortest] += (it.w || 4) / (it.h || 3) + 0.05;
       });
       gridEl.innerHTML = shown.length ? rows.map(function (r) { return '<div class="vrow">' + r.join('') + '</div>'; }).join('')

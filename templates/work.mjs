@@ -91,8 +91,8 @@ a.card:hover img{transform:scale(1.03)}
 /* the collage runs sideways like a magazine strip: two or three rows of photos at their own shape */
 .vgrid{display:flex;flex-direction:column;gap:10px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;padding:12px;scrollbar-width:thin;--rh:clamp(180px,calc((100vh - 230px) / 3),340px)}
 .vrow{display:flex;gap:10px;height:var(--rh);width:max-content}
-.vrow .vitem{flex:0 0 auto;height:100%;width:auto;margin:0}
-.vrow .vitem img{height:100%;width:100%;object-fit:cover}
+.vrow .vitem{flex:0 0 auto;height:100%;margin:0}
+.vrow .vitem img{height:100%;width:100%;object-fit:contain}
 @container page (max-width: 640px){
 /* phones: edge to edge, two rows of big photos */
 .vbox{margin-left:calc(-1 * clamp(16px, 4cqw, 56px));margin-right:calc(-1 * clamp(16px, 4cqw, 56px));border-left:0;border-right:0}
@@ -108,7 +108,7 @@ a.card:hover img{transform:scale(1.03)}
 @container page (max-width: 640px){.vitem{margin-bottom:6px}}
 
 .vitem img{display:block;width:100%;height:auto;transition:transform .6s ease,opacity .3s ease}
-.vitem:hover img{transform:scale(1.03)}
+.vitem:hover img{opacity:.88}
 .vitem .vcap{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.55));color:#FFFFFF;font-size:13px;letter-spacing:.02em;text-align:left;opacity:0;transition:opacity .25s ease}
 .vitem:hover .vcap,.vitem:focus-visible .vcap{opacity:1}
 .vnone{padding:48px 16px;text-align:center;color:#6B6A67;font-size:16px}

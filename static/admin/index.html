@@ -13,10 +13,13 @@
     #b11-sync button[disabled]{background:#6B6760;cursor:default}
     #b11-sync .msg{max-width:340px;background:#fff;color:#141414;border-radius:6px;padding:10px 14px;box-shadow:0 4px 16px rgba(0,0,0,.14);display:none}
     #b11-sync .msg a{color:#A5532F}
+    .b11-thumb{display:flex !important;align-items:center;gap:14px;min-height:64px}
+    .b11-thumb::before{content:'';flex:0 0 auto;width:var(--tw,96px);height:64px;border-radius:4px;background:#EEECE8 var(--ti) center/cover no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+    .b11-thumb.m::before{--tw:40px}
   </style>
 </head>
 <body>
-  <!-- Decap CMS: edits the files in content/ and saves them to GitHub; Netlify then rebuilds the site -->
+  <!-- Decap CMS: edits the files in content/ and saves them to GitHub; GitHub Pages then rebuilds the site -->
   <script src="https://unpkg.com/decap-cms@3.17.1/dist/decap-cms.js"></script>
 
   <!-- "Refresh from Drive": starts the GitHub job that reads the Google Drive projects folder -->
@@ -69,6 +72,41 @@
       }
       btn.disabled = false; btn.textContent = '↻ Refresh from Drive';
     });
+  })();
+  </script>
+
+  <!-- Home slideshows: show a small picture beside each slide in the list, so the order is easy to set by dragging -->
+  <script>
+  (function () {
+    var RE = /^\s*(\/images\/home(-mobile)?\/[^\s|]+)\s*\|\s*([\s\S]*)$/;
+    var seen = {};
+    function thumb(src, mobile, done) {
+      if (seen[src]) return done(seen[src]);
+      var small = '/r/' + (mobile ? '600' : '800') + src.replace(/\.[^.]+$/, '.webp');
+      var im = new Image();
+      im.onload = function () { done(seen[src] = small); };
+      im.onerror = function () { done(seen[src] = src); };
+      im.src = small;
+    }
+    function fix(node) {
+      var m = RE.exec(node.data || ''); if (!m) return;
+      var el = node.parentNode; if (!el || el.nodeType !== 1) return;
+      node.data = m[3] || m[1].split('/').pop();
+      el.classList.add('b11-thumb'); if (m[2]) el.classList.add('m');
+      thumb(m[1], !!m[2], function (u) { el.style.setProperty('--ti', 'url("' + u + '")'); });
+    }
+    function scan(root) {
+      if (root.nodeType === 3) return fix(root);
+      if (root.nodeType !== 1) return;
+      var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), t;
+      while ((t = w.nextNode())) if (t.data.indexOf('/images/home') >= 0) fix(t);
+    }
+    new MutationObserver(function (list) {
+      list.forEach(function (r) {
+        if (r.type === 'characterData') fix(r.target);
+        else r.addedNodes.forEach(scan);
+      });
+    }).observe(document.body, { childList: true, subtree: true, characterData: true });
   })();
   </script>
 </body>

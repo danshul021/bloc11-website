@@ -161,7 +161,7 @@ collections:
             label_singular: picture
             widget: list
             allow_add: false
-            summary: '{{fields.caption}}'
+            summary: '{{fields.image}} | {{fields.caption}}'
             hint: 'Drag to change the order (the first one shows first). The photos come from the "Homepage slideshow" folder in Google Drive: add or remove them there and press Refresh — new ones join at the end, and your order, captions and "Keep in view" are kept.'
             fields:
               - { name: image, label: Picture, widget: image, hint: 'Managed from the Drive folder' }
@@ -174,7 +174,7 @@ collections:
             widget: list
             allow_add: false
             required: false
-            summary: '{{fields.caption}}'
+            summary: '{{fields.image}} | {{fields.caption}}'
             hint: 'Drag to change the order. The photos come from the "Homepage slideshow - mobile" folder in Google Drive (upright photos work best): add or remove them there and press Refresh — new ones join at the end, and your order, captions and "Keep in view" are kept. When this list is empty, phones show the laptop pictures.'
             fields:
               - { name: image, label: Picture, widget: image, hint: 'Managed from the Drive folder' }
