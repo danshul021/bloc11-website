@@ -11,6 +11,77 @@
     document.addEventListener('click', function (e) { if (d.open && !d.contains(e.target)) d.removeAttribute('open'); });
   });
 
+  // ---- project page: click a photo to see it large, then step through all the project's photos ----
+  // Opening adds a step to the browser history, so the phone's / browser's Back button (or ×, Esc)
+  // closes the big view and leaves you where you were in the page. Photos are always shown whole.
+  var gal = document.querySelector('main[data-gallery]');
+  if (gal) {
+    var pics = Array.prototype.slice.call(gal.querySelectorAll('.pcell img, img.pz'));
+    // the largest copy a picture offers (its biggest srcset entry), else its own address
+    var bigOf = function (im) {
+      var best = '', bw = 0;
+      var re = /(\S+)\s+(\d+)w/g, m, set = im.getAttribute('srcset') || '';
+      while ((m = re.exec(set))) { var w = parseInt(m[2], 10); if (w > bw) { bw = w; best = m[1].replace(/^,/, ''); } }
+      return best || im.getAttribute('src');
+    };
+    var lb = null, cur = 0, open = false, sx = null, sy = null;
+    var build = function () {
+      lb = document.createElement('div');
+      lb.className = 'plight'; lb.hidden = true;
+      lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Project photos');
+      lb.innerHTML = '<div class="ptitle"></div><button type="button" class="px" aria-label="Close">×</button>' +
+        '<button type="button" class="pp" aria-label="Previous photo">‹</button><img alt="">' +
+        '<button type="button" class="pn" aria-label="Next photo">›</button><div class="pcount" aria-live="polite"></div>';
+      lb.querySelector('.ptitle').textContent = gal.getAttribute('data-gallery') || '';
+      document.body.appendChild(lb);
+      lb.querySelector('.px').addEventListener('click', close);
+      lb.querySelector('.pp').addEventListener('click', function () { go(cur - 1); });
+      lb.querySelector('.pn').addEventListener('click', function () { go(cur + 1); });
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (sx == null) return;
+        var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(cur + (dx < 0 ? 1 : -1));
+      });
+    };
+    var go = function (k) {
+      cur = (k + pics.length) % pics.length;
+      var src = pics[cur], im = lb.querySelector('img'), url = bigOf(src);
+      im.classList.add('loading');
+      im.onload = function () { im.classList.remove('loading'); };
+      im.onerror = function () { im.onerror = null; if (src.dataset.raw) im.src = src.dataset.raw; };
+      im.src = url; im.alt = src.alt || '';
+      lb.querySelector('.pcount').textContent = (cur + 1) + ' / ' + pics.length;
+      // fetch the next and previous photos in the background, so stepping feels instant
+      [cur + 1, cur - 1].forEach(function (j) { var p = pics[(j + pics.length) % pics.length]; if (p) (new Image()).src = bigOf(p); });
+    };
+    var show = function (k) {
+      if (!lb) build();
+      go(k);
+      if (!open) {
+        open = true; lb.hidden = false; document.documentElement.style.overflow = 'hidden';
+        try { history.pushState({ plight: 1 }, ''); } catch (e) {}
+        lb.querySelector('.px').focus({ preventScroll: true });
+      }
+    };
+    // closing: put the page back, with the last photo seen in view
+    var shut = function () {
+      if (!open) return;
+      open = false; lb.hidden = true; document.documentElement.style.overflow = '';
+      var r = pics[cur].getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) pics[cur].scrollIntoView({ block: 'center' });
+      pics[cur].focus && pics[cur].setAttribute('tabindex', '-1');
+    };
+    function close() { if (!open) return; if (history.state && history.state.plight) history.back(); else shut(); }
+    window.addEventListener('popstate', shut);
+    document.addEventListener('keydown', function (e) {
+      if (!open) return;
+      if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') go(cur + 1); else if (e.key === 'ArrowLeft') go(cur - 1);
+    });
+    pics.forEach(function (im, k) { im.addEventListener('click', function () { show(k); }); });
+  }
+
   // ---- home: slideshow ----
   var heroImg = document.getElementById('hero-img');
   var dataEl = document.getElementById('hero-data');

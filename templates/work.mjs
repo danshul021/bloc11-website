@@ -136,6 +136,19 @@ const PROJECT_CSS = BASE_CSS + `
 .next{text-decoration:none}
 .next:hover{color:#0E0E0E}
 .next:hover .next-title{text-decoration:underline;text-underline-offset:3px}
+/* project photos open large; next / previous step through them; Back or × returns to the page */
+main[data-gallery] .pcell img,main[data-gallery] img.pz{cursor:zoom-in}
+.plight{font-family:'Jost',system-ui,sans-serif;font-weight:300;position:fixed;inset:0;z-index:100;background:#0E0E0E;display:flex;align-items:center;justify-content:center;padding:64px 72px 56px;box-sizing:border-box;touch-action:pan-y}
+.plight[hidden]{display:none}
+.plight img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;opacity:1;transition:opacity .2s ease}
+.plight img.loading{opacity:.35}
+.plight button{position:absolute;border:0;background:transparent;color:#FFFFFF;cursor:pointer;width:56px;height:56px;font:300 34px/1 'Jost',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;opacity:.8;transition:opacity .15s}
+.plight button:hover{opacity:1}
+.plight .px{top:8px;right:10px;font-size:38px}
+.plight .pp{left:8px;top:50%;margin-top:-28px}.plight .pn{right:8px;top:50%;margin-top:-28px}
+.plight .pcount{position:absolute;left:0;right:0;bottom:18px;pointer-events:none;text-align:center;color:#9C978F;font-size:13px;letter-spacing:.2em}
+.plight .ptitle{position:absolute;top:22px;left:24px;pointer-events:none;color:#E8E5E0;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+@media (max-width: 640px){.plight{padding:56px 0 48px}.plight .pp,.plight .pn{top:auto;bottom:2px;margin-top:0}.plight .ptitle{left:16px;right:72px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 `;
 
  // every photo from every project shown on the site, in a mixed order (round-robin across projects)
@@ -309,7 +322,7 @@ export function photoRow(list) {
 }
 
 function block(b) {
-  const one = (i, extra, sizes) => `<img ${img(i.image, { sizes })} loading="lazy" decoding="async" alt="${esc(altOf(i.image, i.alt))}" style="${extra}; ${PIC}">`;
+  const one = (i, extra, sizes) => `<img class="pz" ${img(i.image, { sizes })} loading="lazy" decoding="async" alt="${esc(altOf(i.image, i.alt))}" style="${extra}; ${PIC}">`;
   switch (b.type) {
     case 'full':
       return photoRow([b]);
@@ -404,7 +417,7 @@ export function renderProject({ site, project: p, index, next, nextIndex }) {
   const body = `
 ${header(site, { workCurrent: true })}
 
-  <main style="max-width: 1440px; margin: 0 auto; box-sizing: border-box; padding: 0 clamp(16px, 4cqw, 56px); display: flex; flex-direction: column; gap: 28px">
+  <main data-gallery="${esc(p.title)}" style="max-width: 1440px; margin: 0 auto; box-sizing: border-box; padding: 0 clamp(16px, 4cqw, 56px); display: flex; flex-direction: column; gap: 28px">
 
     <div style="padding: clamp(56px, 7cqw, 104px) 0 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; border-bottom: 1px solid #0E0E0E">
       <div style="display: flex; flex-direction: column; gap: 20px">
